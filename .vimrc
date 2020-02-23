@@ -19,6 +19,18 @@ let mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Make Vim more useful
+set nocompatible
+
+" Enhance command-line completion
+set wildmenu
+
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+
+" Add the g flag to search/replace by default
+set gdefault
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,6 +83,22 @@ set noerrorbells visualbell t_vb=
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Highlight current line
+set cursorline
+
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,nbsp:_
+set list
+
+" Show the current mode
+set showmode
+
+" Show the filename in the window titlebar
+set title
+
+" Show the (partial) command as it’s being typed
+set showcmd
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,10 +107,13 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
+" Use the Solarized Dark theme
 set background=dark
+colorscheme solarized
+let g:solarized_termtrans=1
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
