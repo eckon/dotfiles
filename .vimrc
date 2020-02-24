@@ -108,11 +108,6 @@ set showcmd
 syntax enable
 filetype plugin on
 
-" Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
-
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 
