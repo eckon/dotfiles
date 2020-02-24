@@ -108,6 +108,13 @@ set showcmd
 syntax enable
 filetype plugin on
 
+" Use gui colors
+set termguicolors
+
+" Set custom colorscheme
+let g:molokai_original = 1
+colorscheme molokai
+
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 
