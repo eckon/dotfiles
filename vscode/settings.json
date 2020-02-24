@@ -59,6 +59,10 @@
     "vim.statusBarColors.searchinprogressmode": ["#007ACC", "#fff"],
     "vim.statusBarColors.easymotionmode": ["#007ACC", "#fff"],
     "vim.statusBarColors.easymotioninputmode": ["#007ACC", "#fff"],
-    "vim.statusBarColors.surroundinputmode": ["#007ACC", "#fff"],
-    "vim.startInInsertMode": true,
+    "vim.statusBarColors.surroundinputmode": [
+        "#007ACC",
+        "#fff"
+    ],
+    "vim.easymotion": true,
+    "vim.leader": ",",
 }
