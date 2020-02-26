@@ -81,11 +81,11 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	web-search
-	nvm
+    z
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -120,3 +120,5 @@ alias ll="ls -la"
 alias dev="cd /home/eckon/Development"
 alias grep="grep --color=auto"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
