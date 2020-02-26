@@ -99,6 +99,10 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[5 q"
+let &t_EI = "\<esc>[2 q"
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
