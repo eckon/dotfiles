@@ -1,8 +1,8 @@
 {
     "workbench.iconTheme": "material-icon-theme",
     "editor.lineNumbers": "relative",
+    "terminal.integrated.fontFamily": "'Ubuntu Mono', 'PowerlineSymbols'",
     "workbench.colorTheme": "Material Theme Darker High Contrast",
-    "terminal.integrated.rendererType": "experimentalWebgl",
     "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": false,
     "window.zoomLevel": 0,
