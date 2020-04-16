@@ -1,3 +1,7 @@
+# default editor
+export EDITOR="/usr/bin/vim"
+export VISUAL="/usr/bin/vim"
+
 # tmux should use 256 colors
 export TERM="xterm-256color"
 
