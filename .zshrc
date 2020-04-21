@@ -1,6 +1,6 @@
 # default editor
-export EDITOR="/usr/bin/vim"
-export VISUAL="/usr/bin/vim"
+export EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"
 
 # tmux should use 256 colors
 export TERM="xterm-256color"
@@ -71,6 +71,6 @@ vg() {
 
   if [[ -n $file ]]
   then
-     vim $file
+    ${EDITOR:-vim} $file
   fi
 }
