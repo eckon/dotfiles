@@ -47,3 +47,30 @@ alias grep="grep --color=auto"
 
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+###
+### custom functions
+###
+
+## from https://github.com/junegunn/fzf/wiki/examples#general
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() (
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+)
+
+# fuzzy grep open via ag
+vg() {
+  local file
+
+  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
+
+  if [[ -n $file ]]
+  then
+     vim $file
+  fi
+}
