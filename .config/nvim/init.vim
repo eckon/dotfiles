@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -187,3 +188,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " rainbow
 
 let g:rainbow_active = 1
+
+
+""""""""""""""""""
+" nerd commenter
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+
