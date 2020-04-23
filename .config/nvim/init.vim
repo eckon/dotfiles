@@ -4,14 +4,24 @@
 
 call plug#begin('~/.vim/plugged')
 
+" theme
 Plug 'joshdick/onedark.vim'
+" language server and other vscode quality of life
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" basic fzf (needed fof fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" fzf integrated into vim -> open with :Files other files
 Plug 'junegunn/fzf.vim'
+" get colored brackets
 Plug 'luochen1990/rainbow'
+" highlight the area that was yanked/copied
 Plug 'machakann/vim-highlightedyank'
+" show lines that were deleted/updated/added in the editor
 Plug 'airblade/vim-gitgutter'
+" comment blocks of code
 Plug 'preservim/nerdcommenter'
+" automatically close opened brackets etc.
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
