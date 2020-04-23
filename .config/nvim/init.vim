@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -19,7 +20,6 @@ call plug#end()
 
 """""""""""""""
 "" nvim / vim
-
 let mapleader = ","
 
 " Fast saving

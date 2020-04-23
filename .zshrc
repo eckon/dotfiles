@@ -5,6 +5,9 @@ export VISUAL="/usr/bin/nvim"
 # tmux should use 256 colors
 export TERM="xterm-256color"
 
+# mute the beep/bell sound on error/completion etc.
+unsetopt BEEP
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/eckon/.oh-my-zsh"
 
