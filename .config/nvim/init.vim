@@ -10,6 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -24,6 +25,11 @@ let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
 
 " Styling
 syntax on
