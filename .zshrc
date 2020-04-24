@@ -1,3 +1,6 @@
+# set capslock to enter for easier escaping
+setxkbmap -option caps:escape
+
 # default editor
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
