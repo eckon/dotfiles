@@ -22,6 +22,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 " automatically close opened brackets etc.
 Plug 'jiangmiao/auto-pairs'
+" add commands to add/edit/delete surrounding things like "" or '' or ()
+Plug 'tpope/vim-surround'
+" add mutlicursor
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
