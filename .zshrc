@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # set capslock to enter for easier escaping
 setxkbmap -option caps:escape
 
@@ -14,14 +21,11 @@ unsetopt BEEP
 # Path to your oh-my-zsh installation.
 export ZSH="/home/eckon/.oh-my-zsh"
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# Use power10k theme and configure it in .p10k.zsh
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Prompt segments of powerlevel9k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # hyphen-insensitive completion
 HYPHEN_INSENSITIVE="true"
@@ -39,9 +43,6 @@ plugins=(
     zsh-syntax-highlighting
     nvm
 )
-
-# use for thefuck app
-eval $(thefuck --alias)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,3 +81,4 @@ vg() {
     ${EDITOR:-vim} $file
   fi
 }
+

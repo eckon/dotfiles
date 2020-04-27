@@ -2,6 +2,7 @@
 
 Following programs are installed:
 * [vim-plug](https://github.com/junegunn/vim-plug)
+* [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [fzf](https://github.com/junegunn/fzf)
 * [neovim](https://github.com/neovim/neovim)
 * [tmux](https://github.com/tmux/tmux)
@@ -12,3 +13,4 @@ Following programs are installed:
 Following commands should be run on fresh install:
 * In nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * Install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
+
