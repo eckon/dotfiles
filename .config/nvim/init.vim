@@ -1,8 +1,8 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Plugins (call :PlugInstall in nvim to install)
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Plugins (call :PlugInstall in nvim/vim to install)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " theme
 Plug 'joshdick/onedark.vim'
