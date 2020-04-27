@@ -19,7 +19,7 @@ export TERM="xterm-256color"
 unsetopt BEEP
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/eckon/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Use power10k theme and configure it in .p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -46,22 +46,24 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# custom aliases
-alias ls="ls --color=tty"
-alias ll="ls -la"
-alias dev="cd /home/eckon/Development"
-alias grep="grep --color=auto"
-
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+
 ###
-### custom functions
+### custom functions, aliases, etc.
 ###
+
+
+### custom aliases
+alias dev="cd $HOME/Development"
+alias grep="grep -iF --color=auto"
+
+
+### functions
 
 ## from https://github.com/junegunn/fzf/wiki/examples#general
-
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
