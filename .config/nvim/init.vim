@@ -26,6 +26,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 " add mutlicursor
 Plug 'terryma/vim-multiple-cursors'
+" add styling of nvim/vim statusline
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -139,19 +141,6 @@ let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
-" Always show the status line
-set laststatus=2
-
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
 
 
 """""""""""""
@@ -209,5 +198,12 @@ let g:rainbow_active = 1
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+
+""""""""""""""
+" lightline
+
+" lightline gives a status bar -> remove the standard one
+set noshowmode
 
 
