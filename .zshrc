@@ -42,12 +42,19 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     nvm
+    docker
+    docker-compose
+    kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# use to init some plugins (docker, docker-compose, probably others as well)
+autoload -Uz compinit
+compinit
 
 
 
@@ -58,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 
 ### custom aliases
 alias dev="cd $HOME/Development"
-alias grep="grep -iF --color=auto"
+alias grep="grep --color=auto"
 
 
 ### functions
