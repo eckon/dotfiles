@@ -40,13 +40,9 @@ call plug#end()
 "" nvim / vim
 let mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
 " Quickly insert an empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
-
 
 " Styling
 syntax on
@@ -85,14 +81,18 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
 " Highlight current line
 set cursorline
 
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
+" Highlight "maximum" column for readable code
+set colorcolumn=100
+
+" Show hidden characters
+set listchars=nbsp:¬,extends:»,precedes:«,tab:▸\ ,trail:·
 set list
 
 " Show the current mode
@@ -112,8 +112,11 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
+
+" Enable mouse usage in all mode
+set mouse=a
 
 " 1 tab == 4 spaces
 set shiftwidth=4
