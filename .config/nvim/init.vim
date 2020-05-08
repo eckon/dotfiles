@@ -111,9 +111,6 @@ set expandtab
 " Be smart when using tabs
 set smarttab
 
-" Enable mouse usage in all mode
-set mouse=a
-
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
