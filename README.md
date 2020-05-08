@@ -5,6 +5,7 @@ Following programs are installed:
 * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [fzf](https://github.com/junegunn/fzf)
 * [neovim](https://github.com/neovim/neovim)
+* [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in tmux/terminal/nvim)
 * [tmux](https://github.com/tmux/tmux)
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
