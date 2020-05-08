@@ -40,10 +40,6 @@ call plug#end()
 "" nvim / vim
 let mapleader = ","
 
-" Quickly insert an empty new line without entering insert mode
-nnoremap <Leader>o o<Esc>
-nnoremap <Leader>O O<Esc>
-
 " Styling
 syntax on
 color onedark
@@ -89,7 +85,7 @@ set mat=2
 set cursorline
 
 " Highlight "maximum" column for readable code
-set colorcolumn=100
+set colorcolumn=120
 
 " Show hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,tab:▸\ ,trail:·
@@ -122,6 +118,9 @@ set mouse=a
 set shiftwidth=4
 set tabstop=4
 
+" set to use the same buffer for clipboard
+set clipboard+=unnamedplus
+
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <C-space> ?
@@ -143,6 +142,10 @@ map <leader>t<leader> :tabnext
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
 
 
 
