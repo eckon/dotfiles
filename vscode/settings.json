@@ -37,4 +37,7 @@
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.mouseSelectionGoesIntoVisualMode": false,
     "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+    "vim.searchHighlightTextColor": "#FFC",
+    "vim.searchHighlightColor": "#E0E",
+    "vim.highlightedyank.duration": 500,
 }
