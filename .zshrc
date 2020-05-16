@@ -66,6 +66,7 @@ compinit
 ### custom aliases
 alias dev="cd $HOME/Development"
 alias grep="grep --color=auto"
+alias ll="ls -la"
 
 
 ### functions
