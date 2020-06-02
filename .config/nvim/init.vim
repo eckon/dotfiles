@@ -38,7 +38,7 @@ call plug#end()
 
 """""""""""""""
 "" nvim / vim
-let mapleader = ","
+let mapleader = " "
 
 " Styling
 syntax on
@@ -47,8 +47,9 @@ color onedark
 " Set lines to be relative with the absolute number on the current line
 set number relativenumber
 
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+" Set 15 lines to the cursor - when moving vertically using j/k
+" If you want to center all the time use so=999 or use zz to center once
+set so=15
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -118,10 +119,6 @@ set tabstop=4
 " set to use the same buffer for clipboard
 set clipboard+=unnamedplus
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
-
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -176,15 +173,13 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -208,5 +203,12 @@ let g:NERDSpaceDelims = 1
 
 " lightline gives a status bar -> remove the standard one
 set noshowmode
+
+
+""""""""""
+" fzf
+
+" search project to open file (dependend on git)
+nnoremap <C-p> :GFiles<CR>
 
 
