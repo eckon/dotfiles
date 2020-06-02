@@ -141,6 +141,8 @@ au TabLeave * let g:lasttab = tabpagenr()
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
+" Quickly search for a file with fzf (:Files) in the nvim window
+nnoremap <Leader>f :Files<CR>
 
 
 """""""""""""
