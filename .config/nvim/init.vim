@@ -206,6 +206,18 @@ let g:NERDSpaceDelims = 1
 " lightline gives a status bar -> remove the standard one
 set noshowmode
 
+" configure the status line (add git branch)
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 
 """"""""""
 " fzf
