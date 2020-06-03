@@ -28,6 +28,8 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 " add styling of nvim/vim statusline
 Plug 'itchyny/lightline.vim'
+" add git wrapper for nvim/vim
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -211,4 +213,12 @@ set noshowmode
 " search project to open file (dependend on git)
 nnoremap <C-p> :GFiles<CR>
 
+
+"""""""""""""
+" fugitive
+
+" quick actions for status
+" info: for staging, use '=', 's', 'u' and 'o' inside the status
+" for more precise staging: ':Gdiff' -> visual select -> ':diffput'
+nmap <leader>gs :G<CR><C-W>_
 
