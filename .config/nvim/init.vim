@@ -134,6 +134,10 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
 
+" easy switchen between different vim tabs
+nnoremap H gT
+nnoremap L gt
+
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
