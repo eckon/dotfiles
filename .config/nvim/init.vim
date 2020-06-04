@@ -49,9 +49,9 @@ color onedark
 " Set lines to be relative with the absolute number on the current line
 set number relativenumber
 
-" Set 15 lines to the cursor - when moving vertically using j/k
+" Set 5 lines to the cursor - when moving vertically using j/k
 " If you want to center all the time use so=999 or use zz to center once
-set so=15
+set so=5
 
 " A buffer becomes hidden when it is abandoned
 set hid
