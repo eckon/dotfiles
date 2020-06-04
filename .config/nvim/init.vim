@@ -138,15 +138,21 @@ map <leader>t<leader> :tabnext
 nnoremap H gT
 nnoremap L gt
 
-" Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
 " Quickly insert an empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
+" find files, lines, content in project and open buffers
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-f> :BLines<CR>
+" for some reason '_' is mapped to '/' , so this means Ctrl and / is used
+nnoremap <C-_> :Ag<CR>
+nnoremap <C-b> :Buffers<CR>
+
+" quick actions for git status and then max window size
+" info: for staging, use '=', 's', 'u' and 'o' inside the status
+" for more precise staging: ':Gdiff' -> visual select -> ':diffput'
+nmap <leader>gs :G<CR><C-W>_
 
 
 """""""""""""
@@ -221,20 +227,4 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-
-
-""""""""""
-" fzf
-
-" search project to open file (dependend on git)
-nnoremap <C-p> :GFiles<CR>
-
-
-"""""""""""""
-" fugitive
-
-" quick actions for status
-" info: for staging, use '=', 's', 'u' and 'o' inside the status
-" for more precise staging: ':Gdiff' -> visual select -> ':diffput'
-nmap <leader>gs :G<CR><C-W>_
 
