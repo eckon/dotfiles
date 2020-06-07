@@ -30,6 +30,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/lightline.vim'
 " add git wrapper for nvim/vim
 Plug 'tpope/vim-fugitive'
+" add preview for markdown open with :MarkdownPreview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
