@@ -1,142 +1,76 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Plugins (call :PlugInstall in nvim/vim to install)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" -------------------- Plugins --------------------
 call plug#begin()
-
-" theme
-Plug 'joshdick/onedark.vim'
-" language server and other vscode quality of life
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" basic fzf (needed fof fzf.vim
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" fzf integrated into vim -> open with :Files other files
-Plug 'junegunn/fzf.vim'
-" get colored brackets
-Plug 'luochen1990/rainbow'
-" highlight the area that was yanked/copied
-Plug 'machakann/vim-highlightedyank'
-" show lines that were deleted/updated/added in the editor
-Plug 'airblade/vim-gitgutter'
-" comment blocks of code
-Plug 'preservim/nerdcommenter'
-" automatically close opened brackets etc.
-Plug 'jiangmiao/auto-pairs'
-" add commands to add/edit/delete surrounding things like "" or '' or ()
-Plug 'tpope/vim-surround'
-" add mutlicursor
-Plug 'terryma/vim-multiple-cursors'
-" add styling of nvim/vim statusline
-Plug 'itchyny/lightline.vim'
-" add git wrapper for nvim/vim
-Plug 'tpope/vim-fugitive'
-" add preview for markdown open with :MarkdownPreview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
+    " Tools
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'preservim/nerdcommenter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    " Syntax/Styling
+    Plug 'airblade/vim-gitgutter'
+    Plug 'itchyny/lightline.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'luochen1990/rainbow'
+    Plug 'machakann/vim-highlightedyank'
+    " Color-Schemes
+    Plug 'joshdick/onedark.vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
-""""""""""""""""""""
-""" Configurations
-""""""""""""""""""""
 
-"""""""""""""""
-"" nvim / vim
-let mapleader = " "
-
-" Styling
+" -------------------- General Setting --------------------
 syntax on
-color onedark
-
-" Set lines to be relative with the absolute number on the current line
-set number relativenumber
-
-" Set 5 lines to the cursor - when moving vertically using j/k
-" If you want to center all the time use so=999 or use zz to center once
-set so=5
-
-" A buffer becomes hidden when it is abandoned
-set hid
-
-" Configure backspace so it acts as it should act
+set encoding=UTF-8
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases
-set smartcase
-
-" Highlight search results
 set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch
-
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" Highlight current line
-set cursorline
-
-" Highlight "maximum" column for readable code
-set colorcolumn=120
-
-" Show hidden characters
-set listchars=nbsp:¬,extends:»,precedes:«,tab:▸\ ,trail:·
-set list
-
-" Show the current mode
-set showmode
-
-" Show the filename in the window titlebar
-set title
-
-" Show the (partial) command as it’s being typed
-set showcmd
-
-" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set ignorecase
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
-
-" Use spaces instead of tabs
+set number relativenumber
+set smartcase
+set hidden
+set incsearch
+set lazyredraw
+set magic
+set showmatch
+set showmode
+set title
+set showcmd
 set expandtab
-
-" Be smart when using tabs
 set smarttab
-
-" 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
-" set to use the same buffer for clipboard
 set clipboard+=unnamedplus
+set signcolumn=yes
+set noshowmode
+let g:rainbow_active = 1
+let g:NERDSpaceDelims = 1
 
-" Smart way to move between windows
+
+
+" -------------------- Key Bindings --------------------
+let mapleader = " "
+
+" Moving between and Resizing windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
 
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
-
-" easy switchen between different vim tabs
+" Navigating and Managing tabs
+map <Leader>tn :tabnew<cr>
+map <Leader>to :tabonly<cr>
+map <Leader>tc :tabclose<cr>
+map <Leader>tm :tabmove
 nnoremap H gT
 nnoremap L gt
 
@@ -147,22 +81,43 @@ nnoremap <Leader>O O<Esc>
 " find files, lines, content in project and open buffers
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
-" for some reason '_' is mapped to '/' , so this means Ctrl and / is used
-nnoremap <C-_> :Ag<CR>
+nnoremap <C-_> :Ag<CR> 
 nnoremap <C-b> :Buffers<CR>
 
 " quick actions for git status and then max window size
 " info: for staging, use '=', 's', 'u' and 'o' inside the status
 " for more precise staging: ':Gdiff' -> visual select -> ':diffput'
-nmap <leader>gs :G<CR><C-W>_
+nmap <Leader>gs :G<CR><C-W>_
+
+map <F1> :colorscheme gruvbox<CR>
+map <F2> :colorscheme onedark<CR>
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 
-"""""""""""""
-"" coc.nvim
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
+" -------------------- Color/Style Settings --------------------
+colorscheme gruvbox
+set background=dark
+set cursorline
+set colorcolumn=120
+set scrolloff=5
+set listchars=nbsp:¬,extends:»,precedes:«,tab:▸\ ,trail:·
+set list
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+
+" -------------------- Plugin Specific Settings --------------------
+
+
+"" ------------------- coc.nvim
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -187,36 +142,8 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-"""""""""""
-" rainbow
-
-let g:rainbow_active = 1
-
-
-""""""""""""""""""
-" nerd commenter
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-
-""""""""""""""
-" lightline
-
-" lightline gives a status bar -> remove the standard one
-set noshowmode
+"" ------------------- lightline
 
 " configure the status line (add git branch)
 let g:lightline = {
