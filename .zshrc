@@ -71,6 +71,7 @@ compinit
 alias dev="cd $HOME/Development"
 alias grep="grep --color=auto"
 alias ll="ls -la"
+alias v="nvim"
 
 
 ### functions
