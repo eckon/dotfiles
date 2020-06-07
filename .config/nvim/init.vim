@@ -48,6 +48,7 @@ set tabstop=4
 set clipboard+=unnamedplus
 set signcolumn=yes
 set noshowmode
+set timeoutlen=5000
 let g:rainbow_active = 1
 let g:NERDSpaceDelims = 1
 
@@ -57,10 +58,16 @@ let g:NERDSpaceDelims = 1
 let mapleader = " "
 
 " Moving between and Resizing windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <Leader>wj <C-W>j
+map <Leader>wk <C-W>k
+map <Leader>wh <C-W>h
+map <Leader>wl <C-W>l
+map <Leader>wf <C-W>_<C-W>\|
+map <Leader>we <C-W>=
+map <Leader>w- <C-W>s
+map <Leader>w\| <C-W>v
+map <Leader>wc <C-W>c
+map <Leader>wo <C-W>o
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize -2<CR>
@@ -71,8 +78,8 @@ map <Leader>tn :tabnew<cr>
 map <Leader>to :tabonly<cr>
 map <Leader>tc :tabclose<cr>
 map <Leader>tm :tabmove
-nnoremap H gT
-nnoremap L gt
+map <Leader>th gT
+map <Leader>tl gt
 
 " Quickly insert an empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
