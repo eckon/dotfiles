@@ -66,8 +66,8 @@ map <Leader>wh <C-W>h
 map <Leader>wl <C-W>l
 map <Leader>wf <C-W>_<C-W>\|
 map <Leader>we <C-W>=
-map <Leader>w- <C-W>s
-map <Leader>w\| <C-W>v
+map <Leader>w- <C-W>s<C-W>j
+map <Leader>w\| <C-W>v<C-W>l
 map <Leader>wc <C-W>c
 map <Leader>wo <C-W>o
 nnoremap <Up> :resize +2<CR>
