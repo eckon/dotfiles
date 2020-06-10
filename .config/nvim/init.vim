@@ -57,6 +57,11 @@ let g:NERDSpaceDelims = 1
 " -------------------- Key Bindings --------------------
 let mapleader = " "
 
+" Quick safe for different vim modes
+nmap <C-S> :w<CR>
+vmap <C-S> <Esc><C-s>gv
+imap <C-S> <Esc><C-S>
+
 " Moving between and Resizing windows
 map <Leader>wj <C-W>j
 map <Leader>wk <C-W>k
