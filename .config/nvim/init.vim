@@ -15,7 +15,6 @@ call plug#begin()
     Plug 'luochen1990/rainbow'
     Plug 'machakann/vim-highlightedyank'
     " Color-Schemes
-    Plug 'joshdick/onedark.vim'
     Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -23,32 +22,30 @@ call plug#end()
 
 " -------------------- General Setting --------------------
 syntax on
-set encoding=UTF-8
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set clipboard+=unnamedplus
+set encoding=UTF-8
+set expandtab
+set hidden
 set hlsearch
 set ignorecase
-set nobackup
-set nowritebackup
-set noswapfile
-set number relativenumber
-set smartcase
-set hidden
 set incsearch
 set lazyredraw
 set magic
+set nobackup
+set noshowmode
+set noswapfile
+set nowritebackup
+set number relativenumber
+set showcmd
 set showmatch
 set showmode
-set title
-set showcmd
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-set clipboard+=unnamedplus
 set signcolumn=yes
-set noshowmode
+set smartcase
+set shiftwidth=4 tabstop=4 smarttab autoindent smartindent
 set timeoutlen=5000
+set title
+set whichwrap+=<,>,h,l
 let g:rainbow_active = 1
 let g:NERDSpaceDelims = 1
 
@@ -93,7 +90,7 @@ nnoremap <Leader>O O<Esc>
 " find files, lines, content in project and open buffers
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
-nnoremap <C-_> :Ag<CR> 
+nnoremap <C-_> :Ag<CR>
 nnoremap <C-b> :Buffers<CR>
 
 " quick actions for git status and then max window size
@@ -101,8 +98,8 @@ nnoremap <C-b> :Buffers<CR>
 " for more precise staging: ':Gdiff' -> visual select -> ':diffput'
 nmap <Leader>gs :G<CR><C-W>_
 
-map <F1> :colorscheme gruvbox<CR>
-map <F2> :colorscheme onedark<CR>
+map <F1> :set shiftwidth=4 tabstop=4<CR>
+map <F2> :set shiftwidth=2 tabstop=2<CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
