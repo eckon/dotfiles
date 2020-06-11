@@ -129,7 +129,7 @@ set background=dark
 set cursorline
 set colorcolumn=120
 set scrolloff=5
-set listchars=nbsp:¬,extends:»,precedes:«,tab:▸\ ,trail:·
+set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set list
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -166,15 +166,20 @@ endif
 
 "" ------------------- lightline
 
-" configure the status line (add git branch)
+" configure the status line
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'cocstatus', 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'cocstatus': 'coc#status',
       \ },
       \ }
 
