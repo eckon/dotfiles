@@ -4,6 +4,7 @@ call plug#begin()
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'mattn/emmet-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-fugitive'
@@ -37,12 +38,13 @@ set noshowmode
 set noswapfile
 set nowritebackup
 set number relativenumber
+set shiftwidth=4 tabstop=4 smarttab autoindent smartindent
 set showcmd
 set showmatch
 set showmode
 set signcolumn=yes
 set smartcase
-set shiftwidth=4 tabstop=4 smarttab autoindent smartindent
+set splitbelow splitright
 set timeoutlen=5000
 set title
 set whichwrap+=<,>,h,l
@@ -66,8 +68,8 @@ map <Leader>wh <C-W>h
 map <Leader>wl <C-W>l
 map <Leader>wf <C-W>_<C-W>\|
 map <Leader>we <C-W>=
-map <Leader>w- <C-W>s<C-W>j
-map <Leader>w\| <C-W>v<C-W>l
+map <Leader>w- <C-W>s
+map <Leader>w\| <C-W>v
 map <Leader>wc <C-W>c
 map <Leader>wo <C-W>o
 nnoremap <Up> :resize +2<CR>
@@ -108,6 +110,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Emmet map that works only in insert mode to not overwrite others in normal
+imap ,, <C-Y>,
 
 
 
