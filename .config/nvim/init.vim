@@ -111,6 +111,13 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" Rename Symbol
+nmap <Leader>rn <Plug>(coc-rename)
+
+" Format selected code
+xmap <Leader>f <Plug>(coc-format-selected)
+nmap <Leader>f <Plug>(coc-format-selected)
+
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
 
