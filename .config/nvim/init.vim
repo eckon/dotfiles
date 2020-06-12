@@ -48,6 +48,8 @@ set splitbelow splitright
 set timeoutlen=5000
 set title
 set whichwrap+=<,>,h,l
+set updatetime=50
+set noerrorbells
 let g:rainbow_active = 1
 let g:NERDSpaceDelims = 1
 
