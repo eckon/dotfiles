@@ -104,20 +104,16 @@ nmap <Leader>gs :G<CR><C-W>_
 map <F1> :set shiftwidth=4 tabstop=4<CR>
 map <F2> :set shiftwidth=2 tabstop=2<CR>
 
-" GoTo code navigation.
+" GoTo code navigation and other coc commands
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Rename Symbol
 nmap <Leader>rn <Plug>(coc-rename)
-
-" Format selected code
-xmap <Leader>f <Plug>(coc-format-selected)
-nmap <Leader>f <Plug>(coc-format-selected)
+nmap <silent> <Leader>f <Plug>(coc-format)
+xmap <silent> <Leader>f <Plug>(coc-format-selected)
 
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
@@ -176,7 +172,7 @@ let g:lightline = {
       \             [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'cocstatus', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \              [ 'cocstatus', 'filetype', 'fileencoding', 'fileformat' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
