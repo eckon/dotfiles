@@ -38,7 +38,7 @@ set noshowmode
 set noswapfile
 set nowritebackup
 set number relativenumber
-set shiftwidth=4 tabstop=4 smarttab autoindent smartindent
+set shiftwidth=2 tabstop=2 smarttab autoindent smartindent
 set showcmd
 set showmatch
 set showmode
