@@ -115,6 +115,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <silent> <Leader>f <Plug>(coc-format)
 xmap <silent> <Leader>f <Plug>(coc-format-selected)
+nmap <Leader>ac <Plug>(coc-codeaction)
+nmap <Leader>qf <Plug>(coc-fix-current)
 
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
@@ -160,6 +162,16 @@ if exists('*complete_info')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 
 "" ------------------- lightline
