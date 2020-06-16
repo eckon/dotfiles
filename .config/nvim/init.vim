@@ -34,6 +34,7 @@ set incsearch
 set lazyredraw
 set magic
 set nobackup
+set noerrorbells
 set noshowmode
 set noswapfile
 set nowritebackup
@@ -47,8 +48,8 @@ set smartcase
 set splitbelow splitright
 set timeoutlen=5000
 set title
+set updatetime=250
 set whichwrap+=<,>,h,l
-set noerrorbells
 let g:rainbow_active = 1
 let g:NERDSpaceDelims = 1
 
