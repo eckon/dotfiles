@@ -49,7 +49,6 @@ set timeoutlen=5000
 set title
 set updatetime=250
 set whichwrap+=<,>,h,l
-let g:rainbow_active = 1
 let g:NERDSpaceDelims = 1
 
 
