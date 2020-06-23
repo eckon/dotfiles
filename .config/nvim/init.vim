@@ -99,7 +99,8 @@ nnoremap <C-b> :Buffers<CR>
 " quick actions for git status in the same buffer
 " info: for staging, use '=', 's', 'u' and 'o' inside the status
 " for more precise staging: ':Gdiff' -> visual select -> ':diffput'
-nmap <Leader>gs :Gedit :<CR>
+nmap <silent> <Leader>gs :Gedit :<CR>
+nmap <Leader>gd :Gdiffsplit<CR>
 
 map <F1> :set shiftwidth=4 tabstop=4<CR>
 map <F2> :set shiftwidth=2 tabstop=2<CR>
