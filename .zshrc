@@ -7,8 +7,8 @@ fi
 
 
 # -------------------- Exports --------------------
-export EDITOR="/usr/bin/nvim"
-export VISUAL="/usr/bin/nvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -58,8 +58,10 @@ source $ZSH/oh-my-zsh.sh
 alias dev="cd $HOME/Development"
 alias grep="grep --color=auto"
 alias ll="ls -la"
-alias v="nvim"
-alias vv="nvim ."
+alias vim="nvim"
+alias vi="vim"
+alias v="vim"
+alias vv="vim ."
 alias cp="cp -v"
 
 
