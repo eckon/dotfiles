@@ -49,7 +49,9 @@ set timeoutlen=5000
 set title
 set updatetime=250
 set whichwrap+=<,>,h,l
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims=1
+let g:netrw_liststyle=3
+let g:netrw_banner=0
 
 
 
