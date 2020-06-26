@@ -138,7 +138,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " -------------------- Plugin Specific Settings --------------------
 
-
 "" ------------------- coc.nvim
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -177,7 +176,7 @@ endfunction
 
 "" ------------------- lightline
 
-" configure the status line
+" Configure the status line
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
@@ -193,4 +192,10 @@ let g:lightline = {
       \   'cocstatus': 'coc#status',
       \ },
       \ }
+
+"" ------------------- fzf.vim
+
+" Configure the window when using fzf inside of vim (and only inside of vim)
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,2"
 
