@@ -38,6 +38,7 @@ plugins=(
     kubectl
     ng
     nvm
+    tmux
     z
     zsh-autosuggestions
     zsh-syntax-highlighting
