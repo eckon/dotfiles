@@ -119,6 +119,9 @@ xmap <silent> <Leader>f <Plug>(coc-format-selected)
 nmap <Leader>ac <Plug>(coc-codeaction)
 nmap <Leader>qf <Plug>(coc-fix-current)
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
 
@@ -163,8 +166,7 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Function to show documentation in a preview window
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
