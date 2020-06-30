@@ -87,10 +87,6 @@ map <Leader>tm :tabmove
 map <Leader>th gT
 map <Leader>tl gt
 
-" Quickly insert an empty new line without entering insert mode
-nnoremap <Leader>o o<Esc>
-nnoremap <Leader>O O<Esc>
-
 " find files, lines, content in project and open buffers
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
