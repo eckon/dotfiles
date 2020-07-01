@@ -101,6 +101,8 @@ nmap <Leader>gd :Gdiffsplit<CR>
 
 map <F1> :set shiftwidth=4 tabstop=4<CR>
 map <F2> :set shiftwidth=2 tabstop=2<CR>
+map <F5> :set spell<CR>
+map <F6> :set nospell<CR>
 
 " GoTo code navigation and other coc commands
 nmap <silent> gd <Plug>(coc-definition)
