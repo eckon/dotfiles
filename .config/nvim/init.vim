@@ -21,42 +21,53 @@ call plug#end()
 
 
 " -------------------- General Setting --------------------
-syntax on
+syntax enable
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
 set encoding=UTF-8
-set expandtab
 set hidden
-set hlsearch
-set ignorecase
-set incsearch
+set hlsearch ignorecase incsearch magic smartcase
+set iskeyword+=-
 set lazyredraw
-set magic
 set nobackup
 set noerrorbells
 set noshowmode
 set noswapfile
+set nowrap
 set nowritebackup
 set number relativenumber
-set shiftwidth=2 tabstop=2 smarttab autoindent smartindent
+set shiftwidth=2 tabstop=2 smarttab autoindent smartindent expandtab
 set showcmd
 set showmatch
 set showmode
 set signcolumn=yes
-set smartcase
 set splitbelow splitright
-set timeoutlen=5000
+set timeoutlen=1500
 set title
 set updatetime=250
 set whichwrap+=<,>,h,l
+
+" Special
 let g:NERDSpaceDelims=1
-let g:netrw_liststyle=3
 let g:netrw_banner=0
+let g:netrw_liststyle=3
+
+
+
+" -------------------- Color/Style Settings --------------------
+colorscheme gruvbox
+set background=dark
+set cursorline
+set colorcolumn=120
+set scrolloff=5
+set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
+set list
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 
 " -------------------- Key Bindings --------------------
-let mapleader = " "
+let mapleader = "\<Space>"
 
 " Quick safe for different vim modes
 nmap <C-S> :w<CR>
@@ -74,10 +85,16 @@ map <Leader>w- <C-W>s
 map <Leader>w\| <C-W>v
 map <Leader>wc <C-W>c
 map <Leader>wo <C-W>o
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
+
+" Use alt to resize windows
+nnoremap <M-j> :resize -2<CR>
+nnoremap <M-k> :resize +2<CR>
+nnoremap <M-h> :vertical resize -2<CR>
+nnoremap <M-l> :vertical resize +2<CR>
+
+" Rehighlight text after indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " Navigating and Managing tabs
 map <Leader>tn :tabnew<cr>
@@ -122,18 +139,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
-
-
-
-" -------------------- Color/Style Settings --------------------
-colorscheme gruvbox
-set background=dark
-set cursorline
-set colorcolumn=120
-set scrolloff=5
-set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
-set list
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 
