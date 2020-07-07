@@ -58,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # -------------------- Alias --------------------
 alias dev="cd $HOME/Development"
 alias grep="grep --color=auto"
-alias ll="LC_COLLATE=C ls -alF --color=auto"
+alias ll="LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias vim="nvim"
 alias vi="vim"
 alias v="vim"
