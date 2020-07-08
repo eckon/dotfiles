@@ -57,7 +57,7 @@ let g:netrw_liststyle=3
 " -------------------- Color/Style Settings --------------------
 colorscheme gruvbox
 set background=dark
-set colorcolumn=80,120,121,122
+set colorcolumn=80,120,121
 set cursorline
 set list
 set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
