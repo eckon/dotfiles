@@ -69,6 +69,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " -------------------- Key Bindings --------------------
 let mapleader = "\<Space>"
 
+" Quick escape
+map <C-C> <Esc>
+
 " Quick safe for different vim modes
 nmap <C-S> :w<CR>
 vmap <C-S> <Esc><C-s>gv
