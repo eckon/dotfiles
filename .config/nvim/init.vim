@@ -57,11 +57,11 @@ let g:netrw_liststyle=3
 " -------------------- Color/Style Settings --------------------
 colorscheme gruvbox
 set background=dark
+set colorcolumn=80,120,121,122
 set cursorline
-set colorcolumn=120
-set scrolloff=5
-set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set list
+set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
+set scrolloff=5
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
