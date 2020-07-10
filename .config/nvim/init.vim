@@ -62,6 +62,8 @@ set cursorline
 set list
 set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
+highlight CocErrorHighlight ctermbg=red
+highlight CocWarningHighlight ctermbg=yellow
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
