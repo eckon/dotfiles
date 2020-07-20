@@ -9,7 +9,6 @@ fi
 # -------------------- Exports --------------------
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 
 
