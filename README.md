@@ -1,5 +1,7 @@
 # Collection of my dotfiles
 
+General rule: **Install latest Version, meaning check if apt is up-to-date**
+
 Following programs are installed:
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
