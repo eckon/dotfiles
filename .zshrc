@@ -53,7 +53,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-
 # -------------------- Alias --------------------
 alias dev="cd $HOME/Development"
 alias grep="grep --color=auto"
@@ -63,6 +62,9 @@ alias vi="vim"
 alias v="vim"
 alias vv="vim ."
 alias cp="cp -v"
+
+# Special
+alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 
 
 
