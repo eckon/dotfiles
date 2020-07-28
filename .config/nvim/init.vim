@@ -47,6 +47,9 @@ set title
 set updatetime=250
 set whichwrap+=<,>,h,l
 
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+
 " Special
 let g:NERDSpaceDelims=1
 let g:netrw_banner=0
