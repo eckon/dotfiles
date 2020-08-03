@@ -62,6 +62,8 @@ alias vi="vim"
 alias v="vim"
 alias vv="vim ."
 alias cp="cp -v"
+alias clip="xclip -sel clip"
+alias open="xdg-open"
 
 # Special
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
