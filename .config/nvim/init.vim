@@ -9,6 +9,7 @@ call plug#begin()
     Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
+    Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
     " Syntax/Styling
     Plug 'airblade/vim-gitgutter'
     Plug 'itchyny/lightline.vim'
@@ -51,6 +52,8 @@ autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
 
 " Special
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 let g:NERDSpaceDelims=1
 let g:netrw_banner=0
 let g:netrw_liststyle=3
@@ -146,6 +149,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Emmet map that works only in insert mode to not overwrite others in normal
 imap ,, <C-Y>,
+
+" nerdtree map for easy use
+map <silent><C-n> :NERDTreeToggle<CR>
 
 
 
