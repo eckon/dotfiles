@@ -1,22 +1,22 @@
 " -------------------- Plugins --------------------
 call plug#begin()
-    " Tools
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'mattn/emmet-vim'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    Plug 'preservim/nerdcommenter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
-    " Syntax/Styling
-    Plug 'airblade/vim-gitgutter'
-    Plug 'itchyny/lightline.vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'machakann/vim-highlightedyank'
-    " Color-Schemes
-    Plug 'morhetz/gruvbox'
+  " Tools
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'preservim/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
+  Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
+  " Syntax/Styling
+  Plug 'airblade/vim-gitgutter'
+  Plug 'itchyny/lightline.vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'machakann/vim-highlightedyank'
+  " Color-Schemes
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -161,9 +161,9 @@ map <silent><C-n> :NERDTreeToggle<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -196,20 +196,20 @@ endfunction
 
 " Configure the status line
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch' ],
-      \             [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'cocstatus', 'filetype', 'fileencoding', 'fileformat' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'cocstatus': 'coc#status',
-      \ },
-      \ }
+  \ 'colorscheme': 'powerline',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch' ],
+  \             [ 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'cocstatus', 'filetype', 'fileencoding', 'fileformat' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead',
+  \   'cocstatus': 'coc#status',
+  \ },
+  \ }
 
 "" ------------------- fzf.vim
 

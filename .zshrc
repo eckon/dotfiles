@@ -31,16 +31,16 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 # -------------------- Plugins --------------------
 plugins=(
-    docker
-    docker-compose
-    git
-    kubectl
-    ng
-    nvm
-    tmux
-    z
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+  docker
+  docker-compose
+  git
+  kubectl
+  ng
+  nvm
+  tmux
+  z
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 
