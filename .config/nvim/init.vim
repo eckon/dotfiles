@@ -123,7 +123,11 @@ nnoremap <C-b> :Buffers<CR>
 " info: for staging, use '=', 's', 'u' and 'o' inside the status
 " for more precise staging: highlight part in gitstatus with visual mode and press 's'
 nmap <silent> <Leader>gs :Gedit :<CR>
+" this diffsplit can be opened by pressing 'dv'/'dd' inside the gitstatus ('gs')
 nmap <Leader>gd :Gdiffsplit<CR>
+" quick actions for git merge conflicts left side 'f' (merge into) right 'j'
+nmap <Leader>gf :diffget //3<CR>
+nmap <Leader>gj :diffget //2<CR>
 
 map <F1> :set shiftwidth=4 tabstop=4<CR>
 map <F2> :set shiftwidth=2 tabstop=2<CR>
