@@ -13,6 +13,7 @@ Following programs are installed:
 * [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in tmux/terminal/nvim)
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) (used as the default search algorithm)
 * ([ripgrep](https://github.com/BurntSushi/ripgrep))
+* [tldr](https://github.com/tldr-pages/tldr)
 
 Following commands should be run on fresh install:
 * For easier editing of the files, create symlinks for the files (then only edit in the git repo)
