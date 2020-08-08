@@ -13,7 +13,6 @@ call plug#begin()
   " Syntax/Styling
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'machakann/vim-highlightedyank'
   " Color-Schemes
   Plug 'morhetz/gruvbox'
