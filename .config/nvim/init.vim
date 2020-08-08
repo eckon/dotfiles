@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
+  Plug 'mbbill/undotree'
   " Syntax/Styling
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
@@ -150,6 +151,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " nerdtree map for easy use
 map <silent><C-n> :NERDTreeToggle<CR>
+
+" undotree
+map <silent> <Leader>u :UndotreeToggle<CR>
 
 " special for bighost !!! can be deleted when its not being used !!!
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
