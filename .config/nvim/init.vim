@@ -82,16 +82,16 @@ vmap <C-S> <Esc><C-s>gv
 imap <C-S> <Esc><C-S>
 
 " Moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
-map <Leader>wj :wincmd j<CR>
-map <Leader>wk :wincmd k<CR>
-map <Leader>wh :wincmd h<CR>
-map <Leader>wl :wincmd l<CR>
-map <Leader>wf :wincmd _<CR> :wincmd \|<CR>
-map <Leader>we :wincmd =<CR>
-map <Leader>w- :wincmd s<CR>
-map <Leader>w\| :wincmd v<CR>
-map <Leader>wc :wincmd c<CR>
-map <Leader>wo :wincmd o<CR>
+map <silent> <Leader>wj :wincmd j<CR>
+map <silent> <Leader>wk :wincmd k<CR>
+map <silent> <Leader>wh :wincmd h<CR>
+map <silent> <Leader>wl :wincmd l<CR>
+map <silent> <Leader>wf :wincmd _<CR> :wincmd \|<CR>
+map <silent> <Leader>we :wincmd =<CR>
+map <silent> <Leader>w- :wincmd s<CR>
+map <silent> <Leader>w\| :wincmd v<CR>
+map <silent> <Leader>wc :wincmd c<CR>
+map <silent> <Leader>wo :wincmd o<CR>
 
 " Use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
