@@ -20,6 +20,7 @@ Following commands should be run on fresh install:
   * Be in the home dir and add smylink `$ ln -s ~/path/to/github/dotfiles/.dotfile .dotfile`
 * In nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * Install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
+  * Coc will enable `emmet` and `auto-pairs` functionality next to the "normal" language server protocols
   * Install `:CocInstall coc-marketplace` for easy search of wanted extensions with `:CocList marketplace`
   * Example
     * General: `:CocInstall coc-pairs coc-json coc-html coc-emmet coc-yaml coc-vimlsp coc-docker`
