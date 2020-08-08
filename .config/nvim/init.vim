@@ -103,9 +103,9 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Navigating and Managing tabs
-map <Leader>tn :tabnew<cr>
-map <Leader>to :tabonly<cr>
-map <Leader>tc :tabclose<cr>
+map <Leader>tn :tabnew<CR>
+map <Leader>to :tabonly<CR>
+map <Leader>tc :tabclose<CR>
 map <Leader>tm :tabmove
 map <Leader>th gT
 map <Leader>tl gt
