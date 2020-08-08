@@ -4,7 +4,6 @@ call plug#begin()
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'mattn/emmet-vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-fugitive'
@@ -149,9 +148,6 @@ nmap <Leader>qf <Plug>(coc-fix-current)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Emmet map that works only in insert mode to not overwrite others in normal
-imap ,, <C-Y>,
 
 " nerdtree map for easy use
 map <silent><C-n> :NERDTreeToggle<CR>
