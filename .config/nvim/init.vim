@@ -12,7 +12,6 @@ call plug#begin()
   " Syntax/Styling
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
-  Plug 'machakann/vim-highlightedyank'
   " Color-Schemes
   Plug 'morhetz/gruvbox'
 call plug#end()
