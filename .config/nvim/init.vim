@@ -47,6 +47,7 @@ set undofile
 set updatetime=250
 set whichwrap+=<,>,h,l
 
+filetype plugin on
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
 
