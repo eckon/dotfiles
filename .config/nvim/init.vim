@@ -153,8 +153,8 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " nerdtree map for easy use
 map <silent><C-n> :NERDTreeToggle<CR>
 
-" undotree
-map <silent> <Leader>u :UndotreeToggle<CR>
+" toggle undotree and focus when it is open
+map <silent> <Leader>u :UndotreeToggle \| UndotreeFocus<CR>
 
 
 
