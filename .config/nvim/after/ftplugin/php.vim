@@ -1,5 +1,5 @@
 " general settings
-set shiftwidth=4 tabstop=4
+setlocal shiftwidth=4 tabstop=4
 
 
 " special for bighost !!! can be deleted when its not being used !!!
