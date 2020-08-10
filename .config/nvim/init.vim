@@ -73,19 +73,19 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 let mapleader = "\<Space>"
 
 " Quick escape
-map <C-C> <Esc>
+map <C-c> <ESC>
 
 " Quick safe for different vim modes
-nmap <C-S> :w<CR>
-vmap <C-S> <Esc><C-s>gv
-imap <C-S> <Esc><C-S>
+nmap <C-s> :w<CR>
+vmap <C-s> <ESC><C-s>gv
+imap <C-s> <ESC><C-s>
 
 " Moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
 map <silent> <Leader>wj :wincmd j<CR>
 map <silent> <Leader>wk :wincmd k<CR>
 map <silent> <Leader>wh :wincmd h<CR>
 map <silent> <Leader>wl :wincmd l<CR>
-map <silent> <Leader>wf :wincmd _<CR> :wincmd \|<CR>
+map <silent> <Leader>wf :wincmd _ \| :wincmd \|<CR>
 map <silent> <Leader>we :wincmd =<CR>
 map <silent> <Leader>w- :wincmd s<CR>
 map <silent> <Leader>w\| :wincmd v<CR>
@@ -172,15 +172,15 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Use <C-space> to trigger completion.
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Function to show documentation in a preview window
