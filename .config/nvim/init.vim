@@ -36,7 +36,7 @@ set noswapfile
 set nowrap
 set nowritebackup
 set number relativenumber
-set shiftwidth=2 tabstop=2 smarttab autoindent smartindent expandtab
+set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
 set showcmd
 set showmatch
 set showmode
@@ -126,8 +126,8 @@ nmap <Leader>gd :Gdiffsplit<CR>
 nmap <Leader>gf :diffget //3<CR>
 nmap <Leader>gj :diffget //2<CR>
 
-map <F1> :set shiftwidth=4 tabstop=4<CR>
-map <F2> :set shiftwidth=2 tabstop=2<CR>
+map <F1> :set shiftwidth=4 tabstop=4 softtabstop=4<CR>
+map <F2> :set shiftwidth=2 tabstop=2 softtabstop=2<CR>
 map <F4> :w !diff % -<CR>
 map <F5> :set spell<CR>
 map <F6> :set nospell<CR>
