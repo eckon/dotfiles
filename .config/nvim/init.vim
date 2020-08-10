@@ -21,6 +21,8 @@ call plug#end()
 
 " -------------------- General Setting --------------------
 syntax enable
+filetype plugin on
+
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
 set encoding=UTF-8
@@ -45,10 +47,6 @@ set title
 set undofile
 set updatetime=250
 set whichwrap+=<,>,h,l
-
-filetype plugin on
-autocmd FileType markdown setlocal spell
-autocmd FileType gitcommit setlocal spell
 
 " Special
 let NERDTreeShowHidden=1
