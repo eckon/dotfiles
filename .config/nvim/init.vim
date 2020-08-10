@@ -157,10 +157,6 @@ map <silent><C-n> :NERDTreeToggle<CR>
 " undotree
 map <silent> <Leader>u :UndotreeToggle<CR>
 
-" special for bighost !!! can be deleted when its not being used !!!
-"" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
-map <Leader><Leader>u :!scp %:p swarmX-bighost-dev:/%<CR>
-
 
 
 " -------------------- Plugin Specific Settings --------------------
