@@ -29,12 +29,10 @@ set encoding=UTF-8
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
 set lazyredraw
-set nobackup
+set nobackup nowritebackup noswapfile
 set noerrorbells
 set noshowmode
-set noswapfile
 set nowrap
-set nowritebackup
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
 set showcmd
