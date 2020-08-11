@@ -53,6 +53,9 @@ let g:NERDSpaceDelims=1
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 
+" Reload buffer when file changed from outside
+set autoread
+autocmd FocusGained,BufEnter * checktime
 
 
 " -------------------- Color/Style Settings --------------------
