@@ -1,20 +1,21 @@
 " -------------------- Plugins --------------------
 call plug#begin()
   " Tools
-  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
+  Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
-  Plug 'mbbill/undotree'
   " Syntax/Styling
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   " Color-Schemes
   Plug 'morhetz/gruvbox'
+  " Special (compatibility/others)
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 call plug#end()
 
 
