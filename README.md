@@ -27,3 +27,28 @@ Following commands should be run on fresh install:
     * General: `:CocInstall coc-json coc-html coc-yaml coc-vimlsp coc-docker`
     * Specific: `:CocInstall coc-tsserver coc-css coc-prettier coc-eslint coc-tslint coc-phpls coc-angular coc-go coc-python coc-java coc-rls`
 
+## Information and Shortcuts for installed plugins
+
+- vim-fugitive
+  - in git-status
+    - `=` show changes (on title or chunk)
+    - `o` and `<ENTER>` to open file at chunk
+    - `cc` will open commit window like `:Gcommit<ENTER>`
+    - `dd` and `dv` will open diff-splitt
+    - `s` will stage
+      - works with visual mode
+    - `u` will unstage
+      - works with visual mode
+    - `X` will checkout the changes (remove the changes)
+- fzf (special symbols)
+  - regex does not work in general (keep it simple)
+  - `'` exact match
+  - `!` do not match
+  - `^` match at start
+  - `$` match at end
+- nerdtree
+  - `m` to open a modify window
+    - `m` move/rename
+    - `a` add
+    - `d` delete
+
