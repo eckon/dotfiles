@@ -9,10 +9,9 @@ call plug#begin()
   Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  " Syntax/Styling
+  " Syntax/Styling/Appearance
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
-  " Color-Schemes
   Plug 'morhetz/gruvbox'
   " Special (compatibility/others)
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
