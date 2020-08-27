@@ -13,6 +13,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'morhetz/gruvbox'
+  Plug 'psliwka/vim-smoothie'
   " Special (compatibility/others)
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'tmux-plugins/vim-tmux-focus-events'
