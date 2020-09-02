@@ -746,7 +746,7 @@
   typeset -g POWERLEVEL9K_VI_OVERWRITE_MODE_STRING=O
   typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
   # Text and color for insert vi mode.
-  typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=I
+  typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=
   typeset -g POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=4
 
   ######################################[ ram: free RAM ]#######################################

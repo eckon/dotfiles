@@ -69,9 +69,6 @@ alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 
 
 # -------------------- Special --------------------
-# vi mode on zsh
-bindkey -v
-KEYTIMEOUT=1
 ## when in normal mode press <CTRL>-V to open editor to edit command
 bindkey -M vicmd "^V" edit-command-line
 
