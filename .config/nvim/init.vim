@@ -192,9 +192,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Code completion is shown and non is selected -> trigger the first one on <CR>
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
 
 
 "" ------------------- lightline
