@@ -1,5 +1,5 @@
 # -------------------- Special --------------------
-# Enable Powerlevel10k instant prompt, should be ontop of dot file
+# enable Powerlevel10k instant prompt, should be ontop of dot file
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -17,13 +17,13 @@ export ZSH="$HOME/.oh-my-zsh"
 unsetopt BEEP
 HYPHEN_INSENSITIVE="true"
 
-# Use power10k theme and configure it in .p10k.zsh
+# use power10k theme and configure it in .p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
+# make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
