@@ -43,9 +43,17 @@ Following commands should be run on fresh install:
 - fzf (special symbols)
   - regex does not work in general (keep it simple)
   - `'` exact match
+    - `'foo` -> match must have complete foo string
   - `!` do not match
+    - `!foo` -> match can not have foo string
   - `^` match at start
+    - `^foo` -> match must start with foo string
   - `$` match at end
+    - `foo$` -> match must end with foo string
+  - ` ` for AND (&&) operator
+    - `foo bar` -> match must have foo and bar string
+  - `|` for OR (||) operator
+    - `foo | bar` -> match must have foo or bar string
 - nerdtree
   - `m` to open a modify window
     - `m` move/rename
