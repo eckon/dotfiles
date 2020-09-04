@@ -70,6 +70,7 @@ Some Information about the scripts:
   - requires:
     - probably not installed: [fzf](https://github.com/junegunn/fzf), [jq](https://github.com/stedolan/jq)
     - probably already installed: [curl](https://curl.haxx.se/), [bash](https://www.gnu.org/software/bash/)
+    - update script to use your gitlab api url and your access token (needs api read permission)
   - fetches all available repos from the given gitlab (could be updated to use other systems as well)
   - displays them in fzf (interactive search)
   - on enter -> clone that repo into current directory
