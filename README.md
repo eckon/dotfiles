@@ -1,4 +1,4 @@
-# Collection of my dotfiles
+# Collection of my dotfiles and scripts
 
 General rule: **Install latest Version, meaning check if apt is up-to-date**
 
@@ -59,4 +59,18 @@ Following commands should be run on fresh install:
     - `m` move/rename
     - `a` add
     - `d` delete
+
+## Custom scripts
+
+The scripts can be found in the [custom-scripts folder](./custom-scripts).
+All scripts were only tested and used privately. There is no guarantee that they work on other systems or environments.
+
+Some Information about the scripts:
+- [gitlab-clone](./custom-scripts/get-gitlab-repos.sh)
+  - requires:
+    - probably not installed: [fzf](https://github.com/junegunn/fzf), [jq](https://github.com/stedolan/jq)
+    - probably already installed: [curl](https://curl.haxx.se/), [bash](https://www.gnu.org/software/bash/)
+  - fetches all available repos from the given gitlab (could be updated to use other systems as well)
+  - displays them in fzf (interactive search)
+  - on enter -> clone that repo into current directory
 
