@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # script to quickly clone gitlab repos
 header="PRIVATE-TOKEN: <access-token>"  # your access token (needs api read access)
