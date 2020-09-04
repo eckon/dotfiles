@@ -66,7 +66,7 @@ The scripts can be found in the [custom-scripts folder](./custom-scripts).
 All scripts were only tested and used privately. There is no guarantee that they work on other systems or environments.
 
 Some Information about the scripts:
-- [gitlab-clone](./custom-scripts/get-gitlab-repos.sh)
+- [gitlab-clone](./custom-scripts/gitlab-search-and-clone.sh)
   - what it does:
     - fetches all available repos from the given gitlab (could be updated to use other systems as well)
     - displays them in fzf (interactive search)
