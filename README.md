@@ -67,11 +67,15 @@ All scripts were only tested and used privately. There is no guarantee that they
 
 Some Information about the scripts:
 - [gitlab-clone](./custom-scripts/get-gitlab-repos.sh)
+  - what it does:
+    - fetches all available repos from the given gitlab (could be updated to use other systems as well)
+    - displays them in fzf (interactive search)
+    - on enter -> clone that repo into current directory
   - requires:
-    - probably not installed: [fzf](https://github.com/junegunn/fzf), [jq](https://github.com/stedolan/jq)
-    - probably already installed: [curl](https://curl.haxx.se/), [bash](https://www.gnu.org/software/bash/)
+    - [fzf](https://github.com/junegunn/fzf), [jq](https://github.com/stedolan/jq), *([curl](https://curl.haxx.se/), [bash](https://www.gnu.org/software/bash/))*
     - update script to use your gitlab api url and your access token (needs api read permission)
-  - fetches all available repos from the given gitlab (could be updated to use other systems as well)
-  - displays them in fzf (interactive search)
-  - on enter -> clone that repo into current directory
+  - usage:
+    - run script with or without arguments (only first argument is being considered)
+      - without: fetch all data and let fzf handle the filtering
+      - with: pre-search with gitlab api fzf will handle the fine filtering (probably faster and less load)
 
