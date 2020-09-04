@@ -1,8 +1,8 @@
 #!/bin/env bash
 
 # script to quickly clone gitlab repos
-header="PRIVATE-TOKEN:·<access-token>"  #·your·access·token·(needs·api·read·access)
-url="gitlab.com/api/v4/projects"        # your·gitlab·projects·api
+header="PRIVATE-TOKEN: <access-token>"  # your access token (needs api read access)
+url="gitlab.com/api/v4/projects"        # your gitlab projects api
 
 # if we have a parameter, just get first 100 of search responses
 if [[ $# > 0 ]]; then
