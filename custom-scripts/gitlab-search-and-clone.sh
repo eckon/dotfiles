@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 
 # script to quickly clone gitlab repos
-header="PRIVATE-TOKEN: <access-token>"  # your access token (needs api read access)
-url="gitlab.com/api/v4/projects"        # your gitlab projects api
+
+# get url (GITLAB_PROJECTS_URL) and access token (GITLAB_ACCESS_TOKEN) from a config file
+variablePath="${BASH_SOURCE%/*}/variables.cfg"
+if test -f $variablePath; then
+  source $variablePath
+  header="PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN"
+  url=$GITLAB_PROJECTS_URL
+else
+  echo "Config file '$variablePath' could not be found."
+  echo "It needs 'GITLAB_ACCESS_TOKEN' and 'GITLAB_PROJECTS_URL'."
+  echo "GITLAB_ACCESS_TOKEN needs to be created by gitlab and requires api read permissions."
+  echo "GITLAB_PROJECTS_URL needs to point to the projects api (example: 'gitlab.com/api/v4/projects')."
+  exit 1
+fi
 
 # if we have a parameter, just get first 100 of search responses
 if [[ $# > 0 ]]; then
@@ -11,7 +23,7 @@ if [[ $# > 0 ]]; then
       "$url?per_page=100&page=1&search=$1" \
       | jq ".[].ssh_url_to_repo" \
       | tr -d '"' \
-      | fzf -q"$1"
+      | fzf -q "$1"
   )
 fi
 
@@ -31,7 +43,7 @@ if [[ $# == 0 ]]; then
       )
 
       # now get all pages from the api
-      while (( $currentPage <= $pageCount ));do
+      while (( $currentPage <= $pageCount )); do
         curl --silent --header "$header" \
           "$url?per_page=$perPage&page=$currentPage&order_by=last_activity_at" \
           | jq ".[].ssh_url_to_repo" \
@@ -42,7 +54,7 @@ if [[ $# == 0 ]]; then
   )
 fi
 
-if [[ $gitlabUrl != "" ]];then
+if [[ $gitlabUrl != "" ]]; then
   git clone $gitlabUrl
 fi
 
