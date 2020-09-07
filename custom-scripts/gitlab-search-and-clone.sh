@@ -4,8 +4,8 @@
 
 # get url (GITLAB_PROJECTS_URL) and access token (GITLAB_ACCESS_TOKEN) from a config file
 variablePath="${BASH_SOURCE%/*}/variables.cfg"
-if test -f $variablePath; then
-  source $variablePath
+if test -f "$variablePath"; then
+  source "$variablePath"
   header="PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN"
   url=$GITLAB_PROJECTS_URL
 else
@@ -17,7 +17,7 @@ else
 fi
 
 # if we have a parameter, just get first 100 of search responses
-if [[ $# > 0 ]]; then
+if [[ $# -gt 0 ]]; then
   gitlabUrl=$(
     curl --silent --header "$header" \
       "$url?per_page=100&page=1&search=$1" \
@@ -43,18 +43,18 @@ if [[ $# == 0 ]]; then
       )
 
       # now get all pages from the api
-      while (( $currentPage <= $pageCount )); do
+      while (( currentPage <= pageCount )); do
         curl --silent --header "$header" \
           "$url?per_page=$perPage&page=$currentPage&order_by=last_activity_at" \
           | jq ".[].ssh_url_to_repo" \
           | tr -d '"' &
-        currentPage=$[ $currentPage+1 ]
+        currentPage=$(( currentPage + 1 ))
       done
     } | fzf
   )
 fi
 
 if [[ $gitlabUrl != "" ]]; then
-  git clone $gitlabUrl
+  git clone "$gitlabUrl"
 fi
 
