@@ -48,16 +48,17 @@ set undofile
 set updatetime=250
 set whichwrap+=<,>,h,l
 
-" Special
+" special
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 let g:NERDSpaceDelims=1
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 
-" Reload buffer when file changed from outside
+" reload buffer when file changed from outside
 set autoread
 autocmd FocusGained,BufEnter * checktime
+
 
 
 " -------------------- Color/Style Settings --------------------
@@ -75,15 +76,15 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " -------------------- Key Bindings --------------------
 let mapleader = "\<Space>"
 
-" Quick escape
+" quick escape
 map <C-c> <ESC>
 
-" Quick safe for different vim modes
+" quick safe for different vim modes
 nmap <C-s> :w<CR>
 vmap <C-s> <ESC><C-s>gv
 imap <C-s> <ESC><C-s>
 
-" Moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
+" moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
 map <silent> <Leader>wj :wincmd j<CR>
 map <silent> <Leader>wk :wincmd k<CR>
 map <silent> <Leader>wh :wincmd h<CR>
@@ -95,17 +96,17 @@ map <silent> <Leader>w\| :wincmd v<CR>
 map <silent> <Leader>wc :wincmd c<CR>
 map <silent> <Leader>wo :wincmd o<CR>
 
-" Use alt to resize windows
+" use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
 nnoremap <M-k> :resize +2<CR>
 nnoremap <M-h> :vertical resize -2<CR>
 nnoremap <M-l> :vertical resize +2<CR>
 
-" Rehighlight text after indenting
+" rehighlight text after indenting
 vnoremap < <gv
 vnoremap > >gv
 
-" Navigating and Managing tabs
+" navigating and Managing tabs
 map <Leader>tn :tabnew<CR>
 map <Leader>to :tabonly<CR>
 map <Leader>tc :tabclose<CR>
@@ -132,7 +133,7 @@ map <F4> :w !diff % -<CR>
 map <F5> :set spell<CR>
 map <F6> :set nospell<CR>
 
-" GoTo code navigation and other coc commands
+" goto code navigation and other coc commands
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -145,7 +146,7 @@ xmap <silent> <Leader>f <Plug>(coc-format-selected)
 nmap <Leader>ac <Plug>(coc-codeaction)
 nmap <Leader>qf <Plug>(coc-fix-current)
 
-" Use K to show documentation in preview window.
+" use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " nerdtree map for easy use
@@ -160,7 +161,7 @@ map <silent> <Leader>u :UndotreeToggle \| UndotreeFocus<CR>
 
 "" ------------------- coc.nvim
 
-" Use tab for trigger completion with characters ahead and navigate.
+" use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
@@ -172,10 +173,10 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <C-space> to trigger completion.
+" use <C-space> to trigger completion.
 inoremap <silent><expr> <C-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
   inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -183,7 +184,7 @@ else
   imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Function to show documentation in a preview window
+" function to show documentation in a preview window
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -193,10 +194,9 @@ function! s:show_documentation()
 endfunction
 
 
-
 "" ------------------- lightline
 
-" Configure the status line
+" configure the status line
 let g:lightline = {
   \ 'colorscheme': 'powerline',
   \ 'active': {
@@ -213,9 +213,10 @@ let g:lightline = {
   \ },
   \ }
 
+
 "" ------------------- fzf.vim
 
-" Configure the window when using fzf inside of vim (and only inside of vim)
+" configure the window when using fzf inside of vim (and only inside of vim)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,2"
 
