@@ -1,11 +1,3 @@
-# -------------------- Special --------------------
-# enable Powerlevel10k instant prompt, should be ontop of dot file
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
-
 # -------------------- Exports --------------------
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -19,9 +11,6 @@ HYPHEN_INSENSITIVE="true"
 
 # use power10k theme and configure it in .p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
@@ -46,10 +35,19 @@ plugins=(
 
 
 # -------------------- Source --------------------
+
+# enable Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 
