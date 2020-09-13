@@ -79,8 +79,10 @@ let mapleader = "\<Space>"
 " quick escape
 map <C-c> <ESC>
 
-" disable vim ex mode
-nmap Q <Nop>
+" disable keys and/or set custom 'default' behaviour
+nnoremap Q <Nop>
+nnoremap <F1> <Nop>
+inoremap <F1> <C-v><F1>
 
 " quick safe for different vim modes
 nmap <C-s> :w<CR>
