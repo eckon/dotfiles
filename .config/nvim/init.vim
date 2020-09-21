@@ -81,6 +81,11 @@ let mapleader = "\<Space>"
 " quick escape
 map <C-c> <ESC>
 
+" disable keys and/or set custom 'default' behaviour
+nnoremap Q <Nop>
+nnoremap <F1> <Nop>
+inoremap <F1> <C-v><F1>
+
 " quick safe for different vim modes
 nmap <C-s> :w<CR>
 vmap <C-s> <ESC><C-s>gv
@@ -128,12 +133,6 @@ nmap <Leader>gd :Gdiffsplit<CR>
 " quick actions for git merge conflicts left side 'f' (merge into) right 'j'
 nmap <Leader>gf :diffget //2<CR>
 nmap <Leader>gj :diffget //3<CR>
-
-map <F1> :set shiftwidth=4 tabstop=4 softtabstop=4<CR>
-map <F2> :set shiftwidth=2 tabstop=2 softtabstop=2<CR>
-map <F4> :w !diff % -<CR>
-map <F5> :set spell<CR>
-map <F6> :set nospell<CR>
 
 " goto code navigation and other coc commands
 nmap <silent> gd <Plug>(coc-definition)
