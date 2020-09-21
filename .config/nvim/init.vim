@@ -14,6 +14,8 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Special (compatibility/others)
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'tmux-plugins/vim-tmux-focus-events'
