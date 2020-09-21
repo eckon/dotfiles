@@ -20,12 +20,14 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 # -------------------- Plugins --------------------
 plugins=(
+  cargo
   docker
   docker-compose
   git
   kubectl
   ng
   nvm
+  rust
   tmux
   z
   zsh-autosuggestions
@@ -48,6 +50,9 @@ source $ZSH/oh-my-zsh.sh
 
 # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# source rust
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 
 
