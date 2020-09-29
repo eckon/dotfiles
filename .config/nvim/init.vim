@@ -54,6 +54,8 @@ set whichwrap+=<,>,h,l
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
+let g:NERDCommentEmptyLines=1
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 
