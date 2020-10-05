@@ -31,7 +31,7 @@ Following commands should be run on fresh install:
   * Coc will enable `emmet`, `auto-pairs` and `yank-highlighting` functionality next to the "normal" language server protocols
   * Install `:CocInstall coc-marketplace` for easy search of wanted extensions with `:CocList marketplace`
   * Example
-    * Essential: `:CocInstall coc-emmet coc-yank coc-pairs`
+    * Essential: `:CocInstall coc-emmet coc-yank coc-pairs coc-ultisnips`
     * General: `:CocInstall coc-json coc-html coc-yaml coc-vimlsp coc-docker`
     * Specific: `:CocInstall coc-tsserver coc-css coc-prettier coc-eslint coc-tslint coc-phpls coc-angular coc-go coc-python coc-java coc-rls`
 

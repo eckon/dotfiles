@@ -1,6 +1,7 @@
 " -------------------- Plugins --------------------
 call plug#begin()
   " Tools
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mbbill/undotree'
@@ -58,6 +59,8 @@ let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
 let g:netrw_banner=0
 let g:netrw_liststyle=3
+" will be handled by coc-ultisnips extension
+let g:UltiSnipsExpandTrigger=""
 
 " reload buffer when file changed from outside
 set autoread
