@@ -118,6 +118,10 @@ nnoremap <M-l> :vertical resize +2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" paste content without new line (example: dd into paste of parameter)
+nnoremap gP i<CR><ESC>PkgJgJ
+nnoremap gp a<CR><ESC>PkgJgJ
+
 " navigating and Managing tabs
 map <Leader>tn :tabnew<CR>
 map <Leader>to :tabonly<CR>
