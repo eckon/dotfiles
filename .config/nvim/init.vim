@@ -35,13 +35,10 @@ set hlsearch ignorecase incsearch magic smartcase
 set lazyredraw
 set nobackup nowritebackup noswapfile
 set noerrorbells
-set noshowmode
 set nowrap
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
-set showcmd
-set showmatch
-set showmode
+set showcmd showmatch noshowmode
 set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500
