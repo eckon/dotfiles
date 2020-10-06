@@ -33,7 +33,7 @@ set clipboard+=unnamedplus
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
 set lazyredraw
-set nobackup nowritebackup noswapfile
+set nobackup nowritebackup noswapfile undofile
 set noerrorbells
 set nowrap
 set number relativenumber
@@ -43,7 +43,6 @@ set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500
 set title
-set undofile
 set updatetime=250
 
 " special
