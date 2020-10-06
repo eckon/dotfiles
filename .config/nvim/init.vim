@@ -65,11 +65,10 @@ autocmd FocusGained,BufEnter * checktime
 " -------------------- Color/Style Settings --------------------
 colorscheme gruvbox
 set background=dark
-set colorcolumn=80,120,121
-set cursorline
-set list
-set listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
+set cursorline colorcolumn=80,120,121
+set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\
 set scrolloff=5
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
