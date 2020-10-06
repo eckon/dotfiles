@@ -116,19 +116,19 @@ nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
 " navigating and Managing tabs
-map <Leader>tn :tabnew<CR>
-map <Leader>to :tabonly<CR>
 map <Leader>tc :tabclose<CR>
 map <Leader>tm :tabmove
+map <Leader>tn :tabnew<CR>
+map <Leader>to :tabonly<CR>
 map <Leader>th gT
 map <Leader>tl gt
 
 " find files, lines, content in project and open buffers
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-f> :BLines<CR>
-nnoremap <C-h> :BCommits<CR>
 nnoremap <C-_> :Ag<CR>
 nnoremap <C-b> :Buffers<CR>
+nnoremap <C-f> :BLines<CR>
+nnoremap <C-h> :BCommits<CR>
+nnoremap <C-p> :GFiles<CR>
 
 " quick actions for git status in the same buffer
 nmap <silent> <Leader>gs :Gedit :<CR>
@@ -138,17 +138,17 @@ nmap <Leader>gf :diffget //2<CR>
 nmap <Leader>gj :diffget //3<CR>
 
 " goto code navigation and other coc commands
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> <Leader>f <Plug>(coc-format)
-xmap <silent> <Leader>f <Plug>(coc-format-selected)
-nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>ac <Plug>(coc-codeaction)
 nmap <Leader>qf <Plug>(coc-fix-current)
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> <Leader>f <Plug>(coc-format)
+xmap <silent> <Leader>f <Plug>(coc-format-selected)
 
 " use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
