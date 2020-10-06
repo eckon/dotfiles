@@ -30,7 +30,6 @@ filetype plugin on
 
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
-set encoding=UTF-8
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
 set lazyredraw
