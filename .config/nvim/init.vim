@@ -126,6 +126,7 @@ map <Leader>tl gt
 " find files, lines, content in project and open buffers
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
+nnoremap <C-h> :BCommits<CR>
 nnoremap <C-_> :Ag<CR>
 nnoremap <C-b> :Buffers<CR>
 
