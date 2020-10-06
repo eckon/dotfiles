@@ -49,7 +49,6 @@ set timeoutlen=1500
 set title
 set undofile
 set updatetime=250
-set whichwrap+=<,>,h,l
 
 " special
 let NERDTreeShowHidden=1
