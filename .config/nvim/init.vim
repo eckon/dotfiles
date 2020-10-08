@@ -76,9 +76,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " -------------------- Key Bindings --------------------
 let mapleader = "\<Space>"
 
-" quick escape
-map <C-c> <ESC>
-
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
@@ -133,6 +130,7 @@ nnoremap <C-p> :GFiles<CR>
 " quick actions for git status in the same buffer
 nmap <silent> <Leader>gs :Gedit :<CR>
 nmap <Leader>gd :Gdiffsplit<CR>
+
 " quick actions for git merge conflicts left side 'f' (merge into) right 'j'
 nmap <Leader>gf :diffget //2<CR>
 nmap <Leader>gj :diffget //3<CR>
@@ -150,8 +148,11 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> <Leader>f <Plug>(coc-format)
 xmap <silent> <Leader>f <Plug>(coc-format-selected)
 
-" use K to show documentation in preview window.
+" use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" use <C-space> to trigger coc code completion
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " nerdtree map for easy use
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -176,9 +177,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" use <C-space> to trigger completion.
-inoremap <silent><expr> <C-space> coc#refresh()
 
 " use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
