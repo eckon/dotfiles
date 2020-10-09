@@ -4,10 +4,13 @@ call plug#begin()
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'lambdalisue/fern-hijack.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/nerdfont.vim'
   Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
-  Plug 'preservim/nerdtree' " use only for easy exploring and renaming/moving folder/file structures
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   " Syntax/Styling/Appearance
@@ -16,7 +19,6 @@ call plug#begin()
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Special (compatibility/others)
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -45,13 +47,12 @@ set timeoutlen=1500 updatetime=250
 set title
 
 " special
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
-let g:netrw_banner=0
-let g:netrw_liststyle=3
+" disable netrw
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
 " will be handled by coc-ultisnips extension
 " use random key because empty will result in mapping errors
 let g:UltiSnipsExpandTrigger='<Nop>'
@@ -154,15 +155,20 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " use <C-space> to trigger coc code completion
 inoremap <silent><expr> <C-space> coc#refresh()
 
-" nerdtree map for easy use
-map <silent><C-n> :NERDTreeToggle<CR>
-
 " toggle undotree and focus when it is open
 map <silent> <Leader>u :UndotreeToggle \| UndotreeFocus<CR>
 
 
 
 " -------------------- Plugin Specific Settings --------------------
+
+"" ------------------- fern.vim
+map <silent><C-n> :Fern . -drawer -reveal=% -toggle<Cr>
+
+" todo: make when tree visible, toggle reatache to the tree instead of close
+let g:fern#renderer = "nerdfont"
+let g:fern#default_hidden=1
+let g:fern#disable_default_mappings=1
 
 "" ------------------- coc.nvim
 
