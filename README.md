@@ -60,8 +60,8 @@ Following commands should be run on fresh install:
     - `foo bar` -> match must have foo and bar string
   - `|` for OR (||) operator
     - `foo | bar` -> match must have foo or bar string
-  - `\ ` to use space as a character instead of an OR operator
-    - `foo\ bar` -> return only when the string "foo bar" is matched
+  - `\ ` to use space as a character instead of an AND operator
+    - `foo\ bar` -> return only when the string "foo bar" is matched, including the space
 - nerdtree
   - `m` to open a modify window
     - `m` move/rename
