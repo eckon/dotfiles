@@ -28,12 +28,9 @@ Following commands should be run on fresh install:
   * Be in the home dir and add smylink `$ ln -s ~/path/to/github/dotfiles/.dotfile .dotfile`
 * In nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * Install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
+  * Most of my used extensions are already in the `init.vim`, and will be installed automatically
   * Coc will enable `emmet`, `auto-pairs` and `yank-highlighting` functionality next to the "normal" language server protocols
-  * Install `:CocInstall coc-marketplace` for easy search of wanted extensions with `:CocList marketplace`
-  * Example
-    * Essential: `:CocInstall coc-emmet coc-yank coc-pairs coc-ultisnips`
-    * General: `:CocInstall coc-json coc-html coc-yaml coc-vimlsp coc-docker`
-    * Specific: `:CocInstall coc-tsserver coc-css coc-prettier coc-eslint coc-tslint coc-phpls coc-angular coc-go coc-python coc-java coc-rls`
+  * Use marketplace for easy search of wanted extensions with `:CocList marketplace`
 
 
 ## Information and Shortcuts for installed plugins
@@ -63,6 +60,8 @@ Following commands should be run on fresh install:
     - `foo bar` -> match must have foo and bar string
   - `|` for OR (||) operator
     - `foo | bar` -> match must have foo or bar string
+  - `\ ` to use space as a character instead of an AND operator
+    - `foo\ bar` -> return only when the string "foo bar" is matched, including the space
 - nerdtree
   - `m` to open a modify window
     - `m` move/rename
