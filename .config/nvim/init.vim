@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'lambdalisue/fern-hijack.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/fern.vim'
+  Plug 'rhysd/clever-f.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -153,6 +154,10 @@ map <silent> <Leader>u :UndotreeToggle<CR>
 
 
 " -------------------- Plugin Specific Settings --------------------
+
+"" ------------------- clever-f.vim
+let g:clever_f_across_no_line=1
+
 
 "" ------------------- undotree
 let g:undotree_WindowLayout=2
