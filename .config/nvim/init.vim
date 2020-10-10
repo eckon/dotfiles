@@ -15,6 +15,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+  Plug 'wellle/targets.vim'
   " Syntax/Styling/Appearance
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
