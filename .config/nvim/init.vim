@@ -145,12 +145,17 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " use <C-space> to trigger coc code completion
 inoremap <silent><expr> <C-space> coc#refresh()
 
-" toggle undotree and focus when it is open
-map <silent> <Leader>u :UndotreeToggle \| UndotreeFocus<CR>
+" toggle undotree
+map <silent> <Leader>u :UndotreeToggle<CR>
 
 
 
 " -------------------- Plugin Specific Settings --------------------
+
+"" ------------------- undotree
+let g:undotree_WindowLayout=2
+let g:undotree_SetFocusWhenToggle=1
+
 
 "" ------------------- NERDCommenter
 let g:NERDSpaceDelims=1
