@@ -114,8 +114,6 @@ map <Leader>tl gt
 
 
 
-" toggle undotree
-map <silent> <Leader>u :UndotreeToggle<CR>
 
 
 
@@ -125,9 +123,6 @@ map <silent> <Leader>u :UndotreeToggle<CR>
 let g:clever_f_across_no_line=1
 
 
-"" ------------------- undotree
-let g:undotree_WindowLayout=2
-let g:undotree_SetFocusWhenToggle=1
 
 
 "" ------------------- NERDCommenter
