@@ -57,9 +57,10 @@ set autoread
 autocmd FocusGained,BufEnter * checktime
 
 " disable netrw
-let g:loaded_netrw=1
-let g:loaded_netrwPlugin=1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 
+let mapleader = "\<Space>"
 
 
 " -------------------- Color/Style Settings --------------------
@@ -74,8 +75,6 @@ set scrolloff=5
 
 " -------------------- Key Bindings --------------------
 "  plugin specific mappings can be found in the plugin folder
-
-let mapleader = "\<Space>"
 
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
