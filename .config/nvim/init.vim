@@ -112,12 +112,13 @@ map <Leader>to :tabonly<CR>
 map <Leader>th gT
 map <Leader>tl gt
 
-" find files, lines, content in project and open buffers
+" find files, lines, content, mappings, commits in project and open buffers
 nnoremap <C-_> :Ag<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :BLines<CR>
 nnoremap <C-h> :BCommits<CR>
 nnoremap <C-p> :GFiles<CR>
+nnoremap <C-m> :Maps<CR>
 
 " quick actions for git status in the same buffer
 nmap <silent> <Leader>gs :Gedit :<CR>
