@@ -2,18 +2,18 @@
 call plug#begin()
   " Tools
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-  Plug 'tpope/vim-repeat'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern-hijack.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/fern.vim'
-  Plug 'rhysd/clever-f.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
+  Plug 'rhysd/clever-f.vim'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   " Syntax/Styling/Appearance
   Plug 'airblade/vim-gitgutter'
