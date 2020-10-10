@@ -168,7 +168,7 @@ map <silent><C-n> :Fern . -drawer -reveal=% -toggle<Cr>
 " todo: make when tree visible, toggle reatache to the tree instead of close
 let g:fern#renderer = "nerdfont"
 let g:fern#default_hidden=1
-let g:fern#disable_default_mappings=1
+" let g:fern#disable_default_mappings=1
 
 "" ------------------- coc.nvim
 
