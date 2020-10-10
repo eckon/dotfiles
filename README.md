@@ -1,5 +1,8 @@
 # Collection of my dotfiles and scripts
 
+[Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+
+
 ## Custom scripts
 
 The scripts and their [README.md](./custom-scripts/README.md) can be found in the [custom-scripts folder](./custom-scripts).
