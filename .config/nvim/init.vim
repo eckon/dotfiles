@@ -56,6 +56,10 @@ set title
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
+" disable netrw
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
+
 
 
 " -------------------- Color/Style Settings --------------------
@@ -65,7 +69,6 @@ set background=dark
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
-
 
 
 
@@ -117,53 +120,4 @@ map <Leader>tn :tabnew<CR>
 map <Leader>to :tabonly<CR>
 map <Leader>th gT
 map <Leader>tl gt
-
-
-
-" -------------------- Plugin Specific Settings --------------------
-
-"" ------------------- clever-f.vim
-let g:clever_f_across_no_line=1
-
-
-"" ------------------- NERDCommenter
-let g:NERDSpaceDelims=1
-let g:NERDDefaultAlign='left'
-let g:NERDCommentEmptyLines=1
-
-
-"" ------------------- netrw
-" disable netrw
-let g:loaded_netrw=1
-let g:loaded_netrwPlugin=1
-
-
-"" ------------------- gitgutter
-" disable gitgutter keys (only used for showing changes on sidebar)
-let g:gitgutter_map_keys=0
-
-
-"" ------------------- ultisnips
-" will be handled by coc-ultisnips extension
-" use random key because empty will result in mapping errors
-let g:UltiSnipsExpandTrigger='<Nop>'
-
-
-"" ------------------- lightline
-" configure the status line
-let g:lightline = {
-  \ 'colorscheme': 'powerline',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch' ],
-  \             [ 'readonly', 'filename', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'cocstatus', 'filetype', 'fileencoding', 'fileformat' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'FugitiveHead',
-  \   'cocstatus': 'coc#status',
-  \ },
-  \ }
 
