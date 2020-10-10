@@ -187,15 +187,6 @@ let g:gitgutter_map_keys=0
 let g:UltiSnipsExpandTrigger='<Nop>'
 
 
-"" ------------------- fern.vim
-map <silent><C-n> :Fern . -drawer -reveal=% -toggle<Cr>
-
-" todo: make when tree visible, toggle reatache to the tree instead of close
-let g:fern#renderer = "nerdfont"
-let g:fern#default_hidden=1
-" let g:fern#disable_default_mappings=1
-
-
 "" ------------------- fzf.vim
 " configure the window when using fzf inside of vim (and only inside of vim)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
