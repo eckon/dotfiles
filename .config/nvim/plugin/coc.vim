@@ -29,6 +29,8 @@ let g:coc_global_extensions += [
   \   'coc-rust-analyzer',
   \ ]
 
+
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " use K to show documentation in preview window
@@ -78,3 +80,4 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+

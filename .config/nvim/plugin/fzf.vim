@@ -2,6 +2,8 @@
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,2"
 
+
+
 " enable usage of ctrl-r (e.g. to paste vim buffer) in fzf windows
 tnoremap <expr> <C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
 
@@ -12,3 +14,4 @@ nnoremap <C-f> :BLines<CR>
 nnoremap <C-h> :BCommits<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-m> :Maps<CR>
+

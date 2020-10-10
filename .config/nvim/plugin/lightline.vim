@@ -14,3 +14,4 @@ let g:lightline = {
   \   'cocstatus': 'coc#status',
   \ },
   \ }
+
