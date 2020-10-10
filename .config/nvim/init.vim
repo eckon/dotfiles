@@ -1,4 +1,5 @@
 " -------------------- Plugins --------------------
+
 call plug#begin()
   " Tools
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -29,6 +30,9 @@ call plug#end()
 
 
 " -------------------- General Setting --------------------
+"  filetype specific settings can be found in the ftplugin folder
+"  plugin specific settings can be found in the plugin folder
+
 syntax enable
 filetype plugin on
 
@@ -48,7 +52,6 @@ set splitbelow splitright
 set timeoutlen=1500 updatetime=100
 set title
 
-
 " reload buffer when file changed from outside
 set autoread
 autocmd FocusGained,BufEnter * checktime
@@ -56,6 +59,7 @@ autocmd FocusGained,BufEnter * checktime
 
 
 " -------------------- Color/Style Settings --------------------
+
 colorscheme gruvbox
 set background=dark
 set cursorline colorcolumn=80,120,121
@@ -66,6 +70,8 @@ set scrolloff=5
 
 
 " -------------------- Key Bindings --------------------
+"  plugin specific mappings can be found in the plugin folder
+
 let mapleader = "\<Space>"
 
 " disable keys and/or set custom 'default' behaviour
@@ -114,15 +120,10 @@ map <Leader>tl gt
 
 
 
-
-
-
 " -------------------- Plugin Specific Settings --------------------
 
 "" ------------------- clever-f.vim
 let g:clever_f_across_no_line=1
-
-
 
 
 "" ------------------- NERDCommenter
@@ -146,8 +147,6 @@ let g:gitgutter_map_keys=0
 " will be handled by coc-ultisnips extension
 " use random key because empty will result in mapping errors
 let g:UltiSnipsExpandTrigger='<Nop>'
-
-
 
 
 "" ------------------- lightline
