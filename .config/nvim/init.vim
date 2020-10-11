@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'wellle/targets.vim'
   " Syntax/Styling/Appearance
+  Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'morhetz/gruvbox'
@@ -78,6 +79,9 @@ set scrolloff=5
 
 " source current buffer
 nnoremap <Leader><Leader>s :so %<CR>
+
+" hide search highlighting
+nnoremap <Leader><Leader>/ :noh<CR>
 
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>

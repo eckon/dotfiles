@@ -1,5 +1,6 @@
 let g:fern#default_hidden = 1
 let g:fern#renderer = 'nerdfont'
+let g:fern#smart_cursor = 'hide'
 
 
 
@@ -7,6 +8,9 @@ map <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
 map <silent><C-j> :Fern %:h<CR>
 
 function! FernInit() abort
+  " hide identing lines (should be handled differently)
+  let g:indentLine_enabled = 0
+
   " when interacting with the drawer -> hide it after selecting a file
   " also <CR> should not change root path but close/open folder structures
   nmap <buffer><expr><silent>
