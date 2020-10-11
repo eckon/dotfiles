@@ -28,7 +28,8 @@ Following programs are installed:
 
 Following commands should be run on fresh install:
 * For easier editing of the files, create symlinks for the files (then only edit in the git repo)
-  * Be in the home dir and add smylink `$ ln -s ~/path/to/github/dotfiles/.dotfile .dotfile`
+  * The nvim directory can be linked completely
+    * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
 * In nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * Install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * Most of my used extensions are already in the `init.vim`, and will be installed automatically
@@ -36,7 +37,7 @@ Following commands should be run on fresh install:
   * Use marketplace for easy search of wanted extensions with `:CocList marketplace`
 
 
-## Information and Shortcuts for installed plugins
+## Information and (default) Shortcuts for installed plugins
 
 - vim-fugitive
   - in git-status
