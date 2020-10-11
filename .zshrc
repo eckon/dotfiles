@@ -24,7 +24,6 @@ plugins=(
   docker
   docker-compose
   git
-  kubectl
   ng
   nvm
   rust
