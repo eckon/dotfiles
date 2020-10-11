@@ -74,7 +74,10 @@ set scrolloff=5
 
 
 " -------------------- Key Bindings --------------------
-"  plugin specific mappings can be found in the plugin folder
+" plugin specific mappings can be found in the plugin folder
+
+" source current buffer
+nnoremap <Leader><Leader>s :so %<CR>
 
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
