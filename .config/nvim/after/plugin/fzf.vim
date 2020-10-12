@@ -22,5 +22,4 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :BLines<CR>
 nnoremap <C-h> :BCommits<CR>
 nnoremap <C-p> :GFiles<CR>
-nnoremap <C-m> :Maps<CR>
 
