@@ -56,10 +56,6 @@ set title
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
-" disable netrw
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
 let mapleader = "\<Space>"
 
 
