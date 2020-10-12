@@ -1,4 +1,5 @@
 *.cfg
 .config/nvim/plugged
 .config/nvim/.netrwhist
+.config/nvim/spell
 
