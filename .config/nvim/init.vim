@@ -79,9 +79,6 @@ set scrolloff=5
 " source current buffer
 nnoremap <Leader><Leader>s :so %<CR>
 
-" hide search highlighting
-nnoremap <Leader><Leader>/ :noh<CR>
-
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
