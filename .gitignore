@@ -1,2 +1,4 @@
 *.cfg
 .config/nvim/plugged
+.config/nvim/.netrwhist
+
