@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
+  Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'morhetz/gruvbox'
