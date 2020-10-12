@@ -5,10 +5,7 @@ call plug#begin()
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'lambdalisue/fern-hijack.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/nerdfont.vim'
   Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
@@ -21,6 +18,8 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/nerdfont.vim'
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
   " Special (compatibility/others)
