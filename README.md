@@ -1,6 +1,11 @@
 # Collection of my dotfiles and scripts
 
-[Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+## Structure
+### Vim/Nvim
+
+- [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+- plugins folder is in the after directory, so that mappings will only be set after the plugin was loaded
+  - this will prevent calling not accessible methods (and crashing vim)
 
 
 ## Custom scripts
