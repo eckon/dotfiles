@@ -37,17 +37,16 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " goto code navigation and other coc commands
-nmap <Leader>ac <Plug>(coc-codeaction)
-nmap <Leader>qf <Plug>(coc-fix-current)
-nmap <Leader>rn <Plug>(coc-rename)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> <Leader>f <Plug>(coc-format)
-xmap <silent> <Leader>f <Plug>(coc-format-selected)
+nmap <silent><Leader>ac <Plug>(coc-codeaction)
+nmap <silent><Leader>rn <Plug>(coc-rename)
+nmap <silent><Leader>f <Plug>(coc-format)
+xmap <silent><Leader>f <Plug>(coc-format-selected)
 
 " use <C-space> to trigger coc code completion
 inoremap <silent><expr> <C-space> coc#refresh()
