@@ -87,16 +87,16 @@ vmap <C-s> <ESC><C-s>gv
 imap <C-s> <ESC><C-s>
 
 " moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
-map <silent> <Leader>wj :wincmd j<CR>
-map <silent> <Leader>wk :wincmd k<CR>
-map <silent> <Leader>wh :wincmd h<CR>
-map <silent> <Leader>wl :wincmd l<CR>
-map <silent> <Leader>wf :wincmd _ \| :wincmd \|<CR>
-map <silent> <Leader>we :wincmd =<CR>
-map <silent> <Leader>w- :wincmd s<CR>
-map <silent> <Leader>w\| :wincmd v<CR>
-map <silent> <Leader>wc :wincmd c<CR>
-map <silent> <Leader>wo :wincmd o<CR>
+nmap <silent> <Leader>wj :wincmd j<CR>
+nmap <silent> <Leader>wk :wincmd k<CR>
+nmap <silent> <Leader>wh :wincmd h<CR>
+nmap <silent> <Leader>wl :wincmd l<CR>
+nmap <silent> <Leader>wf :wincmd _ \| :wincmd \|<CR>
+nmap <silent> <Leader>we :wincmd =<CR>
+nmap <silent> <Leader>w- :wincmd s<CR>
+nmap <silent> <Leader>w\| :wincmd v<CR>
+nmap <silent> <Leader>wc :wincmd c<CR>
+nmap <silent> <Leader>wo :wincmd o<CR>
 
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
@@ -113,10 +113,10 @@ nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
 " navigating and Managing tabs
-map <Leader>tc :tabclose<CR>
-map <Leader>tm :tabmove
-map <Leader>tn :tabnew<CR>
-map <Leader>to :tabonly<CR>
-map <Leader>th gT
-map <Leader>tl gt
+nmap <Leader>tc :tabclose<CR>
+nmap <Leader>tm :tabmove
+nmap <Leader>tn :tabnew<CR>
+nmap <Leader>to :tabonly<CR>
+nmap <Leader>th gT
+nmap <Leader>tl gt
 

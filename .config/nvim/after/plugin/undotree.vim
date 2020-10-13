@@ -4,5 +4,5 @@ let g:undotree_SetFocusWhenToggle = 1
 
 
 " toggle undotree
-map <silent> <Leader>u :UndotreeToggle<CR>
+nmap <silent> <Leader>u :UndotreeToggle<CR>
 
