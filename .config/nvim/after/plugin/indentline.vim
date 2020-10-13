@@ -4,4 +4,5 @@ let g:indentLine_fileTypeExclude = [
   \   'fugitive',
   \   'git',
   \   'help',
+  \   'json',
   \ ]
