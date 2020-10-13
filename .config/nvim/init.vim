@@ -61,6 +61,7 @@ autocmd FocusGained,BufEnter * checktime
 let mapleader = "\<Space>"
 
 
+
 " -------------------- Color/Style Settings --------------------
 
 colorscheme gruvbox
