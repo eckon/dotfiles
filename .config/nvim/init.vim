@@ -83,8 +83,8 @@ nnoremap <F1> <Nop>
 inoremap <F1> <C-v><F1>
 
 " quick safe for different vim modes
-nmap <C-s> :w<CR>
-vmap <C-s> <ESC><C-s>gv
+" use <CMD> so that we do not need to reselect in visual mode (gv)
+map <C-s> <CMD>w<CR>
 imap <C-s> <ESC><C-s>
 
 " moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
