@@ -1,3 +1,2 @@
-" toggle undotree
-nmap <silent> <Leader>u :UndotreeToggle<CR>
+nmap <silent><Leader>u :UndotreeToggle<CR>
 

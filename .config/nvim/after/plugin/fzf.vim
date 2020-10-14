@@ -8,7 +8,8 @@ command! -bang -nargs=* AgHidden
   \ )
 
 " enable usage of ctrl-r (e.g. to paste vim buffer) in fzf windows
-tnoremap <expr> <C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
+" for the current default buffer press ctrl- + "
+tnoremap <expr><C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
 
 " find files, lines, content, mappings, commits in project and open buffers
 nnoremap <C-_> :AgHidden<CR>

@@ -1,5 +1,5 @@
 " quick actions for git status in the same buffer
-nmap <silent> <Leader>gs :Gedit :<CR>
+nmap <silent><Leader>gs :Gedit :<CR>
 nmap <Leader>gd :Gdiffsplit<CR>
 
 " quick actions for git merge conflicts left side 'f' (merge into) right 'j'
