@@ -4,7 +4,6 @@ let g:coc_global_extensions = [
   \   'coc-emmet',
   \   'coc-yank',
   \   'coc-pairs',
-  \   'coc-ultisnips',
   \   'coc-marketplace',
   \ ]
 " general

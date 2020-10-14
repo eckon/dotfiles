@@ -2,7 +2,6 @@
 
 call plug#begin()
   " Tools
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
