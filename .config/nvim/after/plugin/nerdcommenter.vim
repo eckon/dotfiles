@@ -1,4 +1,3 @@
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmptyLines = 1
+nmap <Leader>c<Space> <plug>NERDCommenterToggle
+xmap <Leader>c<Space> <plug>NERDCommenterToggle
 

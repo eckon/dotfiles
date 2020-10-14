@@ -1,9 +1,3 @@
-let g:fern#default_hidden = 1
-let g:fern#renderer = 'nerdfont'
-let g:fern#smart_cursor = 'hide'
-
-
-
 nmap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
 nmap <silent><C-j> :Fern %:h<CR>
 

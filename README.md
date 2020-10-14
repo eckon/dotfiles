@@ -4,8 +4,10 @@
 ### Vim/Nvim
 
 - [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
-- plugins folder is in the after directory, so that mappings will only be set after the plugin was loaded
-  - this will prevent calling not accessible methods (and crashing vim)
+- configurations are set in the plugin folder
+  - some are dependent on being set before the after load
+- mappings are set in the after/plugin folder
+  - some can only work after configurations and plugins are really loaded
 
 
 ## Custom scripts
