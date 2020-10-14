@@ -53,6 +53,9 @@ set splitbelow splitright
 set timeoutlen=1500 updatetime=100
 set title
 
+" disable netrwhist
+let g:netrw_dirhistmax = 0
+
 " reload buffer when file changed from outside
 set autoread
 autocmd FocusGained,BufEnter * checktime
