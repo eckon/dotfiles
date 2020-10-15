@@ -15,11 +15,11 @@ call plug#begin()
   Plug 'wellle/targets.vim'
   " Syntax/Styling/Appearance
   Plug 'Yggdroot/indentLine'
-  Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
+  Plug 'mhinz/vim-signify'
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
   " Special (compatibility/others)
