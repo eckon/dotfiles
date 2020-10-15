@@ -67,7 +67,6 @@ let mapleader = "\<Space>"
 " -------------------- Color/Style Settings --------------------
 
 colorscheme gruvbox
-set background=dark
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
