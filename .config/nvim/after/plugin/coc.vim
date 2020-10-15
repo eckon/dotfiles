@@ -39,7 +39,7 @@ else
 endif
 
 " function to show documentation in a preview window
-function! s:show_documentation()
+function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
