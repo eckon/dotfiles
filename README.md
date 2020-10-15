@@ -4,6 +4,7 @@
 ### Vim/Nvim
 
 - [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+- [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
 - configurations are set in the plugin folder
   - some are dependent on being set before the after load
 - mappings are set in the after/plugin folder
