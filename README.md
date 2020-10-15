@@ -1,7 +1,6 @@
 # Collection of my dotfiles and scripts
 
-## Structure
-### Vim/Nvim
+## Structure of this nvim configuration
 
 - [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
 - [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
