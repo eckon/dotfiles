@@ -37,6 +37,7 @@ filetype plugin on
 
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
+set foldmethod=indent nofoldenable
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
 set lazyredraw
