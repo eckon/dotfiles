@@ -127,7 +127,7 @@ let g:clever_f_across_no_line = 1
 
 
 " ----- coc {{{2
-" Configurations {{{3
+" -- Configurations {{{3
 " set coc extensions that should always be installed
 " essential
 let g:coc_global_extensions = [
@@ -159,7 +159,7 @@ let g:coc_global_extensions += [
   \ ]
 
 
-" Mappings {{{3
+" -- Mappings {{{3
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " use K to show documentation in preview window
@@ -212,13 +212,13 @@ endfunction
 
 
 " ----- fern {{{2
-" Configurations {{{3
+" -- Configurations {{{3
 let g:fern#default_hidden = 1
 let g:fern#renderer = 'nerdfont'
 let g:fern#smart_cursor = 'hide'
 
 
-" Mappings {{{3
+" -- Mappings {{{3
 nmap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
 nmap <silent><C-j> :Fern %:h<CR>
 
@@ -253,7 +253,7 @@ nmap <Leader>gj :diffget //3<CR>
 
 
 " ----- fzf {{{2
-" Configurations {{{3
+" -- Configurations {{{3
 " configure the window when using fzf inside of vim (and only inside of vim)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --margin=1,2"
@@ -261,7 +261,7 @@ let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
-" Mappings {{{3
+" -- Mappings {{{3
 " Call ag and pass the hidden flag to also show dotfiles
 " Taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
 command! -bang -nargs=* AgHidden
