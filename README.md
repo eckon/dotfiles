@@ -73,4 +73,3 @@ Following commands should be run on fresh install:
     - `foo | bar` -> match must have foo or bar string
   - `\ ` to use space as a character instead of an AND operator
     - `foo\ bar` -> return only when the string "foo bar" is matched, including the space
-

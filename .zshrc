@@ -84,4 +84,3 @@ bindkey "^e" edit-command-line
 
 # use to init some plugins (docker, docker-compose, git, probably others as well)
 autoload -Uz compinit && compinit -i
-

@@ -18,4 +18,3 @@ Some Information about the scripts:
     - run script with or without arguments (only first argument is being considered)
       - without: fetch all data and let fzf handle the filtering
       - with: pre-search with gitlab api fzf will handle the fine filtering (probably faster and less load)
-

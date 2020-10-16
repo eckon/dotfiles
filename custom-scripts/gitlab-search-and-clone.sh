@@ -57,4 +57,3 @@ fi
 if [[ $gitlabUrl != "" ]]; then
   git clone "$gitlabUrl"
 fi
-
