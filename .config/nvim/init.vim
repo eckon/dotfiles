@@ -1,7 +1,6 @@
-" -------------------- Plugins --------------------
-
+" Plugins {{{1
 call plug#begin()
-  " Tools
+  " Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
@@ -13,7 +12,8 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'wellle/targets.vim'
-  " Syntax/Styling/Appearance
+
+  " Syntax/Styling/Appearance {{{2
   Plug 'Yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
   Plug 'lambdalisue/fern-git-status.vim'
@@ -22,14 +22,16 @@ call plug#begin()
   Plug 'mhinz/vim-signify'
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
-  " Special (compatibility/others)
+
+  " Special (compatibility/others) {{{2
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'tmux-plugins/vim-tmux-focus-events'
+  " }}}2
 call plug#end()
 
 
 
-" -------------------- General Setting --------------------
+" General Configuration {{{1
 "  filetype specific settings can be found in the ftplugin folder
 "  plugin specific settings can be found in the plugin folder
 
@@ -64,7 +66,7 @@ let mapleader = "\<Space>"
 
 
 
-" -------------------- Color/Style Settings --------------------
+" Color/Style {{{1
 
 colorscheme gruvbox
 set cursorline colorcolumn=80,120,121
@@ -73,7 +75,7 @@ set scrolloff=5
 
 
 
-" -------------------- Key Bindings --------------------
+" Key Bindings {{{1
 " plugin specific mappings can be found in the plugin folder
 
 " source current buffer
@@ -122,4 +124,6 @@ nmap <Leader>tn :tabnew<CR>
 nmap <Leader>to :tabonly<CR>
 nmap <Leader>th gT
 nmap <Leader>tl gt
+
+" }}}1
 
