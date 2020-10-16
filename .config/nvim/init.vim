@@ -208,7 +208,6 @@ function! s:show_documentation() abort
     call CocAction('doHover')
   endif
 endfunction
-" }}}3
 
 
 
@@ -239,7 +238,6 @@ augroup FernGroup
   autocmd!
   autocmd FileType fern call FernInit()
 augroup END
-" }}}3
 
 
 
@@ -283,7 +281,6 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :BLines<CR>
 nnoremap <C-h> :BCommits<CR>
 nnoremap <C-p> :GFiles<CR>
-" }}}3
 
 
 
