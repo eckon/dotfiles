@@ -1,0 +1,2 @@
+set foldmethod=marker
+
