@@ -1,2 +1,2 @@
-set foldmethod=marker
+setlocal foldmethod=marker
 
