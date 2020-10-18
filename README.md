@@ -17,7 +17,7 @@ Following programs are installed:
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [tmux](https://github.com/tmux/tmux)
-* [neovim](https://github.com/neovim/neovim)
+* [neovim](https://github.com/neovim/neovim) (v0.5.0+)
 * [vim-plug](https://github.com/junegunn/vim-plug)
 * [fzf](https://github.com/junegunn/fzf)
   * [bat](https://github.com/sharkdp/bat) (this is needed for fzf.vim syntax highlight)

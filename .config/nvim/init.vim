@@ -60,8 +60,13 @@ let g:netrw_dirhistmax = 0
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
-let mapleader = "\<Space>"
+" highlight yanked text with lua
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+augroup END
 
+let mapleader = "\<Space>"
 
 
 " -------------------- Color/Style {{{1
@@ -133,7 +138,6 @@ let g:clever_f_across_no_line = 1
 " essential
 let g:coc_global_extensions = [
   \   'coc-emmet',
-  \   'coc-yank',
   \   'coc-pairs',
   \   'coc-marketplace',
   \ ]
