@@ -1,4 +1,4 @@
-" ---------- Plugin Installations {{{1
+" -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -31,7 +31,7 @@ call plug#end()
 
 
 
-" ---------- General Configuration {{{1
+" -------------------- General Configuration {{{1
 syntax enable
 filetype plugin on
 
@@ -64,7 +64,7 @@ let mapleader = "\<Space>"
 
 
 
-" ---------- Color/Style {{{1
+" -------------------- Color/Style {{{1
 colorscheme gruvbox
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
@@ -72,7 +72,7 @@ set scrolloff=5
 
 
 
-" ---------- General Key Bindings {{{1
+" -------------------- General Key Bindings {{{1
 " source current buffer
 nnoremap <Leader><Leader>s :so %<CR>
 
@@ -121,14 +121,14 @@ nmap <Leader>th gT
 nmap <Leader>tl gt
 
 
-" ---------- Plugin Configurations {{{1
-" ----- clever-f {{{2
+" -------------------- Plugin Configurations {{{1
+" ---------- clever-f {{{2
 let g:clever_f_across_no_line = 1
 
 
 
-" ----- coc {{{2
-" -- Configurations {{{3
+" ---------- coc {{{2
+" ----- Configurations {{{3
 " set coc extensions that should always be installed
 " essential
 let g:coc_global_extensions = [
@@ -160,7 +160,7 @@ let g:coc_global_extensions += [
   \ ]
 
 
-" -- Mappings {{{3
+" ----- Mappings {{{3
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " use K to show documentation in preview window
@@ -212,14 +212,14 @@ endfunction
 
 
 
-" ----- fern {{{2
-" -- Configurations {{{3
+" ---------- fern {{{2
+" ----- Configurations {{{3
 let g:fern#default_hidden = 1
 let g:fern#renderer = 'nerdfont'
 let g:fern#smart_cursor = 'hide'
 
 
-" -- Mappings {{{3
+" ----- Mappings {{{3
 nmap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
 nmap <silent><C-j> :Fern %:h<CR>
 
@@ -242,7 +242,7 @@ augroup END
 
 
 
-" ----- fugitive {{{2
+" ---------- fugitive {{{2
 " quick actions for git status in the same buffer
 nmap <silent><Leader>gs :Gedit :<CR>
 nmap <Leader>gd :Gdiffsplit<CR>
@@ -253,8 +253,8 @@ nmap <Leader>gj :diffget //3<CR>
 
 
 
-" ----- fzf {{{2
-" -- Configurations {{{3
+" ---------- fzf {{{2
+" ----- Configurations {{{3
 " configure the window when using fzf inside of vim (and only inside of vim)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --margin=1,2"
@@ -262,7 +262,7 @@ let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
-" -- Mappings {{{3
+" ----- Mappings {{{3
 " Call ag and pass the hidden flag to also show dotfiles
 " Taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
 command! -bang -nargs=* AgHidden
@@ -285,7 +285,7 @@ nnoremap <C-p> :GFiles<CR>
 
 
 
-" ----- indentline {{{2
+" ---------- indentline {{{2
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_fileTypeExclude = [
   \   'fern',
@@ -297,7 +297,7 @@ let g:indentLine_fileTypeExclude = [
 
 
 
-" ----- lightline {{{2
+" ---------- lightline {{{2
 " configure the status line
 let g:lightline = {
   \   'colorscheme': 'powerline',
@@ -317,7 +317,7 @@ let g:lightline = {
 
 
 
-" ----- nerdcommenter {{{2
+" ---------- nerdcommenter {{{2
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -329,7 +329,7 @@ xmap <Leader>c<Space> <plug>NERDCommenterToggle
 
 
 
-" ----- undotree {{{2
+" ---------- undotree {{{2
 let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 
