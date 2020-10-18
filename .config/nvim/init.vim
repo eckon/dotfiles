@@ -88,20 +88,20 @@ inoremap <F1> <C-v><F1>
 
 " quick safe for different vim modes
 " use <CMD> so that we do not need to reselect in visual mode (gv)
-map <C-s> <CMD>w<CR>
-imap <C-s> <ESC><C-s>
+noremap <C-s> <CMD>w<CR>
+inoremap <C-s> <ESC><C-s>
 
 " moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
-nmap <silent><Leader>wj :wincmd j<CR>
-nmap <silent><Leader>wk :wincmd k<CR>
-nmap <silent><Leader>wh :wincmd h<CR>
-nmap <silent><Leader>wl :wincmd l<CR>
-nmap <silent><Leader>wf :wincmd _ <Bar> :wincmd <Bar> <CR>
-nmap <silent><Leader>we :wincmd =<CR>
-nmap <silent><Leader>w- :wincmd s<CR>
-nmap <silent><Leader>w<Bar> :wincmd v<CR>
-nmap <silent><Leader>wc :wincmd c<CR>
-nmap <silent><Leader>wo :wincmd o<CR>
+nnoremap <silent><Leader>wj :wincmd j<CR>
+nnoremap <silent><Leader>wk :wincmd k<CR>
+nnoremap <silent><Leader>wh :wincmd h<CR>
+nnoremap <silent><Leader>wl :wincmd l<CR>
+nnoremap <silent><Leader>wf :wincmd _ <Bar> :wincmd <Bar> <CR>
+nnoremap <silent><Leader>we :wincmd =<CR>
+nnoremap <silent><Leader>w- :wincmd s<CR>
+nnoremap <silent><Leader>w<Bar> :wincmd v<CR>
+nnoremap <silent><Leader>wc :wincmd c<CR>
+nnoremap <silent><Leader>wo :wincmd o<CR>
 
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
@@ -118,12 +118,12 @@ nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
 " navigating and Managing tabs
-nmap <Leader>tc :tabclose<CR>
-nmap <Leader>tm :tabmove
-nmap <Leader>tn :tabnew<CR>
-nmap <Leader>to :tabonly<CR>
-nmap <Leader>th gT
-nmap <Leader>tl gt
+nnoremap <Leader>tc :tabclose<CR>
+nnoremap <Leader>tm :tabmove
+nnoremap <Leader>tn :tabnew<CR>
+nnoremap <Leader>to :tabonly<CR>
+nnoremap <Leader>th gT
+nnoremap <Leader>tl gt
 
 
 " -------------------- Plugin Configurations {{{1
@@ -224,8 +224,8 @@ let g:fern#smart_cursor = 'hide'
 
 
 " ----- Mappings {{{3
-nmap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
-nmap <silent><C-j> :Fern %:h<CR>
+nnoremap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
+nnoremap <silent><C-j> :Fern %:h<CR>
 
 function! FernInit() abort
   nmap <buffer>* <Plug>(fern-action-mark)
@@ -248,12 +248,12 @@ augroup END
 
 " ---------- fugitive {{{2
 " quick actions for git status in the same buffer
-nmap <silent><Leader>gs :Gedit :<CR>
-nmap <Leader>gd :Gdiffsplit<CR>
+nnoremap <silent><Leader>gs :Gedit :<CR>
+nnoremap <Leader>gd :Gdiffsplit<CR>
 
 " quick actions for git merge conflicts left side 'f' (merge into) right 'j'
-nmap <Leader>gf :diffget //2<CR>
-nmap <Leader>gj :diffget //3<CR>
+nnoremap <Leader>gf :diffget //2<CR>
+nnoremap <Leader>gj :diffget //3<CR>
 
 
 
@@ -338,4 +338,4 @@ let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 
 
-nmap <silent><Leader>u :UndotreeToggle<CR>
+nnoremap <silent><Leader>u :UndotreeToggle<CR>
