@@ -40,6 +40,7 @@ set clipboard+=unnamedplus
 set foldmethod=indent nofoldenable
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
+set inccommand=nosplit
 set lazyredraw
 set nobackup nowritebackup noswapfile undofile
 set noerrorbells
