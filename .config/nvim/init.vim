@@ -263,8 +263,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
 " ----- Mappings {{{3
-" Call ag and pass the hidden flag to also show dotfiles
-" Taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
+" call ag and pass the hidden flag to also show dotfiles
+" taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
 command! -bang -nargs=* AgHidden
   \ call fzf#vim#ag(
   \   <q-args>,
@@ -273,7 +273,7 @@ command! -bang -nargs=* AgHidden
   \ )
 
 " enable usage of ctrl-r (e.g. to paste vim buffer) in fzf windows
-" for the current default buffer press ctrl- + "
+" for the current default buffer press ctrl-"
 tnoremap <expr><C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
 
 " find files, lines, content, mappings, commits in project and open buffers
