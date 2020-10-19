@@ -249,11 +249,19 @@ augroup END
 " ---------- fugitive {{{2
 " quick actions for git status in the same buffer
 nnoremap <silent><Leader>gs :Gedit :<CR>
-nnoremap <Leader>gd :Gdiffsplit<CR>
 
 " quick actions for git merge conflicts left side 'f' (merge into) right 'j'
 nnoremap <Leader>gf :diffget //2<CR>
 nnoremap <Leader>gj :diffget //3<CR>
+
+" other quick actions
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gD :Gdiff<Space>
+nnoremap <Leader>gf :Gfetch<Space>
+nnoremap <Leader>gl :Gpull<Space>
+nnoremap <Leader>gm :Gmerge<Space>
+nnoremap <Leader>gp :Gpush<Space>
 
 
 
