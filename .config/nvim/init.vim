@@ -177,10 +177,10 @@ nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent><Leader>ac <Plug>(coc-codeaction)
-nmap <silent><Leader>rn <Plug>(coc-rename)
-nmap <silent><Leader>f <Plug>(coc-format)
-xmap <silent><Leader>f <Plug>(coc-format-selected)
+nmap <silent><Leader>cac <Plug>(coc-codeaction)
+nmap <silent><Leader>crn <Plug>(coc-rename)
+nmap <silent><Leader>cf <Plug>(coc-format)
+xmap <silent><Leader>cf <Plug>(coc-format-selected)
 
 " use <C-space> to trigger coc code completion
 inoremap <silent><expr><C-space> coc#refresh()
@@ -224,8 +224,8 @@ let g:fern#smart_cursor = 'hide'
 
 
 " ----- Mappings {{{3
-nnoremap <silent><C-n> :Fern . -drawer -reveal=% -toggle<CR>
-nnoremap <silent><C-j> :Fern %:h<CR>
+nnoremap <silent><Leader>od <CMD>Fern . -drawer -reveal=% -toggle<CR>
+nnoremap <silent><Leader>oo <CMD>Fern %:h<CR>
 
 function! FernInit() abort
   nmap <buffer>* <Plug>(fern-action-mark)
@@ -280,12 +280,20 @@ command! -bang -nargs=* AgHidden
 " for the current default buffer press ctrl-"
 tnoremap <expr><C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
 
+" quick way to see all available maps in the current mode
+nmap <Leader><Tab> <Plug>(fzf-maps-n)
+xmap <Leader><Tab> <Plug>(fzf-maps-x)
+omap <Leader><Tab> <Plug>(fzf-maps-o)
+
 " find files, lines, content, mappings, commits in project and open buffers
-nnoremap <C-_> :AgHidden<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :BLines<CR>
-nnoremap <C-h> :BCommits<CR>
-nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>fa <CMD>AgHidden<CR>
+nnoremap <Leader>fb <CMD>Buffers<CR>
+nnoremap <Leader>fc <CMD>BCommits<CR>
+nnoremap <Leader>ff <CMD>GFiles<CR>
+nnoremap <Leader>fh <CMD>History<CR>
+nnoremap <Leader>fl <CMD>BLines<CR>
+nnoremap <Leader>fm <CMD>Marks<CR>
+nnoremap <Leader>fs <CMD>Snippets<CR>
 
 
 
