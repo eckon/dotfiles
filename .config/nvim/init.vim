@@ -23,7 +23,6 @@ call plug#begin()
   Plug 'psliwka/vim-smoothie'
 
   " Special (compatibility/others) {{{2
-  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
   Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
 call plug#end()
