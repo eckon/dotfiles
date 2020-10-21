@@ -96,12 +96,11 @@ nnoremap <silent><Leader>wj :wincmd j<CR>
 nnoremap <silent><Leader>wk :wincmd k<CR>
 nnoremap <silent><Leader>wh :wincmd h<CR>
 nnoremap <silent><Leader>wl :wincmd l<CR>
-nnoremap <silent><Leader>wf :wincmd _ <Bar> :wincmd <Bar> <CR>
-nnoremap <silent><Leader>we :wincmd =<CR>
+nnoremap <silent><Leader>wz :wincmd _ <Bar> :wincmd <Bar> <CR>
+nnoremap <silent><Leader>w= :wincmd =<CR>
 nnoremap <silent><Leader>w- :wincmd s<CR>
 nnoremap <silent><Leader>w<Bar> :wincmd v<CR>
-nnoremap <silent><Leader>wc :wincmd c<CR>
-nnoremap <silent><Leader>wo :wincmd o<CR>
+nnoremap <silent><Leader>w1 :wincmd o<CR>
 
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
