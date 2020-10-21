@@ -36,7 +36,6 @@ plugins=(
 
 
 # -------------------- Source --------------------
-
 # enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -67,7 +66,6 @@ alias cp="cp -v"
 alias clip="xclip -sel clip"
 alias open="xdg-open"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
-
 
 # like normal z when used with arguments but displays an fzf prompt when used without.
 unalias z 2> /dev/null
