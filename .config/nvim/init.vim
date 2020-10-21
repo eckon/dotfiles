@@ -116,11 +116,11 @@ vnoremap > >gv
 nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
-" navigating and Managing tabs
-nnoremap <Leader>tc :tabclose<CR>
+" navigating and managing tabs
+nnoremap <Leader>tx :tabclose<CR>
 nnoremap <Leader>tm :tabmove
-nnoremap <Leader>tn :tabnew<CR>
-nnoremap <Leader>to :tabonly<CR>
+nnoremap <Leader>tc :tabnew<CR>
+nnoremap <Leader>t= :tabonly<CR>
 nnoremap <Leader>th gT
 nnoremap <Leader>tl gt
 
