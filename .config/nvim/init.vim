@@ -30,6 +30,8 @@ call plug#end()
 
 
 " -------------------- General Configuration {{{1
+let mapleader = "\<Space>"
+
 syntax enable
 filetype plugin on
 
@@ -59,20 +61,19 @@ let g:netrw_dirhistmax = 0
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
+
+
+" -------------------- Color/Style Configuration {{{1
+colorscheme gruvbox
+set cursorline colorcolumn=80,120,121
+set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
+set scrolloff=5
+
 " highlight yanked text with lua
 augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
-
-let mapleader = "\<Space>"
-
-
-" -------------------- Color/Style {{{1
-colorscheme gruvbox
-set cursorline colorcolumn=80,120,121
-set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
-set scrolloff=5
 
 
 
@@ -123,6 +124,7 @@ nnoremap <Leader>tn :tabnew<CR>
 nnoremap <Leader>to :tabonly<CR>
 nnoremap <Leader>th gT
 nnoremap <Leader>tl gt
+
 
 
 " -------------------- Plugin Configurations {{{1
