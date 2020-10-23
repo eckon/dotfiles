@@ -225,7 +225,7 @@ let g:fern#smart_cursor = 'hide'
 
 " ----- Mappings {{{3
 nnoremap <silent><Leader>, <CMD>Fern . -drawer -reveal=% -toggle<CR>
-nnoremap <silent><Leader>; <CMD>Fern %:h<CR>
+nnoremap <silent><Leader>. <CMD>Fern %:h<CR>
 
 function! FernInit() abort
   nmap <buffer>* <Plug>(fern-action-mark)
