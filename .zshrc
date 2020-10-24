@@ -65,6 +65,7 @@ alias vv="vim ."
 alias cp="cp -v"
 alias clip="xclip -sel clip"
 alias open="xdg-open"
+alias new="gnome-terminal"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 
 # like normal z when used with arguments but displays an fzf prompt when used without.
