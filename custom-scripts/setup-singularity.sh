@@ -5,9 +5,7 @@ pathApi="/home/eckon/Development/singularity2-api"
 pathFrontend="/home/eckon/Development/singularity2-frontend"
 
 # only run tmux script when the session is not already created
-tmux has-session -t $session 2>/dev/null
-
-if [ $? != 0 ]; then
+if ! (tmux has-session -t $session 2>/dev/null); then
   # handle backend api project view
   tmux new-session -s $session -d -c $pathApi
   tmux rename-window -t $session:1 'Api'
