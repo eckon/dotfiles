@@ -4,6 +4,15 @@ The scripts can be found in the current folder.
 All scripts were only tested and used privately. There is no guarantee that they work on other systems or environments.
 
 Some Information about the scripts:
+- start scripts (for quick start of the workflow)
+  - what it does:
+    - starts needed projects and dependencies to develop on the needed project
+      - e.g.: api repo, frontend repo, database, docker services, etc.
+  - requires:
+    - tmux
+    - dependencies of the project
+  - scripts
+    - [start-singularity](./start-singularity.sh)
 - [gitlab-clone](./gitlab-search-and-clone.sh)
   - what it does:
     - fetches all available repos from the given gitlab (could be updated to use other systems as well)
