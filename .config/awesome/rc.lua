@@ -602,7 +602,7 @@ awful.spawn.with_shell("compton")
 
 
 
--- stuff dmenu, compton, nitrogen
+-- stuff compton, nitrogen
 -- do not forget to mention programs and awesome and linking
 -- disbale capslock for esc
 -- enable to reverse touchpad (like normal) not correct currently
