@@ -595,8 +595,8 @@ beautiful.useless_gap = 5
 -- Autostart
 -- Enable touchpad tapping
 awful.spawn.with_shell("xinput set-prop '11' 'libinput Tapping Enabled' 1")
--- Set background image (first setup with nitrogen ui)
-awful.spawn.with_shell("sleep 1 && nitrogen --restore")
+-- Set background image
+awful.spawn.with_shell("sleep 1 && nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
 -- Enable stuff like transparency
 awful.spawn.with_shell("compton")
 
@@ -607,3 +607,4 @@ awful.spawn.with_shell("compton")
 -- disbale capslock for esc
 -- enable to reverse touchpad (like normal) not correct currently
 -- awful.spawn.with_shell('xinput set-prop "11" "libinput NaturalScrolling Enabled" 1')
+-- add meantion of directory with wallpapers
