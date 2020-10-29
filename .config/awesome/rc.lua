@@ -395,7 +395,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
               {description = "open browser", group = "eckon"}),
 
-    awful.key({ modkey }, "c", function (c) c:kill() end,
+    awful.key({ modkey }, "q", function (c) c:kill() end,
               {description = "close", group = "eckon"})
 )
 
