@@ -392,6 +392,9 @@ clientkeys = gears.table.join(
         {description = "(un)maximize horizontally", group = "client"}),
 
     -- Custom Keybindings
+    awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("slock") end,
+              {description = "lock screen", group = "eckon"}),
+
     awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
               {description = "open browser", group = "eckon"}),
 
@@ -602,7 +605,7 @@ awful.spawn.with_shell("compton")
 
 
 
--- stuff compton, nitrogen
+-- stuff compton, nitrogen, suckless-tools (slock for locking could change later)
 -- do not forget to mention programs and awesome and linking
 -- disbale capslock for esc
 -- enable to reverse touchpad (like normal) not correct currently
