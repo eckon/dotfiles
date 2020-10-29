@@ -389,7 +389,14 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+
+    -- Custom Keybindings
+    awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
+              {description = "open browser", group = "eckon"}),
+
+    awful.key({ modkey }, "c", function (c) c:kill() end,
+              {description = "close", group = "eckon"})
 )
 
 -- Bind all key numbers to tags.
