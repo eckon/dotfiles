@@ -602,12 +602,3 @@ awful.spawn.with_shell("xinput set-prop '11' 'libinput Tapping Enabled' 1")
 awful.spawn.with_shell("sleep 1 && nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
 -- Enable stuff like transparency
 awful.spawn.with_shell("compton")
-
-
-
--- stuff compton, nitrogen, suckless-tools (slock for locking could change later)
--- do not forget to mention programs and awesome and linking
--- disbale capslock for esc
--- enable to reverse touchpad (like normal) not correct currently
--- awful.spawn.with_shell('xinput set-prop "11" "libinput NaturalScrolling Enabled" 1')
--- add meantion of directory with wallpapers

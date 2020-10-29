@@ -16,6 +16,11 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 Following programs are installed:
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+* [awesome wm](https://awesomewm.org/)
+  * [compton](https://github.com/chjj/compton)
+  * [nitrogen](https://github.com/l3ib/nitrogen)
+  * suckless-tools
+    * [slock](https://tools.suckless.org/slock/)
 * [tmux](https://github.com/tmux/tmux)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
 * [vim-plug](https://github.com/junegunn/vim-plug)
@@ -33,6 +38,8 @@ Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files (then only edit in the git repo)
   * the nvim directory can be linked completely
     * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
+  * the same can be done with the whole awesome directory
+    * do not forget the wallpapers directory for nitrogen `~/Pictures/Wallpapers`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
