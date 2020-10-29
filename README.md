@@ -17,7 +17,6 @@ Following programs are installed:
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [tmux](https://github.com/tmux/tmux)
-* [regolith](https://regolith-linux.org/docs/getting-started/install/#option-2-ppa)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
 * [vim-plug](https://github.com/junegunn/vim-plug)
 * [fzf](https://github.com/junegunn/fzf)
