@@ -599,8 +599,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 5
 
 -- Autostart
--- Enable touchpad tapping
-awful.spawn.with_shell("xinput set-prop '11' 'libinput Tapping Enabled' 1")
 -- Set background image
 awful.spawn.with_shell("sleep 1 && nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
 -- Enable stuff like transparency
