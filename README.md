@@ -21,6 +21,7 @@ Following programs are installed:
   * [nitrogen](https://github.com/l3ib/nitrogen)
   * suckless-tools
     * [slock](https://tools.suckless.org/slock/)
+    * [dmenu](https://tools.suckless.org/dmenu/)
 * [tmux](https://github.com/tmux/tmux)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
 * [vim-plug](https://github.com/junegunn/vim-plug)
