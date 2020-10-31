@@ -340,25 +340,25 @@ globalkeys = gears.table.join(
                     )
                   end
               end,
-              {description = "restore minimized", group = "client"}),
+              {description = "restore minimized", group = "client"})
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"}),
+    -- awful.key({ modkey }, "x",
+    --           function ()
+    --               awful.prompt.run {
+    --                 prompt       = "Run Lua code: ",
+    --                 textbox      = awful.screen.focused().mypromptbox.widget,
+    --                 exe_callback = awful.util.eval,
+    --                 history_path = awful.util.get_cache_dir() .. "/history_eval"
+    --               }
+    --           end,
+    --           {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -408,10 +408,10 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("slock") end,
               {description = "lock screen", group = "eckon"}),
 
-    awful.key({ modkey }, ".", function () awful.util.spawn("rofi -show drun") end,
+    awful.key({ modkey }, ",", function () awful.util.spawn("rofi -show drun") end,
               {description = "open application launcher", group = "eckon"}),
 
-    awful.key({ modkey }, ",", function () awful.util.spawn("rofi -show window") end,
+    awful.key({ modkey }, ".", function () awful.util.spawn("rofi -show window") end,
               {description = "open window switcher", group = "eckon"}),
 
     awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
