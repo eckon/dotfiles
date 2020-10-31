@@ -40,7 +40,7 @@ Following commands/configs should be run/set on fresh install:
   * the nvim directory can be linked completely
     * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
   * the same can be done with the whole awesome directory
-    * do not forget the wallpapers directory for nitrogen `~/Pictures/Wallpapers`
+    * wallpaper can be set in the theme or by adding `wallpaper.jpg` in the awesome config folder
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
