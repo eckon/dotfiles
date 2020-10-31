@@ -114,8 +114,8 @@ end
 
 
 -- Enable awesome icon on the launcher bar
--- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
---                                      menu = mymainmenu })
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+                                     menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -188,7 +188,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5" --[[, "6", "7", "8", "9" --]] }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -222,7 +222,8 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- disable launcher icon in wibar
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -232,7 +233,8 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            s.mylayoutbox,
+            -- disable layout symbol in wibar
+            -- s.mylayoutbox,
         },
     }
 end)
@@ -599,10 +601,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 10
 
 -- Autostart
--- Set background image
-awful.spawn.with_shell("sleep 1 && nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
 -- Enable stuff like transparency
 awful.spawn.with_shell("compton")
