@@ -18,7 +18,7 @@ Following programs are installed:
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [awesome wm](https://awesomewm.org/)
   * [compton](https://github.com/chjj/compton)
-  * [nitrogen](https://github.com/l3ib/nitrogen)
+  * [rofi](https://github.com/davatorium/rofi)
   * suckless-tools
     * [slock](https://tools.suckless.org/slock/)
     * [dmenu](https://tools.suckless.org/dmenu/)

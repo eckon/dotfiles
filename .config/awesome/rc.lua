@@ -395,8 +395,11 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("slock") end,
               {description = "lock screen", group = "eckon"}),
 
-    awful.key({ modkey }, "d", function () awful.util.spawn("dmenu_run") end,
-              {description = "run dmenu", group = "eckon"}),
+    awful.key({ modkey }, ".", function () awful.util.spawn("rofi -show drun") end,
+              {description = "open application launcher", group = "eckon"}),
+
+    awful.key({ modkey }, ",", function () awful.util.spawn("rofi -show window") end,
+              {description = "open window switcher", group = "eckon"}),
 
     awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
               {description = "open browser", group = "eckon"}),
