@@ -8,4 +8,5 @@ configuration {
   display-run: "Command";
   display-window: "Focus";
   display-ssh: "Server";
+  font: "SpaceMono Nerd Font Black 12";
 }
