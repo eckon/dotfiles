@@ -5,13 +5,14 @@
 
     fg:               #f8f8f2;
     bg:               #282a36;
+    bg-transparent:   rgba(40, 42, 50, 0.6);
     blackselect:      #44475a;
     cyan:             #8be9fd;
-    background-color: @bg;
+    background-color: @bg-transparent;
 }
 
 window {
-    background-color: @bg;
+    background-color: @bg-transparent;
     border:           0;
     padding:          0;
     anchor:           north;
@@ -20,19 +21,19 @@ window {
 }
 
 mainbox {
-    background-color: @bg;
+    background-color: @bg-transparent;
     spacing:          0px;
     children: [inputbar, message, mode-switcher, listview];
 }
 
 message {
     padding: 6px 10px;
-    background-color:@bg;
+    background-color: @bg-transparent;
 }
 
 textbox {
-    text-color:@cyan;
-    background-color:@bg;
+    text-color: @cyan;
+    background-color: @bg-transparent;
 }
 
 listview {
@@ -42,7 +43,7 @@ listview {
     spacing: 0px;
     padding: 1px 0px 0px 0px;
     margin: 0px 0px 1px 0px;
-    background: @bg;
+    background: @bg-transparent;
 }
 
 element {
@@ -51,17 +52,17 @@ element {
 
 element normal.normal {
     padding: 0px 15px;
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color: @fg;
 }
 
 element normal.urgent {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color: @urgentcolor;
 }
 
 element normal.active {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color: @maincolor;
 }
 
@@ -81,32 +82,32 @@ element selected.active {
 }
 
 element alternate.normal {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color:       @fg;
 }
 
 element alternate.urgent {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color:       @urgentcolor;
 }
 
 element alternate.active {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color:       @maincolor;
 }
 
 scrollbar {
-    background-color: @bg;
+    background-color: @bg-transparent;
     handle-color: @cyan;
     handle-width: 15px;
 }
 
 mode-switcher {
-    background-color: @bg;
+    background-color: @bg-transparent;
 }
 
 button {
-    background-color: @bg;
+    background-color: @bg-transparent;
     text-color:       @cyan;
 }
 
@@ -115,24 +116,24 @@ button selected {
 }
 
 inputbar {
-    background-color: @bg;
+    background-color: @bg-transparent;
     spacing: 0px;
 }
 
 prompt {
-    padding:6px 9px;
+    padding: 6px 9px;
     background-color: @maincolor;
-    text-color:@bg;
+    text-color: @bg;
 }
 
 entry {
-    padding:6px 10px;
-    background-color:@bg;
-    text-color:@fg;
+    padding: 6px 10px;
+    background-color: @bg-transparent;
+    text-color: @fg;
 }
 
 case-indicator {
-    padding:6px 10px;
-    text-color:@maincolor;
-    background-color:@bg;
+    padding: 6px 10px;
+    text-color: @maincolor;
+    background-color: @bg-transparent;
 }
