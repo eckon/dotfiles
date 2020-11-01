@@ -3,7 +3,7 @@ configuration {
   theme: ".config/rofi/theme";
   columns: 3;
   width: 100;
-  modi: "drun,window,run,ssh";
+  modi: "drun,window,run";
   display-drun: "Apps";
   display-run: "Command";
   display-window: "Focus";
