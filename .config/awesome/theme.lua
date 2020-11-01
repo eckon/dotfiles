@@ -95,7 +95,7 @@ theme.gtk.menubar_border_color = mix(
     0.7
 )
 
-
+theme.gtk.font_size = 12
 theme.font          = theme.gtk.font_family .. ' ' .. theme.gtk.font_size
 
 theme.bg_normal     = theme.gtk.bg_color
@@ -104,6 +104,8 @@ theme.fg_normal     = theme.gtk.fg_color
 theme.wibar_bg      = theme.gtk.menubar_bg_color
 theme.wibar_fg      = theme.gtk.menubar_fg_color
 
+theme.gtk.selected_bg_color = "#50fa7b"
+theme.gtk.selected_fg_color = theme.gtk.menubar_bg_color
 theme.bg_focus      = theme.gtk.selected_bg_color
 theme.fg_focus      = theme.gtk.selected_fg_color
 
@@ -116,7 +118,7 @@ theme.fg_minimize   = mix(theme.wibar_fg, theme.wibar_bg, 0.9)
 theme.bg_systray    = theme.wibar_bg
 
 theme.border_normal = theme.gtk.wm_border_unfocused_color
-theme.border_focus  = theme.gtk.wm_border_focused_color
+theme.border_focus  = theme.gtk.selected_bg_color
 theme.border_marked = theme.gtk.success_color
 
 theme.border_width  = dpi(theme.gtk.button_border_width or 1)
