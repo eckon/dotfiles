@@ -405,19 +405,19 @@ clientkeys = gears.table.join(
         {description = "(un)maximize horizontally", group = "client"}),
 
     -- Custom Keybindings
-    awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("slock") end,
+    awful.key({ modkey, "Control" }, "Escape", function () awful.spawn.with_shell("slock") end,
               {description = "lock screen", group = "eckon"}),
 
-    awful.key({ modkey }, ",", function () awful.util.spawn("rofi -show drun") end,
+    awful.key({ modkey }, ",", function () awful.spawn.with_shell("rofi -show drun") end,
               {description = "open application launcher", group = "eckon"}),
 
-    awful.key({ modkey }, ".", function () awful.util.spawn("rofi -show window") end,
+    awful.key({ modkey }, ".", function () awful.spawn.with_shell("rofi -show window") end,
               {description = "open window switcher", group = "eckon"}),
 
-    awful.key({ modkey }, "r", function () awful.util.spawn("rofi -show run") end,
+    awful.key({ modkey }, "r", function () awful.spawn.with_shell("rofi -show run") end,
               {description = "open window switcher", group = "eckon"}),
 
-    awful.key({ modkey }, "b", function () awful.util.spawn("firefox") end,
+    awful.key({ modkey }, "b", function () awful.spawn.with_shell("firefox") end,
               {description = "open browser", group = "eckon"}),
 
     awful.key({ modkey }, "q", function (c) c:kill() end,
@@ -619,4 +619,4 @@ beautiful.useless_gap = 10
 
 -- Autostart
 -- Enable stuff like transparency
-awful.spawn.with_shell("compton")
+awful.spawn.once("compton")
