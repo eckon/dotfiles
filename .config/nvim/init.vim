@@ -91,6 +91,8 @@ inoremap <F1> <C-v><F1>
 noremap <C-s> <CMD>w<CR>
 imap <C-s> <ESC><C-s>
 
+" Y should behave like other uppercase commands (until end of line)
+nnoremap Y y$
 " moving between and Resizing windows (eqiuvalent to <Ctrl-W>)
 nnoremap <silent><Leader>wj :wincmd j<CR>
 nnoremap <silent><Leader>wk :wincmd k<CR>
