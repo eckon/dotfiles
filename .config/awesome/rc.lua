@@ -22,14 +22,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
--- Load extra custom widgets
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
-local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
-local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -121,12 +113,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-local cw = calendar_widget({ placement = "top_right" })
 mytextclock = wibox.widget.textclock()
-mytextclock:connect_signal("button::press",
-    function(_, _, _, button)
-        if button == 1 then cw.toggle() end
-    end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -232,19 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             mykeyboardlayout,
-            docker_widget(),
             mytextclock,
-            volumearc_widget(),
-            batteryarc_widget({
-                show_current_level = true,
-            }),
-            ram_widget(),
-            cpu_widget({
-                color = '#434c5e',
-                step_width = 1,
-                step_spacing = 0,
-                width = 25,
-            }),
             s.mylayoutbox,
         },
     }
