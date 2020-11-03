@@ -69,6 +69,15 @@ set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
 
+" custom transparency setting (mainly signify and background)
+let enableTransparency = 1
+
+if enableTransparency
+  " set background to be non visible (transparent)
+  highlight Normal guibg=NONE ctermbg=NONE
+  highlight SignColumn guibg=NONE ctermbg=NONE
+endif
+
 " highlight yanked text with lua
 augroup highlight_yank
   autocmd!
@@ -348,6 +357,16 @@ let g:NERDCommentEmptyLines = 1
 
 nmap <Leader>c<Space> <plug>NERDCommenterToggle
 xmap <Leader>c<Space> <plug>NERDCommenterToggle
+
+
+
+" ---------- signify {{{2
+if enableTransparency
+  " set background of sign column to be non visible (transparency)
+  highlight SignifySignAdd guibg=NONE ctermbg=NONE ctermfg=green
+  highlight SignifySignChange guibg=NONE ctermbg=NONE ctermfg=red
+  highlight SignifySignDelete guibg=NONE ctermbg=NONE ctermfg=yellow
+endif
 
 
 
