@@ -219,6 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             mykeyboardlayout,
+            awful.widget.watch(gears.filesystem.get_configuration_dir() .. "menubar.sh", 10),
             mytextclock,
             s.mylayoutbox,
         },
