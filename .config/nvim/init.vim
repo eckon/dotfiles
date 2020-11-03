@@ -262,8 +262,7 @@ nnoremap <Leader>gj :diffget //3<CR>
 
 " other quick actions
 nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gD :Gdiff<Space>
+nnoremap <Leader>gd :Gdiff<Space>
 nnoremap <Leader>gf :Gfetch<Space>
 nnoremap <Leader>gl :Gpull<Space>
 nnoremap <Leader>gm :Gmerge<Space>
