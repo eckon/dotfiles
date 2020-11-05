@@ -390,6 +390,9 @@ clientkeys = gears.table.join(
     awful.key({ modkey }, ".", function () awful.spawn.with_shell("rofi -show window") end,
               {description = "open window switcher", group = "eckon"}),
 
+    awful.key({ modkey }, "-", function () awful.spawn.with_shell(terminal .. " -e take-note") end,
+              {description = "open note taker", group = "eckon"}),
+
     awful.key({ modkey }, "r", function () awful.spawn.with_shell("rofi -show run") end,
               {description = "open window switcher", group = "eckon"}),
 

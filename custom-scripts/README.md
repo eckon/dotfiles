@@ -13,6 +13,12 @@ Some Information about the scripts:
     - dependencies of the project
   - scripts
     - [start-singularity](./start-singularity.sh)
+- [take-note](./take-note.sh)
+  - what it does:
+    - create a note per day in `~/Documents/notes/` with a date title
+    - opens a nvim buffer and inserts title with current time
+  - requires:
+    - [nvim](https://neovim.io/)
 - [gitlab-clone](./gitlab-search-and-clone.sh)
   - what it does:
     - fetches all available repos from the given gitlab (could be updated to use other systems as well)
