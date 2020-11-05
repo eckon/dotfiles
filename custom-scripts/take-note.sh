@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 path="$HOME/Documents/notes"
-if [ ! -f $path ]; then
-  mkdir -p $path
+if [ ! -f "$path" ]; then
+  mkdir -p "$path"
 fi
 
 file="$path/note-$(date +%Y-%m-%d).md"
-if [ ! -f $file ]; then
-  echo "# Notes $(date +%Y-%m-%d)" > $file
+if [ ! -f "$file" ]; then
+  echo "# Notes $(date +%Y-%m-%d)" > "$file"
 fi
 
-nvim $file \
+nvim "$file" \
   -c "startinsert" \
   -c "CocDisable" \
   -c "norm G2o" \
