@@ -1,26 +1,36 @@
 #!/usr/bin/env bash
 
-mem() {
-  mem="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
-  echo "Mem: $mem"
+memory() {
+  memory="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
+  echo "Mem: $memory"
 }
 
-vol() {
-  vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{print $4":"$2}')"
-  echo "Vol: $vol"
+volume() {
+  state="$(amixer -D pulse get Master | awk -F'[][]' 'END{print $4}')"
+  if [ "$state" = "off" ]; then
+    echo "Vol: OFF"
+    return
+  fi
+
+  volume="$(amixer -D pulse get Master | awk -F'[][]' 'END{print $2}')"
+  echo "Vol: $volume"
 }
 
-bat() {
+battery() {
   battery="$(cat /sys/class/power_supply/BAT0/capacity)"
   status="$(cat /sys/class/power_supply/BAT0/status)"
 
   if [ "$status" = "Discharging" ]; then
-    chargeSymbol="(-)"
-  else
-    chargeSymbol="(+)"
+    echo "Bat(-): $battery%"
+    return
   fi
 
-  echo "Bat$chargeSymbol: $battery%"
+  if [ "$battery" -lt 95 ]; then
+    echo "Bat(+): $battery%"
+    return
+  fi
+
+  echo "Bat: 100%"
 }
 
-echo "| $(mem) | $(vol) | $(bat) |"
+echo "| $(memory) | $(volume) | $(battery) |"
