@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 session="Singularity"
-pathApi="/home/eckon/Development/singularity2-api"
-pathFrontend="/home/eckon/Development/singularity2-frontend"
+pathApi="$HOME/Development/singularity2-api"
+pathFrontend="$HOME/Development/singularity2-frontend"
 
 # only run tmux script when the session is not already created
 if ! (tmux has-session -t $session 2>/dev/null); then
