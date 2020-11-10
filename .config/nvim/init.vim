@@ -90,6 +90,9 @@ augroup END
 " source current buffer
 nnoremap <Leader><Leader>s :so %<CR>
 
+" open todo of current project
+nnoremap <Leader><Leader>- <CMD>silent !x-terminal-emulator -e take-note $(basename $(pwd))<CR>
+
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
