@@ -15,10 +15,14 @@ Some Information about the scripts:
     - [start-singularity](./start-singularity.sh)
 - [take-note](./take-note.sh)
   - what it does:
-    - create a note per day in `~/Documents/notes/` with a date title
-    - opens a nvim buffer and inserts title with current time
+    - without parameter
+      - create a note per day in `~/Documents/notes/` with a date title
+    - with parameter
+      - creates a note per project in `~/Documents/notes/project/` with the project as title
+    - opens a nvim buffer and inserts title (with current time)
   - requires:
     - [nvim](https://neovim.io/)
+    - might have to update script to use different terminal emulator
 - [gitlab-clone](./gitlab-search-and-clone.sh)
   - what it does:
     - fetches all available repos from the given gitlab (could be updated to use other systems as well)
