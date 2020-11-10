@@ -30,7 +30,7 @@ battery() {
     return
   fi
 
-  echo "Bat: 100%"
+  echo "Bat: FULL"
 }
 
 echo "| $(memory) | $(volume) | $(battery) |"
