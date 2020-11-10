@@ -19,6 +19,7 @@ Some Information about the scripts:
       - create a note per day in `~/Documents/notes/` with a date title
     - with parameter
       - creates a note per project in `~/Documents/notes/project/` with the project as title
+      - example: `$ x-terminal-emulator -e take-note $(basename $(pwd))`
     - opens a nvim buffer and inserts title (with current time)
   - requires:
     - [nvim](https://neovim.io/)
