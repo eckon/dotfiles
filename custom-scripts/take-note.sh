@@ -37,5 +37,5 @@ if [ $# -gt 0 ]; then
 
   nvim "$file" \
     -c "CocDisable" \
-    -c "normal Gzz"
+    -c "normal 50%zz"
 fi
