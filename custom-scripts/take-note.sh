@@ -18,11 +18,14 @@ if [ $# = 0 ]; then
   fi
 
   nvim "$file" \
-    -c "startinsert" \
-    -c "CocDisable" \
     -c "normal G2o" \
     -c "normal Do## $(date +%H:%M)" \
     -c "normal G2o" \
+    -c "startinsert" \
+    -c "CocDisable" \
+    -c "setlocal wrap" \
+    -c "nnoremap <buffer> j gj" \
+    -c "nnoremap <buffer> k gk" \
     -c "normal zz"
 fi
 
@@ -37,5 +40,8 @@ if [ $# -gt 0 ]; then
 
   nvim "$file" \
     -c "CocDisable" \
+    -c "setlocal wrap" \
+    -c "nnoremap <buffer> j gj" \
+    -c "nnoremap <buffer> k gk" \
     -c "normal 50%zz"
 fi
