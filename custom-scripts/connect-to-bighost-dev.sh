@@ -16,4 +16,4 @@ container=$(
   echo "$serviceInfo" | awk '{print $2}'
 )
 
-ssh -t "$host" "docker exec -it $container bash"
+ssh -t "$host" "docker exec -w '/opt/myWebsites/singularity/www/cli/' -it $container bash"
