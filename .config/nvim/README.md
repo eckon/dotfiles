@@ -10,6 +10,7 @@
 
 - vim-fugitive
   - in git-status
+    - `g?` open help menu with fugitive mappings in git-status
     - `=` show changes (on title or chunk)
     - `o` and `<ENTER>` to open file at chunk
     - `cc` will open commit window like `:Gcommit<ENTER>`
