@@ -15,6 +15,7 @@ call plug#begin()
   " Syntax/Styling/Appearance {{{2
   Plug 'Yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
@@ -147,7 +148,6 @@ let g:clever_f_across_no_line = 1
 " essential
 let g:coc_global_extensions = [
   \   'coc-emmet',
-  \   'coc-pairs',
   \   'coc-marketplace',
   \ ]
 " general

@@ -42,7 +42,7 @@ Following commands/configs should be run/set on fresh install:
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
-  * coc will enable `emmet`, `auto-pairs` and `yank-highlighting` functionality next to the "normal" language server protocols
+  * coc will enable `emmet` functionality next to the "normal" language server protocols
   * use marketplace for easy search of wanted extensions with `:CocList marketplace`
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
