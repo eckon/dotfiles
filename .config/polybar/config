@@ -87,21 +87,10 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/backlight
 card = intel_backlight
 
-format = <label> <bar>
+format = <label>
 label = %{F#555}BL%{F-} %percentage%%
 ; needs permission https://github.com/polybar/polybar/wiki/Module:-backlight
 enable-scroll = false
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
