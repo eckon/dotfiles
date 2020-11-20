@@ -24,7 +24,7 @@ border-color = #00000000
 
 padding = 0
 padding-left = 0
-padding-right = 2
+padding-right = 5
 
 module-margin-left = 1
 module-margin-right = 2
@@ -39,8 +39,8 @@ modules-left = bspwm i3
 modules-center = date
 modules-right = filesystem alsa xkeyboard memory cpu wlan eth temperature battery
 
-tray-position = right
-tray-padding = 2
+tray-position = left
+tray-padding = 5
 tray-offset-y = 2
 tray-offset-x = -2
 ;tray-background = #0063ff
