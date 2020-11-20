@@ -202,7 +202,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -599,3 +599,5 @@ beautiful.useless_gap = 10
 -- Autostart
 -- Enable stuff like transparency
 awful.spawn.once("compton")
+-- Enable custom bar
+awful.spawn.with_shell("~/.config/polybar/launch.sh")
