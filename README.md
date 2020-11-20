@@ -18,6 +18,8 @@ Following programs are installed:
 * [awesome wm](https://awesomewm.org/)
   * [compton](https://github.com/chjj/compton)
   * [rofi](https://github.com/davatorium/rofi)
+  * [polybar](https://github.com/polybar/polybar)
+  * [nitrogen](https://github.com/l3ib/nitrogen)
   * suckless-tools
     * [slock](https://tools.suckless.org/slock/)
     * [dmenu](https://tools.suckless.org/dmenu/)
@@ -37,8 +39,8 @@ Following programs are installed:
 Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files (then only edit in the git repo)
   * the nvim/awesome/rofi directory can be linked completely
-    * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
-    * (wallpaper can be set in the theme or by adding `wallpaper.jpg` in the awesome config folder)
+  * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
+  * `wallpapers` should be linked to `~/Pictures/wallpapers/`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
