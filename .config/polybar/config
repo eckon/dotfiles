@@ -19,9 +19,10 @@ foreground = ${colors.foreground}
 line-size = 1
 line-color = #f00
 
-border-size = 0
+border-size = 2
 border-color = #00000000
 
+padding = 0
 padding-left = 0
 padding-right = 2
 
@@ -40,6 +41,8 @@ modules-right = filesystem alsa xkeyboard memory cpu wlan eth temperature batter
 
 tray-position = right
 tray-padding = 2
+tray-offset-y = 2
+tray-offset-x = -2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
