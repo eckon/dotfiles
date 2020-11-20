@@ -44,7 +44,7 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = xkeyboard backlight alsa
+modules-left = xkeyboard backlight alsa spotify
 modules-center = date
 modules-right = filesystem memory cpu network eth temperature battery
 
@@ -186,5 +186,13 @@ format-warn-underline = ${colors.critical}
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
+
+[module/spotify]
+type = custom/script
+interval = 5
+format-prefix = "MUSIC "
+format-prefix-foreground = ${colors.foreground-alt}
+format = <label>
+exec = python3 ~/.config/polybar/spotify_status.py -f '{artist}: {song} - {album}' -t 100
 
 ; vim:ft=dosini
