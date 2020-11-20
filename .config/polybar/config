@@ -34,7 +34,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 ; keep bspwm/i3 otherwise you can not click multiple times on the bar
-modules-left = bspwm i3 powermenu
+modules-left = bspwm i3
 modules-center = date
 modules-right = filesystem alsa xkeyboard memory cpu wlan eth temperature battery
 
