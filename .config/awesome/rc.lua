@@ -139,7 +139,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, height = 20 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -154,7 +154,6 @@ awful.screen.connect_for_each_screen(function(s)
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             s.mylayoutbox,
         },
     }
@@ -505,7 +504,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 10
+beautiful.useless_gap = 5
 
 -- Autostart
 -- Enable stuff like transparency
