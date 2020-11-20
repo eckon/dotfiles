@@ -10,15 +10,11 @@ alert = #bd2c40
 [settings]
 screenchange-reload = true
 format-underline =
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
+format-overline =
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 [bar/bar]
 width = 100%
@@ -48,7 +44,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 ; keep bspwm/i3 otherwise you can not click multiple times on the bar
-modules-left = bspwm i3
+modules-left = bspwm i3 xwindow
 modules-center = date
 modules-right = filesystem alsa xkeyboard memory cpu wlan eth temperature battery
 
@@ -56,12 +52,14 @@ tray-position = left
 tray-padding = 5
 tray-offset-y = 1
 tray-offset-x = -2
-;tray-background = #0063ff
+tray-background =
 
 ;wm-restack = bspwm
 ;wm-restack = i3
 
-;override-redirect = true
+override-redirect = false
+enable-ipc = true
+seperator =
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
