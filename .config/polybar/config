@@ -7,6 +7,19 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[settings]
+screenchange-reload = true
+format-underline =
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
 [bar/bar]
 width = 100%
 height = 25
@@ -41,7 +54,7 @@ modules-right = filesystem alsa xkeyboard memory cpu wlan eth temperature batter
 
 tray-position = left
 tray-padding = 5
-tray-offset-y = 2
+tray-offset-y = 1
 tray-offset-x = -2
 ;tray-background = #0063ff
 
@@ -391,16 +404,5 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini
