@@ -12,15 +12,10 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 -- require("awful.hotkeys_popup.keys")
-
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -49,6 +44,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
+--- TODO: get all styling out of seperate file and in here
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -71,49 +67,7 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
-
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
-
--- Enable awesome icon on the launcher bar
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -155,30 +109,10 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
-
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
-
 awful.screen.connect_for_each_screen(function(s)
-    -- Wallpaper
-    set_wallpaper(s)
-
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-    -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -209,18 +143,15 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- disable launcher icon in wibar
-            -- mylauncher,
             s.mytaglist,
-            s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        { -- Middle widget
+            layout = wibox.layout.fixed.horizontal,
+            s.mytasklist,
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            mykeyboardlayout,
-            awful.widget.watch(gears.filesystem.get_configuration_dir() .. "menubar.sh", 10),
-            mytextclock,
             s.mylayoutbox,
         },
     }
@@ -317,24 +248,6 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"})
-
-    -- Prompt
-    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-    --           {description = "run prompt", group = "launcher"}),
-
-    -- awful.key({ modkey }, "x",
-    --           function ()
-    --               awful.prompt.run {
-    --                 prompt       = "Run Lua code: ",
-    --                 textbox      = awful.screen.focused().mypromptbox.widget,
-    --                 exe_callback = awful.util.eval,
-    --                 history_path = awful.util.get_cache_dir() .. "/history_eval"
-    --               }
-    --           end,
-    --           {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    -- awful.key({ modkey }, "p", function() menubar.show() end,
-    --           {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -599,5 +512,7 @@ beautiful.useless_gap = 10
 -- Autostart
 -- Enable stuff like transparency
 awful.spawn.once("compton")
+--- Set wallpaper
+awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/.config/awesome")
 -- Enable custom bar
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
