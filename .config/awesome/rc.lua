@@ -44,7 +44,6 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
---- TODO: get all styling out of seperate file and in here
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -309,7 +308,7 @@ clientkeys = gears.table.join(
               {description = "open note taker", group = "eckon"}),
 
     awful.key({ modkey }, "r", function () awful.spawn.with_shell("rofi -show run") end,
-              {description = "open window switcher", group = "eckon"}),
+              {description = "open run prompt", group = "eckon"}),
 
     awful.key({ modkey }, "b", function () awful.spawn.with_shell("firefox") end,
               {description = "open browser", group = "eckon"}),
@@ -502,9 +501,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- Gaps
-beautiful.useless_gap = 5
 
 -- Autostart
 -- Enable stuff like transparency
