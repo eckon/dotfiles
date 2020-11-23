@@ -20,14 +20,8 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 # -------------------- Plugins --------------------
 plugins=(
-  cargo
   docker
   docker-compose
-  git
-  ng
-  nvm
-  rust
-  tmux
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -42,6 +36,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+# unset aliases from oh-my-zsh plugins
+# I mainly want to use them for autocompletion and functionaliy not aliases
+unalias -a
 
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -62,7 +60,6 @@ alias vim="nvim"
 alias vi="vim"
 alias v="vim"
 alias vv="vim ."
-alias cp="cp -v"
 alias clip="xclip -sel clip"
 alias open="xdg-open"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
