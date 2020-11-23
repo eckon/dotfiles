@@ -123,7 +123,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
-        filter  = awful.widget.taglist.filter.all,
+        -- Only show the tag when it has at has more than one client
+        filter  = function (t) return t.selected or #t:clients() > 0 end,
         buttons = taglist_buttons
     }
 
@@ -506,6 +507,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Enable stuff like transparency
 awful.spawn.once("compton")
 --- Set wallpaper
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/wallpapers")
+-- awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/wallpapers")
 -- Enable custom bar
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
