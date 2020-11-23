@@ -507,6 +507,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Enable stuff like transparency
 awful.spawn.once("compton")
 --- Set wallpaper
--- awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/wallpapers")
+awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/wallpapers")
 -- Enable custom bar
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
