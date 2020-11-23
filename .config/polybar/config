@@ -160,8 +160,9 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
+; get the correct interfaces with $ ls -1 /sys/class/power_supply/
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 95
 
 format-charging = <label-charging>
