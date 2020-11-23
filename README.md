@@ -15,6 +15,9 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 Following programs are installed:
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+  * Additional plugins that are not in oh-my-zsh have to be installed in `$ZSH_CUSTOM/custom/plugins`
+    * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [awesome wm](https://awesomewm.org/)
   * [compton](https://github.com/chjj/compton)
   * [rofi](https://github.com/davatorium/rofi)
