@@ -22,6 +22,7 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 plugins=(
   docker
   docker-compose
+  extract
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
