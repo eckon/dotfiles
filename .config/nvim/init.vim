@@ -14,6 +14,7 @@ call plug#begin()
 
   " Syntax/Styling/Appearance {{{2
   Plug 'Yggdroot/indentLine'
+  Plug 'chrisbra/Colorizer'
   Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'lambdalisue/fern-git-status.vim'
