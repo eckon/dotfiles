@@ -23,6 +23,7 @@ plugins=(
   docker
   docker-compose
   extract
+  nvm
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
