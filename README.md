@@ -13,6 +13,8 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 ## Used software
 
 Following programs are installed:
+* [alacritty](https://github.com/alacritty/alacritty)
+  * For ubuntu etc. use following [PPA](https://launchpad.net/~mmstick76/+archive/ubuntu/alacritty)
 * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   * Additional plugins that are not in oh-my-zsh have to be installed in `$ZSH_CUSTOM/custom/plugins`
@@ -41,7 +43,8 @@ Following programs are installed:
 
 Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files (then only edit in the git repo)
-  * the nvim/awesome/rofi directory can be linked completely
+  * the nvim/awesome/rofi/alacritty directory can be linked completely
+    * for the future - maybe link the whole .config file and use .gitignore for ignoring others
   * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
   * `wallpapers` should be linked to `~/Pictures/wallpapers/`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
