@@ -11,6 +11,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+  Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'Yggdroot/indentLine'
@@ -91,9 +92,6 @@ augroup END
 " -------------------- General Key Bindings {{{1
 " source current buffer
 nnoremap <Leader><Leader>s :so %<CR>
-
-" open todo of current project
-nnoremap <Leader><Leader>- <CMD>silent !x-terminal-emulator -e take-note $(basename $(pwd))<CR>
 
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
@@ -374,3 +372,13 @@ let g:undotree_SetFocusWhenToggle = 1
 
 
 nnoremap <silent><Leader>u :UndotreeToggle<CR>
+
+
+
+" ---------- vimwiki {{{2
+" set default path to $XDG_DATA_HOME/vimwiki
+let g:vimwiki_list = [{ 'path': '~/.local/share/vimwiki' }]
+
+" overwrite default behaviour of using markdown as vimwiki
+let g:vimwiki_ext2syntax = {}
+let g:vimwiki_global_ext = 0
