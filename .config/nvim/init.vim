@@ -5,7 +5,6 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
-  Plug 'mbbill/undotree'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
   Plug 'rhysd/clever-f.vim'
@@ -363,15 +362,6 @@ if enableTransparency
   highlight SignifySignChange guibg=NONE ctermbg=NONE ctermfg=red
   highlight SignifySignDelete guibg=NONE ctermbg=NONE ctermfg=yellow
 endif
-
-
-
-" ---------- undotree {{{2
-let g:undotree_WindowLayout = 2
-let g:undotree_SetFocusWhenToggle = 1
-
-
-nnoremap <silent><Leader>u :UndotreeToggle<CR>
 
 
 
