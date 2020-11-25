@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
-  Plug 'Yggdroot/indentLine'
   Plug 'chrisbra/Colorizer'
   Plug 'itchyny/lightline.vim'
   Plug 'lambdalisue/fern-git-status.vim'
@@ -308,18 +307,6 @@ nnoremap <Leader>fh <CMD>History<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
 nnoremap <Leader>fm <CMD>Marks<CR>
 nnoremap <Leader>fs <CMD>Snippets<CR>
-
-
-
-" ---------- indentline {{{2
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_fileTypeExclude = [
-  \   'fern',
-  \   'fugitive',
-  \   'git',
-  \   'help',
-  \   'json',
-  \ ]
 
 
 
