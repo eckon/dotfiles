@@ -350,8 +350,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 
 
-nmap <Leader>c<Space> <plug>NERDCommenterToggle
-xmap <Leader>c<Space> <plug>NERDCommenterToggle
+nmap <Leader>c<Space> <Plug>NERDCommenterToggle
+xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 
 
