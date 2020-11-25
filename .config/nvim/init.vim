@@ -1,6 +1,7 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
+  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
@@ -17,7 +18,6 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'chrisbra/Colorizer'
   Plug 'itchyny/lightline.vim'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
