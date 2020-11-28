@@ -38,7 +38,6 @@ let mapleader = "\<Space>"
 syntax enable
 filetype plugin on
 
-set backspace=eol,start,indent
 set clipboard+=unnamedplus
 set foldmethod=indent nofoldenable
 set hidden
