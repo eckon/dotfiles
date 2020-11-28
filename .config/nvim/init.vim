@@ -38,6 +38,7 @@ let mapleader = "\<Space>"
 syntax enable
 filetype plugin on
 
+set backspace=eol,start,indent
 set clipboard+=unnamedplus
 set foldmethod=indent nofoldenable
 set hidden
@@ -67,6 +68,7 @@ autocmd FocusGained,BufEnter * checktime
 
 " -------------------- Color/Style Configuration {{{1
 colorscheme gruvbox
+set background=dark
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
