@@ -119,14 +119,6 @@ vnoremap > >gv
 nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
-" navigating and managing tabs
-nnoremap <Leader>tx :tabclose<CR>
-nnoremap <Leader>tm :tabmove
-nnoremap <Leader>tc :tabnew<CR>
-nnoremap <Leader>t= :tabonly<CR>
-nnoremap <Leader>th gT
-nnoremap <Leader>tl gt
-
 
 
 " -------------------- Plugin Configurations {{{1
