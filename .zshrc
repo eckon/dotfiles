@@ -2,6 +2,7 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export ZSH="$HOME/.oh-my-zsh"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
 
