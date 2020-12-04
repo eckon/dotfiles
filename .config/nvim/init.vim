@@ -71,6 +71,33 @@ set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
 
+" custom status line
+set statusline=%#DiffAdd#
+"" mode (use get, for the default case if its not in the dictionary)
+set statusline+=\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
+"" git head
+set statusline+=%#PmenuSel#\ %{FugitiveHead()}\ 
+"" readonly / filename / modified
+set statusline+=%#Normal#\ %r%t%m
+"" end of line
+set statusline+=%=
+"" coc status / filetype / filencoding / fileformat
+set statusline+=%#LineNr#%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+" percantage of file / line number / column number
+set statusline+=%#Line#\ %p%%\ %l:%c\ 
+
+"" table for different modes
+let g:currentmode={
+       \ 'n'  : 'NORMAL',
+       \ 'v'  : 'VISUAL',
+       \ 'V'  : 'V·Line',
+       \ '' : 'V·Block',
+       \ 'i'  : 'INSERT',
+       \ 'R'  : 'Replace',
+       \ 'Rv' : 'V·Replace',
+       \ 'c'  : 'Command',
+       \}
+
 " custom transparency setting (mainly signify and background)
 let enableTransparency = 1
 
