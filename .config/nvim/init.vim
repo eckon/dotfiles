@@ -75,7 +75,7 @@ set statusline=%#DiffAdd#
 "" mode (use get, for the default case if its not in the dictionary)
 set statusline+=\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
 "" git head
-set statusline+=%#PmenuSel#\ %{FugitiveHead()==''?'-':FugitiveHead()\ }\ 
+set statusline+=%#PmenuSel#\ %{FugitiveHead()==''?'-':FugitiveHead()}\ 
 "" readonly / filename / modified
 set statusline+=%#Normal#\ %r%t%m
 "" end of line
