@@ -15,7 +15,6 @@ call plug#begin()
 
   " Syntax/Styling/Appearance {{{2
   Plug 'chrisbra/Colorizer'
-  Plug 'itchyny/lightline.vim'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
@@ -322,26 +321,6 @@ nnoremap <Leader>fh <CMD>History<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
 nnoremap <Leader>fm <CMD>Marks<CR>
 nnoremap <Leader>fs <CMD>Snippets<CR>
-
-
-
-" ---------- lightline {{{2
-" configure the status line
-let g:lightline = {
-  \   'colorscheme': 'powerline',
-  \   'active': {
-  \     'left': [ [ 'mode', 'paste' ],
-  \               [ 'gitbranch' ],
-  \               [ 'readonly', 'filename', 'modified' ] ],
-  \     'right': [ [ 'lineinfo' ],
-  \                [ 'percent' ],
-  \                [ 'cocstatus', 'filetype', 'fileencoding', 'fileformat' ] ]
-  \   },
-  \   'component_function': {
-  \     'gitbranch': 'FugitiveHead',
-  \     'cocstatus': 'coc#status',
-  \   },
-  \ }
 
 
 
