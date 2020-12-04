@@ -87,15 +87,15 @@ set statusline+=%#Line#\ %p%%\ %l:%c\
 
 "" table for different modes
 let g:currentmode={
-       \ 'n'  : 'NORMAL',
-       \ 'v'  : 'VISUAL',
-       \ 'V'  : 'V·Line',
-       \ '' : 'V·Block',
-       \ 'i'  : 'INSERT',
-       \ 'R'  : 'Replace',
-       \ 'Rv' : 'V·Replace',
-       \ 'c'  : 'Command',
-       \}
+  \   'n': 'NORMAL',
+  \   'v': 'VISUAL',
+  \   'V': 'V·Line',
+  \   '': 'V·Block',
+  \   'i': 'INSERT',
+  \   'R': 'Replace',
+  \   'Rv': 'V·Replace',
+  \   'c': 'Command',
+  \ }
 
 " custom transparency setting (mainly signify and background)
 let enableTransparency = 1
