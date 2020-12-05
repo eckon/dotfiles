@@ -163,25 +163,25 @@ let g:coc_global_extensions = [
   \ ]
 " general
 let g:coc_global_extensions += [
+  \   'coc-docker',
+  \   'coc-html',
   \   'coc-json',
   \   'coc-vimlsp',
-  \   'coc-html',
   \   'coc-yaml',
-  \   'coc-docker',
   \ ]
 " specific
 let g:coc_global_extensions += [
-  \   'coc-tsserver',
-  \   'coc-css',
-  \   'coc-prettier',
-  \   'coc-eslint',
-  \   'coc-phpls',
   \   'coc-angular',
+  \   'coc-css',
+  \   'coc-eslint',
   \   'coc-go',
-  \   'coc-python',
   \   'coc-java',
+  \   'coc-phpls',
+  \   'coc-prettier',
+  \   'coc-python',
   \   'coc-rust-analyzer',
   \   'coc-toml',
+  \   'coc-tsserver',
   \ ]
 
 

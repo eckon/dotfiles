@@ -27,9 +27,9 @@ Following programs are installed:
   * suckless-tools
     * [slock](https://tools.suckless.org/slock/)
     * [dmenu](https://tools.suckless.org/dmenu/)
-* [tmux](https://github.com/tmux/tmux)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
-* [vim-plug](https://github.com/junegunn/vim-plug)
+  * [vim-plug](https://github.com/junegunn/vim-plug)
+* [tmux](https://github.com/tmux/tmux)
 * [fzf](https://github.com/junegunn/fzf)
   * [bat](https://github.com/sharkdp/bat) (this is needed for fzf.vim syntax highlight)
 * [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in tmux/terminal/nvim)
