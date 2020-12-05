@@ -39,10 +39,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# unset aliases from oh-my-zsh plugins
-# I mainly want to use them for autocompletion and functionaliy not aliases
-unalias -a
-
 # use for fzf app
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
