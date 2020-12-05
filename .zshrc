@@ -21,6 +21,9 @@ antigen use oh-my-zsh
 
 # Load oh-my-zsh plugins
 antigen bundle z
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle extract
 
 # Load other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
