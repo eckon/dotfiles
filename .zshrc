@@ -72,5 +72,7 @@ z() {
 # add keybinding to open commandline in editor (CTRL-e)
 bindkey "^e" edit-command-line
 
-# generate dump for faster loading of shell completions
-autoload -Uz compinit
+# enable completions
+# compinit needs to be run, because plugins like docker have files that are not
+# in the .zcompdump and so not loaded unless compinit is run (-C does not work)
+autoload -U compinit && compinit
