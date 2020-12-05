@@ -7,11 +7,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # -------------------- Configuration --------------------
 unsetopt BEEP
-HYPHEN_INSENSITIVE="true"
 
 # make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+zstyle ":completion:*:(ssh|scp|ftp|sftp):*" hosts $hosts
+zstyle ":completion:*:(ssh|scp|ftp|sftp):*" users $users
 
 
 
@@ -49,7 +48,7 @@ fi
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
 # fnm
-[ -f ~/.fnm/fnm ] && export PATH=$HOME/.fnm:$PATH && eval "`fnm env`"
+[ -f ~/.fnm/fnm ] && export PATH=$HOME/.fnm:$PATH && eval "$(fnm env)"
 
 
 # -------------------- Alias --------------------
