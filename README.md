@@ -42,7 +42,8 @@ Following programs are installed:
 
 Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
-  * symlink the `.config` folder `$ ln -s ~/path/to/dotfiles/.config ~/.config`
+  * `.config` folder `$ ln -s ~/path/to/dotfiles/.config ~/.config`
+  * `.zshrc` and `.tmux.conf` folders should be linked to `$HOME`
   * `wallpapers` should be linked to `~/Pictures/wallpapers/`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
