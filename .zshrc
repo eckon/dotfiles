@@ -69,5 +69,5 @@ z() {
 # add keybinding to open commandline in editor (CTRL-e)
 bindkey "^e" edit-command-line
 
-# use to init some plugins (docker, docker-compose, git, probably others as well)
-autoload -Uz compinit && compinit -i
+# generate dump for faster loading of shell completions
+autoload -Uz compinit
