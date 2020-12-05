@@ -1,7 +1,6 @@
 # -------------------- Exports --------------------
 export EDITOR="nvim"
 export VISUAL="nvim"
-export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
@@ -10,9 +9,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 unsetopt BEEP
 HYPHEN_INSENSITIVE="true"
 
-# use power10k theme and configure it in .p10k.zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
@@ -20,15 +16,24 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 
 # -------------------- Plugins --------------------
-plugins=(
-  docker
-  docker-compose
-  extract
-  nvm
-  z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+source ~/.antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+# Load oh-my-zsh plugins
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle extract
+antigen bundle nvm
+antigen bundle z
+
+# Load other plugins
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
 
 
 
@@ -37,8 +42,6 @@ plugins=(
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # unset aliases from oh-my-zsh plugins
 # I mainly want to use them for autocompletion and functionaliy not aliases

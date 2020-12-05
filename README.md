@@ -15,11 +15,13 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 Following programs are installed:
 * [alacritty](https://github.com/alacritty/alacritty)
   * For ubuntu etc. use following [PPA](https://launchpad.net/~mmstick76/+archive/ubuntu/alacritty)
-* [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-  * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-  * Additional plugins that are not in oh-my-zsh have to be installed in `$ZSH_CUSTOM/custom/plugins`
-    * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+* [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+  * [antigen](https://github.com/zsh-users/antigen)
+    * install in `~/.antigen/antigen.zsh` (seen in `.zshrc`)
+    * installs framework, plugins and theme
+      * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+      * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+      * etc
 * [awesome wm](https://awesomewm.org/)
   * [compton](https://github.com/chjj/compton)
   * [rofi](https://github.com/davatorium/rofi)
