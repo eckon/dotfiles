@@ -1,4 +1,12 @@
 *.cfg
-.config/nvim/plugged
+.config/*
+
 .config/nvim/.netrwhist
+.config/nvim/plugged
 .config/nvim/spell
+
+!.config/alacritty
+!.config/awesome
+!.config/nvim
+!.config/polybar
+!.config/rofi

@@ -44,10 +44,8 @@ Following programs are installed:
 ### On fresh install
 
 Following commands/configs should be run/set on fresh install:
-* for easier editing of the files, create symlinks for the files (then only edit in the git repo)
-  * the nvim/awesome/rofi/alacritty directory can be linked completely
-    * for the future - maybe link the whole .config file and use .gitignore for ignoring others
-  * `$ ln -s ~/path/to/dotfiles/.config/nvim ~/.config/nvim`
+* for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
+  * symlink the `.config` folder `$ ln -s ~/path/to/dotfiles/.config ~/.config`
   * `wallpapers` should be linked to `~/Pictures/wallpapers/`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
