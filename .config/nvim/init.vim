@@ -77,13 +77,13 @@ set statusline+=\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\
 "" git head
 set statusline+=%#PmenuSel#\ %{FugitiveHead()==''?'-':FugitiveHead()}\ 
 "" readonly / filename / modified
-set statusline+=%#Normal#\ %r%t%m
+set statusline+=%#Normal#\ %t%m%r
 "" end of line
 set statusline+=%=
 "" coc status / filetype / filencoding / fileformat
 set statusline+=%#LineNr#%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
 " percantage of file / line number / column number
-set statusline+=%#Line#\ %p%%\ %l:%c\ 
+set statusline+=%#Line#\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
 "" table for different modes
 let g:currentmode={
