@@ -52,6 +52,8 @@ unalias -a
 # source rust
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
+# fnm
+[ -f ~/.fnm/fnm ] && export PATH=$HOME/.fnm:$PATH && eval "`fnm env`"
 
 
 # -------------------- Alias --------------------
