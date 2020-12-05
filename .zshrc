@@ -29,20 +29,12 @@ antigen bundle extract
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
-antigen theme romkatv/powerlevel10k
-
 antigen apply
 
 
 
 # -------------------- Source --------------------
-# enable Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -f ~/.fnm/fnm ] && export PATH=$HOME/.fnm:$PATH && eval "$(fnm env)"
 

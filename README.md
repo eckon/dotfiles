@@ -18,10 +18,6 @@ Following programs are installed:
 * [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
   * [antigen](https://github.com/zsh-users/antigen)
     * install in `~/.antigen/antigen.zsh` (seen in `.zshrc`)
-    * installs framework, plugins and theme
-      * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-      * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-      * etc
 * [awesome wm](https://awesomewm.org/)
   * [compton](https://github.com/chjj/compton)
   * [rofi](https://github.com/davatorium/rofi)
