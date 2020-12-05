@@ -37,6 +37,7 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -f ~/.fnm/fnm ] && export PATH=$HOME/.fnm:$PATH && eval "$(fnm env)"
+[ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
 
 
 # -------------------- Alias --------------------

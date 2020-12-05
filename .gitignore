@@ -10,3 +10,4 @@
 !.config/nvim
 !.config/polybar
 !.config/rofi
+!.config/starship.toml
