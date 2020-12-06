@@ -73,8 +73,8 @@ set scrolloff=5
 " custom status line
 set statusline=
 "" mode (use get, for the default case if its not in the dictionary)
-set statusline+=%2*\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
-set statusline+=%1*(%{mode(1)})\ 
+set statusline+=%2*%8(%{toupper(get(g:currentmode,mode(),'NOT-SET'))}%)\ 
+set statusline+=%1*%-5((%{mode(1)})%)
 "" git head
 set statusline+=%3*\ %{fugitive#head(8)}\ 
 "" readonly / filename / modified
