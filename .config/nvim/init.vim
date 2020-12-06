@@ -76,7 +76,7 @@ set statusline=
 set statusline+=%2*\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
 set statusline+=%1*(%{mode(1)})\ 
 "" git head
-set statusline+=%3*\ %{FugitiveHead()==''?'-':FugitiveHead()}\ 
+set statusline+=%3*\ %{fugitive#head(8)}\ 
 "" readonly / filename / modified
 set statusline+=%4*\ %t%m%r
 "" end of line
