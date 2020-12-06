@@ -71,6 +71,25 @@ set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\
 set scrolloff=5
 
 " custom status line
+"" table for different modes
+let g:currentmode={
+  \   'n': 'NORMAL',
+  \   'v': 'VISUAL',
+  \   'V': 'V·Line',
+  \   '': 'V·Block',
+  \   'i': 'INSERT',
+  \   'R': 'Replace',
+  \   'Rv': 'V·Replace',
+  \   'c': 'Command',
+  \ }
+
+"" highlight colors mainly for statusline colors/styling
+highlight User1 cterm=NONE ctermfg=black ctermbg=darkblue
+highlight User2 cterm=bold ctermfg=black ctermbg=darkblue
+highlight User3 cterm=NONE ctermfg=white ctermbg=darkgray
+highlight User4 cterm=NONE ctermfg=yellow ctermbg=black
+highlight User5 cterm=NONE ctermfg=grey ctermbg=black
+
 set statusline=
 "" mode (use get, for the default case if its not in the dictionary)
 set statusline+=%2*%8(%{toupper(get(g:currentmode,mode(),'NOT-SET'))}%)\ 
@@ -85,25 +104,6 @@ set statusline+=%=
 set statusline+=%5*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
 " percantage of file / line number / column number
 set statusline+=%3*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
-
-"" table for different modes
-let g:currentmode={
-  \   'n': 'NORMAL',
-  \   'v': 'VISUAL',
-  \   'V': 'V·Line',
-  \   '': 'V·Block',
-  \   'i': 'INSERT',
-  \   'R': 'Replace',
-  \   'Rv': 'V·Replace',
-  \   'c': 'Command',
-  \ }
-
-" highlight colors mainly for statusline colors/styling
-highlight User1 cterm=NONE ctermfg=black ctermbg=darkblue
-highlight User2 cterm=bold ctermfg=black ctermbg=darkblue
-highlight User3 cterm=NONE ctermfg=white ctermbg=darkgray
-highlight User4 cterm=NONE ctermfg=yellow ctermbg=black
-highlight User5 cterm=NONE ctermfg=grey ctermbg=black
 
 " custom transparency setting (mainly signify and background)
 let enableTransparency = 1
