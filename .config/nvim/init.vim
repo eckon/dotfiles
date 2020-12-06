@@ -71,17 +71,38 @@ set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\
 set scrolloff=5
 
 " custom status line
-"" table for different modes
-let g:currentmode={
-  \   'n': 'NORMAL',
-  \   'v': 'VISUAL',
-  \   'V': 'V·Line',
-  \   '': 'V·Block',
-  \   'i': 'INSERT',
-  \   'R': 'Replace',
-  \   'Rv': 'V·Replace',
-  \   'c': 'Command',
-  \ }
+"" helper functions for status line
+function! GetCurrentMode() abort
+  " table for different modes
+  let modeTranslation={
+    \   'n': 'NORMAL',
+    \   'v': 'VISUAL',
+    \   'V': 'V-Line',
+    \   '': 'V-Block',
+    \   'i': 'INSERT',
+    \   'R': 'REPLACE',
+    \   'c': 'COMMAND',
+    \ }
+
+  let mode = mode()
+  " sideeffect of changing the color depending on the mode
+  call s:updateModeColor(mode)
+
+  return get(modeTranslation, mode, 'NOT-SET')
+endfunction
+
+function! s:updateModeColor(mode) abort
+  let mode = a:mode
+  if mode =~ 'n'
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
+  elseif mode =~ 'i'
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen
+  elseif mode =~ '[vV]'
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown
+  else
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red
+  end
+endfunction
 
 "" highlight colors mainly for statusline colors/styling
 highlight User1 cterm=NONE ctermfg=black ctermbg=darkblue
@@ -90,10 +111,11 @@ highlight User3 cterm=NONE ctermfg=white ctermbg=darkgray
 highlight User4 cterm=NONE ctermfg=yellow ctermbg=black
 highlight User5 cterm=NONE ctermfg=grey ctermbg=black
 
+"" initialisation of the statusline
 set statusline=
-"" mode (use get, for the default case if its not in the dictionary)
-set statusline+=%2*%8(%{toupper(get(g:currentmode,mode(),'NOT-SET'))}%)\ 
-set statusline+=%1*%-5((%{mode(1)})%)
+"" mode
+set statusline+=%#CustomModeColor#%8(%{GetCurrentMode()}%)\ 
+set statusline+=%-5((%{mode(1)})%)
 "" git head
 set statusline+=%3*\ %{fugitive#head(8)}\ 
 "" readonly / filename / modified
