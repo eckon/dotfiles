@@ -71,19 +71,20 @@ set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\
 set scrolloff=5
 
 " custom status line
-set statusline=%#DiffAdd#
+set statusline=
 "" mode (use get, for the default case if its not in the dictionary)
-set statusline+=\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
+set statusline+=%2*\ %{toupper(get(g:currentmode,mode(),'NOT-SET'))}\ 
+set statusline+=%1*(%{mode(1)})\ 
 "" git head
-set statusline+=%#PmenuSel#\ %{FugitiveHead()==''?'-':FugitiveHead()}\ 
+set statusline+=%3*\ %{FugitiveHead()==''?'-':FugitiveHead()}\ 
 "" readonly / filename / modified
-set statusline+=%#Normal#\ %t%m%r
+set statusline+=%4*\ %t%m%r
 "" end of line
 set statusline+=%=
 "" coc status / filetype / filencoding / fileformat
-set statusline+=%#LineNr#%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+set statusline+=%5*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
 " percantage of file / line number / column number
-set statusline+=%#Line#\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
+set statusline+=%3*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
 "" table for different modes
 let g:currentmode={
@@ -96,6 +97,13 @@ let g:currentmode={
   \   'Rv': 'V·Replace',
   \   'c': 'Command',
   \ }
+
+" highlight colors mainly for statusline colors/styling
+highlight User1 cterm=NONE ctermfg=black ctermbg=darkblue
+highlight User2 cterm=bold ctermfg=black ctermbg=darkblue
+highlight User3 cterm=NONE ctermfg=white ctermbg=darkgray
+highlight User4 cterm=NONE ctermfg=yellow ctermbg=black
+highlight User5 cterm=NONE ctermfg=grey ctermbg=black
 
 " custom transparency setting (mainly signify and background)
 let enableTransparency = 1
