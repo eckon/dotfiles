@@ -256,7 +256,7 @@ let g:fern#smart_cursor = 'hide'
 nnoremap <silent><Leader>, <CMD>Fern . -drawer -reveal=% -toggle<CR>
 nnoremap <silent><Leader>. <CMD>Fern %:h<CR>
 
-function! FernInit() abort
+function! s:FernInit() abort
   nmap <buffer>* <Plug>(fern-action-mark)
   nmap <buffer>- <Plug>(fern-action-open:split)
   nmap <buffer><Bar> <Plug>(fern-action-open:vsplit)
@@ -270,7 +270,7 @@ endfunction
 
 augroup FernGroup
   autocmd!
-  autocmd FileType fern call FernInit()
+  autocmd FileType fern call s:FernInit()
 augroup END
 
 
