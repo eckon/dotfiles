@@ -12,6 +12,7 @@
   - in git-status
     - `g?` open help menu with fugitive mappings in git-status
     - `=` show changes (on title or chunk)
+    - `J` and `K` jump between different chunks and opens them
     - `o` and `<ENTER>` to open file at chunk
     - `cc` will open commit window like `:Gcommit<ENTER>`
     - `dd` and `dv` will open diff-splitt
@@ -20,19 +21,23 @@
     - `u` will unstage
       - works with visual mode
     - `X` will checkout the changes (remove the changes)
-- fzf (special symbols)
-  - regex does not work in general (keep it simple)
-  - `'` exact match
-    - `'foo` -> match must have complete foo string
-  - `!` do not match
-    - `!foo` -> match can not have foo string
-  - `^` match at start
-    - `^foo` -> match must start with foo string
-  - `$` match at end
-    - `foo$` -> match must end with foo string
-  - ` ` for AND (&&) operator
-    - `foo bar` -> match must have foo and bar string
-  - `|` for OR (||) operator
-    - `foo | bar` -> match must have foo or bar string
-  - `\ ` to use space as a character instead of an AND operator
-    - `foo\ bar` -> return only when the string "foo bar" is matched, including the space
+- fzf
+  - `CTRL-P`, `CTRL-N` insert the next/previous search query again
+  - `CTRL-R` can paste a register into the query
+    - `CTRL-R_"` paste the last yanked text (" Register)
+  - special symbols
+    - regex does not work in general (keep it simple)
+    - `'` exact match
+      - `'foo` -> match must have complete foo string
+    - `!` do not match
+      - `!foo` -> match can not have foo string
+    - `^` match at start
+      - `^foo` -> match must start with foo string
+    - `$` match at end
+      - `foo$` -> match must end with foo string
+    - ` ` for AND (&&) operator
+      - `foo bar` -> match must have foo and bar string
+    - `|` for OR (||) operator
+      - `foo | bar` -> match must have foo or bar string
+    - `\ ` to use space as a character instead of an AND operator
+      - `foo\ bar` -> return only when the string "foo bar" is matched, including the space
