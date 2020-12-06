@@ -20,16 +20,16 @@ source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Load oh-my-zsh plugins
-antigen bundle z
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle extract
+antigen bundle z
 
 # Load other plugins
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle momo-lab/zsh-abbrev-alias
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
