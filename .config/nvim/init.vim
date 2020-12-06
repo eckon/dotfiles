@@ -70,8 +70,29 @@ set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,trail:·,space:·,tab:▸\ 
 set scrolloff=5
 
-" custom status line
-"" helper functions for status line
+" ---------- custom status line {{{2
+" initialisation of the status line
+set statusline=
+" mode
+set statusline+=%#CustomModeColor#%8(%{GetCurrentMode()}%)\ 
+set statusline+=%-5((%{mode(1)})%)
+" git head
+set statusline+=%1*\ %{fugitive#head(8)}\ 
+" readonly / filename / modified
+set statusline+=%2*\ %t%m%r
+" end of line
+set statusline+=%=
+" coc status / filetype / filencoding / fileformat
+set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+" percantage of file / line number / column number
+set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
+
+" highlight colors mainly for status line colors/styling
+highlight User1 cterm=NONE ctermfg=white ctermbg=darkgray
+highlight User2 cterm=NONE ctermfg=yellow ctermbg=black
+highlight User3 cterm=NONE ctermfg=grey ctermbg=black
+
+" helper functions for status line
 function! GetCurrentMode() abort
   " table for different modes
   let modeTranslation={
@@ -105,27 +126,7 @@ function! s:updateModeColor(mode) abort
     highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red
   end
 endfunction
-
-"" highlight colors mainly for statusline colors/styling
-highlight User1 cterm=NONE ctermfg=white ctermbg=darkgray
-highlight User2 cterm=NONE ctermfg=yellow ctermbg=black
-highlight User3 cterm=NONE ctermfg=grey ctermbg=black
-
-"" initialisation of the statusline
-set statusline=
-"" mode
-set statusline+=%#CustomModeColor#%8(%{GetCurrentMode()}%)\ 
-set statusline+=%-5((%{mode(1)})%)
-"" git head
-set statusline+=%1*\ %{fugitive#head(8)}\ 
-"" readonly / filename / modified
-set statusline+=%2*\ %t%m%r
-"" end of line
-set statusline+=%=
-"" coc status / filetype / filencoding / fileformat
-set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
-" percantage of file / line number / column number
-set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
+" 2}}}
 
 " custom transparency setting (mainly signify and background)
 let enableTransparency = 1
