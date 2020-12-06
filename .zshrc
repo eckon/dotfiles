@@ -27,6 +27,7 @@ antigen bundle extract
 
 # Load other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle momo-lab/zsh-abbrev-alias
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
