@@ -88,11 +88,13 @@ function! GetCurrentMode() abort
   " sideeffect of changing the color depending on the mode
   call s:updateModeColor(mode)
 
+  " use get instead of [] to have a default value if we run into other modes
   return get(modeTranslation, mode, 'NOT-SET')
 endfunction
 
 function! s:updateModeColor(mode) abort
   let mode = a:mode
+  " =~ checks if the pattern matches
   if mode =~ 'n'
     highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
   elseif mode =~ 'i'
