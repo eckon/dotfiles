@@ -69,8 +69,8 @@ abbrev-alias vv="vim ."
 
 
 # -------------------- Special --------------------
-# add keybinding to open commandline in editor (CTRL-e)
-bindkey "^e" edit-command-line
+# add keybinding to open commandline in editor (CTRL-v CTRL-v)
+bindkey "^v^v" edit-command-line
 
 # enable completions
 # compinit needs to be run, because plugins like docker have files that are not
