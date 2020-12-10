@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
-  Plug 'chrisbra/Colorizer'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
