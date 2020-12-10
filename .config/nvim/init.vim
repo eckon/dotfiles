@@ -380,8 +380,8 @@ endif
 
 " ---------- vimwiki {{{2
 " set default path to $XDG_DATA_HOME/vimwiki
-let g:vimwiki_list = [{ 'path': '~/.local/share/vimwiki' }]
-
-" overwrite default behaviour of using markdown as vimwiki
-let g:vimwiki_ext2syntax = {}
-let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [{
+  \   'path': '~/.local/share/vimwiki',
+  \   'syntax': 'markdown',
+  \   'ext': '.md'
+  \ }]
