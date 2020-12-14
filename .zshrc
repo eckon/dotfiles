@@ -26,7 +26,6 @@ antigen bundle extract
 antigen bundle z
 
 # Load other plugins
-antigen bundle momo-lab/zsh-abbrev-alias
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -50,21 +49,6 @@ alias ll="LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias vi="vim"
 alias vim="nvim"
-
-# aliases that will be expanded (for better readability/history)
-abbrev-alias clip="xclip -sel clip"
-abbrev-alias d="docker"
-abbrev-alias dc="docker-compose"
-abbrev-alias dstop="docker stop \$(docker ps -q -a)"
-abbrev-alias gc="git checkout"
-abbrev-alias gp="git pull"
-abbrev-alias gs="git status"
-abbrev-alias nr="npm run"
-abbrev-alias open="xdg-open"
-abbrev-alias ta="tmux attach -t"
-abbrev-alias tn="tmux new-session -s"
-abbrev-alias v="vim"
-abbrev-alias vv="vim ."
 
 
 
