@@ -6,8 +6,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
 # -------------------- Configuration --------------------
+# general configurations (alot of these are set by oh-my-zsh)
 unsetopt BEEP
 
+# styling configurations
 # make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
 zstyle ":completion:*:(ssh|scp|ftp|sftp):*" hosts $hosts
 zstyle ":completion:*:(ssh|scp|ftp|sftp):*" users $users
