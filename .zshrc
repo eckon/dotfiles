@@ -7,6 +7,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # -------------------- Configuration --------------------
 # general configurations (alot of these are set by oh-my-zsh)
+setopt GLOBDOTS
 setopt PUSHD_SILENT
 unsetopt BEEP
 
