@@ -63,6 +63,10 @@ autocmd FocusGained,BufEnter * checktime
 
 
 " -------------------- Color/Style Configuration {{{1
+if has('termguicolors')
+  set termguicolors
+endif
+
 colorscheme gruvbox
 set background=dark
 set cursorline colorcolumn=80,120,121
@@ -87,9 +91,9 @@ set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\
 set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
 " highlight colors mainly for status line colors/styling
-highlight User1 cterm=NONE ctermfg=white ctermbg=darkgray
-highlight User2 cterm=NONE ctermfg=yellow ctermbg=black
-highlight User3 cterm=NONE ctermfg=grey ctermbg=black
+highlight User1 cterm=NONE ctermfg=white  ctermbg=darkgray gui=NONE guifg=white  guibg=darkgray
+highlight User2 cterm=NONE ctermfg=yellow ctermbg=black    gui=NONE guifg=yellow guibg=black
+highlight User3 cterm=NONE ctermfg=grey   ctermbg=black    gui=NONE guifg=grey   guibg=black
 
 " helper functions for status line
 function! GetCurrentMode() abort
@@ -116,13 +120,13 @@ function! s:updateModeColor(mode) abort
   let mode = a:mode
   " =~ checks if the pattern matches
   if mode =~ 'n'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue  gui=bold guifg=black guibg=darkblue
   elseif mode =~ 'i'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen gui=bold guifg=black guibg=darkgreen
   elseif mode =~ '[vV]'
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown     gui=bold guifg=white guibg=brown
   else
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red       gui=bold guifg=white guibg=red
   end
 endfunction
 " 2}}}
@@ -132,8 +136,8 @@ let enableTransparency = 1
 
 if enableTransparency
   " set background to be non visible (transparent)
-  highlight Normal guibg=NONE ctermbg=NONE
-  highlight SignColumn guibg=NONE ctermbg=NONE
+  highlight Normal     ctermbg=NONE guibg=NONE
+  highlight SignColumn ctermbg=NONE guibg=NONE
 endif
 
 " highlight yanked text with lua
@@ -370,9 +374,9 @@ xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 " ---------- signify {{{2
 if enableTransparency
   " set background of sign column to be non visible (transparency)
-  highlight SignifySignAdd guibg=NONE ctermbg=NONE ctermfg=green
-  highlight SignifySignChange guibg=NONE ctermbg=NONE ctermfg=red
-  highlight SignifySignDelete guibg=NONE ctermbg=NONE ctermfg=yellow
+  highlight SignifySignAdd    ctermbg=NONE ctermfg=green  guibg=NONE guifg=green
+  highlight SignifySignChange ctermbg=NONE ctermfg=red    guibg=NONE guifg=red
+  highlight SignifySignDelete ctermbg=NONE ctermfg=yellow guibg=NONE guifg=yellow
 endif
 
 
