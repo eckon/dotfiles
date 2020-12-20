@@ -91,9 +91,10 @@ set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\
 set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
 " highlight colors mainly for status line colors/styling
-highlight User1 cterm=NONE ctermfg=white  ctermbg=darkgray gui=NONE guifg=white  guibg=darkgray
-highlight User2 cterm=NONE ctermfg=yellow ctermbg=black    gui=NONE guifg=yellow guibg=black
-highlight User3 cterm=NONE ctermfg=grey   ctermbg=black    gui=NONE guifg=grey   guibg=black
+" gui colors taken from gruvbox palette
+highlight User1 cterm=NONE ctermfg=white  ctermbg=darkgray gui=NONE guifg=#fbf1c7 guibg=#665c54
+highlight User2 cterm=NONE ctermfg=yellow ctermbg=black    gui=NONE guifg=#fabd2f guibg=#32302f
+highlight User3 cterm=NONE ctermfg=grey   ctermbg=black    gui=NONE guifg=#928374 guibg=#32302f
 
 " helper functions for status line
 function! GetCurrentMode() abort
@@ -120,13 +121,13 @@ function! s:updateModeColor(mode) abort
   let mode = a:mode
   " =~ checks if the pattern matches
   if mode =~ 'n'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue  gui=bold guifg=black guibg=darkblue
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue  gui=bold guifg=Black guibg=#83a598
   elseif mode =~ 'i'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen gui=bold guifg=black guibg=darkgreen
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen gui=bold guifg=Black guibg=#b8bb26
   elseif mode =~ '[vV]'
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown     gui=bold guifg=white guibg=brown
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown     gui=bold guifg=Black guibg=#fabd2f
   else
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red       gui=bold guifg=white guibg=red
+    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red       gui=bold guifg=Black guibg=#fb4934
   end
 endfunction
 " 2}}}
@@ -374,9 +375,9 @@ xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 " ---------- signify {{{2
 if enableTransparency
   " set background of sign column to be non visible (transparency)
-  highlight SignifySignAdd    ctermbg=NONE ctermfg=green  guibg=NONE guifg=green
-  highlight SignifySignChange ctermbg=NONE ctermfg=red    guibg=NONE guifg=red
-  highlight SignifySignDelete ctermbg=NONE ctermfg=yellow guibg=NONE guifg=yellow
+  highlight SignifySignAdd    ctermbg=NONE ctermfg=green  guibg=NONE guifg=LightGreen
+  highlight SignifySignChange ctermbg=NONE ctermfg=red    guibg=NONE guifg=Red
+  highlight SignifySignDelete ctermbg=NONE ctermfg=yellow guibg=NONE guifg=Yellow
 endif
 
 
