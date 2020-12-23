@@ -7,7 +7,6 @@ call plug#begin()
   Plug 'lambdalisue/fern.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdcommenter'
-  Plug 'rhysd/clever-f.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -183,11 +182,6 @@ nnoremap gp a<CR><ESC>PkgJgJ
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- clever-f {{{2
-let g:clever_f_across_no_line = 1
-
-
-
 " ---------- coc {{{2
 " ----- Configurations {{{3
 " set coc extensions that should always be installed
