@@ -2,6 +2,7 @@
 
 The scripts can be found in the current folder.
 All scripts were only tested and used privately. There is no guarantee that they work on other systems or environments.
+These can be "installed" inside a sourced folder like `/usr/local/bin/`.
 
 Some Information about the scripts:
 - start scripts (for quick start of the workflow)
