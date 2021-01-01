@@ -90,10 +90,26 @@ set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\
 set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
 " highlight colors mainly for status line colors/styling
-" gui colors taken from gruvbox palette
-highlight User1 cterm=NONE ctermfg=white  ctermbg=darkgray gui=NONE guifg=#fbf1c7 guibg=#665c54
-highlight User2 cterm=NONE ctermfg=yellow ctermbg=black    gui=NONE guifg=#fabd2f guibg=#32302f
-highlight User3 cterm=NONE ctermfg=grey   ctermbg=black    gui=NONE guifg=#928374 guibg=#32302f
+" gruvbox color palette
+let colors = {
+  \   'black': '#282828',
+  \   'white': '#ebdbb2',
+  \   'red': '#fb4934',
+  \   'green': '#b8bb26',
+  \   'blue': '#83a598',
+  \   'yellow': '#fe8019',
+  \   'gray': '#a89984',
+  \   'darkgray': '#3c3836',
+  \   'lightgray': '#504945',
+  \   'inactivegray': '#7c6f64',
+  \ }
+
+highlight User1 cterm=NONE ctermfg=white  ctermbg=darkgray
+execute 'highlight User1 gui=NONE guifg=' . g:colors.white . ' guibg=' . g:colors.lightgray
+highlight User2 cterm=NONE ctermfg=yellow ctermbg=black
+execute 'highlight User2 gui=NONE guifg=' . g:colors.gray . ' guibg=' . g:colors.darkgray
+highlight User3 cterm=NONE ctermfg=grey   ctermbg=black
+execute 'highlight User3 gui=NONE guifg=' . g:colors.gray . ' guibg=' . g:colors.darkgray
 
 " helper functions for status line
 function! GetCurrentMode() abort
@@ -106,6 +122,7 @@ function! GetCurrentMode() abort
     \   'i': 'INSERT',
     \   'R': 'REPLACE',
     \   'c': 'COMMAND',
+    \   't': 'TERM',
     \ }
 
   let mode = mode()
@@ -118,15 +135,20 @@ endfunction
 
 function! s:updateModeColor(mode) abort
   let mode = a:mode
+
   " =~ checks if the pattern matches
   if mode =~ 'n'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue  gui=bold guifg=Black guibg=#83a598
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=gray
+    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.gray
   elseif mode =~ 'i'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkgreen gui=bold guifg=Black guibg=#b8bb26
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
+    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.blue
   elseif mode =~ '[vV]'
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=brown     gui=bold guifg=Black guibg=#fabd2f
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=yellow
+    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.yellow
   else
-    highlight CustomModeColor cterm=bold ctermfg=white ctermbg=red       gui=bold guifg=Black guibg=#fb4934
+    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=red
+    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.red
   end
 endfunction
 " 2}}}
