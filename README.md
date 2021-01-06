@@ -20,14 +20,6 @@ Following programs are installed:
   * [antigen](https://github.com/zsh-users/antigen)
     * install in `~/.antigen/antigen.zsh` (seen in `.zshrc`)
   * [starship](https://github.com/starship/starship)
-* [awesome wm](https://awesomewm.org/)
-  * [compton](https://github.com/chjj/compton)
-  * [rofi](https://github.com/davatorium/rofi)
-  * [polybar](https://github.com/polybar/polybar)
-  * [nitrogen](https://github.com/l3ib/nitrogen)
-  * suckless-tools
-    * [slock](https://tools.suckless.org/slock/)
-    * [dmenu](https://tools.suckless.org/dmenu/)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
   * [vim-plug](https://github.com/junegunn/vim-plug)
 * [tmux](https://github.com/tmux/tmux)
@@ -52,4 +44,3 @@ Following commands/configs should be run/set on fresh install:
   * use marketplace for easy search of wanted extensions with `:CocList marketplace`
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
-* unbind system super bindings for Tiling Window Manager
