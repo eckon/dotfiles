@@ -5,26 +5,6 @@ All scripts were only tested and used privately. There is no guarantee that they
 These can be "installed" inside a sourced folder like `/usr/local/bin/`.
 
 Some Information about the scripts:
-- start scripts (for quick start of the workflow)
-  - what it does:
-    - starts needed projects and dependencies to develop on the needed project
-      - e.g.: api repo, frontend repo, database, docker services, etc.
-  - requires:
-    - tmux
-    - dependencies of the project
-  - scripts
-    - [start-singularity](./start-singularity.sh)
-- [take-note](./take-note.sh)
-  - what it does:
-    - without parameter
-      - create a note per day in `~/Documents/notes/` with a date title
-    - with parameter
-      - creates a note per project in `~/Documents/notes/project/` with the project as title
-      - example: `$ x-terminal-emulator -e take-note $(basename $(pwd))`
-    - opens a nvim buffer and inserts title (with current time)
-  - requires:
-    - [nvim](https://neovim.io/)
-    - might have to update script to use different terminal emulator
 - [gitlab-clone](./gitlab-search-and-clone.sh)
   - what it does:
     - fetches all available repos from the given gitlab (could be updated to use other systems as well)

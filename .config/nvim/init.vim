@@ -19,9 +19,6 @@ call plug#begin()
   Plug 'mhinz/vim-signify'
   Plug 'morhetz/gruvbox'
   Plug 'psliwka/vim-smoothie'
-
-  " Special (compatibility/others) {{{2
-  Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
 call plug#end()
 

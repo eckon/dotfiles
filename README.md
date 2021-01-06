@@ -22,10 +22,9 @@ Following programs are installed:
   * [starship](https://github.com/starship/starship)
 * [neovim](https://github.com/neovim/neovim) (v0.5.0+)
   * [vim-plug](https://github.com/junegunn/vim-plug)
-* [tmux](https://github.com/tmux/tmux)
 * [fzf](https://github.com/junegunn/fzf)
   * [bat](https://github.com/sharkdp/bat) (this is needed for fzf.vim syntax highlight)
-* [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in tmux/terminal/nvim)
+* [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in terminal/nvim)
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) (used as the default search algorithm)
 * ([ripgrep](https://github.com/BurntSushi/ripgrep))
 * [tldr](https://github.com/tldr-pages/tldr)
@@ -36,7 +35,6 @@ Following programs are installed:
 Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
   * `.config` folder `$ ln -s ~/path/to/dotfiles/.config ~/.config`
-  * `.zshrc` and `.tmux.conf` folders should be linked to `$HOME`
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
