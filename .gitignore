@@ -5,10 +5,7 @@
 .config/nvim/plugged
 .config/nvim/spell
 
-!.config/alacritty
-!.config/awesome
 !.config/nvim
-!.config/polybar
 !.config/rofi
 !.config/starship.toml
 !.config/kitty
