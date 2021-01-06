@@ -13,6 +13,7 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 ## Used software
 
 Following programs are installed:
+* [kitty](https://github.com/kovidgoyal/kitty)
 * [alacritty](https://github.com/alacritty/alacritty)
   * For ubuntu etc. use following [PPA](https://launchpad.net/~mmstick76/+archive/ubuntu/alacritty)
 * [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
