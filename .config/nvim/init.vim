@@ -150,15 +150,6 @@ function! s:updateModeColor(mode) abort
 endfunction
 " 2}}}
 
-" custom transparency setting (mainly signify and background)
-let enableTransparency = 1
-
-if enableTransparency
-  " set background to be non visible (transparent)
-  highlight Normal     ctermbg=NONE guibg=NONE
-  highlight SignColumn ctermbg=NONE guibg=NONE
-endif
-
 " highlight yanked text with lua
 augroup highlight_yank
   autocmd!
@@ -385,13 +376,6 @@ xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 
 
-" ---------- signify {{{2
-if enableTransparency
-  " set background of sign column to be non visible (transparency)
-  highlight SignifySignAdd    ctermbg=NONE ctermfg=green  guibg=NONE guifg=LightGreen
-  highlight SignifySignChange ctermbg=NONE ctermfg=red    guibg=NONE guifg=Red
-  highlight SignifySignDelete ctermbg=NONE ctermfg=yellow guibg=NONE guifg=Yellow
-endif
 
 
 
