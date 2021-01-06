@@ -2,8 +2,6 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# enable true color, this could be set in the terminal emulator
-export TERM="xterm-256color"
 
 
 
