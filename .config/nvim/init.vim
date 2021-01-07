@@ -376,9 +376,6 @@ xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 
 
-
-
-
 " ---------- vimwiki {{{2
 " set default path to $XDG_DATA_HOME/vimwiki
 let g:vimwiki_list = [{
