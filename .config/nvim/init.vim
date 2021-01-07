@@ -115,7 +115,7 @@ function! GetCurrentMode() abort
     \   'n': 'NORMAL',
     \   'v': 'VISUAL',
     \   'V': 'V-Line',
-    \   '': 'V-Block',
+    \   "\<C-v>": 'V-Block',
     \   'i': 'INSERT',
     \   'R': 'REPLACE',
     \   'c': 'COMMAND',
@@ -140,7 +140,7 @@ function! s:updateModeColor(mode) abort
   elseif mode =~ 'i'
     highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
     execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.blue
-  elseif mode =~ '[vV]'
+  elseif mode =~ '[vV]' || mode == "\<C-v>"
     highlight CustomModeColor cterm=bold ctermfg=black ctermbg=yellow
     execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.yellow
   else
