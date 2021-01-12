@@ -57,6 +57,7 @@ alias v="vim"
 alias vi="vim"
 alias vim="nvim"
 alias vv="vim ."
+alias wiki="nvim -c VimwikiIndex"
 
 
 
