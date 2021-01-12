@@ -40,3 +40,6 @@ Following commands/configs should be run/set on fresh install:
   * use marketplace for easy search of wanted extensions with `:CocList marketplace`
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
+* add shortcuts for different applications and commands (search for `keyboard shortcuts`)
+  * `rofi`
+    * `"ctrl + alt + ." : "rofi -show window"` -> window switcher
