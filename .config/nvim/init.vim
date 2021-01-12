@@ -295,7 +295,7 @@ function! s:FernInit() abort
   nmap <buffer>- <Plug>(fern-action-open:split)
   nmap <buffer><Bar> <Plug>(fern-action-open:vsplit)
   nmap <buffer>D <Plug>(fern-action-remove)
-  nmap <buffer>n <Plug>(fern-action-new-path)
+  nmap <buffer>C <Plug>(fern-action-new-path)
   nmap <buffer>p <Plug>(fern-action-open:edit)<C-w><C-p>j
   nmap <buffer>P <Plug>(fern-action-open:edit)<C-w><C-p>k
   nmap <buffer>> <Plug>(fern-action-enter)
