@@ -9,4 +9,5 @@ configuration {
   display-window: "Focus";
   display-ssh: "Server";
   font: "SpaceMono Nerd Font Black 12";
+  cycle: false;
 }
