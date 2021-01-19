@@ -73,7 +73,7 @@ set scrolloff=5
 " initialisation of the status line
 set statusline=
 " mode
-set statusline+=%#CustomModeColor#%8(%{GetCurrentMode()}%)\ 
+set statusline+=%4*%8(%{GetCurrentMode()}%)\ 
 set statusline+=%-5((%{mode(1)})%)
 " git head
 set statusline+=%1*\ %{fugitive#head(8)}\ 
@@ -107,6 +107,8 @@ highlight User2 cterm=NONE ctermfg=yellow ctermbg=black
 execute 'highlight User2 gui=NONE guifg=' . g:colors.gray . ' guibg=' . g:colors.darkgray
 highlight User3 cterm=NONE ctermfg=grey   ctermbg=black
 execute 'highlight User3 gui=NONE guifg=' . g:colors.gray . ' guibg=' . g:colors.darkgray
+highlight User4 cterm=bold ctermfg=black ctermbg=darkblue
+execute 'highlight User4 gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.blue
 
 " helper functions for status line
 function! GetCurrentMode() abort
@@ -123,32 +125,9 @@ function! GetCurrentMode() abort
     \ }
 
   let mode = mode()
-  " sideeffect of changing the color depending on the mode
-  call s:updateModeColor(mode)
-
   " use get instead of [] to have a default value if we run into other modes
   return get(modeTranslation, mode, 'NOT-SET')
 endfunction
-
-function! s:updateModeColor(mode) abort
-  let mode = a:mode
-
-  " =~ checks if the pattern matches
-  if mode =~ 'n'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=gray
-    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.gray
-  elseif mode =~ 'i'
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=darkblue
-    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.blue
-  elseif mode =~ '[vV]' || mode == "\<C-v>"
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=yellow
-    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.yellow
-  else
-    highlight CustomModeColor cterm=bold ctermfg=black ctermbg=red
-    execute 'highlight CustomModeColor gui=bold guifg=' . g:colors.black . ' guibg=' . g:colors.red
-  end
-endfunction
-" 2}}}
 
 " highlight yanked text with lua
 augroup highlight_yank
