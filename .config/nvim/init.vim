@@ -223,7 +223,7 @@ nmap <silent><Leader>cf <Plug>(coc-format)
 xmap <silent><Leader>cf <Plug>(coc-format-selected)
 
 " use <C-space> to trigger coc code completion
-inoremap <silent><expr><C-space> coc#refresh()
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -249,8 +249,10 @@ endif
 function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
