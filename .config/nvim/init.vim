@@ -151,9 +151,6 @@ inoremap <F1> <C-v><F1>
 noremap <C-s> <CMD>w<CR>
 imap <C-s> <ESC><C-s>
 
-" Y should behave like other uppercase commands (until end of line)
-nnoremap Y y$
-
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
 nnoremap <M-k> :resize +2<CR>
