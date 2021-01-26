@@ -37,6 +37,7 @@ set hidden
 set hlsearch ignorecase incsearch magic smartcase
 set inccommand=nosplit
 set lazyredraw
+set mouse=a
 set nobackup nowritebackup noswapfile undofile
 set noerrorbells
 set nowrap
