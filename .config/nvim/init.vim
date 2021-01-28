@@ -1,3 +1,5 @@
+" vim:foldmethod=marker
+
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
