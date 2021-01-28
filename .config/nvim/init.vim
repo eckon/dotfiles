@@ -17,7 +17,7 @@ call plug#begin()
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'mhinz/vim-signify'
-  Plug 'morhetz/gruvbox'
+  Plug 'gruvbox-community/gruvbox'
   Plug 'psliwka/vim-smoothie'
   " }}}2
 call plug#end()
