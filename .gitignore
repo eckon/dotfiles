@@ -1,11 +1,5 @@
 *.cfg
-.config/*
 
 .config/nvim/.netrwhist
 .config/nvim/plugged
 .config/nvim/spell
-
-!.config/nvim
-!.config/rofi
-!.config/starship.toml
-!.config/kitty
