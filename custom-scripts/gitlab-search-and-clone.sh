@@ -8,7 +8,7 @@
 #   - with arguments: pre filters the search with the given value
 #
 # dependencies:
-#   - fzf, jq, curl, bash,
+#   - fzf, jq, curl, bash
 #   - variables.cfg
 #     - GITLAB_PROJECTS_URL is the url to the gitlab projects api
 #     - GITLAB_ACCESS_TOKEN is the access key from gitlab
