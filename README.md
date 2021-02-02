@@ -32,7 +32,7 @@ Following programs are installed:
 
 Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
-  * `.config` folder `$ ln -s ~/path/to/dotfiles/.config ~/.config`
+  * this can be done with the `./setup.sh` script, which will just add symlinks
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
 * install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
   * most of my used extensions are already in the `init.vim`, and will be installed automatically
