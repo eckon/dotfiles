@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-# script to quickly clone gitlab repos
+#####################################################################
+# script to quickly clone gitlab repositories inside of a fzf session
+#
+# usage:
+#   - without arguments: shows all available repositories
+#   - with arguments: pre filters the search with the given value
+#
+# dependencies:
+#   - fzf, jq, curl, bash,
+#   - variables.cfg
+#     - GITLAB_PROJECTS_URL is the url to the gitlab projects api
+#     - GITLAB_ACCESS_TOKEN is the access key from gitlab
+#####################################################################
 
 # get url (GITLAB_PROJECTS_URL) and access token (GITLAB_ACCESS_TOKEN) from a config file
 variablePath="${BASH_SOURCE%/*}/variables.cfg"

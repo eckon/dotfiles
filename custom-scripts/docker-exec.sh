@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-##########
+################################################################################
 # script to quickly run the docker exec command with bash/sh on chosen container
-##########
+################################################################################
 
 # evaluate docker output once to not call it multiple times
 data=$(

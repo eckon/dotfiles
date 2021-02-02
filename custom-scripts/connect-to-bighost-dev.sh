@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+########################################################
+# script to quickly connect to the bighost-dev container
+########################################################
+
 # get information about bighost dev from the manager in a nice format
 serviceInfo=$(
   ssh manager \
