@@ -15,9 +15,8 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
-  Plug 'lambdalisue/fern-git-status.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'mhinz/vim-signify'
   Plug 'gruvbox-community/gruvbox'
@@ -258,36 +257,6 @@ endfunction
 
 
 
-" ---------- fern {{{2
-" ----- Configurations {{{3
-let g:fern#default_hidden = 1
-let g:fern#renderer = 'nerdfont'
-let g:fern#smart_cursor = 'hide'
-
-
-" ----- Mappings {{{3
-nnoremap <silent><Leader>, <CMD>Fern . -drawer -reveal=% -toggle<CR>
-nnoremap <silent><Leader>. <CMD>Fern %:h<CR>
-
-function! s:FernInit() abort
-  nmap <buffer>* <Plug>(fern-action-mark)
-  nmap <buffer>- <Plug>(fern-action-open:split)
-  nmap <buffer><Bar> <Plug>(fern-action-open:vsplit)
-  nmap <buffer>D <Plug>(fern-action-remove)
-  nmap <buffer>C <Plug>(fern-action-new-path)
-  nmap <buffer>p <Plug>(fern-action-open:edit)<C-w><C-p>j
-  nmap <buffer>P <Plug>(fern-action-open:edit)<C-w><C-p>k
-  nmap <buffer>> <Plug>(fern-action-enter)
-  nmap <buffer>< <Plug>(fern-action-leave)
-endfunction
-
-augroup FernGroup
-  autocmd!
-  autocmd FileType fern call s:FernInit()
-augroup END
-
-
-
 " ---------- fugitive {{{2
 " quick actions for git status in the same buffer
 nnoremap <silent><Leader>gs :Gedit :<CR>
@@ -358,9 +327,20 @@ xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 
 
-" ---------- nvim-colorizer
+" ---------- nvim-colorizer {{{2
 " attach colorizer to file types
 lua require'colorizer'.setup()
+
+
+
+" ---------- nvim-tree {{{2
+" ----- Configurations {{{3
+let g:nvim_tree_follow = 1
+let g:nvim_tree_indent_markers = 1
+
+
+" ----- Mappings {{{3
+nnoremap <silent><Leader>, <CMD>NvimTreeToggle<CR>
 
 
 
