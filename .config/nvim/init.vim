@@ -337,6 +337,7 @@ lua require'colorizer'.setup()
 " ----- Configurations {{{3
 let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_root_folder_modifier = ':t:r'
 
 
 " ----- Mappings {{{3
