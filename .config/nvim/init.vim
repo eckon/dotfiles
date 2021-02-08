@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/nerdfont.vim'
+  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'mhinz/vim-signify'
   Plug 'gruvbox-community/gruvbox'
   Plug 'psliwka/vim-smoothie'
@@ -354,6 +355,12 @@ let g:NERDCommentEmptyLines = 1
 
 nmap <Leader>c<Space> <Plug>NERDCommenterToggle
 xmap <Leader>c<Space> <Plug>NERDCommenterToggle
+
+
+
+" ---------- nvim-colorizer
+" attach colorizer to file types
+lua require'colorizer'.setup()
 
 
 
