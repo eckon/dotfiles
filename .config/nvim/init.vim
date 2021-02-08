@@ -141,9 +141,6 @@ augroup END
 
 
 " -------------------- General Key Bindings {{{1
-" source current buffer
-nnoremap <Leader><Leader>s :so %<CR>
-
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
