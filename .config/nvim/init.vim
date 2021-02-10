@@ -8,7 +8,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'preservim/nerdcommenter'
+  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -312,18 +312,6 @@ nnoremap <Leader>fh <CMD>History<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
 nnoremap <Leader>fm <CMD>Marks<CR>
 nnoremap <Leader>fs <CMD>Snippets<CR>
-
-
-
-" ---------- nerdcommenter {{{2
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmptyLines = 1
-
-
-nmap <Leader>c<Space> <Plug>NERDCommenterToggle
-xmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 
 
