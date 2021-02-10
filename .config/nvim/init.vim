@@ -323,13 +323,13 @@ lua require'colorizer'.setup()
 
 " ---------- nvim-tree {{{2
 " ----- Configurations {{{3
-let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_root_folder_modifier = ':t:r'
 
 
 " ----- Mappings {{{3
 nnoremap <silent><Leader>, <CMD>NvimTreeToggle<CR>
+nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
 
 
 
