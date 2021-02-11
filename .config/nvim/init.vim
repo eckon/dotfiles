@@ -140,7 +140,8 @@ augroup END
 
 
 
-" -------------------- General Key Bindings {{{1
+" -------------------- General Key Bindings / Commands {{{1
+" ---------- Custom Key Bindings {{{2
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
@@ -167,6 +168,15 @@ nnoremap gp a<CR><ESC>PkgJgJ
 
 " easy way of hiding highlight
 nnoremap <ESC><ESC> <ESC><CMD>nohlsearch<CR>
+
+
+" ---------- Custom Commands {{{2
+" open current buffer file in the browser (needs to be cloned over git with ssh)
+command! OpenProjectInBrowser
+  \ !xdg-open
+  \ $(echo
+  \   ${${${$(git config --get remote.origin.url)//.git/}//:/\/}//git@/https:\/\/}/blob/master/%
+  \ )
 
 
 
