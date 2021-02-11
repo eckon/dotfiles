@@ -178,6 +178,10 @@ command! OpenProjectInBrowser
   \   ${${${$(git config --get remote.origin.url)//.git/}//:/\/}//git@/https:\/\/}/blob/master/%
   \ )
 
+" upload current buffer to bighost-dev server
+"" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
+command! BighostUpload !scp %:p swarmX-bighost-dev:/%
+
 
 
 " -------------------- Plugin Configurations {{{1
