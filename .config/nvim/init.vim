@@ -140,7 +140,7 @@ augroup END
 
 
 
-" -------------------- General Key Bindings / Commands {{{1
+" -------------------- General Key Bindings / Commands / Abbreviations {{{1
 " ---------- Custom Key Bindings {{{2
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
@@ -178,9 +178,18 @@ command! OpenProjectInBrowser
   \   ${${${$(git config --get remote.origin.url)//.git/}//:/\/}//git@/https:\/\/}/blob/master/%
   \ )
 
+" open current project and goto the current buffer file in vscode
+command! OpenInVsCode !code $(pwd) -g %
+
 " upload current buffer to bighost-dev server
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
 command! BighostUpload !scp %:p swarmX-bighost-dev:/%
+
+
+
+" ---------- Custom Abbreviations {{{2
+" add a shebang with the given filetype
+inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
 
 
 
