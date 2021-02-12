@@ -52,6 +52,8 @@ alias grep="grep --color=auto"
 alias ll="LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias open="xdg-open"
+# this is needed because most servers do not have kitty config yet so it would break the colors & some keys on a server
+alias ssh="TERM=xterm-256color ssh"
 alias v="vim"
 alias vi="vim"
 alias vim="nvim"
