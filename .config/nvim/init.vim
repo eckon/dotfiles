@@ -6,7 +6,6 @@ call plug#begin()
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'lambdalisue/fern.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
@@ -15,11 +14,11 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
+  Plug 'gruvbox-community/gruvbox'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'mhinz/vim-signify'
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'psliwka/vim-smoothie'
   " }}}2
 call plug#end()
