@@ -182,7 +182,7 @@ command! OpenInVsCode !code $(pwd) -g %
 
 " upload current buffer to bighost-dev server
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
-command! BighostUpload !scp %:p swarmX-bighost-dev:/%
+command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
 
 
