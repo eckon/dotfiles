@@ -25,6 +25,7 @@ Following programs are installed:
 * [xclip](https://wiki.ubuntuusers.de/xclip/) (this is to synchronize the clipboards in terminal/nvim)
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) (used as the default search algorithm)
 * ([ripgrep](https://github.com/BurntSushi/ripgrep))
+* [fd](https://github.com/sharkdp/fd) (binary is `fdfind`: .zshrc has an alias to `fd`)
 * [tldr](https://github.com/tldr-pages/tldr)
 
 
