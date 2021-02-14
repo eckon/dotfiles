@@ -30,6 +30,5 @@ function symlink {
 
 symlink .config/starship.toml
 symlink .config/nvim
-symlink .config/rofi
 symlink .config/lazygit
 symlink .zshrc
