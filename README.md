@@ -27,6 +27,8 @@ Following programs are installed:
 * ([ripgrep](https://github.com/BurntSushi/ripgrep))
 * [fd](https://github.com/sharkdp/fd) (binary is `fdfind`: .zshrc has an alias to `fd`)
 * [tldr](https://github.com/tldr-pages/tldr)
+* [lazygit](https://github.com/jesseduffield/lazygit)
+  * [delta](https://github.com/dandavison/delta) for better diff-views
 
 
 ### On fresh install
