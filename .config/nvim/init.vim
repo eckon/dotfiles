@@ -78,7 +78,7 @@ set statusline=
 set statusline+=%4*%8(%{GetCurrentMode()}%)\ 
 set statusline+=%-5((%{mode(1)})%)
 " git head
-set statusline+=%1*\ %{fugitive#head(8)}\ 
+set statusline+=%1*\ %{GetGitBranchName()}\ 
 " readonly / filename / modified
 set statusline+=%2*\ %t%m%r
 " end of line
@@ -129,6 +129,20 @@ function! GetCurrentMode() abort
   let mode = mode()
   " use get instead of [] to have a default value if we run into other modes
   return get(modeTranslation, mode, 'NOT-SET')
+endfunction
+
+" helper functions to get git branch name but only set it when needed
+augroup GitBranchName
+  autocmd!
+  autocmd BufEnter,FocusGained,FocusLost * call SetGitBranchName()
+augroup END
+
+function! SetGitBranchName() abort
+  let g:git_branch_name = trim(system('git branch --show-current'))
+endfunction
+
+function! GetGitBranchName() abort
+  return get(g:, 'git_branch_name', '')
 endfunction
 
 " highlight yanked text with lua
