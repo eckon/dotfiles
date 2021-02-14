@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'rhysd/git-messenger.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
@@ -306,7 +307,6 @@ nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gd :Gdiff<Space>
 nnoremap <Leader>gf :Gfetch<Space>
 nnoremap <Leader>gl :Gpull<Space>
-nnoremap <Leader>gm :Gmerge<Space>
 nnoremap <Leader>gp :Gpush<Space>
 
 
@@ -359,6 +359,18 @@ let g:gitblame_date_format = '%d.%m.%Y - %H:%M'
 
 " ----- Mappings {{{3
 nnoremap <Leader>gb <CMD>GitBlameToggle<CR>
+
+
+
+" ---------- git-messenger {{{2
+" ----- Configurations {{{3
+let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_date_format = '%d.%m.%Y - %H:%M'
+
+
+" ----- Mappings {{{3
+" afterwards, jump into preview with <C-W>p
+nmap <Leader>gm <Plug>(git-messenger)
 
 
 
