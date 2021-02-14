@@ -3,6 +3,7 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
+  Plug 'f-person/git-blame.nvim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -302,7 +303,6 @@ nnoremap <Leader>gf :diffget //2<CR>
 nnoremap <Leader>gj :diffget //3<CR>
 
 " other quick actions
-nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gdiff<Space>
 nnoremap <Leader>gf :Gfetch<Space>
 nnoremap <Leader>gl :Gpull<Space>
@@ -348,6 +348,17 @@ nnoremap <Leader>fh <CMD>History<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
 nnoremap <Leader>fm <CMD>Marks<CR>
 nnoremap <Leader>fs <CMD>Snippets<CR>
+
+
+
+" ---------- git-blame {{{2
+" ----- Configurations {{{3
+let g:gitblame_enabled = 0
+let g:gitblame_date_format = '%d.%m.%Y - %H:%M'
+
+
+" ----- Mappings {{{3
+nnoremap <Leader>gb <CMD>GitBlameToggle<CR>
 
 
 
