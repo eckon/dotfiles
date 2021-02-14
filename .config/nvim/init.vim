@@ -45,7 +45,7 @@ set nowrap
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
 set shortmess+=c
-set showcmd showmatch noshowmode
+set showcmd showmatch showmode
 set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500 updatetime=100
