@@ -12,19 +12,6 @@
 
 ## Information and (default) Shortcuts for installed plugins
 
-- vim-fugitive
-  - in git-status
-    - `g?` open help menu with fugitive mappings in git-status
-    - `=` show changes (on title or chunk)
-    - `J` and `K` jump between different chunks and opens them
-    - `o` and `<ENTER>` to open file at chunk
-    - `cc` will open commit window like `:Gcommit<ENTER>`
-    - `dd` and `dv` will open diff-splitt
-    - `s` will stage
-      - works with visual mode
-    - `u` will unstage
-      - works with visual mode
-    - `X` will checkout the changes (remove the changes)
 - fzf
   - `CTRL-P`, `CTRL-N` insert the next/previous search query again
   - `CTRL-R` can paste a register into the query
