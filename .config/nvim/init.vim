@@ -373,7 +373,9 @@ lua require'colorizer'.setup()
 " ----- Configurations {{{3
 let g:nvim_tree_disable_netrw = 0
 let g:nvim_tree_hijack_netrw = 0
+let g:nvim_tree_ignore = [ '.git', 'node_modules' ]
 let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_root_folder_modifier = ':t:r'
 
 
