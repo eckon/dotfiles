@@ -352,12 +352,12 @@ nnoremap <Leader>fs <CMD>Snippets<CR>
 
 " ---------- git-messenger {{{2
 " ----- Configurations {{{3
-let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_date_format = '%d.%m.%Y - %H:%M'
+let g:git_messenger_no_default_mappings = v:true
 
 
 " ----- Mappings {{{3
-" afterwards, jump into preview with <C-W>p
 nmap <Leader>gm <Plug>(git-messenger)
 nmap <Leader>gb <Plug>(git-messenger)
 
