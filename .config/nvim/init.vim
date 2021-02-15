@@ -338,15 +338,11 @@ nmap <Leader><Tab> <Plug>(fzf-maps-n)
 xmap <Leader><Tab> <Plug>(fzf-maps-x)
 omap <Leader><Tab> <Plug>(fzf-maps-o)
 
-" find files, lines, content, mappings, commits in project and open buffers
+" find files, lines, content, buffers in project
 nnoremap <Leader>fa <CMD>AgHidden<CR>
 nnoremap <Leader>fb <CMD>Buffers<CR>
-nnoremap <Leader>fc <CMD>BCommits<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
-nnoremap <Leader>fh <CMD>History<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
-nnoremap <Leader>fm <CMD>Marks<CR>
-nnoremap <Leader>fs <CMD>Snippets<CR>
 
 
 
