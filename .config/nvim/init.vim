@@ -9,7 +9,6 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'rhysd/git-messenger.vim'
   Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'vimwiki/vimwiki'
@@ -291,22 +290,6 @@ function! s:show_documentation() abort
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-
-
-" ---------- fugitive {{{2
-" quick actions for git status in the same buffer
-nnoremap <silent><Leader>gs :Gedit :<CR>
-
-" quick actions for git merge conflicts left side 'f' (merge into) right 'j'
-nnoremap <Leader>gf :diffget //2<CR>
-nnoremap <Leader>gj :diffget //3<CR>
-
-" other quick actions
-nnoremap <Leader>gd :Gdiff<Space>
-nnoremap <Leader>gf :Gfetch<Space>
-nnoremap <Leader>gl :Gpull<Space>
-nnoremap <Leader>gp :Gpush<Space>
 
 
 
