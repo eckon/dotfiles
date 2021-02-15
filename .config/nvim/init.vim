@@ -3,7 +3,6 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
-  Plug 'f-person/git-blame.nvim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -351,17 +350,6 @@ nnoremap <Leader>fs <CMD>Snippets<CR>
 
 
 
-" ---------- git-blame {{{2
-" ----- Configurations {{{3
-let g:gitblame_enabled = 0
-let g:gitblame_date_format = '%d.%m.%Y - %H:%M'
-
-
-" ----- Mappings {{{3
-nnoremap <Leader>gb <CMD>GitBlameToggle<CR>
-
-
-
 " ---------- git-messenger {{{2
 " ----- Configurations {{{3
 let g:git_messenger_no_default_mappings = v:true
@@ -371,6 +359,7 @@ let g:git_messenger_date_format = '%d.%m.%Y - %H:%M'
 " ----- Mappings {{{3
 " afterwards, jump into preview with <C-W>p
 nmap <Leader>gm <Plug>(git-messenger)
+nmap <Leader>gb <Plug>(git-messenger)
 
 
 
