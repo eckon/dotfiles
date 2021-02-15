@@ -382,6 +382,8 @@ lua require'colorizer'.setup()
 
 " ---------- nvim-tree {{{2
 " ----- Configurations {{{3
+let g:nvim_tree_disable_netrw = 0
+let g:nvim_tree_hijack_netrw = 0
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_root_folder_modifier = ':t:r'
 
