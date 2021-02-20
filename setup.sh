@@ -28,7 +28,8 @@ function symlink {
   ln -s "${base}" "${destination}"
 }
 
-symlink .config/starship.toml
+symlink .config/kitty/kitty.conf
+symlink .config/lazygit/config.yml
 symlink .config/nvim
-symlink .config/lazygit
+symlink .config/starship.toml
 symlink .zshrc
