@@ -142,8 +142,7 @@ function! GetGitBranchName() abort
   return get(g:, 'git_branch_name', '')
 endfunction
 
-" highlight yanked text with lua
-augroup highlight_yank
+augroup HighlightYankedText
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
