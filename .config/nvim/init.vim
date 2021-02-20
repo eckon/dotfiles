@@ -337,7 +337,6 @@ let g:git_messenger_no_default_mappings = v:true
 
 
 " ----- Mappings {{{3
-nmap <Leader>gm <Plug>(git-messenger)
 nmap <Leader>gb <Plug>(git-messenger)
 
 
