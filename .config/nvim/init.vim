@@ -11,7 +11,6 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'vimwiki/vimwiki'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -194,6 +193,9 @@ command! OpenInVsCode !code $(pwd) -g %
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
 command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
+" own small vimwiki styled note taking file
+command! OpenNotes edit ~/.local/share/notes/index.md
+
 
 
 " ---------- Custom Abbreviations {{{2
@@ -359,10 +361,3 @@ nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
 
 
 
-" ---------- vimwiki {{{2
-" set default path to $XDG_DATA_HOME/vimwiki
-let g:vimwiki_list = [{
-  \   'path': '~/.local/share/vimwiki',
-  \   'syntax': 'markdown',
-  \   'ext': '.md'
-  \ }]
