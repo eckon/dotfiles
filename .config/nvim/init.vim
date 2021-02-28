@@ -76,7 +76,7 @@ set statusline+=%-5((%{mode(1)})%)
 " git head
 set statusline+=%1*\ %{GetGitBranchName()}\ 
 " readonly / filename / modified
-set statusline+=%2*\ %t%m%r
+set statusline+=%2*\ %t%m%r\ 
 " end of line
 set statusline+=%=
 " coc status / filetype / filencoding / fileformat
