@@ -21,6 +21,7 @@ call plug#begin()
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'mhinz/vim-signify'
   Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'psliwka/vim-smoothie'
   " }}}2
 call plug#end()
@@ -378,6 +379,23 @@ let g:nvim_tree_root_folder_modifier = ':t:r'
 " ----- Mappings {{{3
 nnoremap <silent><Leader>, <CMD>NvimTreeToggle<CR>
 nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
+
+
+
+" ---------- nvim-treesitter {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  -- following languages are not used, because they are worse then the regex one
+  -- php, yaml
+  ensure_installed = {
+    'typescript', 'javascript', 'vue',
+    'json', 'html', 'css',
+    'bash', 'python',
+  },
+  highlight = { enable = true },
+}
+EOF
 
 
 
