@@ -192,7 +192,7 @@ nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
 " easy way of hiding highlight
-nnoremap <ESC><ESC> <ESC><CMD>nohlsearch<CR>
+nnoremap <TAB><TAB> <CMD>nohlsearch<CR>
 
 
 " ---------- Custom Commands {{{2
