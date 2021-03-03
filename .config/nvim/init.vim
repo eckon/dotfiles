@@ -412,6 +412,7 @@ nnoremap <leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
 " open git files without preview (by having a high cutoff) really useful for long names in a repo
 nnoremap <leader><leader>f <CMD>lua require('telescope.builtin').git_files({ preview_cutoff = 9999 })<CR>
 nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 " search repo for given word and open a fuzzy finder with it
