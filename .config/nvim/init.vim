@@ -4,8 +4,8 @@
 call plug#begin()
   " Tools {{{2
   Plug 'jiangmiao/auto-pairs'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
@@ -311,39 +311,39 @@ endfunction
 
 
 
-" ---------- fzf {{{2
-" ----- Configurations {{{3
-" configure the window when using fzf inside of vim (and only inside of vim)
-let $FZF_DEFAULT_OPTS = "--layout reverse --margin=1,2"
-let g:fzf_layout = { 'window': { 'width': 0.98, 'height': 0.98 } }
-" enable to use ctrl-p/n in fzf window to cycle through history
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+" " ---------- fzf {{{2
+" " ----- Configurations {{{3
+" " configure the window when using fzf inside of vim (and only inside of vim)
+" let $FZF_DEFAULT_OPTS = "--layout reverse --margin=1,2"
+" let g:fzf_layout = { 'window': { 'width': 0.98, 'height': 0.98 } }
+" " enable to use ctrl-p/n in fzf window to cycle through history
+" let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
-" ----- Mappings {{{3
-" call ag and pass the hidden flag to also show dotfiles
-" taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
-command! -bang -nargs=* AgHidden
-  \ call fzf#vim#ag(
-  \   <q-args>,
-  \   '--hidden --ignore ".git"',
-  \   <bang>0
-  \ )
+" " ----- Mappings {{{3
+" " call ag and pass the hidden flag to also show dotfiles
+" " taken from https://github.com/junegunn/fzf.vim/issues/92 and modified
+" command! -bang -nargs=* AgHidden
+"   \ call fzf#vim#ag(
+"   \   <q-args>,
+"   \   '--hidden --ignore ".git"',
+"   \   <bang>0
+"   \ )
 
-" enable usage of ctrl-r (e.g. to paste vim buffer) in fzf windows
-" for the current default buffer press ctrl-"
-tnoremap <expr><C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
+" " enable usage of ctrl-r (e.g. to paste vim buffer) in fzf windows
+" " for the current default buffer press ctrl-"
+" tnoremap <expr><C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'"'
 
-" quick way to see all available maps in the current mode
-nmap <Leader><Tab> <Plug>(fzf-maps-n)
-xmap <Leader><Tab> <Plug>(fzf-maps-x)
-omap <Leader><Tab> <Plug>(fzf-maps-o)
+" " quick way to see all available maps in the current mode
+" nmap <Leader><Tab> <Plug>(fzf-maps-n)
+" xmap <Leader><Tab> <Plug>(fzf-maps-x)
+" omap <Leader><Tab> <Plug>(fzf-maps-o)
 
-" find files, lines, content, buffers in project
-nnoremap <Leader>fa <CMD>AgHidden<CR>
-nnoremap <Leader>fb <CMD>Buffers<CR>
-nnoremap <Leader>ff <CMD>GFiles<CR>
-nnoremap <Leader>fl <CMD>BLines<CR>
+" " find files, lines, content, buffers in project
+" nnoremap <Leader>fa <CMD>AgHidden<CR>
+" nnoremap <Leader>fb <CMD>Buffers<CR>
+" nnoremap <Leader>ff <CMD>GFiles<CR>
+" nnoremap <Leader>fl <CMD>BLines<CR>
 
 
 
