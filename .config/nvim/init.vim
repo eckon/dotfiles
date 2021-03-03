@@ -58,6 +58,9 @@ set title
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
+" enable embedded script highlighting of lua code
+let g:vimsyn_embed = 'l'
+
 " configure vim-markdown from tpope (installed by vim itself)
 let g:markdown_fenced_languages = [
   \ 'javascript', 'json=javascript', 'js=javascript',
