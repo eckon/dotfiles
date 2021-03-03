@@ -54,6 +54,16 @@ set title
 set autoread
 autocmd FocusGained,BufEnter * checktime
 
+" configure vim-markdown from tpope (installed by vim itself)
+let g:markdown_fenced_languages = [
+  \ 'javascript', 'json=javascript', 'js=javascript',
+  \ 'typescript', 'ts=typescript',
+  \ 'sh', 'bash=sh',
+  \ 'php',
+  \ 'python',
+  \ ]
+let g:markdown_syntax_conceal = 0
+
 
 
 " -------------------- Color/Style Configuration {{{1
