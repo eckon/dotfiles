@@ -384,12 +384,19 @@ nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
 " ---------- telescope {{{2
 " ----- Configurations {{{3
 lua << EOF
+local actions = require('telescope.actions')
+
 require('telescope').setup {
   defaults = {
     -- can be deleted as soon as I install ripgrep
     vimgrep_arguments = {
       'ag',
       '--vimgrep',
+    },
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
     },
   }
 }
@@ -399,11 +406,15 @@ EOF
 " ----- Mappings {{{3
 nnoremap <leader><TAB> <CMD>lua require('telescope.builtin').builtin()<CR>
 nnoremap <leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
+" simulate vinegar (open current folder structure etc)
 nnoremap <leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
-nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
+" open git files without preview (by having a high cutoff) really useful for long names in a repo
+nnoremap <leader><leader>f <CMD>lua require('telescope.builtin').git_files({ preview_cutoff = 9999 })<CR>
+nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-nnoremap <leader>fp <CMD>lua require('telescope.builtin').find_files()<CR>
+" search repo for given word and open a fuzzy finder with it
 nnoremap <leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
+" search repo for word under cursor and open a fuzzy finder with it
 nnoremap <leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
