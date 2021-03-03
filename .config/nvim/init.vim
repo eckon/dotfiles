@@ -7,6 +7,9 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'rhysd/git-messenger.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -378,3 +381,29 @@ nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
 
 
 
+" ---------- telescope {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('telescope').setup {
+  defaults = {
+    -- can be deleted as soon as I install ripgrep
+    vimgrep_arguments = {
+      'ag',
+      '--vimgrep',
+    },
+  }
+}
+EOF
+
+
+" ----- Mappings {{{3
+nnoremap <leader><TAB> <CMD>lua require('telescope.builtin').builtin()<CR>
+nnoremap <leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
+nnoremap <leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
+nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <leader>fp <CMD>lua require('telescope.builtin').find_files()<CR>
+nnoremap <leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
+nnoremap <leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
