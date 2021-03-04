@@ -392,8 +392,7 @@ nnoremap <leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
 " simulate vinegar (open current folder structure etc)
 nnoremap <leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
 nnoremap <leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
-" open git files without preview (by having a high cutoff) really useful for long names in a repo
-nnoremap <leader><leader>f <CMD>lua require('telescope.builtin').git_files({ preview_cutoff = 9999 })<CR>
+nnoremap <leader><leader>f <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
 nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
