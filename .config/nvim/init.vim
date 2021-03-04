@@ -386,17 +386,17 @@ EOF
 
 
 " ----- Mappings {{{3
-nnoremap <leader><TAB> <CMD>lua require('telescope.builtin').builtin()<CR>
-nnoremap <leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
+nnoremap <Leader><TAB> <CMD>lua require('telescope.builtin').builtin()<CR>
+nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
 " simulate vinegar (open current folder structure etc)
-nnoremap <leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
-nnoremap <leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
-nnoremap <leader><leader>f <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
-nnoremap <leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
-nnoremap <leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
+nnoremap <Leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader><Leader>f <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
+nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
+nnoremap <Leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 " search repo for given word and open a fuzzy finder with it
-nnoremap <leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
+nnoremap <Leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
 " search repo for word under cursor and open a fuzzy finder with it
-nnoremap <leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
+nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
