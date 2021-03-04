@@ -67,7 +67,6 @@ let g:markdown_fenced_languages = [
   \ 'php',
   \ 'python',
   \ ]
-let g:markdown_syntax_conceal = 0
 
 
 
