@@ -48,8 +48,6 @@ antigen apply
 # -------------------- Alias --------------------
 alias clip="xclip -sel clip"
 alias dev="cd $HOME/Development"
-alias fd="fdfind"
-alias grep="grep --color=auto"
 alias ll="LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias open="xdg-open"
