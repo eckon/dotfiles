@@ -1,4 +1,0 @@
-{
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
-}

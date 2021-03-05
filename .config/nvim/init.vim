@@ -4,7 +4,6 @@
 call plug#begin()
   " Tools {{{2
   Plug 'jiangmiao/auto-pairs'
-  " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -97,8 +96,8 @@ set statusline+=%1*\ %{GetGitBranchName()}\
 set statusline+=%2*\ %t%m%r\ 
 " end of line
 set statusline+=%=
-" coc status / filetype / filencoding / fileformat
-" set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+" filetype / filencoding / fileformat
+set statusline+=%3*%{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
 " percantage of file / line number / column number
 set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
@@ -230,92 +229,6 @@ inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype
 
 
 " -------------------- Plugin Configurations {{{1
-" " ---------- coc {{{2
-" " ----- Configurations {{{3
-" " set coc extensions that should always be installed
-" " essential
-" let g:coc_global_extensions = [
-"   \   'coc-emmet',
-"   \   'coc-marketplace',
-"   \ ]
-" " general
-" let g:coc_global_extensions += [
-"   \   'coc-docker',
-"   \   'coc-html',
-"   \   'coc-json',
-"   \   'coc-vimlsp',
-"   \   'coc-yaml',
-"   \ ]
-" " specific
-" let g:coc_global_extensions += [
-"   \   'coc-angular',
-"   \   'coc-css',
-"   \   'coc-eslint',
-"   \   'coc-go',
-"   \   'coc-java',
-"   \   'coc-phpls',
-"   \   'coc-prettier',
-"   \   'coc-python',
-"   \   'coc-rust-analyzer',
-"   \   'coc-toml',
-"   \   'coc-tsserver',
-"   \ ]
-
-
-" " ----- Mappings {{{3
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" " use K to show documentation in preview window
-" nnoremap <silent>K :call <SID>show_documentation()<CR>
-
-" " goto code navigation and other coc commands
-" nmap <silent>[g <Plug>(coc-diagnostic-prev)
-" nmap <silent>]g <Plug>(coc-diagnostic-next)
-" nmap <silent>gd <Plug>(coc-definition)
-" nmap <silent>gi <Plug>(coc-implementation)
-" nmap <silent>gr <Plug>(coc-references)
-" nmap <silent>gy <Plug>(coc-type-definition)
-" nmap <silent><Leader>cac <Plug>(coc-codeaction)
-" nmap <silent><Leader>crn <Plug>(coc-rename)
-" nmap <silent><Leader>cf <Plug>(coc-format)
-" xmap <silent><Leader>cf <Plug>(coc-format-selected)
-
-" " use <C-space> to trigger coc code completion
-" inoremap <silent><expr> <C-space> coc#refresh()
-
-" " use tab for trigger completion with characters ahead and navigate.
-" inoremap <silent><expr> <TAB>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-
-" " use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" " position. Coc only does snippet and additional edit on confirm.
-" if exists('*complete_info')
-"   inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
-" " function to show documentation in a preview window
-" function! s:show_documentation() abort
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   elseif (coc#rpc#ready())
-"     call CocActionAsync('doHover')
-"   else
-"     execute '!' . &keywordprg . " " . expand('<cword>')
-"   endif
-" endfunction
-
-
-
 " ---------- git-messenger {{{2
 " ----- Configurations {{{3
 let g:git_messenger_always_into_popup = v:true
