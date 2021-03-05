@@ -216,6 +216,7 @@ nnoremap <Leader>cp <CMD>cprev<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
+inoremap <silent><expr> <C-c> compe#close('<C-c>')
 
 " make normal completion to tabcompletion when popup-menu visible
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
