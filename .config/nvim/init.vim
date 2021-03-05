@@ -3,7 +3,10 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'hrsh7th/nvim-compe'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -11,10 +14,6 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'glepnir/lspsaga.nvim'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -54,6 +53,9 @@ set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500 updatetime=100
 set title
+
+" for lsp completion
+set completeopt=menuone,noselect
 
 " reload buffer when file changed from outside
 set autoread
@@ -255,7 +257,6 @@ require'lspsaga'.init_lsp_saga {
 }
 EOF
 
-set completeopt=menuone,noselect
 lua << EOF
 require'compe'.setup {
   source = {
