@@ -176,9 +176,10 @@ augroup END
 
 " -------------------- General Key Bindings / Commands / Abbreviations {{{1
 " ---------- Custom Key Bindings {{{2
-" disable keys and/or set custom 'default' behaviour
+" disable annoying keys
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
+inoremap <F1> <Nop>
 
 " quick safe for different vim modes
 " use <CMD> so that we do not need to reselect in visual mode (gv)
@@ -200,7 +201,7 @@ nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
 " easy way of hiding highlight
-nnoremap <TAB><TAB> <CMD>nohlsearch<CR>
+nnoremap gh <CMD>nohlsearch<CR>
 
 
 " ---------- Custom Commands {{{2
@@ -220,7 +221,6 @@ command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
 " own small vimwiki styled note taking file
 command! OpenNotes edit ~/.local/share/notes/index.md
-
 
 
 " ---------- Custom Abbreviations {{{2
