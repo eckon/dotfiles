@@ -259,46 +259,43 @@ require'lspsaga'.init_lsp_saga {
   finder_action_keys = { open = '<CR>', vsplit = 'v', split = 'x', quit = { 'q', '<ESC>' } },
   code_action_keys = { quit = { 'q', '<ESC>' }, exec = '<CR>' },
   rename_action_keys = { quit = {'<C-c>', '<ESC>' }, exec = '<CR>' },
-  border_style = 2
+  border_style = 2,
 }
 EOF
 
 lua << EOF
 require'compe'.setup {
   source = {
-    nvim_lsp = true;
-    buffer = true;
-    path = true;
-    spell = true;
-  };
+    nvim_lsp = true,
+    buffer = true,
+    path = true,
+    spell = true,
+  },
 }
 EOF
 
+" show signatur when typing
+autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
+
 
 " ----- Mappings {{{3
-" INFO: add mappings to jump between quickfix items (:cp :cn) alot of these add items to quickfixlist
-nnoremap <Leader>cn <CMD>cnext<CR>
-nnoremap <Leader>cp <CMD>cprev<CR>
-
+" alot of these have also basic implementations by native-lsp
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gy <CMD>lua vim.lsp.buf.type_definition()<CR>
-" lua vim.lsp.diagnostic.goto_prev()
 nnoremap [g<CMD>Lspsaga diagnostic_jump_prev<CR>
-" lua vim.lsp.diagnostic.goto_next()
 nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
-" lua vim.lsp.buf.code_action()
+
 nnoremap <Leader>cac <CMD>Lspsaga code_action<CR>
-" lua vim.lsp.buf.rename()
 nnoremap <Leader>crn <CMD>Lspsaga rename<CR>
 nnoremap <Leader>cf <CMD>lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>cc <CMD>Lspsaga lsp_finder<CR>
 nnoremap <Leader>cl <CMD>Lspsaga show_line_diagnostics<CR>
 
-autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
+nnoremap <Leader>cn <CMD>cnext<CR>
+nnoremap <Leader>cp <CMD>cprev<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
@@ -368,10 +365,10 @@ require('telescope').setup {
     },
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
       },
     },
-  }
+  },
 }
 EOF
 
