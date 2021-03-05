@@ -244,7 +244,14 @@ nmap <Leader>gb <Plug>(git-messenger)
 
 " ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
 " ----- Configurations {{{3
+lua require'lspconfig'.angularls.setup{}
+lua require'lspconfig'.html.setup{}
+lua require'lspconfig'.intelephense.setup{}
+lua require'lspconfig'.jsonls.setup{}
 lua require'lspconfig'.tsserver.setup{}
+lua require'lspconfig'.vimls.setup{}
+lua require'lspconfig'.vuels.setup{}
+lua require'lspconfig'.yamlls.setup{}
 
 lua <<EOF
 require'lspsaga'.init_lsp_saga {

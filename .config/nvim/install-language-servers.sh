@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 npm install -g @angular/language-server
-npm install -g dockerfile-language-server-nodejs
 npm install -g intelephense
 npm install -g typescript typescript-language-server
 npm install -g vim-language-server
