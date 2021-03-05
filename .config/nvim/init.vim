@@ -263,7 +263,6 @@ require'compe'.setup {
     buffer = true;
     path = true;
     spell = true;
-    treesitter = true;
   };
 }
 EOF
