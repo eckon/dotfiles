@@ -179,7 +179,6 @@ augroup END
 " disable keys and/or set custom 'default' behaviour
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
-inoremap <F1> <C-v><F1>
 
 " quick safe for different vim modes
 " use <CMD> so that we do not need to reselect in visual mode (gv)
