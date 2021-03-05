@@ -4,7 +4,7 @@
 call plug#begin()
   " Tools {{{2
   Plug 'jiangmiao/auto-pairs'
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -12,6 +12,10 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'glepnir/lspsaga.nvim'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -94,7 +98,7 @@ set statusline+=%2*\ %t%m%r\
 " end of line
 set statusline+=%=
 " coc status / filetype / filencoding / fileformat
-set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+" set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
 " percantage of file / line number / column number
 set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
@@ -226,89 +230,89 @@ inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- coc {{{2
-" ----- Configurations {{{3
-" set coc extensions that should always be installed
-" essential
-let g:coc_global_extensions = [
-  \   'coc-emmet',
-  \   'coc-marketplace',
-  \ ]
-" general
-let g:coc_global_extensions += [
-  \   'coc-docker',
-  \   'coc-html',
-  \   'coc-json',
-  \   'coc-vimlsp',
-  \   'coc-yaml',
-  \ ]
-" specific
-let g:coc_global_extensions += [
-  \   'coc-angular',
-  \   'coc-css',
-  \   'coc-eslint',
-  \   'coc-go',
-  \   'coc-java',
-  \   'coc-phpls',
-  \   'coc-prettier',
-  \   'coc-python',
-  \   'coc-rust-analyzer',
-  \   'coc-toml',
-  \   'coc-tsserver',
-  \ ]
+" " ---------- coc {{{2
+" " ----- Configurations {{{3
+" " set coc extensions that should always be installed
+" " essential
+" let g:coc_global_extensions = [
+"   \   'coc-emmet',
+"   \   'coc-marketplace',
+"   \ ]
+" " general
+" let g:coc_global_extensions += [
+"   \   'coc-docker',
+"   \   'coc-html',
+"   \   'coc-json',
+"   \   'coc-vimlsp',
+"   \   'coc-yaml',
+"   \ ]
+" " specific
+" let g:coc_global_extensions += [
+"   \   'coc-angular',
+"   \   'coc-css',
+"   \   'coc-eslint',
+"   \   'coc-go',
+"   \   'coc-java',
+"   \   'coc-phpls',
+"   \   'coc-prettier',
+"   \   'coc-python',
+"   \   'coc-rust-analyzer',
+"   \   'coc-toml',
+"   \   'coc-tsserver',
+"   \ ]
 
 
-" ----- Mappings {{{3
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" " ----- Mappings {{{3
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" use K to show documentation in preview window
-nnoremap <silent>K :call <SID>show_documentation()<CR>
+" " use K to show documentation in preview window
+" nnoremap <silent>K :call <SID>show_documentation()<CR>
 
-" goto code navigation and other coc commands
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent>gr <Plug>(coc-references)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent><Leader>cac <Plug>(coc-codeaction)
-nmap <silent><Leader>crn <Plug>(coc-rename)
-nmap <silent><Leader>cf <Plug>(coc-format)
-xmap <silent><Leader>cf <Plug>(coc-format-selected)
+" " goto code navigation and other coc commands
+" nmap <silent>[g <Plug>(coc-diagnostic-prev)
+" nmap <silent>]g <Plug>(coc-diagnostic-next)
+" nmap <silent>gd <Plug>(coc-definition)
+" nmap <silent>gi <Plug>(coc-implementation)
+" nmap <silent>gr <Plug>(coc-references)
+" nmap <silent>gy <Plug>(coc-type-definition)
+" nmap <silent><Leader>cac <Plug>(coc-codeaction)
+" nmap <silent><Leader>crn <Plug>(coc-rename)
+" nmap <silent><Leader>cf <Plug>(coc-format)
+" xmap <silent><Leader>cf <Plug>(coc-format-selected)
 
-" use <C-space> to trigger coc code completion
-inoremap <silent><expr> <C-space> coc#refresh()
+" " use <C-space> to trigger coc code completion
+" inoremap <silent><expr> <C-space> coc#refresh()
 
-" use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" " use tab for trigger completion with characters ahead and navigate.
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-" use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" " use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" " position. Coc only does snippet and additional edit on confirm.
+" if exists('*complete_info')
+"   inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
-" function to show documentation in a preview window
-function! s:show_documentation() abort
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
+" " function to show documentation in a preview window
+" function! s:show_documentation() abort
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   elseif (coc#rpc#ready())
+"     call CocActionAsync('doHover')
+"   else
+"     execute '!' . &keywordprg . " " . expand('<cword>')
+"   endif
+" endfunction
 
 
 
@@ -321,6 +325,74 @@ let g:git_messenger_no_default_mappings = v:true
 
 " ----- Mappings {{{3
 nmap <Leader>gb <Plug>(git-messenger)
+
+
+
+" ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
+" ----- Configurations {{{3
+lua require'lspconfig'.tsserver.setup{}
+
+lua <<EOF
+require'lspsaga'.init_lsp_saga {
+  max_preview_lines = 200,
+  finder_action_keys = { open = '<CR>', vsplit = 'v', split = 'x', quit = { 'q', '<ESC>' } },
+  code_action_keys = { quit = { 'q', '<ESC>' }, exec = '<CR>' },
+  rename_action_keys = { quit = {'<C-c>', '<ESC>' }, exec = '<CR>' },
+  border_style = 2
+}
+EOF
+
+set completeopt=menuone,noselect
+lua << EOF
+require'compe'.setup {
+  source = {
+    nvim_lsp = true;
+    buffer = true;
+    path = true;
+    spell = true;
+    treesitter = true;
+  };
+}
+EOF
+
+
+" ----- Mappings {{{3
+" INFO: add mappings to jump between quickfix items (:cp :cn) alot of these add items to quickfixlist
+nnoremap <Leader>cn <CMD>cnext<CR>
+nnoremap <Leader>cp <CMD>cprev<CR>
+
+nnoremap <silent>K :call <SID>show_documentation()<CR>
+
+nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
+nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
+nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
+nnoremap gy <CMD>lua vim.lsp.buf.type_definition()<CR>
+" lua vim.lsp.diagnostic.goto_prev()
+nnoremap [g<CMD>Lspsaga diagnostic_jump_prev<CR>
+" lua vim.lsp.diagnostic.goto_next()
+nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
+" lua vim.lsp.buf.code_action()
+nnoremap <Leader>cac <CMD>Lspsaga code_action<CR>
+" lua vim.lsp.buf.rename()
+nnoremap <Leader>crn <CMD>Lspsaga rename<CR>
+nnoremap <Leader>cf <CMD>lua vim.lsp.buf.formatting()<CR>
+nnoremap <Leader>cc <CMD>Lspsaga lsp_finder<CR>
+nnoremap <Leader>cl <CMD>Lspsaga show_line_diagnostics<CR>
+
+autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR> compe#confirm('<CR>')
+
+" use default K if we have something in help
+function! s:show_documentation() abort
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h ' . expand('<cword>')
+  else
+    " basic lsp: lua vim.lsp.buf.hover()
+    execute 'Lspsaga hover_doc'
+  endif
+endfunction
 
 
 
