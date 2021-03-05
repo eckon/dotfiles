@@ -36,6 +36,7 @@ filetype plugin on
 
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
+set completeopt=menuone,noinsert,noselect
 set foldmethod=indent nofoldenable
 set hidden
 set hlsearch ignorecase incsearch magic smartcase
@@ -53,9 +54,6 @@ set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500 updatetime=100
 set title
-
-" for lsp completion
-set completeopt=menuone,noselect
 
 " reload buffer when file changed from outside
 set autoread
