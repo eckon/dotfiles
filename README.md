@@ -29,9 +29,6 @@ Following commands/configs should be run/set on fresh install:
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
   * this can be done with the `./setup.sh` script, which will just add symlinks
 * in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
-* install [Language Servers/Extensions](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#install-extension-for-programming-languages-you-use-daily) for coc.nvim
-  * most of my used extensions are already in the `init.vim`, and will be installed automatically
-  * coc will enable `emmet` functionality next to the "normal" language server protocols
-  * use marketplace for easy search of wanted extensions with `:CocList marketplace`
+* install LSP for native client, see [nvim-config](./.config/nvim/README.md)
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
