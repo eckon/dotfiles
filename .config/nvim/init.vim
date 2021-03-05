@@ -170,6 +170,8 @@ lua require'lspconfig'.vimls.setup{}
 lua require'lspconfig'.vuels.setup{}
 lua require'lspconfig'.yamlls.setup{}
 
+autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
+
 lua <<EOF
 require'lspsaga'.init_lsp_saga {
   max_preview_lines = 200,
@@ -191,12 +193,8 @@ require'compe'.setup {
 }
 EOF
 
-" show signatur when typing
-autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
-
 
 " ----- Mappings {{{3
-" alot of these have also basic implementations by native-lsp
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
@@ -217,12 +215,15 @@ nnoremap <Leader>cp <CMD>cprev<CR>
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
 
+" make normal completion to tabcompletion when popup-menu visible
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " use default K if we have something in help
 function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h ' . expand('<cword>')
   else
-    " basic lsp: lua vim.lsp.buf.hover()
     execute 'Lspsaga hover_doc'
   endif
 endfunction
