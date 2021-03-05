@@ -161,14 +161,16 @@ nmap <Leader>gb <Plug>(git-messenger)
 
 " ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
 " ----- Configurations {{{3
-lua require'lspconfig'.angularls.setup{}
-lua require'lspconfig'.html.setup{}
-lua require'lspconfig'.intelephense.setup{}
-lua require'lspconfig'.jsonls.setup{}
-lua require'lspconfig'.tsserver.setup{}
-lua require'lspconfig'.vimls.setup{}
-lua require'lspconfig'.vuels.setup{}
-lua require'lspconfig'.yamlls.setup{}
+lua <<EOF
+require'lspconfig'.angularls.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.intelephense.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.vuels.setup{}
+require'lspconfig'.yamlls.setup{}
+EOF
 
 autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
 
