@@ -117,8 +117,8 @@ vnoremap > >gv
 nnoremap gP i<CR><ESC>PkgJgJ
 nnoremap gp a<CR><ESC>PkgJgJ
 
-" easy way of hiding highlight
-nnoremap gh <CMD>nohlsearch<CR>
+" extend redraw of screen with hiding the highlight of search results
+nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
 
 
 " ---------- Custom Commands {{{2
