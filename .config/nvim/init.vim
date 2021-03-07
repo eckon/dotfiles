@@ -142,7 +142,7 @@ command! OpenNotes edit ~/.local/share/notes/index.md
 
 " ---------- Custom Abbreviations {{{2
 " add a shebang with the given filetype
-inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
+inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' ' . &filetype)
 
 
 
@@ -280,22 +280,15 @@ local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
     -- can be deleted as soon as I install ripgrep
-    vimgrep_arguments = {
-      'ag',
-      '--vimgrep',
-    },
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-      },
-    },
+    vimgrep_arguments = { 'ag', '--vimgrep' },
+    mappings = { i = { ["<ESC>"] = actions.close } },
   },
 }
 EOF
 
 
 " ----- Mappings {{{3
-nnoremap <Leader><TAB> <CMD>lua require('telescope.builtin').builtin()<CR>
+nnoremap <Leader><Tab> <CMD>lua require('telescope.builtin').builtin()<CR>
 nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
 " simulate vinegar (open current folder structure etc)
 nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
