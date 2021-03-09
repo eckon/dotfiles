@@ -4,6 +4,7 @@
 call plug#begin()
   " Tools {{{2
   Plug 'glepnir/lspsaga.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'hrsh7th/nvim-compe'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
@@ -271,7 +272,7 @@ EOF
 
 
 
-" ---------- telescope {{{2
+" ---------- telescope (& fzy) {{{2
 " ----- Configurations {{{3
 lua << EOF
 local actions = require('telescope.actions')
@@ -283,6 +284,8 @@ require('telescope').setup {
     mappings = { i = { ["<ESC>"] = actions.close } },
   },
 }
+
+require('telescope').load_extension('fzy_native')
 EOF
 
 
