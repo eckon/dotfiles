@@ -34,6 +34,7 @@ let mapleader = "\<Space>"
 syntax enable
 filetype plugin on
 
+set autoread
 set backspace=eol,start,indent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
@@ -54,10 +55,6 @@ set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1500 updatetime=100
 set title
-
-" reload buffer when file changed from outside
-set autoread
-autocmd FocusGained,BufEnter * checktime
 
 " enable embedded script highlighting of lua code
 let g:vimsyn_embed = 'l'
