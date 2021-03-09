@@ -5,7 +5,6 @@ call plug#begin()
   " Tools {{{2
   Plug 'glepnir/lspsaga.nvim'
   Plug 'hrsh7th/nvim-compe'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
