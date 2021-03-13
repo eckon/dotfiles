@@ -4,11 +4,11 @@
 call plug#begin()
   " Tools {{{2
   Plug 'glepnir/lspsaga.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'hrsh7th/nvim-compe'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'rhysd/git-messenger.vim'
   Plug 'tpope/vim-commentary'
@@ -138,8 +138,6 @@ command! OpenNotes edit ~/.local/share/notes/index.md
 
 
 " ---------- Custom Abbreviations {{{2
-" add a shebang with the given filetype
-inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' ' . &filetype)
 
 
 
@@ -199,7 +197,7 @@ nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gy <CMD>lua vim.lsp.buf.type_definition()<CR>
-nnoremap [g<CMD>Lspsaga diagnostic_jump_prev<CR>
+nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
 nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 
 nnoremap <Leader>cac <CMD>Lspsaga code_action<CR>
