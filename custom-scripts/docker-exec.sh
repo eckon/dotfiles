@@ -40,10 +40,8 @@ if [[ $id == "" ]]; then
 fi
 
 # try executing given container id with bash (if error continue)
-docker exec -it "$id" bash
-
+if docker exec -it "$id" bash; then
 # if bash did not work try sh as tty
-if [[ $? != 0 ]]; then
   echo "Bash not found, try sh"
   docker exec -it "$id" sh
 fi
