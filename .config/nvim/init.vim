@@ -291,7 +291,7 @@ nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
 nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
 nnoremap <Leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader><Leader>f <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
-nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers({ sort_lastused = true })<CR>
 nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <Leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
