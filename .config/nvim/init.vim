@@ -97,8 +97,10 @@ inoremap <F1> <Nop>
 
 " quick safe for different vim modes
 " use <CMD> so that we do not need to reselect in visual mode (gv)
-noremap <C-s> <CMD>w<CR>
-imap <C-s> <ESC><C-s>
+" noremap <C-s> <CMD>w<CR>
+noremap <C-s> :!echo "\n\n\nDID NOT SAVE THE FILE, GET RID OF USING CTRL-S\n\n\nMaybe look into other ways\n\n\n"<CR>
+" try out surrounds C-s which inserts closed things (like these [ {} ])
+" imap <C-s> <ESC><C-s>
 
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
@@ -193,7 +195,9 @@ EOF
 
 " ----- Mappings {{{3
 nnoremap <silent>K :call <SID>show_documentation()<CR>
+" remap these mappings to leader key, because some overwrite useful keys
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
+nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gy <CMD>lua vim.lsp.buf.type_definition()<CR>
