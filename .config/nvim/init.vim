@@ -278,8 +278,6 @@ local actions = require('telescope.actions')
 
 require('telescope').setup {
   defaults = {
-    -- can be deleted as soon as I install ripgrep
-    vimgrep_arguments = { 'ag', '--vimgrep' },
     mappings = { i = { ["<ESC>"] = actions.close } },
   },
 }
