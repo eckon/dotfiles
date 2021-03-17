@@ -139,9 +139,6 @@ command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 command! OpenNotes edit ~/.local/share/notes/index.md
 
 
-" ---------- Custom Abbreviations {{{2
-
-
 
 " -------------------- Plugin Configurations {{{1
 " ---------- git-messenger {{{2
