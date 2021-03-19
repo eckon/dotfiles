@@ -156,7 +156,22 @@ nmap <Leader>gb <Plug>(git-messenger)
 " ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
 " ----- Configurations {{{3
 lua <<EOF
-require'lspconfig'.angularls.setup{}
+
+-- only setup angular-lsp when we are in a angular repo (seems like the server itself does not do that)
+local is_angular_project = vim.call("filereadable", "angular.json") == 1
+if is_angular_project then
+  -- get the current global node_modules folder for the language-server
+  -- otherwise it will check in the repo, which most likely does not have it
+  local global_node_module_path = vim.call("system", "echo $(which ngserver)/../../lib/node_modules")
+  local cmd = { "ngserver", "--stdio", "--tsProbeLocations", global_node_module_path , "--ngProbeLocations", global_node_module_path }
+  require'lspconfig'.angularls.setup{
+    cmd = cmd,
+    on_new_config = function(new_config, new_root_dir)
+      new_config.cmd = cmd
+    end,
+  }
+end
+
 require'lspconfig'.html.setup{}
 require'lspconfig'.intelephense.setup{}
 require'lspconfig'.jsonls.setup{}
