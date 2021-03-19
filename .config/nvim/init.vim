@@ -14,6 +14,7 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+  Plug 'voldikss/vim-floaterm'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -313,3 +314,8 @@ nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_f
 nnoremap <Leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
 " search repo for word under cursor and open a fuzzy finder with it
 nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
+
+
+
+" ---------- vim-floaterm (git integration) {{{2
+nnoremap <Leader>gg <CMD>FloatermNew --name=git --title=git --autoclose=1 --height=0.95 --width=0.95 lazygit<CR>
