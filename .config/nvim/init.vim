@@ -223,9 +223,6 @@ nnoremap <Leader>cf <CMD>lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>cc <CMD>Lspsaga lsp_finder<CR>
 nnoremap <Leader>cl <CMD>Lspsaga show_line_diagnostics<CR>
 
-nnoremap <Leader>cn <CMD>cnext<CR>
-nnoremap <Leader>cp <CMD>cprev<CR>
-
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
 inoremap <silent><expr> <C-c> compe#close('<C-c>')
