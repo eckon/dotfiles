@@ -163,7 +163,7 @@ local is_angular_project = vim.call("filereadable", "angular.json") == 1
 if is_angular_project then
   -- get the current global node_modules folder for the language-server
   -- otherwise it will check in the repo, which most likely does not have it
-  local global_node_module_path = vim.call("system", "echo $(which ngserver)/../../lib/node_modules")
+  local global_node_module_path = vim.call("system", "readlink -m $(which ngserver)/../../../..")
   local cmd = { "ngserver", "--stdio", "--tsProbeLocations", global_node_module_path , "--ngProbeLocations", global_node_module_path }
   require'lspconfig'.angularls.setup{
     cmd = cmd,
