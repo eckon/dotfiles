@@ -96,13 +96,6 @@ nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
 
-" quick safe for different vim modes
-" use <CMD> so that we do not need to reselect in visual mode (gv)
-" noremap <C-s> <CMD>w<CR>
-noremap <C-s> :!echo "\n\n\nDID NOT SAVE THE FILE, GET RID OF USING CTRL-S\n\n\nMaybe look into other ways\n\n\n"<CR>
-" try out surrounds C-s which inserts closed things (like these [ {} ])
-" imap <C-s> <ESC><C-s>
-
 " use alt to resize windows
 nnoremap <M-j> :resize -2<CR>
 nnoremap <M-k> :resize +2<CR>
