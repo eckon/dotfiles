@@ -211,9 +211,9 @@ inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
 " remap these mappings to leader key, because some overwrite useful keys
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
-nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
-nnoremap gy <CMD>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <Leader>gi <CMD>lua vim.lsp.buf.implementation()<CR>
+nnoremap <Leader>gt <CMD>lua vim.lsp.buf.type_definition()<CR>
 nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
 nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 
