@@ -220,6 +220,7 @@ nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 nnoremap <Leader>cac <CMD>Lspsaga code_action<CR>
 nnoremap <Leader>crn <CMD>Lspsaga rename<CR>
 nnoremap <Leader>cf <CMD>lua vim.lsp.buf.formatting()<CR>
+vnoremap <silent><Leader>cf :lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <Leader>cc <CMD>Lspsaga lsp_finder<CR>
 nnoremap <Leader>cl <CMD>Lspsaga show_line_diagnostics<CR>
 
