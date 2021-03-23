@@ -182,8 +182,6 @@ require'lspconfig'.vuels.setup{}
 require'lspconfig'.yamlls.setup{}
 EOF
 
-autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()
-
 lua <<EOF
 require'lspsaga'.init_lsp_saga {
   max_preview_lines = 200,
@@ -208,6 +206,8 @@ EOF
 
 " ----- Mappings {{{3
 nnoremap <silent>K :call <SID>show_documentation()<CR>
+nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
+inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
 " remap these mappings to leader key, because some overwrite useful keys
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
