@@ -129,9 +129,6 @@ command! OpenInVsCode !code $(pwd) -g %
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
 command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
-" own small vimwiki styled note taking file
-command! OpenNotes edit ~/.local/share/notes/index.md
-
 
 
 " -------------------- Plugin Configurations {{{1
@@ -201,12 +198,9 @@ EOF
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
 inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-" remap these mappings to leader key, because some overwrite useful keys
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
-nnoremap <Leader>gi <CMD>lua vim.lsp.buf.implementation()<CR>
-nnoremap <Leader>gt <CMD>lua vim.lsp.buf.type_definition()<CR>
 nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
 nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 
