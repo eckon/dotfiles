@@ -55,7 +55,7 @@ set shortmess+=c
 set showcmd showmatch showmode
 set signcolumn=yes
 set splitbelow splitright
-set timeoutlen=300 updatetime=100
+set timeoutlen=1000 updatetime=100
 set title
 
 " enable embedded script highlighting of lua code
