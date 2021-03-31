@@ -204,12 +204,12 @@ nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
 nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 
-nnoremap <Leader>cac <CMD>Lspsaga code_action<CR>
-nnoremap <Leader>crn <CMD>Lspsaga rename<CR>
-nnoremap <Leader>cf <CMD>lua vim.lsp.buf.formatting()<CR>
-vnoremap <silent><Leader>cf :lua vim.lsp.buf.range_formatting()<CR>
-nnoremap <Leader>cc <CMD>Lspsaga lsp_finder<CR>
-nnoremap <Leader>cl <CMD>Lspsaga show_line_diagnostics<CR>
+nnoremap <Leader>la <CMD>Lspsaga code_action<CR>
+nnoremap <Leader>lr <CMD>Lspsaga rename<CR>
+nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
+vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
+nnoremap <Leader>ll <CMD>Lspsaga lsp_finder<CR>
+nnoremap <Leader>ld <CMD>Lspsaga show_line_diagnostics<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
@@ -290,7 +290,7 @@ nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
 " simulate vinegar (open current folder structure etc)
 nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
 nnoremap <Leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
-nnoremap <Leader><Leader>f <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
+nnoremap <Leader>fh <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
 nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers({ sort_lastused = true })<CR>
 nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <Leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
