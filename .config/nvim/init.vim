@@ -20,6 +20,7 @@ call plug#begin()
   Plug 'gruvbox-community/gruvbox'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'liuchengxu/vim-which-key'
   Plug 'mhinz/vim-signify'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -54,7 +55,7 @@ set shortmess+=c
 set showcmd showmatch showmode
 set signcolumn=yes
 set splitbelow splitright
-set timeoutlen=1500 updatetime=100
+set timeoutlen=300 updatetime=100
 set title
 
 " enable embedded script highlighting of lua code
@@ -304,3 +305,48 @@ nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
 
 " ---------- vim-floaterm (git integration) {{{2
 nnoremap <Leader>gg <CMD>FloatermNew --name=git --title=git --autoclose=1 --height=0.95 --width=0.95 lazygit<CR>
+
+
+
+" ---------- vim-which-key {{{2
+" ----- Configurations {{{3
+let g:which_key_use_floating_win = 0
+let g:which_key_centered = 1
+
+let g:which_key_map = {
+  \   '<Tab>': 'Telescope-Views',
+  \   '.': 'Tree-Open-Current',
+  \   ',': 'Tree-Toggle',
+  \ }
+let g:which_key_map.f = {
+  \   'name': '+find',
+  \   ',': '[Root] File',
+  \   '.': '[Current] File',
+  \   'f': 'Git-File',
+  \   'h': 'Git-File (no preview)',
+  \   'b': 'Buffer',
+  \   'g': 'Git-Status',
+  \   'a': '[All] Grep',
+  \   'l': '[Line] Current-File',
+  \   's': 'Grep-String & Fuzzy-Find-Result',
+  \   'w': 'Grep-<cword> & Fuzzy-Find-Result',
+  \ }
+let g:which_key_map.g = {
+  \   'name': '+git',
+  \   'g': 'Git-UI (lazygit)',
+  \   'b': 'Git-Blame',
+  \ }
+let g:which_key_map.l = {
+  \   'name': '+lsp',
+  \   'a': 'Code-Action',
+  \   'r': 'Rename',
+  \   'f': 'Format',
+  \   'l': 'Finder',
+  \   'd': 'Line-Diagnostics',
+  \ }
+
+call which_key#register('<Space>', "g:which_key_map")
+
+
+" ----- Mappings {{{3
+nnoremap <Leader> <CMD>WhichKey '<Space>'<CR>
