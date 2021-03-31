@@ -26,6 +26,7 @@ antigen use oh-my-zsh
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle extract
+antigen bundle sudo
 antigen bundle z
 
 # Load other plugins
