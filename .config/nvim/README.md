@@ -10,6 +10,16 @@
 - Show color examples
   - `:source $VIMRUNTIME/syntax/hitest.vim`
 
+## VSCode: Embedded Neovim
+
+Install vscode, install neovim plugin, use neovi v0.5+ (with the vscode.vim config file)
+
+### Useful links
+
+[plugin-mappings](https://github.com/asvetliakov/vscode-neovim#vscode-specific-features-and-differences)
+
+[vscode-mappings and namings](https://code.visualstudio.com/docs/getstarted/keybindings#_rich-languages-editing) which could be used like [use vscode command in neovim](https://github.com/asvetliakov/vscode-neovim#invoking-vscode-actions-from-neovim)
+
 ## Native LSP
 
 The Language-Servers need to be installed manually, they can be found under [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md).
