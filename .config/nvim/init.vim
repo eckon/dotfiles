@@ -64,6 +64,11 @@ let g:markdown_fenced_languages = [
   \ 'python',
   \ ]
 
+" netrw settings for a basic file explorer
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
 
 
 " -------------------- Color/Style Configuration {{{1
@@ -97,6 +102,10 @@ vnoremap > >gv
 
 " extend redraw of screen with hiding the highlight of search results
 nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
+
+" netrw mappings for basic file exporer
+nnoremap <Leader>. <CMD>Vexplore %:p:h<CR>
+nnoremap <Leader>, <CMD>execute 'Vexplore' getcwd()<CR>
 
 
 " ---------- Custom Commands {{{2
