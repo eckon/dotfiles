@@ -9,7 +9,7 @@ if ! data=$(docker-compose ps); then
 fi
 numerOfLines=$(echo "$data" | wc -l)
 
-# first two lines are header, so if its greater or equal 2+1 then its running
+# first two lines are header, so if we have only 2 lines or less, then nothing is running
 if [[ $numerOfLines -le 2 ]]; then
   echo "No containers found -> Starting containers: docker-compose up"
   docker-compose up
