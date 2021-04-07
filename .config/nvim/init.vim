@@ -189,7 +189,6 @@ nnoremap <Leader>lr <CMD>Lspsaga rename<CR>
 nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <Leader>ll <CMD>Lspsaga lsp_finder<CR>
-nnoremap <Leader>ld <CMD>Lspsaga show_line_diagnostics<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
@@ -245,7 +244,6 @@ EOF
 " ----- Mappings {{{3
 nnoremap <Leader><Tab> <CMD>lua require('telescope.builtin').builtin()<CR>
 nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
-" simulate vinegar (open current folder structure etc)
 nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
 nnoremap <Leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>fh <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
@@ -253,9 +251,5 @@ nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers({ sort_lastuse
 nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <Leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-" search repo for given word and open a fuzzy finder with it
-nnoremap <Leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
-" search repo for word under cursor and open a fuzzy finder with it
-nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
 
 " vim:foldmethod=marker
