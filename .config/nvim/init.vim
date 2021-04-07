@@ -10,19 +10,13 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'rhysd/git-messenger.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'voldikss/vim-floaterm'
 
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'liuchengxu/vim-which-key'
   Plug 'mhinz/vim-signify'
-  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'psliwka/vim-smoothie'
   " }}}2
@@ -97,19 +91,9 @@ nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
 
-" use alt to resize windows
-nnoremap <M-j> :resize -2<CR>
-nnoremap <M-k> :resize +2<CR>
-nnoremap <M-h> :vertical resize -2<CR>
-nnoremap <M-l> :vertical resize +2<CR>
-
 " rehighlight text after indenting
 vnoremap < <gv
 vnoremap > >gv
-
-" paste content without new line (example: dd into paste of parameter)
-nnoremap gP i<CR><ESC>PkgJgJ
-nnoremap gp a<CR><ESC>PkgJgJ
 
 " extend redraw of screen with hiding the highlight of search results
 nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
@@ -133,18 +117,6 @@ command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- git-messenger {{{2
-" ----- Configurations {{{3
-let g:git_messenger_always_into_popup = v:true
-let g:git_messenger_date_format = '%d.%m.%Y - %H:%M'
-let g:git_messenger_no_default_mappings = v:true
-
-
-" ----- Mappings {{{3
-nmap <Leader>gb <Plug>(git-messenger)
-
-
-
 " ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
 " ----- Configurations {{{3
 lua <<EOF
@@ -231,28 +203,6 @@ endfunction
 
 
 
-" ---------- nvim-colorizer {{{2
-" attach colorizer to file types
-lua require'colorizer'.setup()
-
-
-
-" ---------- nvim-tree {{{2
-" ----- Configurations {{{3
-let g:nvim_tree_disable_netrw = 0
-let g:nvim_tree_hijack_netrw = 0
-let g:nvim_tree_ignore = [ '.git', 'node_modules' ]
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_quit_on_open = 1
-let g:nvim_tree_root_folder_modifier = ':t:r'
-
-
-" ----- Mappings {{{3
-nnoremap <silent><Leader>, <CMD>NvimTreeToggle<CR>
-nnoremap <silent><Leader>. <CMD>NvimTreeFindFile<CR>
-
-
-
 " ---------- nvim-treesitter {{{2
 " ----- Configurations {{{3
 lua << EOF
@@ -300,53 +250,3 @@ nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_f
 nnoremap <Leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
 " search repo for word under cursor and open a fuzzy finder with it
 nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
-
-
-
-" ---------- vim-floaterm (git integration) {{{2
-nnoremap <Leader>gg <CMD>FloatermNew --name=git --title=git --autoclose=1 --height=0.95 --width=0.95 lazygit<CR>
-
-
-
-" ---------- vim-which-key {{{2
-" ----- Configurations {{{3
-let g:which_key_use_floating_win = 0
-let g:which_key_centered = 1
-
-let g:which_key_map = {
-  \   '<Tab>': 'Telescope-Views',
-  \   '.': 'Tree-Open-Current',
-  \   ',': 'Tree-Toggle',
-  \ }
-let g:which_key_map.f = {
-  \   'name': '+find',
-  \   ',': '[Root] File',
-  \   '.': '[Current] File',
-  \   'f': 'Git-File',
-  \   'h': 'Git-File (no preview)',
-  \   'b': 'Buffer',
-  \   'g': 'Git-Status',
-  \   'a': '[All] Grep',
-  \   'l': '[Line] Current-File',
-  \   's': 'Grep-String & Fuzzy-Find-Result',
-  \   'w': 'Grep-<cword> & Fuzzy-Find-Result',
-  \ }
-let g:which_key_map.g = {
-  \   'name': '+git',
-  \   'g': 'Git-UI (lazygit)',
-  \   'b': 'Git-Blame',
-  \ }
-let g:which_key_map.l = {
-  \   'name': '+lsp',
-  \   'a': 'Code-Action',
-  \   'r': 'Rename',
-  \   'f': 'Format',
-  \   'l': 'Finder',
-  \   'd': 'Line-Diagnostics',
-  \ }
-
-call which_key#register('<Space>', "g:which_key_map")
-
-
-" ----- Mappings {{{3
-nnoremap <Leader> <CMD>WhichKey '<Space>'<CR>
