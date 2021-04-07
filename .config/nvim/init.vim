@@ -1,5 +1,3 @@
-" vim:foldmethod=marker
-
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
@@ -259,3 +257,5 @@ nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_f
 nnoremap <Leader>fs <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
 " search repo for word under cursor and open a fuzzy finder with it
 nnoremap <Leader>fw <CMD>lua require('telescope.builtin').grep_string()<CR>
+
+" vim:foldmethod=marker

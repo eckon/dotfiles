@@ -1,5 +1,3 @@
-" vim:foldmethod=marker
-
 call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -46,3 +44,5 @@ nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
 nmap K gh
 " show references
 nmap gr gH
+
+" vim:foldmethod=marker
