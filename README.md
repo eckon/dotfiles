@@ -22,15 +22,13 @@ Following programs are installed:
 
 ### On fresh install
 
-Following commands/configs should be run/set on fresh install:
+Following commands/configs should be run/set on a fresh install:
 * install ["used software"](#used-software)
   * install [a patched nerdfont](https://github.com/ryanoasis/nerd-fonts#linux) for icons
   * install antigen in `~/.antigen/antigen.zsh` (mentioned in `.zshrc`)
   * install neovim v0.5+
+    * follow the instructions in [nvim-config](./.config/nvim/README.md)
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
-  * this can be done with the `./setup.sh` script, which will just add symlinks
-* in nvim run `:PlugInstall` this will install the Plugins from **vim-plug** set in `~/.config/nvim/init.vim`
-* install LSP for native client, see [nvim-config](./.config/nvim/README.md)
-* run `:checkhealth` to see what is still needed or any problems with neovim
+  * this can be done with the [./setup.sh](./setup.sh) script, which will add symlinks to the dotfiles
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
