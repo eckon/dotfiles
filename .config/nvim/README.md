@@ -5,20 +5,19 @@
 - [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
 - [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
 
-## General Information
-
-- Show color examples
-  - `:source $VIMRUNTIME/syntax/hitest.vim`
-
 ## VSCode: Embedded Neovim
 
-Install vscode, install neovim plugin, use neovi v0.5+ (with the vscode.vim config file)
+Install:
+- vscode
+  - which points to the vscode.vim config file
+- neovim plugin for vscode
+- neovim v0.5+
+  - if neovim plugins are not installed, do a :PlugInstall
 
 ### Useful links
 
-[plugin-mappings](https://github.com/asvetliakov/vscode-neovim#vscode-specific-features-and-differences)
-
-[vscode-mappings and namings](https://code.visualstudio.com/docs/getstarted/keybindings#_rich-languages-editing) which could be used like [use vscode command in neovim](https://github.com/asvetliakov/vscode-neovim#invoking-vscode-actions-from-neovim)
+- [plugin-mappings](https://github.com/asvetliakov/vscode-neovim#vscode-specific-features-and-differences)
+- [vscode-mappings and namings](https://code.visualstudio.com/docs/getstarted/keybindings#_rich-languages-editing) which could be used like [vscode command in neovim](https://github.com/asvetliakov/vscode-neovim#invoking-vscode-actions-from-neovim)
 
 ## Native LSP
 
