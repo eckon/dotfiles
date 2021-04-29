@@ -1,9 +1,6 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
-  Plug 'glepnir/lspsaga.nvim'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
@@ -117,91 +114,6 @@ command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- LSP (lspconfig, lspsaga, nvim-compe) {{{2
-" ----- Configurations {{{3
-lua <<EOF
-
--- only setup angular-lsp when we are in a angular repo (seems like the server itself does not do that)
-local is_angular_project = vim.call("filereadable", "angular.json") == 1
-if is_angular_project then
-  -- get the current global node_modules folder for the language-server
-  -- otherwise it will check in the repo, which most likely does not have it
-  local global_node_module_path = vim.call("system", "readlink -m $(which ngserver)/../../../..")
-  local cmd = { "ngserver", "--stdio", "--tsProbeLocations", global_node_module_path , "--ngProbeLocations", global_node_module_path }
-  require'lspconfig'.angularls.setup{
-    cmd = cmd,
-    on_new_config = function(new_config, new_root_dir)
-      new_config.cmd = cmd
-    end,
-  }
-end
-
-require'lspconfig'.html.setup{}
-require'lspconfig'.intelephense.setup{}
-require'lspconfig'.jsonls.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.vuels.setup{}
-require'lspconfig'.yamlls.setup{}
-EOF
-
-lua <<EOF
-require'lspsaga'.init_lsp_saga {
-  max_preview_lines = 200,
-  finder_action_keys = { open = '<CR>', vsplit = 'v', split = 'x', quit = { 'q', '<ESC>' } },
-  code_action_keys = { quit = { 'q', '<ESC>' }, exec = '<CR>' },
-  rename_action_keys = { quit = {'<C-c>', '<ESC>' }, exec = '<CR>' },
-  border_style = 2,
-}
-EOF
-
-lua << EOF
-require'compe'.setup {
-  source = {
-    nvim_lsp = true,
-    buffer = true,
-    path = true,
-    spell = true,
-  },
-}
-EOF
-
-
-" ----- Mappings {{{3
-nnoremap <silent>K :call <SID>show_documentation()<CR>
-nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
-nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
-nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
-nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
-nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
-
-nnoremap <Leader>la <CMD>Lspsaga code_action<CR>
-nnoremap <Leader>lr <CMD>Lspsaga rename<CR>
-nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
-vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
-nnoremap <Leader>ll <CMD>Lspsaga lsp_finder<CR>
-
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR> compe#confirm('<CR>')
-inoremap <silent><expr> <C-c> compe#close('<C-c>')
-
-" make normal completion to tabcompletion when popup-menu visible
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use default K if we have something in help
-function! s:show_documentation() abort
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h ' . expand('<cword>')
-  else
-    execute 'Lspsaga hover_doc'
-  endif
-endfunction
-
-
-
 " ---------- NERDTree {{{2
 " ----- Configurations {{{3
 let NERDTreeShowHidden = 1
