@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'preservim/nerdtree'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -198,6 +199,18 @@ function! s:show_documentation() abort
     execute 'Lspsaga hover_doc'
   endif
 endfunction
+
+
+
+" ---------- NERDTree {{{2
+" ----- Configurations {{{3
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+
+
+" ----- Mappings {{{3
+nnoremap <Leader>. <CMD>NERDTreeFind<CR>
+nnoremap <Leader>, <CMD>NERDTree<CR>
 
 
 
