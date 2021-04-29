@@ -16,7 +16,7 @@ else
   " end of line
   set statusline+=%=
   " filetype / filencoding / fileformat
-  set statusline+=%3*%{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
+  set statusline+=%3*%{coc#status()}\ %{&filetype}\ %{&fenc?&fenc:&enc}\ %{&ff}\ 
   " percantage of file / line number / column number
   set statusline+=%1*\ %4(%p%%%)\ \|\ %-6(%l:%c%)\ 
 
