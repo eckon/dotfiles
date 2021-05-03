@@ -20,4 +20,7 @@ container=$(
   echo "$serviceInfo" | awk '{print $2}'
 )
 
+echo "[!] Found \"$host\" with \"$container\""
+echo "[!] Trying to execute into it"
+
 ssh -t "$host" "docker exec -w '/opt/myWebsites/singularity/www/cli/' -it $container bash"
