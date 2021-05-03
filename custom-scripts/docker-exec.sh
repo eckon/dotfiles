@@ -26,7 +26,7 @@ header=$(
 container=$(
   {
     echo "$data" | awk 'NR > 1'
-  } | fzf --reverse --header="$header"
+  } | fzf --height 10% --reverse --header="$header"
 )
 
 # get the last field (container id) out of the selected container
