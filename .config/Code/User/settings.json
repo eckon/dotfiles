@@ -2,6 +2,25 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
+    "vim.enableNeovim": true,
+    "vim.handleKeys": {
+        "<C-f>": false
+    },
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "vim.smartRelativeLine": true,
+    "vim.useSystemClipboard": true,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/vscode.vim"
 }
