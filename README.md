@@ -28,6 +28,8 @@ Following commands/configs should be run/set on a fresh install:
   * install antigen in `~/.antigen/antigen.zsh` (mentioned in `.zshrc`)
   * install neovim v0.5+
     * follow the instructions in [nvim-config](./.config/nvim/README.md)
+  * install vscode and the plugins
+    * follow the instructions in [vscode](./.config/Code/User/README.md)
 * for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
   * this can be done with the [./setup.sh](./setup.sh) script, which will add symlinks to the dotfiles
 * bind capslock to escape
