@@ -2,6 +2,16 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "vim.enableNeovim": true,
     "vim.handleKeys": {
         "<C-f>": false
@@ -17,10 +27,45 @@
             "commands": [
                 ":nohl"
             ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "g",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
         }
     ],
     "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/vscode.vim"
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "window.zoomLevel": 1,
 }
