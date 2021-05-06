@@ -1,4 +1,5 @@
 {
+    "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
