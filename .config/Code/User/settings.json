@@ -2,16 +2,6 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]"
-    ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "vim.enableNeovim": true,
     "vim.handleKeys": {
         "<C-f>": false
