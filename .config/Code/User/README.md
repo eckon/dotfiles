@@ -1,7 +1,9 @@
 # VSCode
 
 ## Setup
+
 ### Plugins
+
 - to quickly install my used plugins, run [install plugin script](./install-plugins.sh)
 
 
