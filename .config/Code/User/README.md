@@ -4,7 +4,16 @@
 
 ### Plugins
 
-- to quickly install my used plugins, run [install plugin script](./install-plugins.sh)
+- Using the [VsCodeVim](https://github.com/VSCodeVim/Vim) plugin to emulate basic vim functionality
+  - This uses neovim as a backend for commands like global etc
+
+- Reason to not use the [Neovim VsCode](https://github.com/asvetliakov/vscode-neovim) Plugin
+  - A lot of vscode functions that are based on the view break
+    - Git diff view does not work well
+    - History gets broken easily (vscode and vim have independent histories which makes losing them easy)
+    - Some completions are not working because neovim replaces the whole view
+  - The commands have no history (no way to easily repeat a global command etc)
+  - Not as fine tuned to VsCode as the other vim plugin
 
 
 ## Useful links
