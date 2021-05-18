@@ -28,6 +28,7 @@ function symlink {
   ln -s "${base}" "${destination}"
 }
 
+symlink .config/Code/User/keybindings.json
 symlink .config/Code/User/settings.json
 symlink .config/kitty/kitty.conf
 symlink .config/lazygit/config.yml
