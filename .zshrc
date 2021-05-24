@@ -60,6 +60,14 @@ alias ssh="TERM=xterm-256color ssh"
 alias vi="vim"
 alias vim="nvim"
 
+# partial aliases, which are used to be expanded and added onto afterwards
+# expansion can be done manually with (CTRL-X + A) or with the completer (TAB)
+alias DE="docker exec -i -t"
+alias DC="docker-compose"
+alias GC="git checkout"
+alias -g G="| grep "
+alias -g X="| xargs -I{} "
+
 
 
 # -------------------- Special --------------------
