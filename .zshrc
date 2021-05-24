@@ -10,7 +10,10 @@ setopt GLOBDOTS
 setopt PUSHD_SILENT
 unsetopt BEEP
 
-# styling configurations
+# ----- styling configurations (general) [for info (CTRL-X + H)]
+# enable expansion of alias on tab (completer), similar to pressing (CTRL-X + A)
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+
 # make ssh/scp/etc. <tab>-completion easier when using the .ssh config file/etc.
 zstyle ":completion:*:(ssh|scp|ftp|sftp):*" hosts $hosts
 zstyle ":completion:*:(ssh|scp|ftp|sftp):*" users $users
