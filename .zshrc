@@ -74,4 +74,4 @@ alias -g X="| xargs -I{} "
 # enable completions
 # compinit needs to be run, because plugins like docker have files that are not
 # in the .zcompdump and so not loaded unless compinit is run (-C does not work)
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit -i
