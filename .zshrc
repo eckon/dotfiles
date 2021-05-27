@@ -65,8 +65,6 @@ alias vim="nvim"
 alias DE="docker exec -i -t"
 alias DC="docker-compose"
 alias GC="git checkout"
-alias -g G="| grep "
-alias -g X="| xargs -I{} "
 
 
 
