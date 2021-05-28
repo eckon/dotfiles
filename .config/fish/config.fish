@@ -15,7 +15,7 @@ type -q zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
 # -------------------- Configuration --------------------
 set -Ux EDITOR "nvim"
 set -Ux VISUAL "nvim"
-set fish_greeting "Testing Fish, if used update: README(fish, zoxide, others), Better config"
+set fish_greeting
 
 
 
