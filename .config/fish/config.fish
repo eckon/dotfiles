@@ -19,7 +19,7 @@ set fish_greeting
 
 
 
-# -------------------- Alias/Function/Abbreviation --------------------
+# -------------------- Alias/Functions/Abbreviations/Bindings --------------------
 alias clip "xclip -sel clip"
 alias dev  "cd $HOME/Development"
 alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
@@ -35,10 +35,14 @@ abbr -a dc        "docker compose"
 abbr -a gc        "git checkout"
 
 
-# search history with fzf (function, because alias does not work witj "read")
+bind -M insert \cr "fzf-history; commandline -f repaint"
+
+
 # https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-function h
-  history -z | fzf --height 25% --tiebreak=index --print0 --read0 | read -lz result
+function fzf-history -d "Search history with fzf)"
+  history -z \
+    | fzf --height 50% --reverse --header="Search History" --tiebreak=index --print0 --read0 \
+    | read -lz result
   and commandline -- $result
 end
 
