@@ -5,8 +5,6 @@ test -d /opt/zoxide; and fish_add_path /opt/zoxide
 
 
 # -------------------- Source --------------------
-# test example
-# test -n "$FZF_TMUX"; or set FZF_TMUX 0
 type -q starship; and starship init fish | source
 type -q fnm; and fnm env | source
 type -q zoxide; and zoxide init fish | source
