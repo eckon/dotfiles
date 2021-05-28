@@ -1,40 +1,38 @@
 # -------------------- Path --------------------
 # after first run, this will be ignored by fish automatically
-test -d ~/.fnm; and fish_add_path ~/.fnm
+test -d ~/.fnm;      and fish_add_path ~/.fnm
 test -d /opt/zoxide; and fish_add_path /opt/zoxide
 
 
 
 # -------------------- Source --------------------
-type -q starship; and starship init fish | source; or echo "No starship"
-type -q fnm; and fnm env | source; or echo "No fnm"
-type -q zoxide; and zoxide init fish | source; or echo "No zoxide"
+type -q starship; and starship init fish | source; or echo "[!] No starship"
+type -q fnm;      and fnm env            | source; or echo "[!] No fnm"
+type -q zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
 
 
 
 # -------------------- Configuration --------------------
-set -Ux EDITOR nvim
-set -Ux VISUAL nvim
-
-set fish_greeting "Testing Fish, if used update: README(fish, zoxide, others), Better config, maybe use sh instead of vim-fish"
+set -Ux EDITOR "nvim"
+set -Ux VISUAL "nvim"
+set fish_greeting "Testing Fish, if used update: README(fish, zoxide, others), Better config"
 
 
 
 # -------------------- Alias/Function/Abbreviation --------------------
 alias clip "xclip -sel clip"
-alias dev "cd $HOME/Development"
-alias ll "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
+alias dev  "cd $HOME/Development"
+alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias open "xdg-open"
-# this is needed because most servers do not have kitty config yet so it would break the colors & some keys on a server
-alias ssh "TERM=xterm-256color command ssh"
-alias vi "vim"
-alias vim "nvim"
+alias ssh  "TERM=xterm-256color command ssh"
+alias vi   "vim"
+alias vim  "nvim"
 
 
 abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr -a de "docker exec -it"
-abbr -a dc "docker compose"
-abbr -a gc "git checkout"
+abbr -a de        "docker exec -it"
+abbr -a dc        "docker compose"
+abbr -a gc        "git checkout"
 
 
 # search history with fzf (function, because alias does not work witj "read")
@@ -47,7 +45,7 @@ end
 
 
 # -------------------- Special --------------------
-## ---------- Vim ----------
+## ---------- Vi-Keybindings ----------
 fish_vi_key_bindings
 set fish_cursor_default block
 set fish_cursor_insert line
@@ -68,3 +66,5 @@ function fish_mode_prompt
   echo ' '
   set_color normal
 end
+
+# vim:filetype=sh
