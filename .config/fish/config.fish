@@ -21,7 +21,7 @@ set fish_greeting
 
 # -------------------- Alias/Functions/Abbreviations/Bindings --------------------
 alias clip "xclip -sel clip"
-alias dev  "cd $HOME/Development"
+alias dev  "cd ~/Development"
 alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias open "xdg-open"
 alias ssh  "TERM=xterm-256color command ssh"
@@ -39,7 +39,7 @@ bind -M insert \cr "fzf-history; commandline -f repaint"
 
 
 # https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-function fzf-history -d "Search history with fzf)"
+function fzf-history -d "Search history with fzf"
   history -z \
     | fzf --height 50% --reverse --header="Search History" --tiebreak=index --print0 --read0 \
     | read -lz result
