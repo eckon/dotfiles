@@ -1,13 +1,14 @@
 # -------------------- Path --------------------
+# after first run, this will be ignored by fish automatically
 test -d ~/.fnm; and fish_add_path ~/.fnm
 test -d /opt/zoxide; and fish_add_path /opt/zoxide
 
 
 
 # -------------------- Source --------------------
-type -q starship; and starship init fish | source
-type -q fnm; and fnm env | source
-type -q zoxide; and zoxide init fish | source
+type -q starship; and starship init fish | source; or echo "No starship"
+type -q fnm; and fnm env | source; or echo "No fnm"
+type -q zoxide; and zoxide init fish | source; or echo "No zoxide"
 
 
 
