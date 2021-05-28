@@ -14,10 +14,12 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 
 Following programs are installed:
 * [kitty](https://github.com/kovidgoyal/kitty) _with_ [fira code](https://github.com/tonsky/FiraCode), [starship](https://github.com/starship/starship)
-* [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) _with_ [antigen](https://github.com/zsh-users/antigen)
+* shells (trying out fish)
+  * [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) _with_ [antigen](https://github.com/zsh-users/antigen)
+  * [fish](https://github.com/fish-shell/fish-shell) _with_ [antigen](https://github.com/zsh-users/antigen)
 * [neovim](https://github.com/neovim/neovim) _with_ [vim-plug](https://github.com/junegunn/vim-plug), [xclip](https://wiki.ubuntuusers.de/xclip/)
 * [lazygit](https://github.com/jesseduffield/lazygit) _with_ [delta](https://github.com/dandavison/delta)
-* [tldr](https://github.com/tldr-pages/tldr), [fzf](https://github.com/junegunn/fzf), [ag](https://github.com/ggreer/the_silver_searcher), [ripgrep](https://github.com/BurntSushi/ripgrep), [fd](https://github.com/sharkdp/fd), [bat](https://github.com/sharkdp/bat), [jq](https://github.com/stedolan/jq), [fnm](https://github.com/Schniz/fnm)
+* [zoxide (z)](https://github.com/ajeetdsouza/zoxide), [tldr](https://github.com/tldr-pages/tldr), [fzf](https://github.com/junegunn/fzf), [ag](https://github.com/ggreer/the_silver_searcher), [ripgrep](https://github.com/BurntSushi/ripgrep), [fd](https://github.com/sharkdp/fd), [bat](https://github.com/sharkdp/bat), [jq](https://github.com/stedolan/jq), [fnm](https://github.com/Schniz/fnm)
 
 
 ### On fresh install
