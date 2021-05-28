@@ -30,6 +30,7 @@ function symlink {
 
 symlink .config/Code/User/keybindings.json
 symlink .config/Code/User/settings.json
+symlink .config/fish/config.fish
 symlink .config/kitty/kitty.conf
 symlink .config/lazygit/config.yml
 symlink .config/nvim
