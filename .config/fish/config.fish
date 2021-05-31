@@ -39,9 +39,10 @@ bind -M insert \cr "fzf-history; commandline -f repaint"
 
 
 # https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-function fzf-history -d "Search history with fzf"
+function fzf-history -d "Search through history with fzf"
+  set -l buffer (commandline -c)
   history -z \
-    | fzf --height 50% --reverse --header="Search History" --tiebreak=index --print0 --read0 \
+    | fzf --height 50% --query="$buffer" --tiebreak=index --print0 --read0 \
     | read -lz result
   and commandline -- $result
 end
