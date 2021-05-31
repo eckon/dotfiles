@@ -52,8 +52,6 @@ end
 # -------------------- Special --------------------
 ## ---------- Vi-Keybindings ----------
 fish_vi_key_bindings
-set fish_cursor_default block
-set fish_cursor_insert line
 
 # add vim-mode indicator
 function fish_mode_prompt
