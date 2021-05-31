@@ -21,9 +21,7 @@ set fish_greeting
 
 # -------------------- Alias/Functions/Abbreviations/Bindings --------------------
 alias clip "xclip -sel clip"
-alias dev  "cd ~/Development"
 alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
-alias open "xdg-open"
 alias ssh  "TERM=xterm-256color command ssh"
 alias vi   "vim"
 alias vim  "nvim"
