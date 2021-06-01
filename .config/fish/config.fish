@@ -30,7 +30,7 @@ alias vim  "nvim"
 abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr -a de        "docker exec -it"
 abbr -a dc        "docker compose"
-abbr -a gc        "git checkout"
+abbr -a gco       "git checkout"
 
 
 bind -M insert \cr "fzf-history; commandline -f repaint"
@@ -56,15 +56,14 @@ function fish_mode_prompt
   switch $fish_bind_mode
   case default
     set_color --bold blue
-    echo 'N'
+    echo 'N '
   case insert
     set_color --bold green
-    echo 'I'
+    echo 'I '
   case '*'
     set_color --bold red
-    echo '~'
+    echo '* '
   end
-  echo ' '
   set_color normal
 end
 
