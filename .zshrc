@@ -1,3 +1,7 @@
+# Info (taken from my past README.md [after changing to fish])
+# [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) _with_ [antigen](https://github.com/zsh-users/antigen)
+# install antigen in `~/.antigen/antigen.zsh` (mentioned in `.zshrc`)
+
 # -------------------- Exports --------------------
 export EDITOR="nvim"
 export VISUAL="nvim"
