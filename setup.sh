@@ -35,4 +35,3 @@ symlink .config/kitty/kitty.conf
 symlink .config/lazygit/config.yml
 symlink .config/nvim
 symlink .config/starship.toml
-symlink .zshrc
