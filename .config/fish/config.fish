@@ -18,8 +18,11 @@ set fish_greeting
 
 
 fzf_key_bindings
+fish_vi_key_bindings
 
-# -------------------- Alias/Functions/Abbreviations/Bindings --------------------
+
+
+# -------------------- Alias/Abbreviations --------------------
 alias clip "xclip -sel clip"
 alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
@@ -34,13 +37,11 @@ abbr -a gco       "git checkout"
 
 
 
+# -------------------- Functions/Bindings/Completions --------------------
 
 
 
 # -------------------- Special --------------------
-## ---------- Vi-Keybindings ----------
-fish_vi_key_bindings
-
 # add vim-mode indicator
 function fish_mode_prompt
   switch $fish_bind_mode
