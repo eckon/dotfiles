@@ -1,5 +1,4 @@
 # -------------------- Path --------------------
-# after first run, this will be ignored by fish automatically
 test -d ~/.fnm;      and fish_add_path ~/.fnm
 test -d /opt/zoxide; and fish_add_path /opt/zoxide
 
@@ -33,14 +32,13 @@ abbr -a dc        "docker compose"
 abbr -a gco       "git checkout"
 
 
-bind -M insert \cr "fzf-history; commandline -f repaint"
+bind -M insert \cr "fzf-history (commandline -c); commandline -f repaint"
 
 
 # https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 function fzf-history --description "Search through history with fzf"
-  set -l buffer (commandline -c)
   history -z \
-    | fzf --height 50% --query="$buffer" --tiebreak=index --print0 --read0 \
+    | fzf --height 50% --query="$argv" --tiebreak=index --print0 --read0 \
     | read -lz result
   and commandline -- $result
 end
