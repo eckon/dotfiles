@@ -17,6 +17,7 @@ set -Ux VISUAL "nvim"
 set fish_greeting
 
 
+fzf_key_bindings
 
 # -------------------- Alias/Functions/Abbreviations/Bindings --------------------
 alias clip "xclip -sel clip"
@@ -32,16 +33,7 @@ abbr -a dc        "docker compose"
 abbr -a gco       "git checkout"
 
 
-bind -M insert \cr "fzf-history (commandline -c); commandline -f repaint"
 
-
-# https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-function fzf-history --description "Search through history with fzf"
-  history -z \
-    | fzf --height 50% --query="$argv" --tiebreak=index --print0 --read0 \
-    | read -lz result
-  and commandline -- $result
-end
 
 
 
