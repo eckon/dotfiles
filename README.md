@@ -22,6 +22,9 @@ Following programs are installed:
 
 ### On fresh install
 
+Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
+It will call ansible internally.
+
 Following commands/configs should be run/set on a fresh install:
 * install ["used software"](#used-software)
   * install [a patched nerdfont](https://github.com/ryanoasis/nerd-fonts#linux) for icons

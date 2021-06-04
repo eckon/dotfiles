@@ -1,0 +1,4 @@
+- name: Setup local environment
+  hosts: localhost
+  roles:
+    - role: general

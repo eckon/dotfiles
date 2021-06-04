@@ -1,0 +1,44 @@
+- name: Install packages
+  become: yes
+  become_user: root
+  loop: "{{ packages }}"
+  package:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+
+- name: Install packages | Special - fd
+  block:
+  - name: Install fd-find
+    become: yes
+    become_user: root
+    package:
+      name: fd-find
+      update_cache: yes
+      state: present
+  - name: Get path to installed fdfind
+    command: "which fdfind"
+    register: path_to_fd
+  - name: Symlink fdfind to fd
+    become: yes
+    become_user: root
+    file:
+      src: "{{ path_to_fd.stdout }}"
+      dest: "/usr/local/bin/fd"
+      state: link
+
+- name: Symlink dotfiles
+  loop: "{{ dotfiles }}"
+  file:
+    src: "{{ playbook_dir }}/../{{ item }}"
+    dest: "$HOME/{{ item }}"
+    state: link
+
+- name: Install custom scripts
+  become: yes
+  become_user: root
+  loop: "{{ scripts }}"
+  file:
+    src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"
+    dest: "/usr/local/bin/{{ item.command }}"
+    state: link
