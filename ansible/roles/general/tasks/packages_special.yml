@@ -1,0 +1,42 @@
+- name: Install packages | Special - fd
+  block:
+  - name: Install fd-find
+    become: yes
+    package:
+      name: fd-find
+      state: present
+  - name: Get path to installed fdfind
+    command: which fdfind
+    register: path_to_fd
+  - name: Symlink fdfind to fd
+    become: yes
+    file:
+      src: "{{ path_to_fd.stdout }}"
+      dest: /usr/local/bin/fd
+      state: link
+
+- name: Install packages | Special - fnm
+  block:
+    - name: Get fnm path
+      shell: which fnm
+      register: path_to_fnm
+      ignore_errors: true
+    - name: Check if fnm exists
+      stat:
+        path: "{{ path_to_fnm.stdout }}"
+      register: fnm_stats
+    - name: Install fnm if not already installed
+      raw: curl -fsSL https://fnm.vercel.app/install | bash
+      when: not fnm_stats.stat.exists
+
+- name: Install packages | Special - lazygit
+  block:
+    - name: Add [DEPRECATED] lazygit PPA
+      become: yes
+      apt_repository:
+        repo: ppa:lazygit-team/release
+    - name: Install lazygit
+      become: yes
+      package:
+        name: lazygit
+        state: present

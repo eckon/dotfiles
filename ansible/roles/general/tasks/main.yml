@@ -1,58 +1,8 @@
-- name: Install packages
-  become: yes
-  become_user: root
-  loop: "{{ packages }}"
-  package:
-    name: "{{ item }}"
-    update_cache: yes
-    state: present
+- name: Install all basic packages, which do not need extra setup
+  import_tasks: packages_basic.yml
 
-- name: Install packages | Special - fd
-  block:
-  - name: Install fd-find
-    become: yes
-    become_user: root
-    package:
-      name: fd-find
-      update_cache: yes
-      state: present
-  - name: Get path to installed fdfind
-    command: which fdfind
-    register: path_to_fd
-  - name: Symlink fdfind to fd
-    become: yes
-    become_user: root
-    file:
-      src: "{{ path_to_fd.stdout }}"
-      dest: /usr/local/bin/fd
-      state: link
+- name: Install all special packages, which need extra setup
+  import_tasks: packages_special.yml
 
-- name: Install packages | Special - fnm
-  block:
-    - name: Get fnm path
-      shell: which fnm
-      register: path_to_fnm
-      ignore_errors: true
-    - name: Check if fnm exists
-      stat:
-        path: "{{ path_to_fnm.stdout }}"
-      register: fnm_stats
-    - name: Install fnm if not already installed
-      raw: curl -fsSL https://fnm.vercel.app/install | bash
-      when: not fnm_stats.stat.exists
-
-- name: Symlink dotfiles
-  loop: "{{ dotfiles }}"
-  file:
-    src: "{{ playbook_dir }}/../{{ item }}"
-    dest: "$HOME/{{ item }}"
-    state: link
-
-- name: Install custom scripts
-  become: yes
-  become_user: root
-  loop: "{{ scripts }}"
-  file:
-    src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"
-    dest: "/usr/local/bin/{{ item.command }}"
-    state: link
+- name: Symlink basic files in dotfiles repo
+  import_tasks: symlinks.yml

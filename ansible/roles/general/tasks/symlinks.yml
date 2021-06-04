@@ -1,0 +1,14 @@
+- name: Symlink dotfiles
+  loop: "{{ dotfiles }}"
+  file:
+    src: "{{ playbook_dir }}/../{{ item }}"
+    dest: "$HOME/{{ item }}"
+    state: link
+
+- name: Symlink custom scripts
+  become: yes
+  loop: "{{ scripts }}"
+  file:
+    src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"
+    dest: "/usr/local/bin/{{ item.command }}"
+    state: link

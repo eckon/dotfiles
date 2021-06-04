@@ -2,6 +2,7 @@ packages:
   - bat
   - cowsay
   - fzf
+  - git-delta
   - jq
   - ripgrep
   - silversearcher-ag
