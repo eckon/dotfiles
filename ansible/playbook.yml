@@ -2,16 +2,22 @@
   hosts: localhost
   roles:
     - role: terminal
-      tags: terminal
+      tags: 
+        - terminal
     - role: shell
-      tags: shell
+      tags: 
+        - shell
     - role: symlinks
-      tags: symlinks
+      tags: 
+        - symlinks
     - role: packages
-      tags: packages
+      tags: 
+        - packages
     - role: neovim
-      tags: neovim
-  tags: localhost
+      tags: 
+        - neovim
+  tags: 
+    - localhost
 
   vars:
     packages_install:
@@ -27,6 +33,7 @@
       - shellcheck
       - silversearcher-ag
       - tldr
+      - tree
       - wget
       - xclip
 
