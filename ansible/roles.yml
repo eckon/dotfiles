@@ -13,6 +13,7 @@
       - bat
       - build-essential
       - curl
+      - fonts-firacode
       - fzf
       - git
       - jq
