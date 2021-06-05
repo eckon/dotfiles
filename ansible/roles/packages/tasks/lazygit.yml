@@ -1,11 +1,30 @@
 - name: Install lazygit
   block:
-    - name: Add [DEPRECATED] lazygit PPA
-      apt_repository:
-        repo: ppa:lazygit-team/release
+    - name: Check if lazygit exists
+      stat:
+        path: /usr/local/bin/lazygit
+      register: lazygit
 
-    - name: Install lazygit
-      package:
-        name: lazygit
-        state: present
+    - name: Fresh install, unzip, move, chmod of lazygit
+      block:
+        - name: Download lazygit v0.28.2
+          get_url:
+            url: https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygit_0.28.2_Linux_x86_64.tar.gz
+            dest: /tmp/lazygit
+
+        - name: Unzip lazygit
+          unarchive:
+            src: /tmp/lazygit
+            dest: /tmp
+
+        - name: Move lazygit to opt
+          copy:
+            src: /tmp/lazygit
+            dest: /usr/local/bin/lazygit
+
+        - name: Make lazygit executable
+          file:
+            path: /usr/local/bin/lazygit
+            mode: '0755'
+      when: not lazygit.stat.exists
   become: yes
