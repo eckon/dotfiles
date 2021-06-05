@@ -4,7 +4,6 @@
       apt_repository:
         repo: ppa:fish-shell/release-3
 
-    # changing the user shell needs to be done manually (chsh -s /usr/bin/fish)
     - name: Install fish
       package:
         name: fish

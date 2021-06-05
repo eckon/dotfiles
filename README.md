@@ -21,7 +21,12 @@ The [README.md](./.config/Code/User/README.md) and configuration can be found in
 Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
 It will call ansible internally. This was only tested on Ubuntu.
 
-Other configurations that might be helpful:
+Manual configurations and steps:
+* change shell to fish `chsh -s /usr/bin/fish`
+* use fnm to install node `fnm use <node-version>`
+* kitty is installed under `~/.local/kitty.app`
+  * .desktop files and setting it to the default still needs to be done manually
+  * this [link](https://sw.kovidgoyal.net/kitty/binary.html#desktop-integration-on-linux) might help
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
