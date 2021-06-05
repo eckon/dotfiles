@@ -6,7 +6,13 @@
       register: fnm
 
     - name: Install fnm
-      shell:
-        cmd: |
-          curl -fsSL https://fnm.vercel.app/install | bash
+      block:
+        - name: Download fnm installer script
+          get_url:
+            url: https://fnm.vercel.app/install
+            dest: /tmp/fnm-install.sh
+        
+        - name: Execute fnm installer script
+          shell:
+            cmd: cat /tmp/fnm-install.sh | bash
       when: not fnm.stat.exists

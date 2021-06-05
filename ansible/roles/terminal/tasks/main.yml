@@ -1,22 +1,21 @@
 - name: Install kitty terminal
   block:
-    - name: Check if kitty exists
+    - name: Check if kitty terminal exists
       stat:
         path: "{{ lookup('env', 'HOME') }}/.local/kitty.app"
       register: kitty
 
     - name: Install kitty terminal
-      shell:
-        cmd: |
-          curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
-          launch=n
+      block:
+        - name: Download kitty terminal install script
+          get_url:
+            url: https://sw.kovidgoyal.net/kitty/installer.sh
+            dest: /tmp/kitty-install.sh
+        
+        - name: Execute kitty terminal install script
+          shell:
+            cmd: cat /tmp/kitty-install.sh | sh /dev/stdin launch=n
       when: not kitty.stat.exists
-
-- name: Install fira-code
-  package:
-    name: fonts-firacode
-    state: present
-  become: yes
 
 - name: Install starship
   block:
@@ -26,8 +25,13 @@
       register: starship
 
     - name: Install starship
-      shell:
-        cmd: |
-          sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
-      become: yes
+      block:
+        - name: Download starship install script
+          get_url:
+            url: https://starship.rs/install.sh
+            dest: /tmp/starship-install.sh
+
+        - name: Execute starship install script
+          shell:
+            cmd: cat /tmp/starship-install.sh | sh /dev/stdin -y
       when: not starship.stat.exists

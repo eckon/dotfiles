@@ -43,11 +43,22 @@
         path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
       register: vim_plug
 
-    - name: Install vim-plug (for neovim)
-      shell:
-        cmd: |
-          sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    - name: Download and move vim-plug
+      block:
+        - name: Download vim-plug
+          get_url:
+            url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+            dest: /tmp/plug.vim
+
+        - name: Create vim-plug directory
+          file:
+            path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
+            state: directory
+
+        - name: Move vim-plug
+          copy:
+            src: /tmp/plug.vim
+            dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
       when: not vim_plug.stat.exists
 
 - name: Install neovim plugins
