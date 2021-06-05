@@ -1,4 +1,4 @@
-- name: Setup local environment
+- name: Setup a new ubuntu system
   hosts: localhost
   roles:
     - role: terminal
