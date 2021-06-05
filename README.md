@@ -16,7 +16,7 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 The [README.md](./.config/Code/User/README.md) and configuration can be found in the [code-config folder](./config/Coder/User).
 
 
-### On fresh install _(ansible needed)_
+## On fresh install _(ansible needed)_
 
 Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
 It will call ansible internally. This was only tested on Ubuntu.
