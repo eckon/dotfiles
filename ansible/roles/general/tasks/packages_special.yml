@@ -33,3 +33,30 @@
       package:
         name: lazygit
         state: present
+
+- name: Install packages | Special - zoxide
+  become: yes
+  block:
+    - name: Check if zoxide exists
+      stat:
+        path: /opt/zoxide/zoxide
+      register: zoxide
+    - name: Fresh install, unzip, move, chmod of zoxide
+      block:
+      - name: Download zoxide v0.7.0
+        get_url:
+          url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.7.0/zoxide-x86_64-unknown-linux-musl.tar.gz
+          dest: /tmp/zoxide-x86_64-unknown-linux-musl.tar.gz
+      - name: Unzip zoxide
+        unarchive:
+          src: /tmp/zoxide-x86_64-unknown-linux-musl.tar.gz
+          dest: /tmp
+      - name: Move zoxide to opt
+        copy:
+          src: /tmp/zoxide-x86_64-unknown-linux-musl/
+          dest: /opt/zoxide
+      - name: Make zoxide executable
+        file:
+          path: /opt/zoxide/zoxide
+          mode: '0755'
+      when: not zoxide.stat.exists
