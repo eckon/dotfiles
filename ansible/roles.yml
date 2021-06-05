@@ -14,7 +14,6 @@
       - build-essential
       - curl
       - fzf
-      - gcc
       - git
       - jq
       - ripgrep
