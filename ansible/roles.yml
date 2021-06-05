@@ -11,11 +11,14 @@
     packages_install:
       - bash
       - bat
+      - build-essential
       - curl
       - fzf
+      - gcc
       - git
       - jq
       - ripgrep
+      - shellcheck
       - silversearcher-ag
       - tldr
       - wget
