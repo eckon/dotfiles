@@ -37,10 +37,6 @@ abbr -a gco       "git checkout"
 
 
 
-# -------------------- Functions/Bindings/Completions --------------------
-
-
-
 # -------------------- Special --------------------
 # add vim-mode indicator
 function fish_mode_prompt
