@@ -25,7 +25,7 @@
       stat:
         path: /usr/local/bin/starship
       register: starship
-      
+
     - name: Install starship
       shell:
         cmd: |

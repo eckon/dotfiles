@@ -16,7 +16,7 @@
           unarchive:
             src: /tmp/zoxide-x86_64-unknown-linux-musl.tar.gz
             dest: /tmp
-            
+
         - name: Move zoxide to opt
           copy:
             src: /tmp/zoxide-x86_64-unknown-linux-musl/
