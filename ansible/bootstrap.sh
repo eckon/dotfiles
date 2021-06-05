@@ -9,4 +9,18 @@ SCRIPT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 INVENTORY="$SCRIPT_PATH/hosts"
 PLAYBOOK="$SCRIPT_PATH/playbook.yml"
 
+if [[ $# -gt 0 ]]; then
+  ansible-playbook -i "$INVENTORY" "$PLAYBOOK" --list-tags
+
+  TAGS_SPACE_SEPARATED="$@"
+  TAGS="${TAGS_SPACE_SEPARATED// /,}"
+
+  echo -e "\n\nCall playbook with tags: $TAGS\n"
+  echo "Press key to continue"
+  read
+
+  ansible-playbook -i "$INVENTORY" "$PLAYBOOK" --ask-become-pass --tags "$TAGS"
+  exit 0
+fi
+
 ansible-playbook -i "$INVENTORY" "$PLAYBOOK" --ask-become-pass
