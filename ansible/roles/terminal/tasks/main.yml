@@ -2,20 +2,22 @@
 # https://sw.kovidgoyal.net/kitty/binary.html#desktop-integration-on-linux
 - name: Install kitty terminal
   block:
-  - name: Check if kitty exists
-    stat:
-      path: "{{ lookup('env', 'HOME') }}/.local/kitty.app"
-    register: kitty
+    - name: Check if kitty exists
+      stat:
+        path: "{{ lookup('env', 'HOME') }}/.local/kitty.app"
+      register: kitty
 
-  - name: Install kitty terminal
-    shell:
-      cmd: |
-        curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
-        launch=n
-    when: not kitty.stat.exists
+    - name: Install kitty terminal
+      shell:
+        cmd: |
+          curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
+          launch=n
+      when: not kitty.stat.exists
 
-# fira code
-# nerd font patched font
+- name: Install fira-code
+  package:
+    name: fonts-firacode
+    state: present
 
 - name: Install starship
   block:
