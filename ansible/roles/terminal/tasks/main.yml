@@ -1,0 +1,32 @@
+# for desktop icons, reference the website (for now it will be manual)
+# https://sw.kovidgoyal.net/kitty/binary.html#desktop-integration-on-linux
+- name: Install kitty terminal
+  block:
+  - name: Check if kitty exists
+    stat:
+      path: "{{ lookup('env', 'HOME') }}/.local/kitty.app"
+    register: kitty
+
+  - name: Install kitty terminal
+    shell:
+      cmd: |
+        curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
+        launch=n
+    when: not kitty.stat.exists
+
+# fira code
+# nerd font patched font
+
+- name: Install starship
+  block:
+    - name: Check if starship exists
+      stat:
+        path: /usr/local/bin/starship
+      register: starship
+      
+    - name: Install starship
+      shell:
+        cmd: |
+          sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
+      become: yes
+      when: not starship.stat.exists
