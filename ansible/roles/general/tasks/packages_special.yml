@@ -5,29 +5,22 @@
     package:
       name: fd-find
       state: present
-  - name: Get path to installed fdfind
-    command: which fdfind
-    register: path_to_fd
-  - name: Symlink fdfind to fd
+  - name: Symlink fd-find (fdfind) to fd
     become: yes
     file:
-      src: "{{ path_to_fd.stdout }}"
+      src: "{{ lookup('pipe', 'which fdfind') }}"
       dest: /usr/local/bin/fd
       state: link
 
 - name: Install packages | Special - fnm
   block:
-    - name: Get fnm path
-      shell: which fnm
-      register: path_to_fnm
-      ignore_errors: true
     - name: Check if fnm exists
       stat:
-        path: "{{ path_to_fnm.stdout }}"
-      register: fnm_stats
+        path: "{{ lookup('env', 'HOME') }}/.fnm"
+      register: fnm
     - name: Install fnm if not already installed
       raw: curl -fsSL https://fnm.vercel.app/install | bash
-      when: not fnm_stats.stat.exists
+      when: not fnm.stat.exists
 
 - name: Install packages | Special - lazygit
   block:
