@@ -12,7 +12,6 @@
       - bat
       - fzf
       - git
-      - git-delta
       - jq
       - ripgrep
       - silversearcher-ag
