@@ -2,7 +2,7 @@
   block:
     - name: Check if delta exists
       stat:
-        path: /usr/bin/delta
+        path: /usr/local/bin/delta
       register: delta
 
     - name: Fresh install, unzip, move, chmod of delta
@@ -20,11 +20,11 @@
         - name: Move delta to opt
           copy:
             src: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu/delta
-            dest: /usr/bin/delta
+            dest: /usr/local/bin/delta
 
         - name: Make delta executable
           file:
-            path: /usr/bin/delta
+            path: /usr/local/bin/delta
             mode: '0755'
       when: not delta.stat.exists
   become: yes
