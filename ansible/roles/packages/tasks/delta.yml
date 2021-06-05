@@ -1,0 +1,30 @@
+- name: Install delta
+  block:
+    - name: Check if delta exists
+      stat:
+        path: /usr/bin/delta
+      register: delta
+
+    - name: Fresh install, unzip, move, chmod of delta
+      block:
+        - name: Download delta v0.8.0
+          get_url:
+            url: https://github.com/dandavison/delta/releases/download/0.8.0/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
+            dest: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
+
+        - name: Unzip delta
+          unarchive:
+            src: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
+            dest: /tmp
+
+        - name: Move delta to opt
+          copy:
+            src: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu/delta
+            dest: /usr/bin/delta
+
+        - name: Make delta executable
+          file:
+            path: /usr/bin/delta
+            mode: '0755'
+      when: not delta.stat.exists
+  become: yes

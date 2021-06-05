@@ -6,9 +6,10 @@
     state: present
 
 - name: Install special packages with extra setup
-  include_tasks: "{{ item }}"
+  include_tasks: "{{ item }}.yml"
   loop:
-    - fd.yml
-    - fnm.yml
-    - lazygit.yml
-    - zoxide.yml
+    - delta
+    - fd
+    - fnm
+    - lazygit
+    - zoxide
