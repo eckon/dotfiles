@@ -7,6 +7,6 @@ fi
 
 SCRIPT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 INVENTORY="$SCRIPT_PATH/hosts"
-PLAYBOOK="$SCRIPT_PATH/roles.yml"
+PLAYBOOK="$SCRIPT_PATH/playbook.yml"
 
 ansible-playbook -i "$INVENTORY" "$PLAYBOOK" --ask-become-pass
