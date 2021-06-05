@@ -56,6 +56,7 @@
       stat:
         path: "{{ lookup('env', 'HOME') }}/.config/nvim/plugged"
       register: neovim_plugged
+
     - name: Initial neovim plugins installation
       shell:
         cmd: nvim --headless +PlugInstall +qa
