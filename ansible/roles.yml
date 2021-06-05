@@ -1,6 +1,8 @@
 - name: Setup local environment
   hosts: localhost
   roles:
+    - role: terminal
+    - role: shell
     - role: symlinks
     - role: packages
     - role: neovim
@@ -9,6 +11,7 @@
     packages_install:
       - bat
       - fzf
+      - git
       - git-delta
       - jq
       - ripgrep

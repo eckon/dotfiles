@@ -7,32 +7,32 @@
 
     - name: Fresh install, move, chmod of neovim
       block:
-      - name: Download nightly neovim
-        get_url:
-          url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-          dest: /tmp/nvim.appimage
-        register: download_out
+        - name: Download nightly neovim
+          get_url:
+            url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+            dest: /tmp/nvim.appimage
+          register: download_out
 
-      - name: Create neovim directory
-        file:
-          path: /opt/neovim/
-          state: directory
+        - name: Create neovim directory
+          file:
+            path: /opt/neovim/
+            state: directory
 
-      - name: Move neovim to opt
-        copy:
-          src: /tmp/nvim.appimage
-          dest: /opt/neovim/nvim.appimage
+        - name: Move neovim to opt
+          copy:
+            src: /tmp/nvim.appimage
+            dest: /opt/neovim/nvim.appimage
 
-      - name: Make neovim executable
-        file:
-          path: /opt/neovim/nvim.appimage
-          mode: '0755'
+        - name: Make neovim executable
+          file:
+            path: /opt/neovim/nvim.appimage
+            mode: '0755'
 
-      - name: Symlink neovim
-        file:
-          src: /opt/neovim/nvim.appimage
-          dest: /usr/local/bin/nvim
-          state: link
+        - name: Symlink neovim
+          file:
+            src: /opt/neovim/nvim.appimage
+            dest: /usr/local/bin/nvim
+            state: link
       when: not neovim.stat.exists
   become: yes
 
