@@ -5,14 +5,8 @@
         path: "{{ lookup('env', 'HOME') }}/.fnm"
       register: fnm
 
-    - name: Install and setup fnm
-      block:
-        - name: Install fnm
-          shell:
-            cmd: |
-              curl -fsSL https://fnm.vercel.app/install | bash
-
-        - name: Install node v16
-          shell:
-            cmd: "{{ lookup('env', 'HOME') }}/.fnm/fnm use 16 --install-if-missing"
+    - name: Install fnm
+      shell:
+        cmd: |
+          curl -fsSL https://fnm.vercel.app/install | bash
       when: not fnm.stat.exists
