@@ -1,10 +1,17 @@
 - name: Symlink dotfiles
-  loop: "{{ dotfiles_symlink }}"
-  file:
-    # go to the base of the playbook and then to the parent (dotfiles dir)
-    src: "{{ playbook_dir | dirname }}/{{ item }}"
-    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
-    state: link
+  block:
+    - name: Create directories
+      file:
+        path: "{{ lookup('env', 'HOME') }}/{{ item | dirname }}"
+        state: directory
+      loop: "{{ dotfiles_symlink }}"
+
+    - name: Create links
+      file:
+        src: "{{ playbook_dir | dirname }}/{{ item }}"
+        dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+        state: link
+      loop: "{{ dotfiles_symlink }}"
 
 - name: Symlink custom scripts
   become: yes
