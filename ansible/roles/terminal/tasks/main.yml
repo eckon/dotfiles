@@ -21,6 +21,7 @@
   package:
     name: fonts-firacode
     state: present
+  become: yes
 
 - name: Install starship
   block:
