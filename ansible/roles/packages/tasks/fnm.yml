@@ -1,0 +1,10 @@
+- name: Install fnm
+  block:
+    - name: Check if fnm exists
+      stat:
+        path: "{{ lookup('env', 'HOME') }}/.fnm"
+      register: fnm
+
+    - name: Install fnm if not already installed
+      raw: curl -fsSL https://fnm.vercel.app/install | bash
+      when: not fnm.stat.exists

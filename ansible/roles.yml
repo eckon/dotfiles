@@ -1,9 +1,12 @@
 - name: Setup local environment
   hosts: localhost
   roles:
-    - role: general
+    - role: symlinks
+    - role: packages
+    - role: neovim
+
   vars:
-    packages:
+    packages_install:
       - bat
       - fzf
       - git-delta
@@ -12,7 +15,8 @@
       - silversearcher-ag
       - tldr
       - xclip
-    dotfiles:
+
+    dotfiles_symlink:
       - .config/Code/User/keybindings.json
       - .config/Code/User/settings.json
       - .config/fish/config.fish
@@ -20,6 +24,7 @@
       - .config/lazygit/config.yml
       - .config/nvim
       - .config/starship.toml
-    scripts:
+
+    scripts_symlink:
       - { src: connect-to-bighost-dev.sh, command: bighost-dev }
       - { src: gitlab-search-and-clone.sh, command: qc }

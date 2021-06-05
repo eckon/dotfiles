@@ -1,0 +1,11 @@
+- name: Install lazygit
+  block:
+    - name: Add [DEPRECATED] lazygit PPA
+      apt_repository:
+        repo: ppa:lazygit-team/release
+
+    - name: Install lazygit
+      package:
+        name: lazygit
+        state: present
+  become: yes

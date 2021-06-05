@@ -1,6 +1,0 @@
-- name: Install packages
-  become: yes
-  loop: "{{ packages }}"
-  package:
-    name: "{{ item }}"
-    state: present

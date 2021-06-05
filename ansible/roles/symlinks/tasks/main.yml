@@ -1,5 +1,5 @@
 - name: Symlink dotfiles
-  loop: "{{ dotfiles }}"
+  loop: "{{ dotfiles_symlink }}"
   file:
     # go to the base of the playbook and then to the parent (dotfiles dir)
     src: "{{ playbook_dir | dirname }}/{{ item }}"
@@ -8,7 +8,7 @@
 
 - name: Symlink custom scripts
   become: yes
-  loop: "{{ scripts }}"
+  loop: "{{ scripts_symlink }}"
   file:
     src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"
     dest: "/usr/local/bin/{{ item.command }}"

@@ -1,0 +1,14 @@
+- name: Install basic packages
+  become: yes
+  loop: "{{ packages_install }}"
+  package:
+    name: "{{ item }}"
+    state: present
+
+- name: Install special packages with extra setup
+  include_tasks: "{{ item }}"
+  loop:
+    - fd.yml
+    - fnm.yml
+    - lazygit.yml
+    - zoxide.yml
