@@ -14,6 +14,9 @@
           launch=n
       when: not kitty.stat.exists
 
+# might be that some icons etc. are still not correctly showing -> try out
+# https://github.com/ryanoasis/nerd-fonts#linux
+# and maybe try to automate it as well
 - name: Install fira-code
   package:
     name: fonts-firacode

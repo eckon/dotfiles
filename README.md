@@ -1,5 +1,6 @@
 # Collection of my dotfiles and scripts
 
+
 ## Neovim / Vim
 
 The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
@@ -10,29 +11,27 @@ The [README.md](./.config/nvim/README.md) and configuration can be found in the 
 The scripts and their [README.md](./custom-scripts/README.md) can be found in the [custom-scripts folder](./custom-scripts).
 
 
+## Visual Studio Code
+
+The [README.md](./.config/Code/User/README.md) and configuration can be found in the [code-config folder](./config/Coder/User).
+
+
+### On fresh install _(ansible needed)_
+
+Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
+It will call ansible internally. This was only tested on Ubuntu.
+
+Other configurations that might be helpful:
+* bind capslock to escape
+  * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
+
+
 ## Used software
 
-Following programs are installed:
+Following programs should be highlighted and are installed/used:
+* [ansible](https://github.com/ansible/ansible)
 * [kitty](https://github.com/kovidgoyal/kitty) _with_ [fira code](https://github.com/tonsky/FiraCode), [starship](https://github.com/starship/starship)
 * [fish](https://github.com/fish-shell/fish-shell)
 * [neovim](https://github.com/neovim/neovim) _with_ [vim-plug](https://github.com/junegunn/vim-plug), [xclip](https://wiki.ubuntuusers.de/xclip/)
 * [lazygit](https://github.com/jesseduffield/lazygit) _with_ [delta](https://github.com/dandavison/delta)
 * [zoxide (z)](https://github.com/ajeetdsouza/zoxide), [tldr](https://github.com/tldr-pages/tldr), [fzf](https://github.com/junegunn/fzf), [ag](https://github.com/ggreer/the_silver_searcher), [ripgrep](https://github.com/BurntSushi/ripgrep), [fd](https://github.com/sharkdp/fd), [bat](https://github.com/sharkdp/bat), [jq](https://github.com/stedolan/jq), [fnm](https://github.com/Schniz/fnm)
-
-
-### On fresh install
-
-Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
-It will call ansible internally.
-
-Following commands/configs should be run/set on a fresh install:
-* install ["used software"](#used-software)
-  * install [a patched nerdfont](https://github.com/ryanoasis/nerd-fonts#linux) for icons
-  * install neovim v0.5+
-    * follow the instructions in [nvim-config](./.config/nvim/README.md)
-  * install vscode and the plugins
-    * follow the instructions in [vscode](./.config/Code/User/README.md)
-* for easier editing of the files, create symlinks for the files/folders (then only edit in the git repo)
-  * this can be done with the [./setup.sh](./setup.sh) script, which will add symlinks to the dotfiles
-* bind capslock to escape
-  * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
