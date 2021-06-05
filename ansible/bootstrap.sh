@@ -16,8 +16,8 @@ if [[ $# -gt 0 ]]; then
   TAGS="${TAGS_SPACE_SEPARATED// /,}"
 
   echo -e "\n\nCall playbook with tags: $TAGS\n"
-  echo "Press key to continue"
-  read
+  echo "Press any key to continue"
+  read -r -s -n 1
 
   ansible-playbook -i "$INVENTORY" "$PLAYBOOK" --ask-become-pass --tags "$TAGS"
   exit 0
