@@ -6,3 +6,6 @@
 
 - name: Symlink basic files in dotfiles repo
   import_tasks: symlinks.yml
+
+- name: Install neovim specific things
+  import_tasks: neovim.yml

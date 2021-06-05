@@ -11,6 +11,7 @@
       - ripgrep
       - silversearcher-ag
       - tldr
+      - xclip
     dotfiles:
       - .config/Code/User/keybindings.json
       - .config/Code/User/settings.json
