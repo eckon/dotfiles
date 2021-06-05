@@ -11,7 +11,8 @@
           shell:
             cmd: |
               curl -fsSL https://fnm.vercel.app/install | bash
+
         - name: Install node v16
           shell:
-            cmd: fnm use 16 --install-if-missing
+            cmd: "{{ lookup('env', 'HOME') }}/.fnm/fnm use 16 --install-if-missing"
       when: not fnm.stat.exists
