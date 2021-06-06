@@ -1,9 +1,6 @@
 # Collection of my dotfiles and scripts
 
 
-## Parts
-
-
 ### Neovim / Vim
  The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
 

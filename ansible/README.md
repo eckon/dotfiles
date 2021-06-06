@@ -16,5 +16,11 @@ When calling with parameters, it will take them (seperated with space) and only 
 To keep the style and the quality of these configurations in a good shape use different linters and testing frameworks:
 
 * ansible-lint
+  * `ansible-lint`
 * yamllint
+  * `yamllint ansible/**/*.yml`
+* ansible-playbook commands
+* `ansible-playbook --syntax-check`
+  * `ansible-playbook --check`
+* molecule test
 
