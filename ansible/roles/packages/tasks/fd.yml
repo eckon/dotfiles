@@ -8,7 +8,7 @@
     - name: Install and symlink fd-find
       block:
         - name: Install fd-find
-          package:
+          apt:
             name: fd-find
             state: present
 

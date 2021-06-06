@@ -8,7 +8,7 @@
     - name: Setup for docker installation
       block:
         - name: Install required system packages for docker 
-          package:
+          apt:
             name:
               - apt-transport-https
               - ca-certificates
@@ -28,7 +28,7 @@
             state: present
 
         - name: Install docker-ce
-          package:
+          apt:
             name:
               - docker-ce
               - docker-ce-cli

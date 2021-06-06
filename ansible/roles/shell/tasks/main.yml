@@ -5,7 +5,7 @@
         repo: ppa:fish-shell/release-3
 
     - name: Install fish
-      package:
+      apt:
         name: fish
         state: present
   become: yes

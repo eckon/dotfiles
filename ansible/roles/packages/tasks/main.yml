@@ -3,7 +3,7 @@
   loop: "{{ packages_install }}"
   # using no loop and passing packages_install into the name is way faster
   # but then there is no output of the different installing processes
-  package:
+  apt:
     name: "{{ item }}"
     state: present
 
