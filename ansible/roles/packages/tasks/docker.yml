@@ -2,7 +2,7 @@
   block:
     - name: Check if docker exists
       stat:
-        path: /usr/local/bin/docker
+        path: /usr/bin/docker
       register: docker
 
     - name: Setup for docker installation
