@@ -35,5 +35,14 @@
               - containerd.io
             state: latest
             update_cache: yes
+
+        - name: Add docker group
+          group:
+            name: docker
+            state: present
+        
+        - name: "Add \"{{ lookup('env', 'USER') }}\" to the docker group"
+          shell:
+            cmd: "usermod -aG docker {{ lookup('env', 'USER') }}"
       become: yes
       when: not docker.stat.exists
