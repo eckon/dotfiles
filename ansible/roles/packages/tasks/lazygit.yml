@@ -12,19 +12,15 @@
             url: https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygit_0.28.2_Linux_x86_64.tar.gz
             dest: /tmp/lazygit
 
-        - name: Unzip lazygit
+        - name: Unarchive lazygit
           unarchive:
             src: /tmp/lazygit
             dest: /tmp
 
-        - name: Move lazygit to opt
+        - name: Install lazygit
           copy:
             src: /tmp/lazygit
             dest: /usr/local/bin/lazygit
-
-        - name: Make lazygit executable
-          file:
-            path: /usr/local/bin/lazygit
-            mode: '0755'
+            mode: '+x'
       when: not lazygit.stat.exists
   become: yes

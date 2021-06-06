@@ -7,26 +7,16 @@
 
     - name: Fresh install, move, chmod of neovim
       block:
-        - name: Download nightly neovim
-          get_url:
-            url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-            dest: /tmp/nvim.appimage
-          register: download_out
-
         - name: Create neovim directory
           file:
             path: /opt/neovim/
             state: directory
 
-        - name: Move neovim to opt
-          copy:
-            src: /tmp/nvim.appimage
+        - name: Download nightly neovim
+          get_url:
+            url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
             dest: /opt/neovim/nvim.appimage
-
-        - name: Make neovim executable
-          file:
-            path: /opt/neovim/nvim.appimage
-            mode: '0755'
+            mode: '+x'
 
         - name: Symlink neovim
           file:
@@ -45,19 +35,14 @@
 
     - name: Download and move vim-plug
       block:
-        - name: Download vim-plug
-          get_url:
-            url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            dest: /tmp/plug.vim
-
         - name: Create vim-plug directory
           file:
             path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
             state: directory
 
-        - name: Move vim-plug
-          copy:
-            src: /tmp/plug.vim
+        - name: Download vim-plug
+          get_url:
+            url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
             dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
       when: not vim_plug.stat.exists
 
