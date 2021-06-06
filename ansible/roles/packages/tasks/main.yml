@@ -1,18 +1,46 @@
 - name: Install basic packages
-  become: yes
-  loop: "{{ packages_install }}"
-  # using no loop and passing packages_install into the name is way faster
-  # but then there is no output of the different installing processes
   apt:
     name: "{{ item }}"
     state: present
+  # using no loop and passing packages_install into the name is way faster
+  # but then there is no output of the different installing processes
+  loop: "{{ packages_install }}"
+  become: yes
+  tags:
+    - "packages:basic"
 
-- name: Install special packages with extra setup
-  include_tasks: "{{ item }}.yml"
-  loop:
-    - delta
-    - docker
-    - fd
-    - fnm
-    - lazygit
-    - zoxide
+- name: Include delta tasks
+  import_tasks:
+    file: delta.yml
+  tags:
+    - "packages:delta"
+
+- name: Include docker tasks
+  import_tasks:
+    file: docker.yml
+  tags:
+    - "packages:docker"
+
+- name: Include fd tasks
+  import_tasks:
+    file: fd.yml
+  tags:
+    - "packages:fd"
+
+- name: Include fnm tasks
+  import_tasks:
+    file: fnm.yml
+  tags:
+    - "packages:fnm"
+
+- name: Include lazygit tasks
+  import_tasks:
+    file: lazygit.yml
+  tags:
+    - "packages:lazygit"
+
+- name: Include zoxide tasks
+  import_tasks:
+    file: zoxide.yml
+  tags:
+    - "packages:zoxide"
