@@ -1,3 +1,4 @@
+---
 - name: Install delta
   block:
     - name: Check if delta exists
@@ -23,4 +24,4 @@
             dest: /usr/local/bin/delta
             mode: '+x'
       when: not delta.stat.exists
-  become: yes
+  become: true

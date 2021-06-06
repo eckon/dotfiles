@@ -1,3 +1,4 @@
+---
 - name: Install fish
   block:
     - name: Add fish 3 PPA
@@ -8,4 +9,4 @@
       apt:
         name: fish
         state: present
-  become: yes
+  become: true

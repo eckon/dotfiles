@@ -1,22 +1,23 @@
+---
 - name: Setup a new ubuntu system
   hosts: localhost
   roles:
     - role: terminal
-      tags: 
+      tags:
         - terminal
     - role: shell
-      tags: 
+      tags:
         - shell
     - role: symlinks
-      tags: 
+      tags:
         - symlinks
     - role: packages
-      tags: 
+      tags:
         - packages
     - role: neovim
-      tags: 
+      tags:
         - neovim
-  tags: 
+  tags:
     - localhost
 
   vars:
@@ -47,5 +48,5 @@
       - .config/starship.toml
 
     scripts_symlink:
-      - { src: connect-to-bighost-dev.sh, command: bighost-dev }
-      - { src: gitlab-search-and-clone.sh, command: qc }
+      - {src: connect-to-bighost-dev.sh, command: bighost-dev}
+      - {src: gitlab-search-and-clone.sh, command: qc}

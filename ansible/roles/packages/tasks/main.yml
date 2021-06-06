@@ -1,3 +1,4 @@
+---
 - name: Install basic packages
   apt:
     name: "{{ item }}"
@@ -5,42 +6,36 @@
   # using no loop and passing packages_install into the name is way faster
   # but then there is no output of the different installing processes
   loop: "{{ packages_install }}"
-  become: yes
+  become: true
   tags:
     - "packages:basic"
 
 - name: Include delta tasks
-  import_tasks:
-    file: delta.yml
+  import_tasks: delta.yml
   tags:
     - "packages:delta"
 
 - name: Include docker tasks
-  import_tasks:
-    file: docker.yml
+  import_tasks: docker.yml
   tags:
     - "packages:docker"
 
 - name: Include fd tasks
-  import_tasks:
-    file: fd.yml
+  import_tasks: fd.yml
   tags:
     - "packages:fd"
 
 - name: Include fnm tasks
-  import_tasks:
-    file: fnm.yml
+  import_tasks: fnm.yml
   tags:
     - "packages:fnm"
 
 - name: Include lazygit tasks
-  import_tasks:
-    file: lazygit.yml
+  import_tasks: lazygit.yml
   tags:
     - "packages:lazygit"
 
 - name: Include zoxide tasks
-  import_tasks:
-    file: zoxide.yml
+  import_tasks: zoxide.yml
   tags:
     - "packages:zoxide"

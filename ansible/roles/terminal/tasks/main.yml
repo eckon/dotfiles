@@ -1,3 +1,4 @@
+---
 - name: Install kitty terminal
   block:
     - name: Check if kitty terminal exists
@@ -11,7 +12,7 @@
           get_url:
             url: https://sw.kovidgoyal.net/kitty/installer.sh
             dest: /tmp/kitty-install.sh
-        
+
         - name: Execute kitty terminal install script
           shell:
             cmd: cat /tmp/kitty-install.sh | sh /dev/stdin launch=n

@@ -1,3 +1,4 @@
+---
 - name: Install neovim
   block:
     - name: Check if neovim exists
@@ -24,7 +25,7 @@
             dest: /usr/local/bin/nvim
             state: link
       when: not neovim.stat.exists
-  become: yes
+  become: true
 
 - name: Install vim-plug
   block:
@@ -54,6 +55,5 @@
       register: neovim_plugged
 
     - name: Initial neovim plugins installation
-      shell:
-        cmd: nvim --headless +PlugInstall +qa
+      command: nvim --headless +PlugInstall +qa
       when: not neovim_plugged.stat.exists

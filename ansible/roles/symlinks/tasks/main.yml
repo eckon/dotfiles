@@ -1,9 +1,11 @@
+---
 - name: Symlink dotfiles
   block:
     - name: Create directories
       file:
         path: "{{ lookup('env', 'HOME') }}/{{ item | dirname }}"
         state: directory
+        mode: '0755'
       loop: "{{ dotfiles_symlink }}"
 
     - name: Create links
@@ -14,7 +16,6 @@
       loop: "{{ dotfiles_symlink }}"
 
 - name: Symlink custom scripts
-  become: yes
   loop: "{{ scripts_symlink }}"
   file:
     src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"

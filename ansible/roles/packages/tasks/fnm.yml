@@ -1,3 +1,4 @@
+---
 - name: Install fnm
   block:
     - name: Check if fnm exists
@@ -11,7 +12,7 @@
           get_url:
             url: https://fnm.vercel.app/install
             dest: /tmp/fnm-install.sh
-        
+
         - name: Execute fnm installer script
           shell:
             cmd: cat /tmp/fnm-install.sh | bash

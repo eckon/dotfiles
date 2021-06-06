@@ -1,3 +1,4 @@
+---
 - name: Install zoxide
   block:
     - name: Check if zoxide exists
@@ -23,4 +24,4 @@
             dest: /usr/local/bin/zoxide
             mode: '+x'
       when: not zoxide.stat.exists
-  become: yes
+  become: true
