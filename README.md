@@ -2,7 +2,8 @@
 
 
 ### Neovim / Vim
- The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
+
+The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
 
 
 ### Custom scripts

@@ -10,6 +10,8 @@ When calling without any parameters will call the playbook which will install ev
 
 When calling with parameters, it will take them (seperated with space) and only use these as tags (tags can be also seen when passing an argument).
 
+When calling the script/command inside of the ansible directly, the ansible.cfg file will be used, this results in some better output, timing and profiling.
+
 
 ## Linting / Testing
 
@@ -22,5 +24,5 @@ To keep the style and the quality of these configurations in a good shape use di
 * ansible-playbook commands
 * `ansible-playbook --syntax-check`
   * `ansible-playbook --check`
-* molecule test
+
 
