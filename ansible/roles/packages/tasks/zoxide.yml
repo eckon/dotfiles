@@ -2,7 +2,7 @@
   block:
     - name: Check if zoxide exists
       stat:
-        path: /opt/zoxide/zoxide
+        path: /usr/local/bin/zoxide
       register: zoxide
 
     - name: Fresh install, unzip, move, chmod of zoxide
@@ -17,14 +17,10 @@
             src: /tmp/zoxide-x86_64-unknown-linux-musl.tar.gz
             dest: /tmp
 
-        - name: Move zoxide to opt
+        - name: Install zoxide
           copy:
-            src: /tmp/zoxide-x86_64-unknown-linux-musl/
-            dest: /opt/zoxide
-
-        - name: Make zoxide executable
-          file:
-            path: /opt/zoxide/zoxide
-            mode: '0755'
+            src: /tmp/zoxide-x86_64-unknown-linux-musl/zoxide
+            dest: /usr/local/bin/zoxide
+            mode: '+x'
       when: not zoxide.stat.exists
   become: yes

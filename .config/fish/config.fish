@@ -1,6 +1,5 @@
 # -------------------- Path --------------------
 test -d ~/.fnm;      and fish_add_path ~/.fnm
-test -d /opt/zoxide; and fish_add_path /opt/zoxide
 
 
 
