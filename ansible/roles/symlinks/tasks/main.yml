@@ -21,3 +21,4 @@
     src: "{{ playbook_dir }}/../custom-scripts/{{ item.src }}"
     dest: "/usr/local/bin/{{ item.command }}"
     state: link
+  become: true
