@@ -16,10 +16,15 @@ The scripts and their [README.md](./custom-scripts/README.md) can be found in th
 The [README.md](./.config/Code/User/README.md) and configuration can be found in the [code-config folder](./config/Coder/User).
 
 
+## Ansible
+
+The [README.md](./ansible/README.md), setup and configuration can be found in the [ansible folder](./ansible).
+
+
 ## On fresh install _(ansible needed)_
 
-Run the [bootstrap.sh](./ansible/bootstrap.sh) script.
-It will call ansible internally. This was only tested on Ubuntu.
+* manually install git and ansible
+* run the [bootstrap.sh](./ansible/bootstrap.sh) script
 
 Manual configurations and steps:
 * change shell to fish `chsh -s /usr/bin/fish`
