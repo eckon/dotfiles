@@ -1,27 +1,29 @@
 # Collection of my dotfiles and scripts
 
 
-## Neovim / Vim
-
-The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
+## Parts
 
 
-## Custom scripts
+### Neovim / Vim
+ The [README.md](./.config/nvim/README.md) and configuration can be found in the [nvim-config folder](./.config/nvim).
+
+
+### Custom scripts
 
 The scripts and their [README.md](./custom-scripts/README.md) can be found in the [custom-scripts folder](./custom-scripts).
 
 
-## Visual Studio Code
+### Visual Studio Code
 
 The [README.md](./.config/Code/User/README.md) and configuration can be found in the [code-config folder](./config/Coder/User).
 
 
-## Ansible
+### Ansible
 
 The [README.md](./ansible/README.md), setup and configuration can be found in the [ansible folder](./ansible).
 
 
-## On fresh install _(ansible needed)_
+## On fresh install _(with ansible)_
 
 * manually install git and ansible
 * run the [bootstrap.sh](./ansible/bootstrap.sh) script
