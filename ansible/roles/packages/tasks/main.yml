@@ -1,6 +1,8 @@
 - name: Install basic packages
   become: yes
   loop: "{{ packages_install }}"
+  # using no loop and passing packages_install into the name is way faster
+  # but then there is no output of the different installing processes
   package:
     name: "{{ item }}"
     state: present
@@ -9,6 +11,7 @@
   include_tasks: "{{ item }}.yml"
   loop:
     - delta
+    - docker
     - fd
     - fnm
     - lazygit
