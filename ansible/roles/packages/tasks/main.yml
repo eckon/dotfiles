@@ -35,6 +35,11 @@
   tags:
     - "packages:lazygit"
 
+- name: Include vscode tasks
+  import_tasks: vscode.yml
+  tags:
+    - "packages:vscode"
+
 - name: Include zoxide tasks
   import_tasks: zoxide.yml
   tags:

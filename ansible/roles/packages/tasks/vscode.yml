@@ -1,0 +1,30 @@
+---
+- name: Install vscode
+  block:
+    - name: Check if vscode exists
+      stat:
+        path: /usr/local/bin/code
+      register: vscode
+
+    - name: Setup for vscode installation
+      block:
+        - name: Add vscode GPG apt key
+          apt_key:
+            url: https://packages.microsoft.com/keys/microsoft.asc
+            state: present
+
+        - name: Add vscode repository
+          apt_repository:
+            repo: deb https://packages.microsoft.com/repos/code stable main
+            state: present
+
+
+        - name: Install vscode
+          apt:
+            name:
+              - apt-transport-https
+              - code
+            state: latest
+            update_cache: true
+      become: true
+      when: not vscode.stat.exists
