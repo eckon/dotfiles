@@ -22,7 +22,7 @@ To keep the style and the quality of these configurations in a good shape use di
 * yamllint
   * `yamllint ansible/**/*.yml`
 * ansible-playbook commands
-* `ansible-playbook --syntax-check`
+  * `ansible-playbook --syntax-check`
   * `ansible-playbook --check`
 
 

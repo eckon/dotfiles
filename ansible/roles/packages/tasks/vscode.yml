@@ -18,7 +18,6 @@
             repo: deb https://packages.microsoft.com/repos/code stable main
             state: present
 
-
         - name: Install vscode
           apt:
             name:
@@ -26,5 +25,15 @@
               - code
             state: latest
             update_cache: true
+
+        - name: Install vscode plugins
+          command: "code --install-extension {{ item }}"
+          loop:
+            - aaron-bond.better-comments
+            - coenraads.disableligatures
+            - yzhang.markdown-all-in-one
+            - bmewburn.vscode-intelephense-client
+            - liximomo.sftp
+            - vscodevim.vim
       become: true
       when: not vscode.stat.exists
