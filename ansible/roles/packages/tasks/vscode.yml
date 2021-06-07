@@ -3,7 +3,7 @@
   block:
     - name: Check if vscode exists
       stat:
-        path: /usr/local/bin/code
+        path: /usr/bin/code
       register: vscode
 
     - name: Setup for vscode installation
@@ -12,11 +12,13 @@
           apt_key:
             url: https://packages.microsoft.com/keys/microsoft.asc
             state: present
+          become: true
 
         - name: Add vscode repository
           apt_repository:
             repo: deb https://packages.microsoft.com/repos/code stable main
             state: present
+          become: true
 
         - name: Install vscode
           apt:
@@ -25,6 +27,7 @@
               - code
             state: latest
             update_cache: true
+          become: true
 
         - name: Install vscode plugins
           command: "code --install-extension {{ item }}"
@@ -35,5 +38,4 @@
             - bmewburn.vscode-intelephense-client
             - liximomo.sftp
             - vscodevim.vim
-      become: true
       when: not vscode.stat.exists
