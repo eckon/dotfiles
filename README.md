@@ -27,8 +27,6 @@ The [README.md](./ansible/README.md), setup and configuration can be found in th
 * run the [bootstrap.sh](./ansible/bootstrap.sh) script
 
 Manual configurations and steps:
-* change shell to fish `chsh -s /usr/bin/fish`
-* use fnm to install node `fnm use <node-version>`
 * kitty is installed under `~/.local/kitty.app`
   * .desktop files and setting it to the default still needs to be done manually
   * this [link](https://sw.kovidgoyal.net/kitty/binary.html#desktop-integration-on-linux) might help

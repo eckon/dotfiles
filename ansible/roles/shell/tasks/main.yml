@@ -9,4 +9,9 @@
       apt:
         name: fish
         state: present
+
+    - name: Set fish as default shell
+      user:
+        name: "{{ ansible_env.USER }}"
+        shell: /usr/bin/fish
   become: true
