@@ -1,5 +1,5 @@
 ---
-- name: Install fnm
+- name: Install node (via fnm)
   block:
     - name: Check if fnm exists
       stat:

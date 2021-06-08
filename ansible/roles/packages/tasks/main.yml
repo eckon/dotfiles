@@ -25,15 +25,15 @@
   tags:
     - "packages:fd"
 
-- name: Include fnm tasks
-  import_tasks: fnm.yml
-  tags:
-    - "packages:fnm"
-
 - name: Include lazygit tasks
   import_tasks: lazygit.yml
   tags:
     - "packages:lazygit"
+
+- name: Include node tasks
+  import_tasks: node.yml
+  tags:
+    - "packages:node"
 
 - name: Include vscode tasks
   import_tasks: vscode.yml
