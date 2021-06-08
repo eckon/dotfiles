@@ -1,24 +1,12 @@
 ---
-- name: Setup a new ubuntu system
+- name: Setup a new linux system
   hosts: localhost
   roles:
     - role: terminal
-      tags:
-        - terminal
     - role: shell
-      tags:
-        - shell
     - role: symlinks
-      tags:
-        - symlinks
     - role: packages
-      tags:
-        - packages
     - role: neovim
-      tags:
-        - neovim
-  tags:
-    - localhost
 
   vars:
     packages_installs:
