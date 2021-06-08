@@ -27,9 +27,6 @@ The [README.md](./ansible/README.md), setup and configuration can be found in th
 * run the [bootstrap.sh](./ansible/bootstrap.sh) script
 
 Manual configurations and steps:
-* kitty is installed under `~/.local/kitty.app`
-  * .desktop files and setting it to the default still needs to be done manually
-  * this [link](https://sw.kovidgoyal.net/kitty/binary.html#desktop-integration-on-linux) might help
 * bind capslock to escape
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 

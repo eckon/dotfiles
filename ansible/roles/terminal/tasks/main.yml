@@ -21,22 +21,22 @@
           block:
             - name: Link kitty
               file:
-                src: "{{ ansible_env.HOME }}/.local/kitty.app"
-                dest: /usr/local/bin
+                src: "{{ ansible_env.HOME }}/.local/kitty.app/bin/kitty"
+                dest: /usr/local/bin/kitty
                 state: link
+              become: true
 
             - name: Copy kitty.desktop
               copy:
                 src: "{{ ansible_env.HOME }}/.local/kitty.app/share/applications/kitty.desktop"
                 dest: "{{ ansible_env.HOME }}/.local/share/applications/"
-                mode: '+x'
 
             - name: Update kitty.desktop icon
               shell:
                 cmd: >
-                  sed -i \
-                  "s|Icon=kitty|Icon={{ ansible_env.HOME }}/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" \
-                  ~/.local/share/applications/kitty.desktop
+                  sed -i
+                  "s|Icon=kitty|Icon={{ ansible_env.HOME }}/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g"
+                  {{ ansible_env.HOME }}/.local/share/applications/kitty.desktop
       when: not kitty.stat.exists
 
 - name: Install starship
