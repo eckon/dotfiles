@@ -28,6 +28,10 @@
 
         - name: Install npm packages
           shell:
-            cmd: npm install {{ item }} -g
+            cmd: |
+              eval "$(fnm env)"
+              npm install {{ item }} -g
+          environment:
+            PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
           loop: "{{ npm_packages_installs }}"
       when: not fnm.stat.exists
