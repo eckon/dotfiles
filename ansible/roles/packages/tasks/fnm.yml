@@ -16,4 +16,18 @@
         - name: Execute fnm installer script
           shell:
             cmd: cat /tmp/fnm-install.sh | bash
+
+        - name: Install node v16 with fnm
+          shell:
+            cmd: |
+              eval "$(fnm env)"
+              fnm use 16 --install-if-missing
+              fnm default $(node --version)
+          environment:
+            PATH: "{{ lookup('env', 'HOME') }}/.fnm:{{ lookup('env', 'PATH') }}"
+
+        - name: Install npm packages
+          shell:
+            cmd: npm install {{ item }} -g
+          loop: "{{ npm_packages_installs }}"
       when: not fnm.stat.exists

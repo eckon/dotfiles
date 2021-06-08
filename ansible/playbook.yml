@@ -21,7 +21,7 @@
     - localhost
 
   vars:
-    packages_install:
+    packages_installs:
       - bash
       - bat
       - build-essential
@@ -38,7 +38,7 @@
       - wget
       - xclip
 
-    dotfiles_symlink:
+    dotfiles_symlinks:
       - .config/Code/User/keybindings.json
       - .config/Code/User/settings.json
       - .config/fish/config.fish
@@ -47,6 +47,17 @@
       - .config/nvim
       - .config/starship.toml
 
-    scripts_symlink:
+    scripts_symlinks:
       - {src: connect-to-bighost-dev.sh, command: bighost-dev}
       - {src: gitlab-search-and-clone.sh, command: qc}
+
+    vscode_plugins:
+      - aaron-bond.better-comments
+      - coenraads.disableligatures
+      - yzhang.markdown-all-in-one
+      - bmewburn.vscode-intelephense-client
+      - liximomo.sftp
+      - vscodevim.vim
+
+    npm_packages_installs:
+      - npm-check

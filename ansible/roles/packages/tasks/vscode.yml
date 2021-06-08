@@ -31,11 +31,5 @@
 
         - name: Install vscode plugins
           command: "code --install-extension {{ item }}"
-          loop:
-            - aaron-bond.better-comments
-            - coenraads.disableligatures
-            - yzhang.markdown-all-in-one
-            - bmewburn.vscode-intelephense-client
-            - liximomo.sftp
-            - vscodevim.vim
+          loop: "{{ vscode_plugins }}"
       when: not vscode.stat.exists

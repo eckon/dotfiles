@@ -5,7 +5,7 @@
     state: present
   # using no loop and passing packages_install into the name is way faster
   # but then there is no output of the different installing processes
-  loop: "{{ packages_install }}"
+  loop: "{{ packages_installs }}"
   become: true
   tags:
     - "packages:basic"
