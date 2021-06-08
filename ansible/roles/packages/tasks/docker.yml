@@ -47,9 +47,9 @@
             name: docker
             state: present
 
-        - name: "Add \"{{ lookup('env', 'USER') }}\" to the docker group"
+        - name: "Add \"{{ ansible_env.USER }}\" to the docker group"
           shell:
-            cmd: "usermod -aG docker {{ lookup('env', 'USER') }}"
+            cmd: "usermod -aG docker {{ ansible_env.USER }}"
       become: true
       when: not docker.stat.exists
 

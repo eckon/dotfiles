@@ -3,7 +3,7 @@
   block:
     - name: Check if fnm exists
       stat:
-        path: "{{ lookup('env', 'HOME') }}/.fnm"
+        path: "{{ ansible_env.HOME }}/.fnm"
       register: fnm
 
     - name: Install fnm
@@ -24,7 +24,7 @@
               fnm use 16 --install-if-missing
               fnm default $(node --version)
           environment:
-            PATH: "{{ lookup('env', 'HOME') }}/.fnm:{{ lookup('env', 'PATH') }}"
+            PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
 
         - name: Install npm packages
           shell:

@@ -31,27 +31,27 @@
   block:
     - name: Check if vim-plug exists
       stat:
-        path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
+        path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
       register: vim_plug
 
     - name: Download and move vim-plug
       block:
         - name: Create vim-plug directory
           file:
-            path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
+            path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload"
             state: directory
 
         - name: Download vim-plug
           get_url:
             url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
+            dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
       when: not vim_plug.stat.exists
 
 - name: Install neovim plugins
   block:
     - name: Check if neovim plugins are already installed
       stat:
-        path: "{{ lookup('env', 'HOME') }}/.config/nvim/plugged"
+        path: "{{ ansible_env.HOME }}/.config/nvim/plugged"
       register: neovim_plugged
 
     - name: Initial neovim plugins installation

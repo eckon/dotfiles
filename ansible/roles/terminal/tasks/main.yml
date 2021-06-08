@@ -3,7 +3,7 @@
   block:
     - name: Check if kitty terminal exists
       stat:
-        path: "{{ lookup('env', 'HOME') }}/.local/kitty.app"
+        path: "{{ ansible_env.HOME }}/.local/kitty.app"
       register: kitty
 
     - name: Install kitty terminal

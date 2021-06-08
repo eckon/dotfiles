@@ -3,7 +3,7 @@
   block:
     - name: Create directories
       file:
-        path: "{{ lookup('env', 'HOME') }}/{{ item | dirname }}"
+        path: "{{ ansible_env.HOME }}/{{ item | dirname }}"
         state: directory
         mode: '0755'
       loop: "{{ dotfiles_symlinks }}"
@@ -11,7 +11,7 @@
     - name: Create links
       file:
         src: "{{ playbook_dir | dirname }}/{{ item }}"
-        dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+        dest: "{{ ansible_env.HOME }}/{{ item }}"
         state: link
       loop: "{{ dotfiles_symlinks }}"
 
