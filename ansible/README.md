@@ -16,5 +16,3 @@ To keep the style and the quality of these configurations in a good shape use di
 * ansible-playbook commands
   * `ansible-playbook --syntax-check`
   * `ansible-playbook --check`
-
-
