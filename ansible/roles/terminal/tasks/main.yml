@@ -26,6 +26,11 @@
                 state: link
               become: true
 
+            - name: Create share directories
+              file:
+                path: "{{ ansible_env.HOME }}/.local/share/applications"
+                state: directory
+
             - name: Copy kitty.desktop
               copy:
                 src: "{{ ansible_env.HOME }}/.local/kitty.app/share/applications/kitty.desktop"
