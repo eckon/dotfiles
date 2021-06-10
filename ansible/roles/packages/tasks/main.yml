@@ -5,17 +5,14 @@
     state: present
   become: true
 
-- name: Include delta tasks
-  import_tasks: delta.yml
-
 - name: Include docker tasks
   import_tasks: docker.yml
 
 - name: Include fd tasks
   import_tasks: fd.yml
 
-- name: Include lazygit tasks
-  import_tasks: lazygit.yml
+- name: Include git tasks
+  import_tasks: git.yml
 
 - name: Include node tasks
   import_tasks: node.yml
