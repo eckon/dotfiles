@@ -1,4 +1,32 @@
 ---
+- name: Install basic packages
+  apt:
+    name: "{{ packages_installs }}"
+    state: present
+  become: true
+
+- name: Install fd
+  block:
+    - name: Check if fd exists
+      stat:
+        path: /usr/local/bin/fd
+      register: fd
+
+    - name: Install and symlink fd-find
+      block:
+        - name: Install fd-find
+          apt:
+            name: fd-find
+            state: present
+
+        - name: Symlink fd-find (fdfind) to fd
+          file:
+            src: "{{ lookup('pipe', 'which fdfind') }}"
+            dest: /usr/local/bin/fd
+            state: link
+      become: true
+      when: not fd.stat.exists
+
 - name: Install zoxide
   block:
     - name: Check if zoxide exists
