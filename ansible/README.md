@@ -2,7 +2,7 @@
 
 Way of setting up a completly new machine with my dotfiles, configurations, packages, applications etc.
 
-Simply run the `bootstrap.sh` script to start
+Simply run the `bootstrap.sh` script (in the root dir) to start.
 
 
 ## Linting / Testing

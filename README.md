@@ -24,7 +24,7 @@ The [README.md](./ansible/README.md), setup and configuration can be found in th
 ## On fresh install _(with ansible)_
 
 * manually install git and ansible
-* run the [bootstrap.sh](./ansible/bootstrap.sh) script
+* run the [bootstrap.sh](./bootstrap.sh) script
 
 Manual configurations and steps:
 * bind capslock to escape
