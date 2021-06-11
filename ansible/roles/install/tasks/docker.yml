@@ -48,8 +48,10 @@
             state: present
 
         - name: "Add \"{{ ansible_env.USER }}\" to the docker group"
-          shell:
-            cmd: "usermod -aG docker {{ ansible_env.USER }}"
+          user:
+            name: "{{ ansible_env.USER }}"
+            groups: docker
+            append: true
       become: true
       when: not docker.stat.exists
 
