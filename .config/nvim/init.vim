@@ -1,11 +1,9 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -225,30 +223,19 @@ EOF
 
 
 
-" ---------- telescope (& fzy) {{{2
+" ---------- Fuzzy-Search (fzf.vim) {{{2
 " ----- Configurations {{{3
-lua << EOF
-local actions = require('telescope.actions')
-
-require('telescope').setup {
-  defaults = {
-    mappings = { i = { ["<ESC>"] = actions.close } },
-  },
-}
-
-require('telescope').load_extension('fzy_native')
-EOF
+" enable to use ctrl-p/n in fzf window to cycle through history
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
 " ----- Mappings {{{3
-nnoremap <Leader><Tab> <CMD>lua require('telescope.builtin').builtin()<CR>
-nnoremap <Leader>f, <CMD>lua require('telescope.builtin').file_browser()<CR>
-nnoremap <Leader>f. <CMD>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
-nnoremap <Leader>ff <CMD>lua require('telescope.builtin').git_files()<CR>
-nnoremap <Leader>fh <CMD>lua require('telescope.builtin').git_files({ layout_config = { preview_width = 0 } })<CR>
-nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers({ sort_lastused = true })<CR>
-nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
-nnoremap <Leader>fa <CMD>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <Leader><TAB> <CMD>Commands<CR>
+" show all files of <range> parents folders from current file
+nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
+nnoremap <Leader>fa <CMD>Ag<CR>
+nnoremap <Leader>fb <CMD>Buffers<CR>
+nnoremap <Leader>ff <CMD>GFiles<CR>
+nnoremap <Leader>fl <CMD>BLines<CR>
 
 " vim:foldmethod=marker
