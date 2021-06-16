@@ -31,11 +31,12 @@ scripts_symlinks:
 
 vscode_plugins:
   - aaron-bond.better-comments
-  - coenraads.disableligatures
-  - yzhang.markdown-all-in-one
   - bmewburn.vscode-intelephense-client
+  - coenraads.disableligatures
   - liximomo.sftp
+  - pkief.material-icon-theme
   - vscodevim.vim
+  - yzhang.markdown-all-in-one
 
 npm_packages_installs:
   - npm-check
