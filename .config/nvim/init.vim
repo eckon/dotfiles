@@ -13,7 +13,6 @@ call plug#begin()
   Plug 'gruvbox-community/gruvbox'
   Plug 'mhinz/vim-signify'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'psliwka/vim-smoothie'
   " }}}2
 call plug#end()
 
@@ -39,6 +38,7 @@ set nobackup nowritebackup noswapfile undofile
 set noerrorbells
 set nowrap
 set number relativenumber
+set shell=bash
 set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
 set shortmess+=c
 set showcmd showmatch showmode
@@ -49,15 +49,6 @@ set title
 
 " enable embedded script highlighting of lua code
 let g:vimsyn_embed = 'l'
-
-" configure vim-markdown from tpope (installed by vim itself)
-let g:markdown_fenced_languages = [
-  \ 'javascript', 'json=javascript', 'js=javascript',
-  \ 'typescript', 'ts=typescript',
-  \ 'sh', 'bash=sh',
-  \ 'php',
-  \ 'python',
-  \ ]
 
 
 
@@ -215,7 +206,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'typescript', 'javascript', 'vue',
     'json', 'html', 'css',
-    'bash', 'python',
+    'bash', 'fish', 'python',
   },
   highlight = { enable = true },
 }
