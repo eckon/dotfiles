@@ -54,4 +54,4 @@ function fish_mode_prompt
   set_color normal
 end
 
-# vim:filetype=sh
+# vim:filetype=fish
