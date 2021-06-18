@@ -67,9 +67,9 @@ augroup GitBranchName
 augroup END
 
 function! SetGitBranchName() abort
-  let git_branch_name = trim(system('git branch --show-current'))
+  let git_branch_name = trim(system('git branch --show-current || echo "fatal"'))
 
-  " check if command returns fatal error (no git repository)
+  " check if command returns fatal error (no git repository or non zero return)
   if git_branch_name =~ 'fatal'
     let git_branch_name = 'NO-GIT'
   end
