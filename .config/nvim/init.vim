@@ -101,6 +101,11 @@ command! OpenInVsCode !code $(pwd) -g %
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
 command! UploadBighost !scp %:p swarmX-bighost-dev:/%
 
+" fill quickfix with errors, do some formatting to have correct quickfix format
+" path:line:col:message
+command! RunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' | awk 'length($0) > 20 {print $0}'")
+command! RunTsc    cexpr system("npx tsc | sed 's/[(,]/:/g' | sed 's/)//'")
+
 
 
 " -------------------- Plugin Configurations {{{1
@@ -224,9 +229,10 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader><TAB> <CMD>Commands<CR>
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
-nnoremap <Leader>fa <CMD>Ag<CR>
+nnoremap <Leader>fa :Ag 
 nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
+nnoremap <Leader>fg <CMD>GFiles?<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
 
 " vim:foldmethod=marker
