@@ -114,7 +114,6 @@ command! RunTsc    cexpr system("npx tsc | sed 's/[(,]/:/g' | sed 's/)//'")
 " set coc extensions that should always be installed
 " essential
 let g:coc_global_extensions = [
-  \   'coc-emmet',
   \   'coc-marketplace',
   \ ]
 " general
@@ -128,8 +127,12 @@ let g:coc_global_extensions += [
 " specific
 let g:coc_global_extensions += [
   \   'coc-angular',
+  \   'coc-clangd',
+  \   'coc-cmake',
   \   'coc-css',
+  \   'coc-emmet',
   \   'coc-eslint',
+  \   'coc-fish',
   \   'coc-go',
   \   'coc-java',
   \   'coc-phpls',
@@ -212,6 +215,7 @@ require('nvim-treesitter.configs').setup {
     'typescript', 'javascript', 'vue',
     'json', 'html', 'css',
     'bash', 'fish', 'python',
+    'rust', 'cpp',
   },
   highlight = { enable = true },
 }
