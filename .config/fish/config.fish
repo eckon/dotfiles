@@ -34,6 +34,7 @@ abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm instal
 abbr -a de        "docker exec -it"
 abbr -a dc        "docker compose"
 abbr -a gco       "git checkout"
+abbr -a l         "lazygit"
 
 
 
