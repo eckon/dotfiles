@@ -9,6 +9,10 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
 
+  Plug 'windwp/nvim-autopairs'
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+  Plug 'kevinhwang91/nvim-bqf'
+
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
   Plug 'mhinz/vim-signify'
@@ -223,6 +227,14 @@ EOF
 
 
 
+" ---------- nvim-autopairs {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('nvim-autopairs').setup()
+EOF
+
+
+
 " ---------- Fuzzy-Search (fzf.vim) {{{2
 " ----- Configurations {{{3
 " enable to use ctrl-p/n in fzf window to cycle through history
@@ -233,6 +245,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader><TAB> <CMD>Commands<CR>
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
+" quickly switch between same named files with different file endings
+nnoremap <Leader>fc <CMD>call fzf#vim#files(expand("%:p:h"), { "options": ["--query", "!'" . expand("%:t") . " '" . expand("%:t:r") . " "]})<CR>
 nnoremap <Leader>fa :Ag 
 nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
