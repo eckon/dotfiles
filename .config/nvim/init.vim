@@ -245,8 +245,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader><TAB> <CMD>Commands<CR>
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
-" quickly switch between same named files with different file endings
-nnoremap <Leader>fc <CMD>call fzf#vim#files(expand("%:p:h"), { "options": ["--query", "!'" . expand("%:t") . " '" . expand("%:t:r") . " "]})<CR>
 nnoremap <Leader>fa :Ag 
 nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
