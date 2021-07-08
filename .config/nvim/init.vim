@@ -10,7 +10,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
 
   Plug 'windwp/nvim-autopairs'
-  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
   Plug 'kevinhwang91/nvim-bqf'
 
   " Syntax/Styling/Appearance {{{2
