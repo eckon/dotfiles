@@ -12,6 +12,7 @@ packages_installs:
   - shellcheck
   - silversearcher-ag
   - tldr
+  - tmux
   - tree
   - wget
   - xclip
@@ -24,6 +25,7 @@ dotfiles_symlinks:
   - .config/lazygit/config.yml
   - .config/nvim
   - .config/starship.toml
+  - .tmux.conf
 
 scripts_symlinks:
   - {src: connect-to-bighost-dev.sh, command: bighost-dev}
