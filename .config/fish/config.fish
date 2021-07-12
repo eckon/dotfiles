@@ -35,6 +35,8 @@ abbr -a de        "docker exec -it"
 abbr -a dc        "docker compose"
 abbr -a gco       "git checkout"
 abbr -a l         "lazygit"
+abbr -a ta        "tmux attach -t"
+abbr -a tt        "tmux new -s"
 
 
 
