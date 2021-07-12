@@ -12,6 +12,8 @@ call plug#begin()
   Plug 'windwp/nvim-autopairs'
   Plug 'kevinhwang91/nvim-bqf'
 
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+
   " Syntax/Styling/Appearance {{{2
   Plug 'gruvbox-community/gruvbox'
   Plug 'mhinz/vim-signify'
