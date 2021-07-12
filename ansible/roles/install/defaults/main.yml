@@ -16,6 +16,7 @@ packages_installs:
   - tree
   - wget
   - xclip
+  - zsh
 
 dotfiles_symlinks:
   - .config/Code/User/keybindings.json
@@ -26,6 +27,7 @@ dotfiles_symlinks:
   - .config/nvim
   - .config/starship.toml
   - .tmux.conf
+  - .zshrc
 
 scripts_symlinks:
   - {src: connect-to-bighost-dev.sh, command: bighost-dev}
