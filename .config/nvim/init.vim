@@ -10,12 +10,11 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'hoob3rt/lualine.nvim'
 
-  Plug 'tmux-plugins/vim-tmux-focus-events'
-
-  " Syntax/Styling/Appearance {{{2
+  " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
   Plug 'mhinz/vim-signify'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
 call plug#end()
 
