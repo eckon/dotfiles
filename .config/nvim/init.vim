@@ -241,7 +241,7 @@ require('nvim-treesitter.configs').setup {
     'typescript', 'javascript', 'vue',
     'json', 'html', 'css',
     'bash', 'fish', 'python',
-    'rust', 'cpp',
+    'rust', 'c', 'cpp',
   },
   highlight = { enable = true },
 }
