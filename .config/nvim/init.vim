@@ -48,6 +48,7 @@ set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1000 updatetime=100
 set title
+set wildmode=list:longest,list:full
 
 " enable embedded script highlighting of lua code
 let g:vimsyn_embed = 'l'
