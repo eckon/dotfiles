@@ -10,9 +10,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'hoob3rt/lualine.nvim'
 
-  Plug 'windwp/nvim-autopairs'
-  Plug 'kevinhwang91/nvim-bqf'
-
   Plug 'tmux-plugins/vim-tmux-focus-events'
 
   " Syntax/Styling/Appearance {{{2
@@ -248,14 +245,6 @@ require('nvim-treesitter.configs').setup {
   },
   highlight = { enable = true },
 }
-EOF
-
-
-
-" ---------- nvim-autopairs {{{2
-" ----- Configurations {{{3
-lua << EOF
-require('nvim-autopairs').setup()
 EOF
 
 
