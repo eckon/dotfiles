@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'hoob3rt/lualine.nvim'
+  Plug 'phaazon/hop.nvim'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -193,6 +194,19 @@ function! s:show_documentation() abort
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+
+
+
+" ---------- Hop {{{2
+" ----- Configurations {{{3
+lua << EOF
+require'hop'.setup()
+EOF
+
+
+" ----- Mappings {{{3
+nnoremap S <CMD> HopWord<CR>
 
 
 
