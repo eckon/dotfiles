@@ -101,7 +101,7 @@ command! OpenProjectInBrowser
   \ )/blob/master/%
 
 " open current project and goto the current buffer file in vscode
-command! OpenInVsCode !code $(pwd) -g %
+command! OpenProjectInVsCode !code $(pwd) -g %
 
 " upload current buffer to bighost-dev server
 "" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
