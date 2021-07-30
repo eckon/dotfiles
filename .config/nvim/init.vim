@@ -143,7 +143,7 @@ let g:coc_global_extensions += [
   \   'coc-java',
   \   'coc-phpls',
   \   'coc-prettier',
-  \   'coc-python',
+  \   'coc-pyls',
   \   'coc-rust-analyzer',
   \   'coc-toml',
   \   'coc-tsserver',
