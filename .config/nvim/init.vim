@@ -44,7 +44,7 @@ set number relativenumber
 set shell=bash
 set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
 set shortmess+=c
-set showcmd showmatch showmode
+set showcmd noshowmode
 set signcolumn=yes
 set splitbelow splitright
 set timeoutlen=1000 updatetime=100
