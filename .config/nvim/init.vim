@@ -93,10 +93,12 @@ nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
 " ---------- Custom Commands {{{2
 " open current buffer file in the browser (needs to be cloned over git with ssh)
 command! OpenProjectInBrowser
-  \ !xdg-open
-  \ $(echo
-  \   ${${${$(git config --get remote.origin.url)//.git/}//:/\/}//git@/https:\/\/}/blob/master/%
-  \ )
+  \ !xdg-open $(
+  \   git config --get remote.origin.url
+  \     | sed 's/\.git//g'
+  \     | sed 's/:/\//g'
+  \     | sed 's/git@/https:\/\//'
+  \ )/blob/master/%
 
 " open current project and goto the current buffer file in vscode
 command! OpenInVsCode !code $(pwd) -g %
