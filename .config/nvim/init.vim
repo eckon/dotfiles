@@ -9,11 +9,10 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'phaazon/hop.nvim'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
+  Plug 'hoob3rt/lualine.nvim'
   Plug 'mhinz/vim-signify'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'tmux-plugins/vim-tmux-focus-events'
