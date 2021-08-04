@@ -158,9 +158,10 @@ inoremap <silent><expr> <C-space> coc#refresh()
 
 nmap <silent>[g <Plug>(coc-diagnostic-prev)
 nmap <silent>]g <Plug>(coc-diagnostic-next)
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gD <Plug>(coc-declaration)
-nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gd :call <SID>goto_tag("Definition")<CR>
+nmap <silent>gD :call <SID>goto_tag("Declaration")<CR>
+nmap <silent>gr :call <SID>goto_tag("References")<CR>
+nmap <silent>gi :call <SID>goto_tag("Implementation")<CR>
 nmap <silent><Leader>la <Plug>(coc-codeaction)
 nmap <silent><Leader>lr <Plug>(coc-rename)
 nmap <silent><Leader>lf <Plug>(coc-format)
@@ -197,6 +198,24 @@ function! s:show_documentation() abort
   endif
 endfunction
 
+" function to add definition jumps etc to the tagstack (next to jumplist)
+" this allows (next to the jumplist) easy jump back from definition to definition
+" meaning no need to press CTRL-O until in previous part
+" CTRL-T will get back to last definition call and add itself to the jump list
+" from: https://github.com/neoclide/coc.nvim/issues/1054#issuecomment-619343648
+function! s:goto_tag(tagkind) abort
+  let tagname = expand('<cWORD>')
+  let winnr = winnr()
+  let pos = getcurpos()
+  let pos[0] = bufnr()
+
+  if CocAction('jump' . a:tagkind)
+    call settagstack(winnr, { 
+      \ 'curidx': gettagstack()['curidx'], 
+      \ 'items': [{'tagname': tagname, 'from': pos}] 
+      \ }, 't')
+  endif
+endfunction
 
 
 
