@@ -8,11 +8,11 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'hoob3rt/lualine.nvim'
   Plug 'phaazon/hop.nvim'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
+  Plug 'itchyny/lightline.vim'
   Plug 'mhinz/vim-signify'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -231,26 +231,24 @@ nnoremap S <CMD> HopWord<CR>
 
 
 
-" ---------- lualine {{{2
+" ---------- lightline {{{2
 " ----- Configurations {{{3
-lua << EOF
-require('lualine').setup({
-  options = {
-    icons_enabled = false,
-    theme = 'gruvbox',
-    component_separators = {},
-    section_separators = {},
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename', 'diff'}, 
-    lualine_x = {'g:coc_status', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  }
-})
-EOF
+  " wombat, darcula
+let g:lightline = {
+  \   'colorscheme': 'darcula',
+  \   'active': {
+  \     'left': [
+  \       [ 'mode', 'paste' ],
+  \       [ 'filename', 'modified' ] ],
+  \     'right': [
+  \       [ 'lineinfo' ],
+  \       [ 'percent' ],
+  \       [ 'lspinfo', 'filetype' ] ]
+  \   },
+  \   'component_function': {
+  \     'lspinfo': 'coc#status'
+  \   },
+  \ }
 
 
 
