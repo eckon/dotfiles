@@ -31,7 +31,7 @@ dotfiles_symlinks:
 
 scripts_symlinks:
   - {src: connect-to-bighost-dev.sh, command: bighost-dev}
-  - {src: gitlab-search-and-clone.sh, command: qc}
+  - {src: gitlab-search-and-clone.sh, command: qsc}
 
 vscode_plugins:
   - aaron-bond.better-comments
