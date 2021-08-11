@@ -98,7 +98,9 @@ command! OpenProjectInBrowser
   \     | sed 's/\.git//g'
   \     | sed 's/:/\//g'
   \     | sed 's/git@/https:\/\//'
-  \ )/blob/master/%
+  \ )/blob/$(
+  \   git branch --show-current
+  \ )/%
 
 " open current project and goto the current buffer file in vscode
 command! OpenProjectInVsCode !code $(pwd) -g %
