@@ -82,7 +82,7 @@ nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
 
 " make Y behave like other upper case commands (yank from start to end)
-nnoremap Y yg_
+nnoremap Y y$
 
 " rehighlight text after indenting
 vnoremap < <gv
