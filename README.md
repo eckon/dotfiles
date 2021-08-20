@@ -31,6 +31,20 @@ Manual configurations and steps:
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
 
+## System Structure
+
+* `~` and `~/.config/`
+  * includes configurations
+* `~/Development/dotfiles/`
+  * has this project inside, acts as a central configuration place
+* `~/Development/personal/`
+  * has my personal projects
+  * uses a pre-configured [.gitconfig](./.config/gitconfig/personal)
+* `~/Development/work/`
+  * has work related projects
+  * uses a pre-configured [.gitconfig](./.config/gitconfig/work)
+
+
 ## Used software
 
 Following programs should be highlighted and are installed/used:
