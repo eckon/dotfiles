@@ -1,0 +1,7 @@
+[user]
+  email = niklas.meyer95@hotmail.de
+  name = eckon
+[pull]
+  rebase = false
+
+# vim:filetype=gitconfig

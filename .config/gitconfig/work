@@ -1,0 +1,7 @@
+[user]
+  email = meyer@ascora.de
+  name = Niklas Meyer
+[pull]
+  rebase = false
+
+# vim:filetype=gitconfig
