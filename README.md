@@ -39,7 +39,6 @@ Manual configurations and steps:
   * has this project inside, acts as a central configuration place
 * `~/Development/personal/`
   * has my personal projects
-  * uses a pre-configured [.gitconfig](./.config/gitconfig/personal)
 * `~/Development/work/`
   * has work related projects
   * uses a pre-configured [.gitconfig](./.config/gitconfig/work)

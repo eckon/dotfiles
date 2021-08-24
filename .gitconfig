@@ -1,5 +1,9 @@
-[includeIf "gitdir:~/Development/personal/"]
-  path = ~/.config/gitconfig/personal
+[user]
+  email = niklas.meyer95@hotmail.de
+  name = eckon
+
+[pull]
+  rebase = false
 
 [includeIf "gitdir:~/Development/work/"]
   path = ~/.config/gitconfig/work
