@@ -89,7 +89,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " extend redraw of screen with hiding the highlight of search results
-nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
+nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
 
 
 
