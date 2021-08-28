@@ -42,6 +42,22 @@ Manual configurations and steps:
 * `~/Development/work/`
   * has work related projects
   * uses a pre-configured [.gitconfig](./.config/gitconfig/work)
+* `~/.ssh/config`
+  * ssh config example
+    ```ssh
+    AddKeysToAgent yes
+
+    Host *
+      ServerAliveInterval 300
+      ServerAliveCountMax 3
+
+    Host <name of config block>
+      Hostname <server name>
+      Port <port if not 22>
+      User <user if not root>
+      Preferredauthentications publickey
+      IdentityFile <path to private key>
+    ```
 
 
 ## Used software
