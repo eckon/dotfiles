@@ -3,6 +3,7 @@ call plug#begin()
   " Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'kristijanhusak/orgmode.nvim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'phaazon/hop.nvim'
   Plug 'preservim/nerdtree'
@@ -288,6 +289,22 @@ require('nvim-treesitter.configs').setup {
   },
   highlight = { enable = true },
 }
+EOF
+
+
+
+" ---------- orgmode.nvim {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('orgmode').setup({
+  org_agenda_files = { '~/Documents/org/*' },
+  org_default_notes_file = '~/Documents/org/refile.org',
+  org_agenda_templates = {
+    m = { description = 'Meeting', template = '* Meeting: %?\n  %u\n  - ' },
+    r = { description = 'Reference', template = '* TODO %?\n  %a\n  %u' },
+    t = { description = 'Task', template = '* TODO %?\n  %u' },
+  },
+})
 EOF
 
 
