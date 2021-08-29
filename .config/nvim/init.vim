@@ -89,7 +89,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " extend redraw of screen with hiding the highlight of search results
-nnoremap <C-l> <CMD>nohlsearch<CR><C-l>
+nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
+
+" quickly update macro - use wanted register - press enter to execute
+nnoremap <Leader>m  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><LEFT>
 
 
 
