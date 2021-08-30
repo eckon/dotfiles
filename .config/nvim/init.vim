@@ -251,12 +251,12 @@ require('lualine').setup({
     section_separators = {},
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'}, 
-    lualine_x = {'g:coc_status', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = { 'filename' }, 
+    lualine_x = { 'g:coc_status', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   }
 })
 EOF
@@ -278,7 +278,7 @@ nnoremap <Leader>, <CMD>NERDTree<CR>
 " ---------- nvim-treesitter {{{2
 " ----- Configurations {{{3
 lua << EOF
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
   -- following languages are not used, because they are worse then the regex one
   -- php, yaml
   ensure_installed = {
@@ -288,7 +288,7 @@ require('nvim-treesitter.configs').setup {
     'rust', 'c', 'cpp',
   },
   highlight = { enable = true },
-}
+})
 EOF
 
 
