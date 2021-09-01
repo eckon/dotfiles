@@ -15,8 +15,8 @@ fi
 # build template for the capture
 captureFile=/tmp/todoist-capture.md
 captureFileTemplate="# Quickly add task
-- after and on the same line \`>\` is the title
-- everything after the title is the description
+- title: after the \`>\` sign on the same line
+- description: on the next line after the \`title\`
 
 ---
 
