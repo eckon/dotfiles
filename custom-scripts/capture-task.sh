@@ -15,7 +15,6 @@ fi
 # build template for the capture
 captureFile=/tmp/todoist-capture.md
 captureFileTemplate="# Quickly add task
-- use \`:cq\` to stop the script without adding a new task
 - after and on the same line \`>\` is the title
 - everything after the title is the description
 
@@ -28,8 +27,8 @@ echo "$captureFileTemplate" > "$captureFile"
 nvim +"$titleLine" "$captureFile"
 
 # parse the needed lines
-titleLine=8
-contentStartLine=9
+titleLine=7
+contentStartLine=8
 title=$(awk -vline="$titleLine" 'NR==line' "$captureFile" | cut -c 3-)
 description=$(awk -vline="$contentStartLine" 'NR>=line' "$captureFile")
 
