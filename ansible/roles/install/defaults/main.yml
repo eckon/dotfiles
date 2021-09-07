@@ -8,6 +8,7 @@ packages_installs:
   - fzf
   - git
   - jq
+  - moreutils
   - ripgrep
   - shellcheck
   - silversearcher-ag
