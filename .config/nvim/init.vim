@@ -235,8 +235,8 @@ EOF
 
 
 " ----- Mappings {{{3
-noremap s <CMD>HopChar1<CR>
-onoremap s <CMD>HopChar1<CR>
+noremap f <CMD>HopChar1<CR>
+onoremap f v<CMD>HopChar1<CR>
 
 
 
