@@ -236,6 +236,7 @@ EOF
 
 " ----- Mappings {{{3
 noremap f <CMD>HopChar1<CR>
+" be careful this will delete one symbol if it is being canceld by ESC etc
 onoremap f v<CMD>HopChar1<CR>
 
 
