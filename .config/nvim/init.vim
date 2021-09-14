@@ -64,7 +64,7 @@ endif
 colorscheme gruvbox
 set background=dark
 set cursorline colorcolumn=80,120,121
-set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:·,tab:▸\ 
+set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
 set scrolloff=5
 
 augroup HighlightYankedText
