@@ -218,9 +218,9 @@ function! s:goto_tag(tagkind) abort
   let pos[0] = bufnr()
 
   if CocAction('jump' . a:tagkind)
-    call settagstack(winnr, { 
-      \ 'curidx': gettagstack()['curidx'], 
-      \ 'items': [{'tagname': tagname, 'from': pos}] 
+    call settagstack(winnr, {
+      \ 'curidx': gettagstack()['curidx'],
+      \ 'items': [{'tagname': tagname, 'from': pos}]
       \ }, 't')
   endif
 endfunction
@@ -253,7 +253,7 @@ require('lualine').setup({
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
-    lualine_c = { 'filename' }, 
+    lualine_c = { 'filename' },
     lualine_x = { 'g:coc_status', 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
@@ -303,7 +303,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader><TAB> <CMD>Commands<CR>
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
-nnoremap <Leader>fa :Ag 
+nnoremap <Leader>fa :Ag<Space>
 nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
 nnoremap <Leader>fg <CMD>GFiles?<CR>
