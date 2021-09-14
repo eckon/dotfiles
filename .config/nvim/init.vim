@@ -162,7 +162,7 @@ let g:coc_global_extensions += [
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-inoremap <silent><expr> <C-space> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 nmap <silent>[g <Plug>(coc-diagnostic-prev)
 nmap <silent>]g <Plug>(coc-diagnostic-next)
