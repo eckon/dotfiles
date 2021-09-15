@@ -6,6 +6,7 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'phaazon/hop.nvim'
   Plug 'preservim/nerdtree'
+  Plug 'puremourning/vimspector'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -227,7 +228,7 @@ endfunction
 
 
 
-" ---------- Hop {{{2
+" ---------- hop {{{2
 " ----- Configurations {{{3
 lua << EOF
 require'hop'.setup()
@@ -309,5 +310,29 @@ nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
 nnoremap <Leader>fg <CMD>GFiles?<CR>
 nnoremap <Leader>fl <CMD>BLines<CR>
+
+
+
+" ---------- vimspector {{{2
+" ----- Configurations {{{3
+let g:vimspector_install_gadgets = [ 'vscode-node-debug2' ]
+
+
+" ----- Mappings {{{3
+nnoremap <Leader>dd <CMD>call vimspector#Launch()<CR>
+nnoremap <Leader>ds <CMD>call vimspector#Reset()<CR>
+nnoremap <Leader>dc <CMD>call vimspector#Continue()<CR>
+nnoremap <Leader>dC <CMD>call vimspector#RunToCursor()<CR>
+nnoremap <Leader>dr <CMD>call vimspector#Restart()<CR>
+
+nnoremap <Leader>dt <CMD>call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>dT <CMD>call vimspector#ClearBreakpoints()<CR>
+
+nnoremap <Leader>dl <CMD>call vimspector#StepOut()<CR>
+nnoremap <Leader>dh <CMD>call vimspector#StepInto()<CR>
+nnoremap <Leader>dj <CMD>call vimspector#StepOver()<CR>
+
+nmap <leader>di <Plug>VimspectorBalloonEval
+xmap <leader>di <Plug>VimspectorBalloonEval
 
 " vim:foldmethod=marker
