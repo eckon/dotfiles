@@ -281,15 +281,12 @@ nnoremap <Leader>, <CMD>NERDTree<CR>
 " ----- Configurations {{{3
 lua << EOF
 require('nvim-treesitter.configs').setup({
-  -- following languages are not used, because they are worse then the regex one
-  -- php, yaml
-  ensure_installed = {
-    'typescript', 'javascript', 'vue',
-    'json', 'html', 'css',
-    'bash', 'fish', 'python',
-    'rust', 'c', 'cpp',
+  ensure_installed = 'maintained',
+  highlight = {
+    enable = true,
+    -- regex highlight is still better than TS highlight
+    disable = { 'php', 'vim' },
   },
-  highlight = { enable = true },
 })
 EOF
 
