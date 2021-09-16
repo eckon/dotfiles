@@ -4,7 +4,7 @@
 ## Different Sub Parts (next to general configs)
 * [Neovim / Vim](./.config/nvim/README.md)
 * [Custom scripts](./custom-scripts/README.md)
-* [Visual Studio Code](./config/Coder/User/README.md)
+* [Visual Studio Code](./.config/Coder/User/README.md)
 * [Ansible](./ansible/README.md)
 * [Gists](https://gist.github.com/eckon)
 
