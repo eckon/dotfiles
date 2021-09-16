@@ -30,7 +30,6 @@ Manual configurations and steps:
 * `~/Development/work/`
   * has work related projects
   * uses a pre-configured [.gitconfig](./.config/gitconfig/work)
-* `~/.ssh/config`
 
 
 ## Used software
