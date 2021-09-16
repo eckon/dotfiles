@@ -12,5 +12,6 @@
 * in neovim
   * run `:PlugInstall` / `:PlugUpdate` this will install the Plugins from **vim-plug**
   * run `:CocInstall` / `:CocUpdate` this will install the Plugins from **coc**
+  * run `:TSInstall` / `:TSUpdate` this will install the Plugins from **treesitter**
   * run `:VimspectorInstall` / `:VimspectorUpdate` this will install the Plugins from **vimspector**
   * run `:checkhealth` to see what is still needed or any problems with neovim
