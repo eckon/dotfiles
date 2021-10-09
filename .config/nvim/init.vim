@@ -70,7 +70,7 @@ set scrolloff=5
 
 augroup HighlightYankedText
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+  autocmd TextYankPost * silent! lua require('vim.highlight').on_yank()
 augroup END
 
 
@@ -231,7 +231,7 @@ endfunction
 " ---------- hop {{{2
 " ----- Configurations {{{3
 lua << EOF
-require'hop'.setup()
+require('hop').setup()
 EOF
 
 
