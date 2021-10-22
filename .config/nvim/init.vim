@@ -13,8 +13,8 @@ call plug#begin()
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
-  Plug 'hoob3rt/lualine.nvim'
   Plug 'mhinz/vim-signify'
+  Plug 'nvim-lualine/lualine.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
