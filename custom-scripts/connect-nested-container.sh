@@ -12,7 +12,7 @@ serverName="manager"
 containerName="bighost-dev"
 containerCurrentPath="/opt/myWebsites/singularity/www/cli/"
 
-# get information about bighost dev from the manager in a nice format
+# get information about given container from the manager in a nice format
 serviceInfo=$(
   ssh $serverName \
     'docker service ps \

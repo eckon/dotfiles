@@ -34,7 +34,6 @@ dotfiles_symlinks:
 
 scripts_symlinks:
   - {src: command-cache.sh, command: command-cache}
-  - {src: connect-to-bighost-dev.sh, command: bighost-dev}
   - {src: gitlab-search-and-clone.sh, command: qsc}
 
 vscode_plugins:
