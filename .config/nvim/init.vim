@@ -115,10 +115,6 @@ command! OpenProjectInBrowser
 " open current project and goto the current buffer file in vscode
 command! OpenProjectInVsCode !code $(pwd) -g %
 
-" upload current buffer to bighost-dev server
-"" this needs a 'swarmX-bighost-dev' in the .ssh/config to work
-command! UploadBighost !scp %:p swarmX-bighost-dev:/%
-
 " fill quickfix with errors, do some formatting to have correct quickfix format
 " path:line:col:message
 command! RunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' | awk 'length($0) > 20 {print $0}'")
