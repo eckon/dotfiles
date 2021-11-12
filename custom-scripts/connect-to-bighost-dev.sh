@@ -1,13 +1,24 @@
 #!/usr/bin/env bash
 
-########################################################
-# script to quickly connect to the bighost-dev container
-########################################################
+###############################################################################
+# script to quickly connect to a nested docker container
+#
+# example would be to get into an instance of a container on a remote server
+# which might have changed the id and needs to be newly identified
+###############################################################################
+
+
+serverName="manager"
+containerName="bighost-dev"
+containerCurrentPath="/opt/myWebsites/singularity/www/cli/"
 
 # get information about bighost dev from the manager in a nice format
 serviceInfo=$(
-  ssh manager \
-    'docker service ps -f "desired-state=running" --format "{{.Node}} {{.Name}}.{{.ID}}" --no-trunc bighost-dev'
+  ssh $serverName \
+    'docker service ps \
+      -f "desired-state=running" \
+      --format "{{.Node}} {{.Name}}.{{.ID}}" \
+      --no-trunc ' $containerName
 )
 
 # given format: swarm-name.domain.com container-name.number.id
@@ -23,4 +34,7 @@ container=$(
 echo "[!] Found \"$host\" with \"$container\""
 echo "[!] Trying to execute into it"
 
-ssh -t "$host" "docker exec -w '/opt/myWebsites/singularity/www/cli/' -it $container bash"
+ssh -t "$host" \
+  "docker exec \
+    -w '$containerCurrentPath' \
+    -it $container bash"
