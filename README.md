@@ -2,6 +2,7 @@
 
 
 ## Different Sub Parts (next to general configs)
+
 * [Neovim / Vim](./.config/nvim/README.md)
 * [Custom scripts](./custom-scripts/README.md)
 * [Visual Studio Code](./.config/Code/User/README.md)
