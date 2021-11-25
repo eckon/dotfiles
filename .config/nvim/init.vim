@@ -3,6 +3,7 @@ call plug#begin()
   " Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'mfussenegger/nvim-treehopper'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'phaazon/hop.nvim'
   Plug 'preservim/nerdtree'
@@ -271,6 +272,13 @@ let NERDTreeQuitOnOpen = 1
 " ----- Mappings {{{3
 nnoremap <Leader>. <CMD>NERDTreeFind<CR>
 nnoremap <Leader>, <CMD>NERDTree<CR>
+
+
+
+" ---------- nvim-treehopper {{{2
+" ----- Mappings {{{3
+omap <silent> m :<C-U>lua require('tsht').nodes()<CR>
+vnoremap <silent> m :lua require('tsht').nodes()<CR>
 
 
 
