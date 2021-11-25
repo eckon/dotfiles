@@ -4,7 +4,7 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'ggandor/lightspeed.nvim'
+  Plug 'phaazon/hop.nvim'
   Plug 'preservim/nerdtree'
   Plug 'puremourning/vimspector'
   Plug 'tpope/vim-commentary'
@@ -224,6 +224,18 @@ function! s:goto_tag(tagkind) abort
       \ }, 't')
   endif
 endfunction
+
+
+
+" ---------- hop {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('hop').setup()
+EOF
+
+
+" ----- Mappings {{{3
+noremap H <CMD>HopChar1<CR>
 
 
 
