@@ -36,14 +36,5 @@ scripts_symlinks:
   - {src: command-cache.sh, command: command-cache}
   - {src: gitlab-search-and-clone.sh, command: qsc}
 
-vscode_plugins:
-  - aaron-bond.better-comments
-  - bmewburn.vscode-intelephense-client
-  - coenraads.disableligatures
-  - liximomo.sftp
-  - pkief.material-icon-theme
-  - vscodevim.vim
-  - yzhang.markdown-all-in-one
-
 npm_packages_installs:
   - npm-check

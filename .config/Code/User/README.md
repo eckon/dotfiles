@@ -15,6 +15,14 @@
   - The commands have no history (no way to easily repeat a global command etc)
   - Not as fine tuned to VsCode as the other vim plugin
 
+- Generally these are some of the plugins I use mostly:
+  - aaron-bond.better-comments
+  - coenraads.disableligatures
+  - liximomo.sftp
+  - pkief.material-icon-theme
+  - vscodevim.vim
+  - yzhang.markdown-all-in-one
+
 
 ## Useful links
 
