@@ -90,9 +90,6 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
-" quick paste of yank register
-nnoremap <Leader>p "0p
-
 " extend redraw of screen with hiding the highlight of search results
 nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
 
