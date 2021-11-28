@@ -1,6 +1,7 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
+  Plug 'antoinemadec/coc-fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mfussenegger/nvim-treehopper'
