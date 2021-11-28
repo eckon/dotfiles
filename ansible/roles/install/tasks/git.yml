@@ -41,20 +41,26 @@
 
     - name: Fresh install, unzip, move, chmod of delta
       block:
-        - name: Download delta v0.8.0
+        - name: Create delta directory
+          file:
+            path: /tmp/delta
+            state: directory
+
+        - name: Download delta v0.10.2
           get_url:
-            url: https://github.com/dandavison/delta/releases/download/0.8.0/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
-            dest: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
+            url: https://github.com/dandavison/delta/releases/download/0.10.2/delta-0.10.2-x86_64-unknown-linux-gnu.tar.gz
+            dest: /tmp/delta/delta.tar.gz
 
         - name: Unarchive delta
           unarchive:
-            src: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu.tar.gz
-            dest: /tmp
+            src: /tmp/delta/delta.tar.gz
+            dest: /tmp/delta
 
         - name: Install delta
           copy:
-            src: /tmp/delta-0.8.0-x86_64-unknown-linux-gnu/delta
+            src: /tmp/delta/delta-0.10.2-x86_64-unknown-linux-gnu/delta
             dest: /usr/local/bin/delta
             mode: '+x'
+          become: true
       when: not delta.stat.exists
-  become: true
+  become: false
