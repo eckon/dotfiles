@@ -16,11 +16,11 @@
         - name: Download lazygit v0.31.4
           get_url:
             url: https://github.com/jesseduffield/lazygit/releases/download/v0.31.4/lazygit_0.31.4_Linux_x86_64.tar.gz
-            dest: /tmp/lazygit/lazygit_tar
+            dest: /tmp/lazygit/lazygit.tar.gz
 
         - name: Unarchive lazygit
           unarchive:
-            src: /tmp/lazygit/lazygit_tar
+            src: /tmp/lazygit/lazygit.tar.gz
             dest: /tmp/lazygit
 
         - name: Install lazygit
