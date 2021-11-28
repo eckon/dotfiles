@@ -8,23 +8,29 @@
 
     - name: Fresh install, unzip, move, chmod of lazygit
       block:
-        - name: Download lazygit v0.28.2
+        - name: Create lazygit directory
+          file:
+            path: /tmp/lazygit
+            state: directory
+
+        - name: Download lazygit v0.31.4
           get_url:
-            url: https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygit_0.28.2_Linux_x86_64.tar.gz
-            dest: /tmp/lazygit
+            url: https://github.com/jesseduffield/lazygit/releases/download/v0.31.4/lazygit_0.31.4_Linux_x86_64.tar.gz
+            dest: /tmp/lazygit/lazygit_tar
 
         - name: Unarchive lazygit
           unarchive:
-            src: /tmp/lazygit
-            dest: /tmp
+            src: /tmp/lazygit/lazygit_tar
+            dest: /tmp/lazygit
 
         - name: Install lazygit
           copy:
-            src: /tmp/lazygit
+            src: /tmp/lazygit/lazygit
             dest: /usr/local/bin/lazygit
             mode: '+x'
+          become: true # only the binary needs to be root (folder needs to be not root)
       when: not lazygit.stat.exists
-  become: true
+  become: false
 
 - name: Install delta
   block:
