@@ -97,7 +97,7 @@ nnoremap <Leader>p "0p
 nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
 
 " quickly update macro - use wanted register - press enter to execute
-nnoremap <Leader>m  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><LEFT>
+nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><LEFT>
 
 
 
