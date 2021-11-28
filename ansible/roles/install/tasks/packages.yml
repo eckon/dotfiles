@@ -58,4 +58,3 @@
             mode: '+x'
           become: true
       when: not zoxide.stat.exists
-  become: false

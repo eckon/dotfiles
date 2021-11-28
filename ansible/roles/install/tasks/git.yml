@@ -28,9 +28,8 @@
             src: /tmp/lazygit/lazygit
             dest: /usr/local/bin/lazygit
             mode: '+x'
-          become: true # only the binary needs to be root (folder needs to be not root)
+          become: true
       when: not lazygit.stat.exists
-  become: false
 
 - name: Install delta
   block:
@@ -63,4 +62,3 @@
             mode: '+x'
           become: true
       when: not delta.stat.exists
-  become: false
