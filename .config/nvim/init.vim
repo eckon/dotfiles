@@ -1,17 +1,19 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " Tools {{{2
-  Plug 'antoinemadec/coc-fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'mfussenegger/nvim-treehopper'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'phaazon/hop.nvim'
   Plug 'preservim/nerdtree'
-  Plug 'puremourning/vimspector'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+
+  " Try out (not sure yet if I want to keep them)
+  Plug 'antoinemadec/coc-fzf'
+  Plug 'mfussenegger/nvim-treehopper'
+  Plug 'phaazon/hop.nvim'
+  Plug 'puremourning/vimspector'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
