@@ -124,6 +124,7 @@ command! OpenProjectInVsCode !code $(pwd) -g %
 " path:line:col:message
 command! RunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' | awk 'length($0) > 20 {print $0}'")
 command! RunTsc    cexpr system("npx tsc | sed 's/[(,]/:/g' | sed 's/)//'")
+command! RunJest   cexpr system("npx jest 2>&1 | awk '/at .*(.*)/ { print \"src/\"$3 }' | sed 's/[()]//g'")
 
 
 
