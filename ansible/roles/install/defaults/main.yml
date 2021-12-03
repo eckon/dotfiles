@@ -1,7 +1,6 @@
 ---
 packages_installs:
   - bash
-  - bat
   - build-essential
   - curl
   - fonts-firacode

@@ -5,6 +5,28 @@
     state: present
   become: true
 
+- name: Install bat
+  block:
+    - name: Check if bat exists
+      stat:
+        path: /usr/local/bin/bat
+      register: bat
+
+    - name: Install and symlink batcat
+      block:
+        - name: Install batcat
+          apt:
+            name: bat
+            state: present
+
+        - name: Symlink batcat to bat
+          file:
+            src: "{{ lookup('pipe', 'which batcat') }}"
+            dest: /usr/local/bin/bat
+            state: link
+      become: true
+      when: not bat.stat.exists
+
 - name: Install fd
   block:
     - name: Check if fd exists
