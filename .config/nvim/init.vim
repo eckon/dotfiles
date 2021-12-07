@@ -94,10 +94,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " append jump-commands for quickfix-list jumps
-nnoremap [q <CMD>cprevious<CR>
-nnoremap ]q <CMD>cnext<CR>
-nnoremap [Q <CMD>cfirst<CR>
-nnoremap ]Q <CMD>clast<CR>
+nnoremap [q <CMD>cprevious<CR>zz
+nnoremap ]q <CMD>cnext<CR>zz
+nnoremap [Q <CMD>cfirst<CR>zz
+nnoremap ]Q <CMD>clast<CR>zz
 
 " extend redraw of screen with hiding the highlight of search results
 nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
