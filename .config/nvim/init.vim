@@ -10,7 +10,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
 
   " Try out (not sure yet if I want to keep them)
-  Plug 'antoinemadec/coc-fzf'
   Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
   Plug 'puremourning/vimspector'
@@ -126,7 +125,6 @@ command! OpenProjectInVsCode !code $(pwd) -g %
 " path:line:col:message
 command! RunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' 2>/dev/null | awk 'length($0) > 20 { print $0 }'")
 command! RunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's/)//'")
-command! RunJest   cexpr system("npx jest 2>&1 | awk '/at .*(.*)/ { print \"src/\"$3\":Failed\" }' | sed 's/[()]//g'")
 
 
 
