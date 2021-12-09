@@ -3,7 +3,6 @@ call plug#begin()
   " Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -13,6 +12,10 @@ call plug#begin()
   Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
   Plug 'puremourning/vimspector'
+
+  " LSP
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -129,105 +132,82 @@ command! RunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- coc {{{2
+" ---------- LSP {{{2
 " ----- Configurations {{{3
-" set coc extensions that should always be installed
-" essential
-let g:coc_global_extensions = [
-  \   'coc-marketplace',
-  \ ]
-" general
-let g:coc_global_extensions += [
-  \   'coc-docker',
-  \   'coc-html',
-  \   'coc-json',
-  \   'coc-vimlsp',
-  \   'coc-yaml',
-  \ ]
-" specific
-let g:coc_global_extensions += [
-  \   'coc-angular',
-  \   'coc-clangd',
-  \   'coc-cmake',
-  \   'coc-css',
-  \   'coc-emmet',
-  \   'coc-eslint',
-  \   'coc-fish',
-  \   'coc-go',
-  \   'coc-java',
-  \   'coc-phpls',
-  \   'coc-prettier',
-  \   'coc-pyls',
-  \   'coc-rust-analyzer',
-  \   'coc-toml',
-  \   'coc-tsserver',
-  \ ]
+lua << EOF
+local nvim_lsp = require('lspconfig')
+local lsp_installer = require('nvim-lsp-installer')
+
+local servers = {
+  'tsserver',
+  'vimls',
+  'tailwindcss',
+  'yamlls',
+  'ansiblels',
+  'html',
+  'emmet_ls',
+  'jsonls',
+  'vuels',
+}
+
+-- install servers if not already existing
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found then
+    if not server:is_installed() then
+      print('Installing ' .. name)
+      server:install()
+    end
+  end
+end
+
+-- setup lsp_installer
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+    server:setup(opts)
+end)
+
+-- setup servers for general lsp
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+  }
+end
+EOF
 
 
 " ----- Mappings {{{3
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-inoremap <silent><expr> <C-Space> coc#refresh()
+nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
+inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
 
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
-nmap <silent>gd :call <SID>goto_tag("Definition")<CR>
-nmap <silent>gD :call <SID>goto_tag("Declaration")<CR>
-nmap <silent>gr :call <SID>goto_tag("References")<CR>
-nmap <silent>gi :call <SID>goto_tag("Implementation")<CR>
-nmap <silent><Leader>la <Plug>(coc-codeaction)
-nmap <silent><Leader>lr <Plug>(coc-rename)
-nmap <silent><Leader>lf <Plug>(coc-format)
-xmap <silent><Leader>lf <Plug>(coc-format-selected)
+nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
+nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
+nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
+nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
+nnoremap [g <CMD>lua vim.diagnostic.goto_prev()<CR>
+nnoremap ]g <CMD>lua vim.diagnostic.goto_next()<CR>
 
-" use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
+nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
+vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
+nnoremap <Leader>ll <CMD>Lspsaga lsp_finder<CR>
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" inoremap <silent><expr> <C-Space> compe#complete()
+" inoremap <silent><expr> <CR> compe#confirm('<CR>')
+" inoremap <silent><expr> <C-c> compe#close('<C-c>')
 
-" use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" make normal completion to tabcompletion when popup-menu visible
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" function to show documentation in a preview window
+" use default K if we have something in help
 function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+    execute 'h ' . expand('<cword>')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" function to add definition jumps etc to the tagstack (next to jumplist)
-" this allows (next to the jumplist) easy jump back from definition to definition
-" meaning no need to press CTRL-O until in previous part
-" CTRL-T will get back to last definition call and add itself to the jump list
-" from: https://github.com/neoclide/coc.nvim/issues/1054#issuecomment-619343648
-function! s:goto_tag(tagkind) abort
-  let tagname = expand('<cWORD>')
-  let winnr = winnr()
-  let pos = getcurpos()
-  let pos[0] = bufnr()
-
-  if CocAction('jump' . a:tagkind)
-    call settagstack(winnr, {
-      \ 'curidx': gettagstack()['curidx'],
-      \ 'items': [{'tagname': tagname, 'from': pos}]
-      \ }, 't')
+    execute 'lua vim.lsp.buf.hover()'
   endif
 endfunction
 
