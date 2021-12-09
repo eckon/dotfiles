@@ -8,21 +8,28 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
 
+
   " Try out (not sure yet if I want to keep them)
   Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
   Plug 'puremourning/vimspector'
 
-  " LSP
+
+  " LSP / Snippets
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
+
+  Plug 'tami5/lspsaga.nvim'
+
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
 
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'rafamadriz/friendly-snippets'
+
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -144,6 +151,10 @@ command! RunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
+local cmp = require('cmp')
+local lspsaga = require('lspsaga')
+
+lspsaga.setup{}
 
 local servers = {
   'tsserver',
@@ -178,8 +189,6 @@ end)
 
 
 -- setup nvim-cmp
-local cmp = require'cmp'
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
@@ -221,8 +230,10 @@ cmp.setup({
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     { name = 'vsnip' },
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'path' },
   }, { { name = 'buffer' }, }),
 })
 
@@ -242,18 +253,18 @@ EOF
 
 " ----- Mappings {{{3
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <C-k> <CMD>Lspsaga signature_help<CR>
+inoremap <C-k> <CMD>Lspsaga signature_help<CR>
 
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
-nnoremap [g <CMD>lua vim.diagnostic.goto_prev()<CR>
-nnoremap ]g <CMD>lua vim.diagnostic.goto_next()<CR>
+nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
+nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
 
-nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
-nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>la <CMD>Lspsaga code_action<CR>
+nnoremap <Leader>lr <CMD>Lspsaga rename<CR>
 nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
 
@@ -262,7 +273,7 @@ function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h ' . expand('<cword>')
   else
-    execute 'lua vim.lsp.buf.hover()'
+    execute 'Lspsaga hover_doc'
   endif
 endfunction
 
@@ -294,7 +305,7 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { 'filename' },
-    lualine_x = { 'g:coc_status', 'filetype' },
+    lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   }
