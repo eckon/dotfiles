@@ -16,6 +16,13 @@ call plug#begin()
   " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'rafamadriz/friendly-snippets'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -150,6 +157,7 @@ local servers = {
   'vuels',
 }
 
+
 -- install servers if not already existing
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
@@ -161,16 +169,72 @@ for _, name in pairs(servers) do
   end
 end
 
+
 -- setup lsp_installer
 lsp_installer.on_server_ready(function(server)
     local opts = {}
     server:setup(opts)
 end)
 
+
+-- setup nvim-cmp
+local cmp = require'cmp'
+
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn['vsnip#anonymous'](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable,
+    ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn['vsnip#available'](1) == 1 then
+        feedkey('<Plug>(vsnip-expand-or-jump)', '')
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+
+    ['<S-Tab>'] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+        feedkey('<Plug>(vsnip-jump-prev)', '')
+      end
+    end, { 'i', 's' }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }, { { name = 'buffer' }, }),
+})
+
+
+-- setup lspconfig
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- setup servers for general lsp
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities
   }
 end
 EOF
@@ -192,15 +256,6 @@ nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
 nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
-nnoremap <Leader>ll <CMD>Lspsaga lsp_finder<CR>
-
-" inoremap <silent><expr> <C-Space> compe#complete()
-" inoremap <silent><expr> <CR> compe#confirm('<CR>')
-" inoremap <silent><expr> <C-c> compe#close('<C-c>')
-
-" make normal completion to tabcompletion when popup-menu visible
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " use default K if we have something in help
 function! s:show_documentation() abort
