@@ -7,6 +7,4 @@ truncation_length = 0
 show_always = true
 
 [aws]
-# only show if im logged in or not (other info is not really useful)
-symbol = '☁️'
-format = '[$symbol]($style) '
+disabled = true
