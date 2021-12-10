@@ -15,11 +15,9 @@ call plug#begin()
   Plug 'puremourning/vimspector'
 
 
-  " LSP / Snippets
+  " LSP / Snippets / LSP-Enhancements
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-
-  Plug 'tami5/lspsaga.nvim'
 
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -29,6 +27,9 @@ call plug#begin()
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'rafamadriz/friendly-snippets'
+
+  Plug 'tami5/lspsaga.nvim'
+  Plug 'ray-x/lsp_signature.nvim'
 
 
   " Syntax/Styling/Appearance/Special {{{2
@@ -154,8 +155,6 @@ local lsp_installer = require('nvim-lsp-installer')
 local cmp = require('cmp')
 local lspsaga = require('lspsaga')
 
-lspsaga.setup{}
-
 local servers = {
   'tsserver',
   'vimls',
@@ -167,6 +166,17 @@ local servers = {
   'jsonls',
   'vuels',
 }
+
+
+-- setup lsp_signature
+require('lsp_signature').setup({
+  bind = true,
+  floating_window = false,
+})
+
+
+-- setup lspsaga
+lspsaga.setup{}
 
 
 -- install servers if not already existing
@@ -230,18 +240,17 @@ cmp.setup({
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = 'vsnip' },
     { name = 'nvim_lsp' },
+    { name = 'vsnip' },
     { name = 'buffer' },
     { name = 'path' },
   }, { { name = 'buffer' }, }),
 })
 
 
--- setup lspconfig
+-- setup lspconfig with the final genral lsp setup
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- setup servers for general lsp
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
