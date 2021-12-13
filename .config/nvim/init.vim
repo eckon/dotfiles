@@ -157,13 +157,10 @@ local lspsaga = require('lspsaga')
 
 local servers = {
   'tsserver',
-  'vimls',
   'tailwindcss',
   'yamlls',
-  'ansiblels',
   'html',
   'emmet_ls',
-  'jsonls',
   'vuels',
 }
 
