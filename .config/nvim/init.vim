@@ -156,12 +156,13 @@ local cmp = require('cmp')
 local lspsaga = require('lspsaga')
 
 local servers = {
-  'tsserver',
-  'tailwindcss',
-  'yamlls',
-  'html',
+  'cssls',
   'emmet_ls',
+  'html',
+  'tailwindcss',
+  'tsserver',
   'vuels',
+  'yamlls',
 }
 
 
@@ -186,13 +187,6 @@ for _, name in pairs(servers) do
     end
   end
 end
-
-
--- setup lsp_installer
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    server:setup(opts)
-end)
 
 
 -- setup nvim-cmp
@@ -245,8 +239,15 @@ cmp.setup({
 })
 
 
--- setup lspconfig with the final general lsp setup
+-- setup lspconfig and the installer
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- this is for html/css completions (these need native snippet engines to work)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lsp_installer.on_server_ready(function(server)
+    local opts = { capabilities = capabilities }
+    server:setup(opts)
+end)
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
