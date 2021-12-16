@@ -311,11 +311,40 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { 'filename' },
-    lualine_x = { 'filetype' },
+    lualine_x = { 'lsp_count()', 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   }
 })
+
+function lsp_count()
+  local error_table = vim.diagnostic.get(0, { severity = { min = vim.diagnostic.severity.WARN } })
+  local info_table = vim.diagnostic.get(0, { severity = { max = vim.diagnostic.severity.INFO } })
+
+  local error_count = 0
+  for _ in pairs(error_table) do
+    error_count = error_count + 1
+  end
+
+  local info_count = 0
+  for _ in pairs(info_table) do
+    info_count = info_count + 1
+  end
+
+  local status = ''
+  if error_count > 0 then
+    status = status .. error_count .. '[!] '
+  end
+
+  if info_count > 0 then
+    status = status .. info_count .. '[?] '
+  end
+
+  -- remove last character (this is a not needed padding space)
+  status = status:sub(1, -2)
+
+  return status
+end
 EOF
 
 
