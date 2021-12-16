@@ -3,7 +3,7 @@
   name = eckon
 
 [pull]
-  rebase = false
+  rebase = true
 
 [includeIf "gitdir:~/Development/work/"]
   path = ~/.config/gitconfig/work
