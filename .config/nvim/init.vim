@@ -1,6 +1,6 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
-  " Tools {{{2
+  " General Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdtree'
@@ -8,29 +8,28 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
 
-
   " Try out (not sure yet if I want to keep them)
   Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
   Plug 'puremourning/vimspector'
 
-
-  " LSP / Snippets / LSP-Enhancements
+  " LSP - base {{{2
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
 
+  " LSP - completion
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
 
+  " LSP - snippet
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'rafamadriz/friendly-snippets'
 
-  Plug 'tami5/lspsaga.nvim'
+  " LSP - enhancement
   Plug 'ray-x/lsp_signature.nvim'
-
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -153,7 +152,6 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local cmp = require('cmp')
-local lspsaga = require('lspsaga')
 
 local servers = {
   'cssls',
@@ -167,14 +165,7 @@ local servers = {
 
 
 -- setup lsp_signature
-require('lsp_signature').setup({
-  bind = true,
-  floating_window = false,
-})
-
-
--- setup lspsaga
-lspsaga.setup{}
+require('lsp_signature').setup({ bind = true, hint_enable = false })
 
 
 -- install servers if not already existing
@@ -260,18 +251,18 @@ EOF
 
 " ----- Mappings {{{3
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-nnoremap <C-k> <CMD>Lspsaga signature_help<CR>
-inoremap <C-k> <CMD>Lspsaga signature_help<CR>
+nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
+inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
 
 nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
-nnoremap [g <CMD>Lspsaga diagnostic_jump_prev<CR>
-nnoremap ]g <CMD>Lspsaga diagnostic_jump_next<CR>
+nnoremap [g <CMD>lua vim.diagnostic.goto_prev()<CR>
+nnoremap ]g <CMD>lua vim.diagnostic.goto_next()<CR>
 
-nnoremap <Leader>la <CMD>Lspsaga code_action<CR>
-nnoremap <Leader>lr <CMD>Lspsaga rename<CR>
+nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
+nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
 
@@ -280,7 +271,7 @@ function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h ' . expand('<cword>')
   else
-    execute 'Lspsaga hover_doc'
+    execute 'lua vim.lsp.buf.hover()'
   endif
 endfunction
 
