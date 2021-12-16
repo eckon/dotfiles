@@ -245,7 +245,7 @@ cmp.setup({
 })
 
 
--- setup lspconfig with the final genral lsp setup
+-- setup lspconfig with the final general lsp setup
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, lsp in ipairs(servers) do
