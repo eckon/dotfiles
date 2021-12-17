@@ -1,6 +1,7 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " General Tools {{{2
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdtree'
@@ -16,20 +17,15 @@ call plug#begin()
   " LSP - base {{{2
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-
   " LSP - completion
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
-
   " LSP - snippet
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'rafamadriz/friendly-snippets'
-
-  " LSP - enhancement
-  Plug 'ray-x/lsp_signature.nvim'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -162,10 +158,6 @@ local servers = {
   'vuels',
   'yamlls',
 }
-
-
--- setup lsp_signature
-require('lsp_signature').setup({ bind = true, hint_enable = false })
 
 
 -- install servers if not already existing
@@ -368,6 +360,7 @@ require('nvim-treesitter.configs').setup({
     -- regex highlight is still better than TS highlight
     disable = { 'php', 'vim' },
   },
+  context_commentstring = { enable = true },
 })
 EOF
 
