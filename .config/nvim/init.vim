@@ -212,7 +212,6 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' }),
-
     ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
@@ -232,12 +231,11 @@ cmp.setup({
 
 -- setup lspconfig and the installer
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- this is for html/css completions (these need native snippet engines to work)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lsp_installer.on_server_ready(function(server)
-    local opts = { capabilities = capabilities }
-    server:setup(opts)
+  -- this is for html/css completions (these need native snippet engines to work)
+  local opts = { capabilities = capabilities }
+  server:setup(opts)
 end)
 
 for _, lsp in ipairs(servers) do
@@ -382,7 +380,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
 " ----- Mappings {{{3
-nnoremap <Leader><TAB> <CMD>Commands<CR>
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
 nnoremap <Leader>fa :Ag<Space>
