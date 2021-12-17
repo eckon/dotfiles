@@ -150,11 +150,14 @@ local lsp_installer = require('nvim-lsp-installer')
 local cmp = require('cmp')
 
 local servers = {
+  'bashls',
   'cssls',
   'emmet_ls',
   'html',
+  'jsonls',
   'tailwindcss',
   'tsserver',
+  'vimls',
   'vuels',
   'yamlls',
 }
