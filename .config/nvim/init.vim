@@ -224,18 +224,11 @@ cmp.setup({
 -- setup lspconfig and the installer
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- this also handles the basic nvim_lsp setup (which can be ignored here)
 lsp_installer.on_server_ready(function(server)
-  -- this is for html/css completions (these need native snippet engines to work)
   local opts = { capabilities = capabilities }
   server:setup(opts)
 end)
-
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-  }
-end
 EOF
 
 
