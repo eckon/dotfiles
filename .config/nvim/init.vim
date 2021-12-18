@@ -153,6 +153,7 @@ local servers = {
   'bashls',
   'cssls',
   'emmet_ls',
+  'eslint',
   'html',
   'jsonls',
   'tailwindcss',
