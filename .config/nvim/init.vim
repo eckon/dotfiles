@@ -1,7 +1,6 @@
 " -------------------- Plugin Installations {{{1
 call plug#begin()
   " General Tools {{{2
-  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdtree'
@@ -13,6 +12,10 @@ call plug#begin()
   Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
   Plug 'puremourning/vimspector'
+
+  " Treesitter {{{2
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
   " LSP - base {{{2
   Plug 'neovim/nvim-lspconfig'
@@ -31,7 +34,6 @@ call plug#begin()
   Plug 'gruvbox-community/gruvbox'
   Plug 'mhinz/vim-signify'
   Plug 'nvim-lualine/lualine.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
 call plug#end()
