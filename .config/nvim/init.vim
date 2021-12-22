@@ -122,8 +122,13 @@ nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:
 
 
 " ---------- Custom Commands {{{2
+" general info:
+"   - prepend commands with 'CC' (Custom Command)
+"     - easier reference
+"     - no collision with other plugin/native/etc commands
+
 " open current buffer file in the browser (needs to be cloned over git with ssh)
-command! OpenProjectInBrowser
+command! CCOpenProjectInBrowser
   \ !xdg-open $(
   \   git config --get remote.origin.url
   \     | sed 's/\.git//g'
@@ -134,12 +139,12 @@ command! OpenProjectInBrowser
   \ )/%
 
 " open current project and goto the current buffer file in vscode
-command! OpenProjectInVsCode !code $(pwd) -g %
+command! CCOpenProjectInVsCode !code $(pwd) -g %
 
 " fill quickfix with errors, do some formatting to have correct quickfix format
 " path:line:col:message
-command! RunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' 2>/dev/null | awk 'length($0) > 20 { print $0 }'")
-command! RunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's/)//'")
+command! CCRunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' 2>/dev/null | awk 'length($0) > 20 { print $0 }'")
+command! CCRunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's/)//'")
 
 
 
