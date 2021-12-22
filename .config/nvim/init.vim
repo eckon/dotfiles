@@ -146,6 +146,9 @@ command! CCOpenProjectInVsCode !code $(pwd) -g %
 command! CCRunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' 2>/dev/null | awk 'length($0) > 20 { print $0 }'")
 command! CCRunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's/)//'")
 
+" git blame of current line
+command! CCGitBlameLine execute "!git blame -L " .. line('.') .. "," .. line('.') .. " -- %"
+
 
 
 " -------------------- Plugin Configurations {{{1
