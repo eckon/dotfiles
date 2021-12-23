@@ -122,11 +122,6 @@ nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:
 
 
 " ---------- Custom Commands {{{2
-" general info:
-"   - prepend commands with 'CC' (Custom Command)
-"     - easier reference
-"     - no collision with other plugin/native/etc commands
-
 " open current buffer file in the browser (needs to be cloned over git with ssh)
 command! CCOpenProjectInBrowser
   \ !xdg-open $(
@@ -152,7 +147,7 @@ command! CCGitBlameLine execute "!git blame -L " .. line('.') .. "," .. line('.'
 
 
 " -------------------- Plugin Configurations {{{1
-" ---------- LSP {{{2
+" ---------- Language Server Protocol (LSP) {{{2
 " ----- Configurations {{{3
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -173,7 +168,6 @@ local servers = {
   'yamlls',
 }
 
-
 -- install servers if not already existing
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
@@ -184,7 +178,6 @@ for _, name in pairs(servers) do
     end
   end
 end
-
 
 -- setup nvim-cmp
 local has_words_before = function()
@@ -234,7 +227,6 @@ cmp.setup({
   }, { { name = 'buffer' }, }),
 })
 
-
 -- setup lspconfig and the installer
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -274,19 +266,54 @@ endfunction
 
 
 
-" ---------- hop {{{2
+" ---------- Treesitter {{{2
 " ----- Configurations {{{3
 lua << EOF
-require('hop').setup()
+require('nvim-treesitter.configs').setup({
+  ensure_installed = 'maintained',
+  highlight = {
+    enable = true,
+    -- regex highlight is still better than TS highlight
+    disable = { 'php', 'vim' },
+  },
+  context_commentstring = { enable = true },
+})
+EOF
+
+
+
+" ---------- Fuzzy-Finder {{{2
+" ----- Configurations {{{3
+" enable to use ctrl-p/n in fzf window to cycle through history
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+" ----- Mappings {{{3
+" show all files of <range> parents folders from current file
+nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
+nnoremap <Leader>fa :Ag<Space>
+nnoremap <Leader>fb <CMD>Buffers<CR>
+nnoremap <Leader>ff <CMD>GFiles<CR>
+nnoremap <Leader>fg <CMD>GFiles?<CR>
+nnoremap <Leader>fl <CMD>BLines<CR>
+
+
+
+" ---------- Git {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('gitsigns').setup({ keymaps = {} })
 EOF
 
 
 " ----- Mappings {{{3
-noremap H <CMD>HopChar1<CR>
+nnoremap <Leader>gb <CMD>lua require'gitsigns'.blame_line{full=true}<CR>
+nnoremap ]c <CMD>Gitsigns next_hunk<CR>
+nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 
 
 
-" ---------- lualine {{{2
+" ---------- Statusline {{{2
 " ----- Configurations {{{3
 lua << EOF
 local lsp_count = function()
@@ -327,7 +354,7 @@ EOF
 
 
 
-" ---------- nvim-tree {{{2
+" ---------- Filetree {{{2
 " ----- Configurations {{{3
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_add_trailing = 1
@@ -353,56 +380,21 @@ nnoremap <Leader>, <CMD>NvimTreeToggle<CR>
 
 
 
+" ---------- hop {{{2
+" ----- Configurations {{{3
+lua << EOF
+require('hop').setup()
+EOF
+
+
+" ----- Mappings {{{3
+noremap H <CMD>HopChar1<CR>
+
+
+
 " ---------- nvim-treehopper {{{2
 " ----- Mappings {{{3
 omap <silent> m :<C-U>lua require('tsht').nodes()<CR>
 vnoremap <silent> m :lua require('tsht').nodes()<CR>
-
-
-
-" ---------- nvim-treesitter {{{2
-" ----- Configurations {{{3
-lua << EOF
-require('nvim-treesitter.configs').setup({
-  ensure_installed = 'maintained',
-  highlight = {
-    enable = true,
-    -- regex highlight is still better than TS highlight
-    disable = { 'php', 'vim' },
-  },
-  context_commentstring = { enable = true },
-})
-EOF
-
-
-
-" ---------- Fuzzy-Search (fzf.vim) {{{2
-" ----- Configurations {{{3
-" enable to use ctrl-p/n in fzf window to cycle through history
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-
-" ----- Mappings {{{3
-" show all files of <range> parents folders from current file
-nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
-nnoremap <Leader>fa :Ag<Space>
-nnoremap <Leader>fb <CMD>Buffers<CR>
-nnoremap <Leader>ff <CMD>GFiles<CR>
-nnoremap <Leader>fg <CMD>GFiles?<CR>
-nnoremap <Leader>fl <CMD>BLines<CR>
-
-
-
-" ---------- gitsigns.nvim {{{2
-" ----- Configurations {{{3
-lua << EOF
-require('gitsigns').setup({ keymaps = {} })
-EOF
-
-
-" ----- Mappings {{{3
-nnoremap <Leader>gb <CMD>lua require'gitsigns'.blame_line{full=true}<CR>
-nnoremap ]c <CMD>Gitsigns next_hunk<CR>
-nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 
 " vim:foldmethod=marker
