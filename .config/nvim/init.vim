@@ -3,7 +3,7 @@ call plug#begin()
   " General Tools {{{2
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'preservim/nerdtree'
+  Plug 'kyazdani42/nvim-tree.lua'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -327,15 +327,29 @@ EOF
 
 
 
-" ---------- NERDTree {{{2
+" ---------- nvim-tree {{{2
 " ----- Configurations {{{3
-let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
+let g:nvim_tree_quit_on_open = 1
+let g:nvim_tree_add_trailing = 1
+let g:nvim_tree_group_empty = 1
+let g:nvim_tree_show_icons = {
+  \   'git': 0,
+  \   'folders': 0,
+  \   'files': 0,
+  \   'folder_arrows': 0,
+  \ }
+
+lua << EOF
+require('nvim-tree').setup({
+  git = { ignore = false },
+  view = { hide_root_folder = true, width = '20%' },
+})
+EOF
 
 
 " ----- Mappings {{{3
-nnoremap <Leader>. <CMD>NERDTreeFind<CR>
-nnoremap <Leader>, <CMD>NERDTree<CR>
+nnoremap <Leader>. <CMD>NvimTreeFindFileToggle<CR>
+nnoremap <Leader>, <CMD>NvimTreeToggle<CR>
 
 
 
