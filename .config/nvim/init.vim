@@ -9,7 +9,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
 
   " Try out (not sure yet if I want to keep them)
-  Plug 'mfussenegger/nvim-treehopper'
   Plug 'phaazon/hop.nvim'
 
   " Treesitter {{{2
@@ -389,12 +388,5 @@ EOF
 
 " ----- Mappings {{{3
 noremap H <CMD>HopChar1<CR>
-
-
-
-" ---------- nvim-treehopper {{{2
-" ----- Mappings {{{3
-omap <silent> m :<C-U>lua require('tsht').nodes()<CR>
-vnoremap <silent> m :lua require('tsht').nodes()<CR>
 
 " vim:foldmethod=marker
