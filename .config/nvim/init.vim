@@ -31,7 +31,8 @@ call plug#begin()
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
-  Plug 'mhinz/vim-signify'
+  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
   " }}}2
@@ -392,9 +393,16 @@ nnoremap <Leader>fl <CMD>BLines<CR>
 
 
 
+" ---------- gitsigns.nvim {{{2
 " ----- Configurations {{{3
+lua << EOF
+require('gitsigns').setup({ keymaps = {} })
+EOF
 
 
 " ----- Mappings {{{3
+nnoremap <Leader>gb <CMD>lua require'gitsigns'.blame_line{full=true}<CR>
+nnoremap ]c <CMD>Gitsigns next_hunk<CR>
+nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 
 " vim:foldmethod=marker
