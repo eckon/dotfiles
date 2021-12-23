@@ -27,6 +27,8 @@ call plug#begin()
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'rafamadriz/friendly-snippets'
+  " LSP - extensions
+  Plug 'jose-elias-alvarez/null-ls.nvim'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -152,6 +154,7 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local cmp = require('cmp')
+local null_ls = require('null-ls')
 
 local servers = {
   'bashls',
@@ -177,6 +180,12 @@ for _, name in pairs(servers) do
     end
   end
 end
+
+
+-- setup null-ls
+null_ls.setup({ sources = {
+  null_ls.builtins.formatting.prettier,
+}})
 
 -- setup nvim-cmp
 local has_words_before = function()
