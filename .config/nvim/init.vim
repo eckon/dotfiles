@@ -157,16 +157,10 @@ local cmp = require('cmp')
 local null_ls = require('null-ls')
 
 local servers = {
-  'bashls',
-  'cssls',
-  'emmet_ls',
-  'html',
-  'jsonls',
-  'tailwindcss',
-  'tsserver',
-  'vimls',
-  'vuels',
-  'yamlls',
+  'bashls', 'vimls',
+  'html', 'cssls', 'emmet_ls', 'tailwindcss',
+  'jsonls', 'yamlls',
+  'tsserver', 'vuels',
 }
 
 -- install servers if not already existing
