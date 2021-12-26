@@ -193,11 +193,7 @@ local feedkey = function(key, mode)
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
-    end,
-  },
+  snippet = { expand = function(args) vim.fn['vsnip#anonymous'](args.body) end },
   mapping = {
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-y>'] = cmp.config.disable,
@@ -260,7 +256,7 @@ vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
 
 " use default K if we have something in help
 function! s:show_documentation() abort
-  if (index(['vim','help'], &filetype) >= 0)
+  if (index(['vim', 'help'], &filetype) >= 0)
     execute 'h ' . expand('<cword>')
   else
     execute 'lua vim.lsp.buf.hover()'
@@ -310,7 +306,7 @@ EOF
 
 
 " ----- Mappings {{{3
-nnoremap <Leader>gb <CMD>lua require'gitsigns'.blame_line{full=true}<CR>
+nnoremap <Leader>gb <CMD>lua require('gitsigns').blame_line({ full = true })<CR>
 nnoremap ]c <CMD>Gitsigns next_hunk<CR>
 nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 
