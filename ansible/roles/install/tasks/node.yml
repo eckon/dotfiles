@@ -25,13 +25,25 @@
               fnm default $(node --version)
           environment:
             PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
-
-        - name: Install npm packages
-          shell:
-            cmd: |
-              eval "$(fnm env)"
-              npm install {{ item }} -g
-          environment:
-            PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
-          loop: "{{ npm_packages_installs }}"
       when: not fnm.stat.exists
+
+- name: Install npm packages
+  block:
+    - name: Check if npm packages exists
+      shell: which {{ item }}
+      register: npm_packages_register
+      changed_when: false
+      ignore_errors: true
+      loop: "{{ npm_packages_installs }}"
+
+    - name: Install npm packages
+      shell:
+        cmd: |
+          eval "$(fnm env)"
+          npm install {{ item.item }} -g
+      environment:
+        PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
+      loop: "{{ npm_packages_register.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+      when: item.failed
