@@ -1,29 +1,38 @@
 # Collection of my dotfiles and scripts
 
+This repository includes all of my public scripts and configurations of different parts.
+The structure represents the home directory to allow easy symlinks.
 
-## Different Sub Parts (next to general configs)
-
-* [Neovim / Vim](./.config/nvim/README.md)
-* [Custom scripts](./custom-scripts/README.md)
-* [Visual Studio Code](./.config/Code/User/README.md)
-* [Ansible](./ansible/README.md)
+Bigger parts have their own README and can be found here
+* [Neovim / Vim](./.config/nvim)
+* [Custom scripts](./custom-scripts)
+* [Visual Studio Code](./.config/Code/User)
+* [Ansible](./ansible)
 * [Gists](https://gist.github.com/eckon)
 
 
-## On fresh install _(with ansible)_
+## Install
 
+With ansible (for quick first install of most basic things)
 * manually install git and ansible
 * run the [bootstrap.sh](./ansible/bootstrap.sh) script
+  * this will install the different parts for a quick setup
+    * terminal emulator, shell, tools, settings, fonts, symlinks, etc.
+  * it was setup to be idempotent, so running it to install later changes works as well
 
-Manual configurations and steps:
-* bind capslock to escape
+Without ansible (to try out etc.)
+* just symlink the parts that you want
+* or copy parts of the configuration that you like
+
+Manual configurations and steps (ubuntu based):
+* bind capslock to escape (for vim)
   * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
 
 ## System Structure
 
 * `~` and `~/.config/`
-  * includes configurations
+  * includes the "real" configurations
 * `~/Development/dotfiles/`
   * has this project inside, acts as a central configuration place
 * `~/Development/personal/`

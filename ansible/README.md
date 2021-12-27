@@ -1,8 +1,8 @@
 # Ansible
 
-Way of setting up a completely new machine with my dotfiles, configurations, packages, applications etc.
+Way of setting up a completely new machine or update an existing one with my dotfiles, configurations, packages, applications etc.
 
-Simply run the `bootstrap.sh` script to start.
+Simply run the `$ ./bootstrap.sh` script to start.
 
 
 ## Linting / Testing
