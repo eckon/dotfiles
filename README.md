@@ -13,20 +13,22 @@ Bigger parts have their own README and can be found here
 
 ## Install
 
-With ansible (for quick first install of most basic things)
-* manually install git and ansible
-* run the [bootstrap.sh](./ansible/bootstrap.sh) script
-  * this will install the different parts for a quick setup
-    * terminal emulator, shell, tools, settings, fonts, symlinks, etc.
-  * it was setup to be idempotent, so running it to install later changes works as well
+* With ansible (for quick first install of most basic things)
+  * manually install git and ansible
+  * run the [bootstrap.sh](./ansible/bootstrap.sh) script
+    * this will install the different parts for a quick setup (terminal, tools, etc.)
+    * see the [ansible part](./ansible) for more information
 
-Without ansible (to try out etc.)
-* just symlink the parts that you want
-* or copy parts of the configuration that you like
+* Without ansible (to try out etc.)
+  * just manually do, what ansible would do
+    * symlink the parts that you want (configs, scripts)
+    * run install scripts to install apps
+    * install packages/fonts/tools etc.
+  * or copy parts of the configuration that you like
 
-Manual configurations and steps (ubuntu based):
-* bind capslock to escape (for vim)
-  * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
+* Additional manual configurations and steps (ubuntu based):
+  * bind capslock to escape (for vim)
+    * ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
 
 ## System Structure
