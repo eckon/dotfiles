@@ -21,10 +21,10 @@ $ ./bootstrap.sh
 
 To keep the style and the quality of these configurations in a good shape use different linters and testing frameworks:
 
-* ansible-lint
-  * `ansible-lint`
-* yamllint
-  * `yamllint ansible/**/*.yml`
-* ansible-playbook commands
-  * `ansible-playbook --syntax-check`
-  * `ansible-playbook --check`
+- ansible-lint
+  - `ansible-lint`
+- yamllint
+  - `yamllint ansible/**/*.yml`
+- ansible-playbook commands
+  - `ansible-playbook --syntax-check`
+  - `ansible-playbook --check`

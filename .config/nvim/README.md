@@ -11,23 +11,23 @@ The structure tries to be easy to read and to change, that's one of the main rea
 
 ## Install
 
-* With ansible
-  * ansible is already doing 90% of the work (download binary, installing packages, etc.)
-  * the other 10% are being handled by neovim on first open
-    * meaning the first run, might take some time because different parts need to be downloaded/installed
+- With ansible
+  - ansible is already doing 90% of the work (download binary, installing packages, etc.)
+  - the other 10% are being handled by neovim on first open
+    - meaning the first run, might take some time because different parts need to be downloaded/installed
 
-* Without ansible
-  * download latest or nightly [neovim](https://github.com/neovim/neovim)
-  * symlink this folder to the home directory (at least the `init.vim`)
-  * download [vim-plug](https://github.com/junegunn/vim-plug)
-  * run the general commands to install and see if something needs to be fixed
+- Without ansible
+  - download latest or nightly [neovim](https://github.com/neovim/neovim)
+  - symlink this folder to the home directory (at least the `init.vim`)
+  - download [vim-plug](https://github.com/junegunn/vim-plug)
+  - run the general commands to install and see if something needs to be fixed
 
-* General commands to know (in neovim)
-  * run `:PlugInstall` / `:PlugUpdate` this will install the Plugins from **vim-plug**
-  * run `:checkhealth` to see what is still needed, any problems with neovim or problems with plugins
+- General commands to know (in neovim)
+  - run `:PlugInstall` / `:PlugUpdate` this will install the Plugins from **vim-plug**
+  - run `:checkhealth` to see what is still needed, any problems with neovim or problems with plugins
 
 
 ## References
 
-* [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
-* [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
+- [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+- [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
