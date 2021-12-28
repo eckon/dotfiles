@@ -288,6 +288,19 @@ endfunction
 
 
 
+" ---------- Snippets / Snippet-Engine {{{2
+" ----- Configurations {{{3
+" use js snippets also in ts
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.typescript = ['javascript']
+
+
+" ----- Mappings {{{3
+" for a way to quickly expand snippets (alternative to nvim-cmp tab)
+imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+
+
+
 " ---------- Treesitter {{{2
 " ----- Configurations {{{3
 lua << EOF
