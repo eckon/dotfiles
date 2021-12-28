@@ -195,7 +195,8 @@ cmp.setup({
   snippet = { expand = function(args) vim.fn['vsnip#anonymous'](args.body) end },
   mapping = {
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable,
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Tab>'] = cmp.mapping(function(fallback)
@@ -226,7 +227,8 @@ cmp.setup({
 })
 
 -- setup lspconfig and the installer
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- setup the servers on first init and with different configs for it
 -- this also handles the basic nvim_lsp setup (which can be ignored here)
