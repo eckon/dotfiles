@@ -174,7 +174,6 @@ for _, name in pairs(servers) do
   end
 end
 
-
 -- setup null-ls
 null_ls.setup({ sources = {
   null_ls.builtins.formatting.prettier.with({ prefer_local = 'node_modules/.bin' }),
@@ -229,9 +228,31 @@ cmp.setup({
 -- setup lspconfig and the installer
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- setup the servers on first init and with different configs for it
 -- this also handles the basic nvim_lsp setup (which can be ignored here)
 lsp_installer.on_server_ready(function(server)
-  local opts = { capabilities = capabilities }
+  local on_attach = function(client, bufnr)
+    -- use vim builtin completion (omnifunc - i_CTRL-X_CTRL-O) with lsp completion
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- use vim builtin formatter (formatexpr - gq) with lsp formatter
+    if client.resolved_capabilities.document_formatting == true then
+      vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+    end
+
+    -- use vim builtin tag/definition (tagfunc - CTRL-]) with lsp goto_definition
+    if client.resolved_capabilities.goto_definition == true then
+      vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+    end
+
+    -- disable formatting of tsserver (null-ls should do it with prettier/eslint)
+    if server.name == 'tsserver' then
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end
+  end
+
+  local opts = { capabilities = capabilities, on_attach = on_attach }
   server:setup(opts)
 end)
 EOF
