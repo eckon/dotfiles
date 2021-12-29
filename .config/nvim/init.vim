@@ -30,6 +30,11 @@ call plug#begin()
   " LSP - extensions
   Plug 'jose-elias-alvarez/null-ls.nvim'
 
+  " Debugger {{{2
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'theHamsta/nvim-dap-virtual-text'
+
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
   Plug 'lewis6991/gitsigns.nvim'
@@ -386,6 +391,53 @@ require('lualine').setup({
   }
 })
 EOF
+
+
+
+" ---------- Debugger {{{2
+" ----- Configurations {{{3
+lua << EOF
+local dap = require('dap')
+local dap_ui = require('dapui')
+local dap_virtual_text = require('nvim-dap-virtual-text')
+
+-- setup virtual text and ui
+dap_ui.setup()
+dap_virtual_text.setup()
+
+-- open/close ui on dap events
+dap.listeners.after.event_initialized["dapui_config"] = function() dap_ui.open()  end
+dap.listeners.before.event_terminated["dapui_config"] = function() dap_ui.close() end
+dap.listeners.before.event_exited["dapui_config"]     = function() dap_ui.close() end
+
+-- setup basic dap
+-- manually install node2 debugger
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Javascript
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { os.getenv('HOME') .. '/Debugger/vscode-node-debug2/out/src/nodeDebug.js' },
+}
+
+dap.configurations.typescript = {{
+  name = 'Attach to process',
+  type = 'node2',
+  request = 'attach',
+  processId = require'dap.utils'.pick_process,
+}}
+EOF
+
+
+" ----- Mappings {{{3
+nnoremap <silent> <Leader>db :lua require('dap').toggle_breakpoint()<CR>
+nnoremap <silent> <Leader>dB :lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <Leader>dr :lua require('dap').repl.toggle()<CR>
+nnoremap <silent> <Leader>dK :lua require('dap.ui.widgets').hover()<CR>
+
+nnoremap <silent> <Leader>dj :lua require('dap').step_over()<CR>
+nnoremap <silent> <Leader>dh :lua require('dap').step_into()<CR>
+nnoremap <silent> <Leader>dk :lua require('dap').step_out()<CR>
+nnoremap <silent> <Leader>dd :lua require('dap').continue()<CR>
 
 
 
