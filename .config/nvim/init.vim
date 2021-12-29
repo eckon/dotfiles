@@ -415,8 +415,7 @@ dap.listeners.after.event_initialized["dapui_config"] = function() dap_ui.open()
 dap.listeners.before.event_terminated["dapui_config"] = function() dap_ui.close() end
 dap.listeners.before.event_exited["dapui_config"]     = function() dap_ui.close() end
 
--- setup basic dap
--- manually install node2 debugger
+-- setup basic dap (manually install node2 debugger)
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Javascript
 dap.adapters.node2 = {
   type = 'executable',
@@ -424,12 +423,7 @@ dap.adapters.node2 = {
   args = { os.getenv('HOME') .. '/Debugger/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
-dap.configurations.typescript = {{
-  name = 'Attach to process',
-  type = 'node2',
-  request = 'attach',
-  processId = require'dap.utils'.pick_process,
-}}
+dap.configurations.typescript = {{ name = 'Attach to process', type = 'node2', request = 'attach' }}
 EOF
 
 
