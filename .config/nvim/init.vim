@@ -374,6 +374,11 @@ local lsp_count = function()
   return status
 end
 
+local debugger_status = function()
+  local dap = require('dap')
+  return dap.status()
+end
+
 require('lualine').setup({
   options = {
     icons_enabled = false,
@@ -385,7 +390,7 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { 'filename' },
-    lualine_x = { lsp_count, 'filetype' },
+    lualine_x = { debugger_status, lsp_count, 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   }
