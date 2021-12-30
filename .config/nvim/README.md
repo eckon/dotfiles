@@ -13,16 +13,22 @@ The structure tries to be easy to read and to change, that's one of the main rea
 
 ## Install
 
-- With ansible
-  - ansible is already doing 90% of the work (download binary, installing packages, etc.)
-  - the other 10% are being handled by neovim on first open
-    - meaning the first run, might take some time because different parts need to be downloaded/installed
+### With ansible
 
-- Without ansible
-  - download latest or nightly [neovim](https://github.com/neovim/neovim)
-  - download [vim-plug](https://github.com/junegunn/vim-plug)
-  - symlink this folder to the home directory (at least the `init.vim`)
-  - start neovim and run the `general commands` to install and see if something needs to be fixed
+- ansible is already doing 90% of the work (download binary, installing packages, etc.)
+- the other 10% are being handled by neovim on first open
+  - meaning the first run, might take some time because different parts need to be downloaded/installed
+
+
+### Without ansible
+
+- download latest or nightly [neovim](https://github.com/neovim/neovim)
+- download [vim-plug](https://github.com/junegunn/vim-plug)
+- symlink this folder to the home directory (at least the `init.vim`)
+- start neovim and run the `general commands` to install and see if something needs to be fixed
+
+
+### General Information
 
 - General commands to know (in neovim)
   - run `:PlugInstall` / `:PlugUpdate` this will install the Plugins from **vim-plug**

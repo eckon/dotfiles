@@ -13,18 +13,26 @@ Bigger parts have their own README and can be found here
 
 ## Install
 
-- With ansible (for quick first install of most basic things)
-  - manually install git and ansible
-  - run the [bootstrap.sh](./ansible/bootstrap.sh) script
-    - this will install the different parts for a quick setup (terminal, tools, etc.)
-    - see the [ansible part](./ansible) for more information
+### With ansible
 
-- Without ansible (to try out etc.)
-  - just manually do, what ansible would do
-    - symlink the parts that you want (configs, scripts)
-    - run install scripts to install apps
-    - install packages/fonts/tools etc.
-  - or copy parts of the configuration that you like
+This allows a quick install of everything in my configuration.
+
+- manually install git and ansible
+- run the [bootstrap.sh](./ansible/bootstrap.sh) script
+  - this will install the different parts for a quick setup (terminal, tools, etc.)
+  - see the [ansible part](./ansible) for more information
+
+
+### Without ansible
+
+- just manually do, what ansible would do
+  - symlink the parts that you want (configs, scripts)
+  - run install scripts to install apps
+  - install packages/fonts/tools etc.
+- or copy parts of the configuration that you like
+
+
+### Optional
 
 - Additional manual configurations and steps (ubuntu based):
   - bind capslock to escape (for vim)
