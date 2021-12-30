@@ -18,25 +18,24 @@ Bigger parts have their own README and can be found here
 This allows a quick install of everything in my configuration.
 
 - manually install git and ansible
-- run the [bootstrap.sh](./ansible/bootstrap.sh) script
+- clone this respository
+- run the [bootstrap.sh](./ansible/bootstrap.sh) script (e.g. `$ ./ansible/boostrap.sh`)
   - this will install the different parts for a quick setup (terminal, tools, etc.)
   - see the [ansible part](./ansible) for more information
 
 
 ### Without ansible
 
-- just manually do, what ansible would do
+- manually do, what ansible would do
   - symlink the parts that you want (configs, scripts)
-  - run install scripts to install apps
   - install packages/fonts/tools etc.
-- or copy parts of the configuration that you like
+- copy parts of the configuration that you like
 
 
 ### Optional
 
-- Additional manual configurations and steps (ubuntu based):
-  - bind capslock to escape (for vim)
-    - ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
+- bind capslock to escape (for vim)
+  - ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
 
 ## System Structure
