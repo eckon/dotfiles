@@ -49,48 +49,26 @@ call plug#end()
 " -------------------- General Configuration {{{1
 let mapleader = "\<Space>"
 
-syntax enable
-filetype plugin on
-
-set autoread
-set backspace=eol,start,indent
-set clipboard+=unnamedplus
+set clipboard+=unnamedplus shell=bash mouse=a undofile title
 set completeopt=menuone,noinsert,noselect
-set foldmethod=indent nofoldenable
-set hidden
-set hlsearch ignorecase incsearch magic smartcase
-set inccommand=nosplit
-set lazyredraw
-set mouse=a
-set nobackup nowritebackup noswapfile undofile
-set noerrorbells
-set nowrap
+set magic lazyredraw ignorecase smartcase
+set nowrap foldmethod=indent nofoldenable
 set number relativenumber
-set shell=bash
-set shiftwidth=2 tabstop=2 softtabstop=2 smarttab autoindent smartindent expandtab
-set shortmess+=c
-set showcmd noshowmode
+set shiftwidth=2 tabstop=2 softtabstop=2 smartindent expandtab
+set shortmess+=c noshowmode
 set signcolumn=yes
 set splitbelow splitright
-set timeoutlen=1000 updatetime=100
-set title
+set updatetime=100
 set wildmode=list:longest,list:full
-
-" enable embedded script highlighting of lua code
-let g:vimsyn_embed = 'l'
 
 
 
 " -------------------- Color/Style Configuration {{{1
-if has('termguicolors')
-  set termguicolors
-endif
-
 colorscheme gruvbox
-set background=dark
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
 set scrolloff=5
+set termguicolors
 
 augroup HighlightYankedText
   autocmd!
@@ -102,12 +80,8 @@ augroup END
 " -------------------- General Key Bindings / Commands {{{1
 " ---------- Custom Key Bindings {{{2
 " disable annoying keys
-nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
-
-" make Y behave like other upper case commands (yank from start to end)
-nnoremap Y y$
 
 " rehighlight text after indenting
 vnoremap < <gv
@@ -118,9 +92,6 @@ nnoremap [q <CMD>cprevious<CR>zz
 nnoremap ]q <CMD>cnext<CR>zz
 nnoremap [Q <CMD>cfirst<CR>zz
 nnoremap ]Q <CMD>clast<CR>zz
-
-" extend redraw of screen with hiding the highlight of search results
-nnoremap <C-l> <CMD>nohlsearch<BAR>diffupdate<CR><C-l>
 
 " quickly update macro - use wanted register - press enter to execute
 nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><LEFT>
