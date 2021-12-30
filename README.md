@@ -1,9 +1,9 @@
 # Collection of my dotfiles and scripts
 
-This repository includes all of my public scripts and configurations of different parts.
+This repository includes all of my public _**scripts**_ and _**configurations**_ of different parts.
 The structure represents the home directory to allow easy symlinks.
 
-Bigger parts have their own README and can be found here
+Bigger parts have their own README and can be found here:
 - [Neovim / Vim](./.config/nvim)
 - [Custom scripts](./custom-scripts)
 - [Visual Studio Code](./.config/Code/User)
@@ -15,21 +15,19 @@ Bigger parts have their own README and can be found here
 
 ### With ansible
 
-This allows a quick install of everything in my configuration.
-
-- manually install git and ansible
+This allows for a quick installation of everything in my configuration.
+- install `git` and `ansible`
 - clone this respository
 - run the [bootstrap.sh](./ansible/bootstrap.sh) script (e.g. `$ ./ansible/boostrap.sh`)
-  - this will install the different parts for a quick setup (terminal, tools, etc.)
+  - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
   - see the [ansible part](./ansible) for more information
 
 
 ### Without ansible
 
-- manually do, what ansible would do
-  - symlink the parts that you want (configs, scripts)
-  - install packages/fonts/tools etc.
-- copy parts of the configuration that you like
+- symlink files (configs, scripts)
+- install packages/fonts/tools/etc.
+- _and/or copy parts of the configuration_
 
 
 ### Optional
