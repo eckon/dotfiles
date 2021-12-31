@@ -199,7 +199,7 @@ cmp.setup({
     { name = 'vsnip' },
     { name = 'buffer' },
     { name = 'path' },
-  }, { { name = 'buffer' }, }),
+  }, {{ name = 'buffer' }}),
 })
 
 -- setup lspconfig and the installer
