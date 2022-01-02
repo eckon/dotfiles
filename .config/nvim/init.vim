@@ -55,7 +55,7 @@ set magic lazyredraw ignorecase smartcase
 set nowrap foldmethod=indent nofoldenable
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smartindent expandtab
-set shortmess+=c noshowmode
+set shortmess+=cA noshowmode
 set signcolumn=yes
 set splitbelow splitright
 set updatetime=100
