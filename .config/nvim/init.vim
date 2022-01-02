@@ -378,7 +378,7 @@ dap.listeners.before.event_exited["dapui_config"]     = function() dap_ui.close(
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = { os.getenv('HOME') .. '/Debugger/vscode-node-debug2/out/src/nodeDebug.js' },
+  args = { vim.fn.stdpath('data') .. '/dap_debugger/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
 dap.configurations.typescript = {{ name = 'Attach to process', type = 'node2', request = 'attach' }}
@@ -388,13 +388,13 @@ EOF
 " ----- Mappings {{{3
 nnoremap <silent> <Leader>db :lua require('dap').toggle_breakpoint()<CR>
 nnoremap <silent> <Leader>dB :lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <silent> <Leader>dr :lua require('dap').repl.toggle()<CR>
+nnoremap <silent> <Leader>dE :lua require('dap').set_exception_breakpoints({ 'all' })<CR>
 nnoremap <silent> <Leader>dK :lua require('dap.ui.widgets').hover()<CR>
 
-nnoremap <silent> <Leader>dj :lua require('dap').step_over()<CR>
-nnoremap <silent> <Leader>dh :lua require('dap').step_into()<CR>
-nnoremap <silent> <Leader>dk :lua require('dap').step_out()<CR>
 nnoremap <silent> <Leader>dd :lua require('dap').continue()<CR>
+nnoremap <silent> <Leader>dh :lua require('dap').step_into()<CR>
+nnoremap <silent> <Leader>dj :lua require('dap').step_over()<CR>
+nnoremap <silent> <Leader>dl :lua require('dap').step_out()<CR>
 
 
 
