@@ -232,6 +232,7 @@ nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
 nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
 nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
+nnoremap gI <CMD>lua vim.lsp.buf.type_definition()<CR>
 nnoremap [g <CMD>lua vim.diagnostic.goto_prev()<CR>
 nnoremap ]g <CMD>lua vim.diagnostic.goto_next()<CR>
 
