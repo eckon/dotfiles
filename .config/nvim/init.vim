@@ -132,6 +132,8 @@ local lsp_installer = require('nvim-lsp-installer')
 local cmp = require('cmp')
 local null_ls = require('null-ls')
 
+vim.diagnostic.config({ virtual_text = { source = true } })
+
 local servers = {
   'bashls', 'vimls',
   'html', 'cssls', 'emmet_ls', 'tailwindcss',
