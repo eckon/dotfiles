@@ -416,7 +416,12 @@ let g:nvim_tree_show_icons = {
 lua << EOF
 require('nvim-tree').setup({
   git = { ignore = false },
-  view = { hide_root_folder = true, width = '20%' },
+  view = { hide_root_folder = true,
+    width = '20%',
+    relativenumber = true,
+    -- unbind hide for my default H binding (Hop)
+    mappings = { list = {{ key = 'H' }} },
+  },
 })
 EOF
 
