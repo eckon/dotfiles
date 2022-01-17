@@ -211,6 +211,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- setup the servers on first init and with different configs for it
 -- this also handles the basic nvim_lsp setup (which can be ignored here)
 lsp_installer.on_server_ready(function(server)
+  local opts = {}
+
   local on_attach = function(client, bufnr)
     -- disable formatting of tsserver (null-ls should do it with prettier/eslint)
     if server.name == 'tsserver' then
@@ -219,7 +221,9 @@ lsp_installer.on_server_ready(function(server)
     end
   end
 
-  local opts = { capabilities = capabilities, on_attach = on_attach }
+  opts.capabilities = capabilities
+  opts.on_attach = on_attach
+
   server:setup(opts)
 end)
 EOF
