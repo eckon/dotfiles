@@ -36,4 +36,6 @@ scripts_symlinks:
   - {src: start-tmux-sessions.sh, command: start-tmux}
 
 npm_packages_installs:
+  - '@fsouza/prettierd'
+  - eslint_d
   - npm-check
