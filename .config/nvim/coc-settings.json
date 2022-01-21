@@ -1,0 +1,5 @@
+{
+  "coc.preferences.listOfWorkspaceEdit": "none",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "vetur.experimental.templateInterpolationService": true
+}

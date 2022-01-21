@@ -15,20 +15,8 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  " LSP - base {{{2
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
-  " LSP - completion
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  " LSP - snippet
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/cmp-vsnip'
-  Plug 'rafamadriz/friendly-snippets'
-  " LSP - extensions
-  Plug 'jose-elias-alvarez/null-ls.nvim'
+  " LSP {{{2
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
   " Debugger {{{2
   Plug 'mfussenegger/nvim-dap'
@@ -126,148 +114,79 @@ command! CCGitBlameLine execute "!git blame -L " .. line('.') .. "," .. line('.'
 " -------------------- Plugin Configurations {{{1
 " ---------- Language Server Protocol (LSP) {{{2
 " ----- Configurations {{{3
-lua << EOF
-local nvim_lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
-local cmp = require('cmp')
-local null_ls = require('null-ls')
-
-vim.diagnostic.config({ virtual_text = { source = true } })
-
-local servers = {
-  'bashls', 'vimls',
-  'html', 'cssls', 'emmet_ls', 'tailwindcss',
-  'jsonls', 'yamlls',
-  'tsserver', 'vuels',
-}
-
--- install servers if not already existing
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
-      print('Installing ' .. name)
-      server:install()
-    end
-  end
-end
-
--- setup null-ls
-null_ls.setup({ sources = {
-  null_ls.builtins.formatting.prettierd,
-  null_ls.builtins.diagnostics.eslint_d,
-  null_ls.builtins.code_actions.eslint_d,
-}})
-
--- setup nvim-cmp
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-end
-
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
-cmp.setup({
-  snippet = { expand = function(args) vim.fn['vsnip#anonymous'](args.body) end },
-  mapping = {
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif vim.fn['vsnip#available'](1) == 1 then
-        feedkey('<Plug>(vsnip-expand-or-jump)', '')
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif vim.fn['vsnip#jumpable'](-1) == 1 then
-        feedkey('<Plug>(vsnip-jump-prev)', '')
-      end
-    end, { 'i', 's' }),
-  },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-    { name = 'buffer' },
-    { name = 'path' },
-  }, {{ name = 'buffer' }}),
-})
-
--- setup lspconfig and the installer
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- setup the servers on first init and with different configs for it
--- this also handles the basic nvim_lsp setup (which can be ignored here)
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-
-  local on_attach = function(client, bufnr)
-    -- disable formatting of tsserver (null-ls should do it with prettier/eslint)
-    if server.name == 'tsserver' then
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-    end
-  end
-
-  opts.capabilities = capabilities
-  opts.on_attach = on_attach
-
-  server:setup(opts)
-end)
-EOF
+" set coc extensions that should always be installed
+" essential
+let g:coc_global_extensions = [
+  \   'coc-marketplace',
+  \ ]
+" general
+let g:coc_global_extensions += [
+  \   'coc-docker',
+  \   'coc-html',
+  \   'coc-json',
+  \   'coc-vimlsp',
+  \   'coc-yaml',
+  \ ]
+" specific
+let g:coc_global_extensions += [
+  \   'coc-css',
+  \   'coc-emmet',
+  \   'coc-eslint8',
+  \   'coc-fish',
+  \   'coc-prettier',
+  \   'coc-tailwindcss',
+  \   'coc-toml',
+  \   'coc-tsserver',
+  \   'coc-vetur',
+  \ ]
 
 
 " ----- Mappings {{{3
 nnoremap <silent>K :call <SID>show_documentation()<CR>
-nnoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
+inoremap <silent><expr> <C-Space> coc#refresh()
 
-nnoremap gd <CMD>lua vim.lsp.buf.definition()<CR>
-nnoremap gD <CMD>lua vim.lsp.buf.declaration()<CR>
-nnoremap gr <CMD>lua vim.lsp.buf.references()<CR>
-nnoremap gi <CMD>lua vim.lsp.buf.implementation()<CR>
-nnoremap gI <CMD>lua vim.lsp.buf.type_definition()<CR>
-nnoremap [g <CMD>lua vim.diagnostic.goto_prev()<CR>
-nnoremap ]g <CMD>lua vim.diagnostic.goto_next()<CR>
+nmap <silent>[g <Plug>(coc-diagnostic-prev)
+nmap <silent>]g <Plug>(coc-diagnostic-next)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gD <Plug>(coc-declaration)
+nmap <silent>gr <Plug>(coc-references-used)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gI <Plug>(coc-type-definition)
 
-nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
-nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
-nnoremap <Leader>lf <CMD>lua vim.lsp.buf.formatting()<CR>
-vnoremap <silent><Leader>lf :lua vim.lsp.buf.range_formatting()<CR>
+nmap <silent><Leader>la <Plug>(coc-codeaction)
+nmap <silent><Leader>lr <Plug>(coc-rename)
+nmap <silent><Leader>lf <Plug>(coc-format)
+xmap <silent><Leader>lf <Plug>(coc-format-selected)
 
-" use default K if we have something in help
-function! s:show_documentation() abort
-  if (index(['vim', 'help'], &filetype) >= 0)
-    execute 'h ' . expand('<cword>')
-  else
-    execute 'lua vim.lsp.buf.hover()'
-  endif
+" use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
-
-" ---------- Snippets / Snippet-Engine {{{2
-" ----- Configurations {{{3
-" use js snippets also in ts
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.typescript = ['javascript']
-
-
-" ----- Mappings {{{3
-" for a way to quickly expand snippets (alternative to nvim-cmp tab)
-imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+function! s:show_documentation() abort
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 
 
@@ -321,29 +240,6 @@ nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 " ---------- Statusline {{{2
 " ----- Configurations {{{3
 lua << EOF
-local lsp_count = function()
-  local error_table = vim.diagnostic.get(0, { severity = { min = vim.diagnostic.severity.WARN } })
-  local info_table = vim.diagnostic.get(0, { severity = { max = vim.diagnostic.severity.INFO } })
-
-  local error_count, info_count = 0, 0
-  for _ in pairs(error_table) do error_count = error_count + 1 end
-  for _ in pairs(info_table)  do info_count  = info_count  + 1 end
-
-  local status = ''
-  if error_count > 0 then status = status .. error_count .. '[!] ' end
-  if info_count  > 0 then status = status .. info_count  .. '[?] ' end
-
-  -- remove last character (padding space)
-  status = status:sub(1, -2)
-
-  return status
-end
-
-local debugger_status = function()
-  local dap = require('dap')
-  return dap.status()
-end
-
 require('lualine').setup({
   options = {
     icons_enabled = false,
@@ -355,7 +251,7 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { 'filename' },
-    lualine_x = { debugger_status, lsp_count, 'filetype' },
+    lualine_x = { 'coc#status' ,'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   }
