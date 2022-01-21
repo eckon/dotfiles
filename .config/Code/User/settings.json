@@ -59,4 +59,6 @@
         },
     ],
     "workbench.iconTheme": "material-icon-theme",
+    "vetur.experimental.templateInterpolationService": true,
+    "vetur.validation.templateProps": true,
 }
