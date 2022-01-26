@@ -30,7 +30,7 @@
 - name: Install npm packages
   block:
     - name: Check if npm packages exists
-      shell: which {{ item }}
+      shell: which {{ item.command }}
       register: npm_packages_register
       changed_when: false
       ignore_errors: true
@@ -40,7 +40,7 @@
       shell:
         cmd: |
           eval "$(fnm env)"
-          npm install {{ item.item }} -g
+          npm install {{ item.item.name }} -g
       environment:
         PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
       loop: "{{ npm_packages_register.results }}"
