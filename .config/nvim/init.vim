@@ -17,9 +17,7 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
   " Debugger {{{2
-  Plug 'mfussenegger/nvim-dap'
-  Plug 'rcarriga/nvim-dap-ui'
-  Plug 'theHamsta/nvim-dap-virtual-text'
+  Plug 'puremourning/vimspector'
 
   " Syntax/Styling/Appearance/Special {{{2
   Plug 'gruvbox-community/gruvbox'
@@ -257,42 +255,25 @@ EOF
 
 " ---------- Debugger {{{2
 " ----- Configurations {{{3
-lua << EOF
-local dap = require('dap')
-local dap_ui = require('dapui')
-local dap_virtual_text = require('nvim-dap-virtual-text')
-
--- setup virtual text and ui
-dap_ui.setup()
-dap_virtual_text.setup()
-
--- open/close ui on dap events
-dap.listeners.after.event_initialized["dapui_config"] = function() dap_ui.open()  end
-dap.listeners.before.event_terminated["dapui_config"] = function() dap_ui.close() end
-dap.listeners.before.event_exited["dapui_config"]     = function() dap_ui.close() end
-
--- setup basic dap (manually install node2 debugger)
--- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Javascript
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = { vim.fn.stdpath('data') .. '/dap_debugger/vscode-node-debug2/out/src/nodeDebug.js' },
-}
-
-dap.configurations.typescript = {{ name = 'Attach to process', type = 'node2', request = 'attach' }}
-EOF
+let g:vimspector_install_gadgets = [ 'vscode-node-debug2' ]
 
 
 " ----- Mappings {{{3
-nnoremap <silent> <Leader>db :lua require('dap').toggle_breakpoint()<CR>
-nnoremap <silent> <Leader>dB :lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <silent> <Leader>dE :lua require('dap').set_exception_breakpoints({ 'all' })<CR>
-nnoremap <silent> <Leader>dK :lua require('dap.ui.widgets').hover()<CR>
+nnoremap <Leader>dd <CMD>call vimspector#Launch()<CR>
+nnoremap <Leader>ds <CMD>call vimspector#Reset()<CR>
+nnoremap <Leader>dc <CMD>call vimspector#Continue()<CR>
+nnoremap <Leader>dC <CMD>call vimspector#RunToCursor()<CR>
+nnoremap <Leader>dr <CMD>call vimspector#Restart()<CR>
 
-nnoremap <silent> <Leader>dd :lua require('dap').continue()<CR>
-nnoremap <silent> <Leader>dh :lua require('dap').step_into()<CR>
-nnoremap <silent> <Leader>dj :lua require('dap').step_over()<CR>
-nnoremap <silent> <Leader>dl :lua require('dap').step_out()<CR>
+nnoremap <Leader>db <CMD>call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>dB <CMD>call vimspector#ClearBreakpoints()<CR>
+
+nnoremap <Leader>dl <CMD>call vimspector#StepOut()<CR>
+nnoremap <Leader>dh <CMD>call vimspector#StepInto()<CR>
+nnoremap <Leader>dj <CMD>call vimspector#StepOver()<CR>
+
+nmap <leader>di <Plug>VimspectorBalloonEval
+xmap <leader>di <Plug>VimspectorBalloonEval
 
 
 
