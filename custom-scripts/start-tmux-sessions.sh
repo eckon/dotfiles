@@ -15,6 +15,12 @@ if ! (tmux has-session -t $session 2>/dev/null); then
   tmux send-key -t $session:1 'vim' C-m
 fi
 
+session="scratch"
+if ! (tmux has-session -t $session 2>/dev/null); then
+  echo "Create \"$session\" session"
+  tmux new-session -s $session -d -c "$HOME/Development"
+fi
+
 session="idss"
 if ! (tmux has-session -t $session 2>/dev/null); then
   echo "Create \"$session\" session"
