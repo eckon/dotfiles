@@ -1,6 +1,6 @@
-" -------------------- Plugin Installations {{{1
+" -------------------- Plugin Installations
 call plug#begin()
-  " General Tools {{{2
+  " General Tools
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-tree.lua'
@@ -9,17 +9,17 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
 
-  " Treesitter {{{2
+  " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  " LSP {{{2
+  " LSP
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-  " Debugger {{{2
+  " Debugger
   Plug 'puremourning/vimspector'
 
-  " Syntax/Styling/Appearance/Special {{{2
+  " Syntax/Styling/Appearance/Special
   Plug 'gruvbox-community/gruvbox'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -30,7 +30,7 @@ call plug#end()
 
 
 
-" -------------------- General Configuration {{{1
+" -------------------- General Configuration
 let mapleader = "\<Space>"
 
 set clipboard+=unnamedplus shell=bash mouse=a undofile title
@@ -47,7 +47,7 @@ set wildmode=list:longest,list:full
 
 
 
-" -------------------- Color/Style Configuration {{{1
+" -------------------- Color/Style Configuration
 colorscheme gruvbox
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
@@ -61,8 +61,8 @@ augroup END
 
 
 
-" -------------------- General Key Bindings / Commands {{{1
-" ---------- Custom Key Bindings {{{2
+" -------------------- General Key Bindings / Commands
+" ---------- Custom Key Bindings
 " disable annoying keys
 nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
@@ -82,7 +82,7 @@ nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:
 
 
 
-" ---------- Custom Commands {{{2
+" ---------- Custom Commands
 " open current buffer file in the browser (needs to be cloned over git with ssh)
 command! CCOpenProjectInBrowser
   \ !xdg-open $(
@@ -107,9 +107,9 @@ command! CCGitBlameLine execute "!git blame -L " .. line('.') .. "," .. line('.'
 
 
 
-" -------------------- Plugin Configurations {{{1
-" ---------- Language Server Protocol (LSP) {{{2
-" ----- Configurations {{{3
+" -------------------- Plugin Configurations
+" ---------- Language Server Protocol (LSP)
+" ----- Configurations
 " set coc extensions that should always be installed
 " essential
 let g:coc_global_extensions = [
@@ -135,7 +135,7 @@ let g:coc_global_extensions += [
   \ ]
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <C-Space> coc#refresh()
 
@@ -183,8 +183,8 @@ endfunction
 
 
 
-" ---------- Treesitter {{{2
-" ----- Configurations {{{3
+" ---------- Treesitter
+" ----- Configurations
 lua << EOF
 require('nvim-treesitter.configs').setup({
   ensure_installed = 'maintained',
@@ -199,13 +199,13 @@ EOF
 
 
 
-" ---------- Fuzzy-Finder {{{2
-" ----- Configurations {{{3
+" ---------- Fuzzy-Finder
+" ----- Configurations
 " enable to use ctrl-p/n in fzf window to cycle through history
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 " show all files of <range> parents folders from current file
 nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
 nnoremap <Leader>fa :Ag<Space>
@@ -216,22 +216,22 @@ nnoremap <Leader>fl <CMD>BLines<CR>
 
 
 
-" ---------- Git {{{2
-" ----- Configurations {{{3
+" ---------- Git
+" ----- Configurations
 lua << EOF
 require('gitsigns').setup({ keymaps = {} })
 EOF
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 nnoremap <Leader>gb <CMD>lua require('gitsigns').blame_line({ full = true })<CR>
 nnoremap ]c <CMD>Gitsigns next_hunk<CR>
 nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 
 
 
-" ---------- Statusline {{{2
-" ----- Configurations {{{3
+" ---------- Statusline
+" ----- Configurations
 lua << EOF
 require('lualine').setup({
   options = {
@@ -253,12 +253,12 @@ EOF
 
 
 
-" ---------- Debugger {{{2
-" ----- Configurations {{{3
+" ---------- Debugger
+" ----- Configurations
 let g:vimspector_install_gadgets = [ 'vscode-node-debug2' ]
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 nnoremap <Leader>dd <CMD>call vimspector#Launch()<CR>
 nnoremap <Leader>ds <CMD>call vimspector#Reset()<CR>
 nnoremap <Leader>dc <CMD>call vimspector#Continue()<CR>
@@ -277,8 +277,8 @@ xmap <leader>di <Plug>VimspectorBalloonEval
 
 
 
-" ---------- Filetree {{{2
-" ----- Configurations {{{3
+" ---------- Filetree
+" ----- Configurations
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_add_trailing = 1
 let g:nvim_tree_group_empty = 1
@@ -302,20 +302,18 @@ require('nvim-tree').setup({
 EOF
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 nnoremap <Leader>. <CMD>NvimTreeFindFileToggle<CR>
 nnoremap <Leader>, <CMD>NvimTreeToggle<CR>
 
 
 
-" ---------- hop {{{2
-" ----- Configurations {{{3
+" ---------- hop
+" ----- Configurations
 lua << EOF
 require('hop').setup()
 EOF
 
 
-" ----- Mappings {{{3
+" ----- Mappings
 noremap H <CMD>HopChar1<CR>
-
-" vim:foldmethod=marker
