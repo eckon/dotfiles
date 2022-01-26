@@ -132,9 +132,7 @@ let g:coc_global_extensions += [
   \   'coc-css',
   \   'coc-emmet',
   \   'coc-eslint8',
-  \   'coc-fish',
   \   'coc-prettier',
-  \   'coc-tailwindcss',
   \   'coc-toml',
   \   'coc-tsserver',
   \   'coc-vetur',
@@ -170,12 +168,11 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
+" use <CR> to confirm completion
 if exists('*complete_info')
-  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<CR>"
 else
-  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 endif
 
 function! s:show_documentation() abort
