@@ -4,12 +4,10 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'phaazon/hop.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-
-  " Try out (not sure yet if I want to keep them)
-  Plug 'phaazon/hop.nvim'
 
   " Treesitter {{{2
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
