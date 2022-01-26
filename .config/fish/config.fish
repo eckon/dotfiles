@@ -24,15 +24,15 @@ fish_vi_key_bindings
 
 # -------------------- Alias/Abbreviations --------------------
 alias clip "xclip -sel clip"
-alias ll   "LC_COLLATE=C ls -alF --color=auto --group-directories-first"
+alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
 alias vi   "vim"
 alias vim  "nvim"
 
 
-abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr -a de        "docker exec -it"
 abbr -a dc        "docker-compose"
+abbr -a de        "docker exec -it"
+abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr -a ta        "tmux attach -t"
 abbr -a tt        "tmux new -s"
 
