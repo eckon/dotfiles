@@ -14,7 +14,7 @@ type -q zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
 # -------------------- Configuration --------------------
 set -Ux EDITOR    "nvim"
 set -Ux VISUAL    "nvim"
-set -Ux LESS      "--mouse --wheel-lines=5"
+set -Ux LESS      "--mouse --wheel-lines=5 -r"
 set fish_greeting
 
 
