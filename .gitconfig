@@ -2,8 +2,21 @@
   email = niklas.meyer95@hotmail.de
   name = eckon
 
+[core]
+  pager = delta
+
+[delta]
+  navigate = true
+  line-numbers = true
+
+[merge]
+  conflictstyle = diff3
+
 [pull]
   rebase = true
+
+[diff]
+  colorMoved = default
 
 [includeIf "gitdir:~/Development/work/"]
   path = ~/.config/gitconfig/work
