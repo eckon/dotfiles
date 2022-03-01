@@ -33,7 +33,7 @@ dotfiles_symlinks:
 
 scripts_symlinks:
   - {src: command-cache.sh, command: command-cache}
-  - {src: start-tmux-sessions.sh, command: start-tmux}
+  - {src: tmux-jump.sh, command: tmux-jump}
 
 npm_packages_installs:
   - {name: '@fsouza/prettierd', command: prettierd}
