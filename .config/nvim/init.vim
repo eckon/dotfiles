@@ -33,13 +33,13 @@ call plug#end()
 " -------------------- General Configuration
 let mapleader = "\<Space>"
 
-set clipboard+=unnamedplus shell=bash mouse=a undofile title
+set clipboard+=unnamedplus shell=bash mouse=a undofile noswapfile title
 set completeopt=menuone,noinsert,noselect
 set magic lazyredraw ignorecase smartcase
 set nowrap foldmethod=indent nofoldenable
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smartindent expandtab
-set shortmess+=cA noshowmode
+set shortmess+=c noshowmode
 set signcolumn=yes
 set splitbelow splitright
 set updatetime=100
