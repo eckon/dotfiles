@@ -279,7 +279,6 @@ xmap <leader>di <Plug>VimspectorBalloonEval
 
 " ---------- Filetree
 " ----- Configurations
-let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_add_trailing = 1
 let g:nvim_tree_group_empty = 1
 let g:nvim_tree_show_icons = {
@@ -292,6 +291,7 @@ let g:nvim_tree_show_icons = {
 lua << EOF
 require('nvim-tree').setup({
   git = { ignore = false },
+  actions = { open_file = { quit_on_open = true } },
   view = { hide_root_folder = true,
     width = '35%',
     relativenumber = true,
