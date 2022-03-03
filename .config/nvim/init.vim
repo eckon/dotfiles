@@ -33,6 +33,9 @@ call plug#end()
 " -------------------- General Configuration
 let mapleader = "\<Space>"
 
+" matchit breaks visual % inside of global command e.g.: 'g/foo/norm f(v%d'
+let loaded_matchit = 1
+
 set clipboard+=unnamedplus shell=bash mouse=a undofile noswapfile title
 set completeopt=menuone,noinsert,noselect
 set magic lazyredraw ignorecase smartcase
