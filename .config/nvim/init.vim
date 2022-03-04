@@ -7,6 +7,7 @@ call plug#begin()
   Plug 'phaazon/hop.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
 
   " Treesitter
