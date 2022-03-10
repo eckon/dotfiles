@@ -299,8 +299,6 @@ require('nvim-tree').setup({
   view = { hide_root_folder = true,
     width = '35%',
     relativenumber = true,
-    -- unbind hide for my default H binding (Hop)
-    mappings = { list = {{ key = 'H' }} },
   },
 })
 EOF
