@@ -25,7 +25,7 @@ fi
 
 # select special edge cases when no arguments are given
 if [[ "$#" -le 0 ]]; then
-  selected=$(printf "frontend\nbackend" | fzf --height 10% --reverse)
+  selected=$(printf "backend\nfrontend" | fzf --height 10% --reverse)
   workRoot="$HOME/Development/work"
 
   if [[ "$selected" == "backend" ]]; then
