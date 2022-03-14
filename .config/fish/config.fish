@@ -34,7 +34,7 @@ alias vim  "nvim"
 abbr -a dc        "docker-compose"
 abbr -a de        "docker exec -it"
 abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr -a t         "tmux-jump"
+abbr -a j         "tmux-jump"
 abbr -a ta        "tmux attach -t"
 abbr -a tt        "tmux new -s"
 
