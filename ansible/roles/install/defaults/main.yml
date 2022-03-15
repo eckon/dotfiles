@@ -27,7 +27,7 @@ dotfiles_symlinks:
   - .config/lazygit/config.yml
   - .config/nvim
   - .config/starship.toml
-  - .tmux.conf
+  - .config/tmux
   - .zshrc
 
 scripts_symlinks:
