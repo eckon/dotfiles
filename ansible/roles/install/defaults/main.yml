@@ -22,12 +22,11 @@ dotfiles_symlinks:
   - .config/Code/User/keybindings.json
   - .config/Code/User/settings.json
   - .config/fish/config.fish
-  - .config/gitconfig
+  - .config/git
   - .config/kitty/kitty.conf
   - .config/lazygit/config.yml
   - .config/nvim
   - .config/starship.toml
-  - .gitconfig
   - .tmux.conf
   - .zshrc
 

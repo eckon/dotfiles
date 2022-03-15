@@ -46,7 +46,7 @@ This allows for a quick installation of everything in my configuration.
   - has my personal projects
 - `~/Development/work/`
   - has work related projects
-  - uses a pre-configured [.gitconfig](./.config/gitconfig/work)
+  - uses a pre-configured [.gitconfig](./.config/git/work)
 
 
 ## Used software

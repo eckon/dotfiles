@@ -19,4 +19,4 @@
 	colorMoved = default
 
 [includeIf "gitdir:~/Development/work/"]
-	path = ~/.config/gitconfig/work
+	path = ~/.config/git/work
