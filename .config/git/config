@@ -9,14 +9,24 @@
 	navigate = true
 	line-numbers = true
 
+[log]
+	abbrevCommit = true
+
 [merge]
 	conflictstyle = diff3
 
 [pull]
 	rebase = true
 
+[rebase]
+	autoStash = true
+
 [diff]
 	colorMoved = default
+
+[tag]
+	# sort 1.10.2 after 1.2.0 instead of before
+	sort = version:refname
 
 [includeIf "gitdir:~/Development/work/"]
 	path = ~/.config/git/work
