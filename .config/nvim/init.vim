@@ -239,10 +239,11 @@ nnoremap [c <CMD>Gitsigns prev_hunk<CR>
 lua << EOF
 require('lualine').setup({
   options = {
-    icons_enabled = false,
-    theme = 'gruvbox',
     component_separators = {},
+    globalstatus = true,
+    icons_enabled = false,
     section_separators = {},
+    theme = 'gruvbox',
   },
   sections = {
     lualine_a = { 'mode' },
