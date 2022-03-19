@@ -1,12 +1,12 @@
 [user]
 	email = niklas.meyer95@hotmail.de
-	name = eckon
+	name  = eckon
 
 [core]
 	pager = delta
 
 [delta]
-	navigate = true
+	navigate     = true
 	line-numbers = true
 
 [alias]

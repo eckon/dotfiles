@@ -1,5 +1,5 @@
 [user]
 	email = niklas.meyer@iu.org
-	name = Niklas Meyer
+	name  = Niklas Meyer
 
 # vim:filetype=gitconfig
