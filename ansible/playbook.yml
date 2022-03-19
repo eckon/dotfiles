@@ -1,5 +1,5 @@
 ---
-- name: Setup a new linux system
+- name: Check and install packages, applications, configuartions, scripts, etc.
   hosts: localhost
   roles:
     - install
