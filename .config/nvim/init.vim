@@ -26,7 +26,6 @@ call plug#begin()
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
-  " }}}2
 call plug#end()
 
 
@@ -243,7 +242,6 @@ require('lualine').setup({
     globalstatus = true,
     icons_enabled = false,
     section_separators = {},
-    theme = 'gruvbox',
   },
   sections = {
     lualine_a = { 'mode' },
@@ -251,8 +249,8 @@ require('lualine').setup({
     lualine_c = { 'filename' },
     lualine_x = { 'coc#status' ,'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' }
-  }
+    lualine_z = { 'location' },
+  },
 })
 EOF
 
