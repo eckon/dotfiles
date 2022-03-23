@@ -1,6 +1,7 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
+  Plug 'andymass/vim-matchup'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-tree.lua'
@@ -196,7 +197,10 @@ require('nvim-treesitter.configs').setup({
     -- regex highlight is still better than TS highlight
     disable = { 'php', 'vim' },
   },
+  indent = { enable = true },
+  incremental_selection = { enable = true },
   context_commentstring = { enable = true },
+  matchup = { enable = true },
 })
 EOF
 
