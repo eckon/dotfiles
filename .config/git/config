@@ -18,6 +18,9 @@
 [merge]
 	conflictstyle = diff3
 
+[commit]
+	gpgSign = true
+
 [pull]
 	rebase = true
 
@@ -28,8 +31,10 @@
 	colorMoved = default
 
 [tag]
-	# sort 1.10.2 after 1.2.0 instead of before
-	sort = version:refname
+	gpgSign = true
+	sort    = version:refname
 
 [includeIf "gitdir:~/Development/work/"]
 	path = ~/.config/git/work
+
+# vim:filetype=gitconfig
