@@ -98,8 +98,10 @@ command! CCOpenProjectInBrowser
   \     | sed 's/\.git//g'
   \     | sed 's/:/\//g'
   \     | sed 's/git@/https:\/\//'
-  \ )/blob/$(
-  \   git branch --show-current
+  \ )/$(
+  \   git config --get remote.origin.url | grep -q 'bitbucket.org'
+  \     && echo 'src/master'
+  \     || echo blob/$(git branch --show-current)
   \ )/%
 
 " open current project and goto the current buffer file in vscode
