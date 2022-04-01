@@ -144,6 +144,7 @@ let g:coc_global_extensions += [
 
 
 " ----- Mappings
+nnoremap g? <CMD>CocOutline<CR>
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <C-Space> coc#refresh()
 
