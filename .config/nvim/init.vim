@@ -70,6 +70,7 @@ augroup END
 " disable annoying keys
 nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
+nnoremap U <Nop>
 
 " rehighlight text after indenting
 vnoremap < <gv
