@@ -88,6 +88,9 @@ nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:
 
 
 " ---------- Custom Commands
+" quickly setup vim for pair programming
+command! CCPairProgramming tabdo windo set norelativenumber
+
 " open current buffer file in the browser (needs to be cloned over git with ssh)
 command! CCOpenProjectInBrowser
   \ !xdg-open $(
