@@ -27,9 +27,6 @@
 [rebase]
 	autoStash = true
 
-[diff]
-	colorMoved = default
-
 [tag]
 	gpgSign = true
 	sort    = version:refname
