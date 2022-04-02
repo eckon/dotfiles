@@ -55,7 +55,7 @@ set wildmode=list:longest,list:full
 colorscheme gruvbox
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
-set scrolloff=5
+set scrolloff=5 sidescrolloff=15
 set termguicolors
 
 augroup HighlightYankedText
