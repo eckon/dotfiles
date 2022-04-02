@@ -308,9 +308,10 @@ lua << EOF
 require('nvim-tree').setup({
   git = { ignore = false },
   actions = { open_file = { quit_on_open = true } },
-  view = { hide_root_folder = true,
-    width = '35%',
+  view = {
+    hide_root_folder = true,
     relativenumber = true,
+    width = '35%',
   },
 })
 EOF
@@ -318,7 +319,6 @@ EOF
 
 " ----- Mappings
 nnoremap <Leader>. <CMD>NvimTreeFindFileToggle<CR>
-nnoremap <Leader>, <CMD>NvimTreeToggle<CR>
 
 
 
