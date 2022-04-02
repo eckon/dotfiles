@@ -24,7 +24,6 @@ call plug#begin()
   " Syntax/Styling/Appearance/Special
   Plug 'gruvbox-community/gruvbox'
   Plug 'lewis6991/gitsigns.nvim'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
