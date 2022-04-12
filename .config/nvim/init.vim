@@ -54,7 +54,7 @@ set wildmode=list:longest,list:full
 colorscheme gruvbox
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
-set scrolloff=5 sidescrolloff=15
+set scrolloff=5 sidescrolloff=5
 set termguicolors
 
 augroup HighlightYankedText
@@ -198,7 +198,7 @@ endfunction
 " ----- Configurations
 lua << EOF
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
   highlight = {
     enable = true,
     -- regex highlight is still better than TS highlight
@@ -258,7 +258,7 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { 'filename' },
-    lualine_x = { 'coc#status' ,'filetype' },
+    lualine_x = { 'coc#status', 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },
