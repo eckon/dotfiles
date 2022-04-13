@@ -57,9 +57,20 @@ set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:
 set scrolloff=5 sidescrolloff=5
 set termguicolors
 
+
+
+" -------------------- Autocommands
 augroup HighlightYankedText
   autocmd!
   autocmd TextYankPost * silent! lua require('vim.highlight').on_yank()
+augroup END
+
+augroup RestoreCursor
+  autocmd!
+  autocmd BufReadPost *
+    \ if &ft !~# 'commit\|rebase' && line("'\"") >= 1 && line("'\"") <= line("$") |
+    \   execute "normal! g`\"" |
+    \ endif
 augroup END
 
 
