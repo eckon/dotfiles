@@ -85,7 +85,7 @@ nnoremap ]Q <CMD>clast<CR>zz
 nnoremap <expr> <F1> &l:scrolloff == -1 ? ':setlocal scrolloff=999<CR>' : ':setlocal scrolloff=-1<CR>'
 
 " quickly update macro - use wanted register - press enter to execute
-nnoremap <Leader>m :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><LEFT>
+nnoremap <Leader>m :<C-u><C-r><C-r>='let @' . v:register . ' = ' . string(getreg(v:register))<CR><C-f><LEFT>
 
 
 
@@ -183,12 +183,12 @@ else
 endif
 
 function! s:show_documentation() abort
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+  if (index(['vim', 'help'], &filetype) >= 0)
+    execute 'h ' . expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    execute '!' . &keywordprg . ' ' . expand('<cword>')
   endif
 endfunction
 
@@ -201,7 +201,7 @@ require('nvim-treesitter.configs').setup({
   ensure_installed = 'all',
   highlight = {
     enable = true,
-    -- regex highlight is still better than TS highlight
+    -- regex highlight is still better than Treesitter highlight
     disable = { 'php', 'vim' },
   },
   indent = { enable = true },
