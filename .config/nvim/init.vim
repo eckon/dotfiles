@@ -126,7 +126,7 @@ command! CCRunEslint cexpr system("npx eslint -f unix '{src,apps}/**/*.ts' 2>/de
 command! CCRunTsc    cexpr system("npx tsc 2>/dev/null | sed 's/[(,]/:/g' | sed 's/)//'")
 
 " git blame of current line
-command! CCGitBlameLine execute "!git blame -L " .. line('.') .. "," .. line('.') .. " -- %"
+command! CCGitBlameLine execute '!git blame -p -L ' .. line('.') .. ',' .. line('.') .. ' -- %'
 
 
 
@@ -232,7 +232,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ----- Mappings
 " show all files of <range> parents folders from current file
-nnoremap <Leader>f. <CMD>call fzf#vim#files(expand("%:p" . repeat(":h", v:count1)))<CR>
+nnoremap <Leader>f. <CMD>call fzf#vim#files(expand('%:p' . repeat(':h', v:count1)))<CR>
 nnoremap <Leader>fa :Ag<Space>
 nnoremap <Leader>fb <CMD>Buffers<CR>
 nnoremap <Leader>ff <CMD>GFiles<CR>
