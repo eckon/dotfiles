@@ -39,7 +39,6 @@ let loaded_matchit = 1
 set clipboard+=unnamedplus shell=bash mouse=a undofile noswapfile title
 set completeopt=menuone,noinsert,noselect
 set magic lazyredraw ignorecase smartcase
-set nowrap foldmethod=indent nofoldenable
 set number relativenumber
 set shiftwidth=2 tabstop=2 softtabstop=2 smartindent expandtab
 set shortmess+=c noshowmode
@@ -52,10 +51,15 @@ set wildmode=list:longest,list:full
 
 " -------------------- Color/Style Configuration
 colorscheme gruvbox
+
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
-set scrolloff=5 sidescrolloff=5
+set scrolloff=5 sidescrolloff=5 nowrap
 set termguicolors
+
+set foldlevelstart=99 fillchars=fold:\ 
+set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
 
 
 
