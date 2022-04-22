@@ -18,9 +18,6 @@
 [merge]
 	conflictstyle = diff3
 
-[commit]
-	gpgSign = true
-
 [pull]
 	rebase = true
 
@@ -28,8 +25,7 @@
 	autoStash = true
 
 [tag]
-	gpgSign = true
-	sort    = version:refname
+	sort = version:refname
 
 [includeIf "gitdir:~/Development/work/"]
 	path = ~/.config/git/work

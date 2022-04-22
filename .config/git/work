@@ -2,10 +2,4 @@
 	email = niklas.meyer@iu.org
 	name  = Niklas Meyer
 
-[commit]
-	gpgSign = false
-
-[tag]
-	gpgSign = false
-
 # vim:filetype=gitconfig
