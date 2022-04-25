@@ -211,8 +211,6 @@ require('nvim-treesitter.configs').setup({
     -- regex highlight is still better than Treesitter highlight
     disable = { 'php', 'vim' },
   },
-  indent = { enable = true },
-  incremental_selection = { enable = true },
   context_commentstring = { enable = true },
   matchup = { enable = true },
 })
