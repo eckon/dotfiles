@@ -101,6 +101,12 @@ nnoremap <expr> <F1> &l:scrolloff == -1 ? ':setlocal scrolloff=999<CR>' : ':setl
 " quickly update macro - use wanted register - press enter to execute
 nnoremap <Leader>m :<C-u><C-r><C-r>='let @' . v:register . ' = ' . string(getreg(v:register))<CR><C-f><LEFT>
 
+" custom textobject for indentations
+onoremap <silent> ii :lua require('textobjects').indent_inner_textobject()<CR>
+xnoremap <silent> ii :<C-u>lua require('textobjects').indent_inner_textobject()<CR>
+onoremap <silent> ai :lua require('textobjects').indent_around_textobject()<CR>
+xnoremap <silent> ai :<C-u>lua require('textobjects').indent_around_textobject()<CR>
+
 
 
 " ---------- Custom Commands
