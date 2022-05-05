@@ -82,7 +82,8 @@ augroup END
 " -------------------- General Key Bindings / Commands
 " ---------- Custom Key Bindings
 " disable annoying keys
-noremap <F1> <Nop>
+nnoremap <F1> <Nop>
+inoremap <F1> <Nop>
 noremap U <Nop>
 
 " rehighlight text after indenting
