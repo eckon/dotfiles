@@ -166,8 +166,8 @@ nnoremap g? <CMD>CocOutline<CR>
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <C-Space> coc#refresh()
 
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
+nmap <silent>[d <Plug>(coc-diagnostic-prev)
+nmap <silent>]d <Plug>(coc-diagnostic-next)
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gD <Plug>(coc-type-definition)
 nmap <silent>gr <Plug>(coc-references-used)
