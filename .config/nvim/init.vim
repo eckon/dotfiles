@@ -92,9 +92,6 @@ nnoremap ]q <CMD>cnext<CR>zz
 nnoremap [Q <CMD>cfirst<CR>zz
 nnoremap ]Q <CMD>clast<CR>zz
 
-" stick cursor in the center of the screen for easier scrolling
-nnoremap <expr> <F1> &l:scrolloff == -1 ? ':setlocal scrolloff=999<CR>' : ':setlocal scrolloff=-1<CR>'
-
 " quickly update macro - use wanted register - press enter to execute
 nnoremap <Leader>m :<C-u><C-r><C-r>='let @' . v:register . ' = ' . string(getreg(v:register))<CR><C-f><LEFT>
 
