@@ -108,7 +108,7 @@ xnoremap <silent> ai :<C-u>lua require('textobjects').indent_around_textobject()
 command! CCPairProgramming tabdo windo set norelativenumber
 
 " open current buffer file in the browser (needs to be cloned over git with ssh)
-command! CCOpenProjectInBrowser
+command! CCBrowser
   \ !xdg-open $(
   \   git config --get remote.origin.url
   \     | sed 's/\.git//g'
@@ -121,7 +121,7 @@ command! CCOpenProjectInBrowser
   \ )/%
 
 " open current project and goto the current buffer file in vscode
-command! CCOpenProjectInVsCode !code $(pwd) -g %
+command! CCVSCode !code $(pwd) -g %
 
 
 
