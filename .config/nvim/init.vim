@@ -1,7 +1,6 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
-  Plug 'andymass/vim-matchup'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-tree.lua'
@@ -32,9 +31,6 @@ call plug#end()
 
 " -------------------- General Configuration
 let mapleader = "\<Space>"
-
-" matchit breaks visual % inside of global command e.g.: 'g/foo/norm f(v%d'
-let loaded_matchit = 1
 
 set clipboard+=unnamedplus shell=bash mouse=a undofile noswapfile title
 set completeopt=menuone,noinsert,noselect
@@ -219,7 +215,6 @@ require('nvim-treesitter.configs').setup({
     disable = { 'php', 'vim' },
   },
   context_commentstring = { enable = true },
-  matchup = { enable = true },
 })
 EOF
 
