@@ -3,6 +3,6 @@
   "Lua.workspace.library": ["~/.local/share/nvim/plugged"],
   "coc.preferences.listOfWorkspaceEdit": "none",
   "sumneko-lua.enableNvimLuaDev": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "shortest",
   "vetur.experimental.templateInterpolationService": true
 }
