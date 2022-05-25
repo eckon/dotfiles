@@ -17,9 +17,6 @@ call plug#begin()
   " LSP
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-  " Debugger
-  Plug 'puremourning/vimspector'
-
   " Syntax/Styling/Appearance/Special
   Plug 'gruvbox-community/gruvbox'
   Plug 'lewis6991/gitsigns.nvim'
@@ -268,30 +265,6 @@ require('lualine').setup({
   },
 })
 EOF
-
-
-
-" ---------- Debugger
-" ----- Configurations
-let g:vimspector_install_gadgets = [ 'vscode-node-debug2' ]
-
-
-" ----- Mappings
-nnoremap <Leader>dd <CMD>call vimspector#Launch()<CR>
-nnoremap <Leader>ds <CMD>call vimspector#Reset()<CR>
-nnoremap <Leader>dc <CMD>call vimspector#Continue()<CR>
-nnoremap <Leader>dC <CMD>call vimspector#RunToCursor()<CR>
-nnoremap <Leader>dr <CMD>call vimspector#Restart()<CR>
-
-nnoremap <Leader>db <CMD>call vimspector#ToggleBreakpoint()<CR>
-nnoremap <Leader>dB <CMD>call vimspector#ClearBreakpoints()<CR>
-
-nnoremap <Leader>dl <CMD>call vimspector#StepOut()<CR>
-nnoremap <Leader>dh <CMD>call vimspector#StepInto()<CR>
-nnoremap <Leader>dj <CMD>call vimspector#StepOver()<CR>
-
-nmap <leader>di <Plug>VimspectorBalloonEval
-xmap <leader>di <Plug>VimspectorBalloonEval
 
 
 
