@@ -49,6 +49,7 @@ set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
 set scrolloff=5 sidescrolloff=5 nowrap
 set termguicolors
+set winbar=%t\ %m
 
 set foldlevelstart=99 fillchars=fold:\ 
 set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
@@ -258,8 +259,8 @@ require('lualine').setup({
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'coc#status', 'filetype' },
+    lualine_c = { 'coc#status' },
+    lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },
