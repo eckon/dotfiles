@@ -3,6 +3,7 @@ packages_installs:
   - bash
   - build-essential
   - curl
+  - entr
   - fonts-firacode
   - fzf
   - git
