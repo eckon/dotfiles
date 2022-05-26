@@ -1,8 +1,8 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
+  Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'phaazon/hop.nvim'
   Plug 'tpope/vim-commentary'
@@ -217,18 +217,25 @@ EOF
 
 " ---------- Fuzzy-Finder
 " ----- Configurations
-" enable to use ctrl-p/n in fzf window to cycle through history
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+lua << EOF
+-- allow history search with ctrl-n and ctrl-p
+local fzf_history_dir = vim.fn.expand('~/.local/share/fzf-history')
+require('fzf-lua').setup({
+  fzf_opts = { ['--history'] = fzf_history_dir .. '/' .. 'vim' },
+  previewers = { git_diff = { pager = 'delta' } },
+})
+EOF
 
 
 " ----- Mappings
-" show all files of <range> parents folders from current file
-nnoremap <Leader>f. <CMD>call fzf#vim#files(expand('%:p' . repeat(':h', v:count1)))<CR>
-nnoremap <Leader>fa :Ag<Space>
-nnoremap <Leader>fb <CMD>Buffers<CR>
-nnoremap <Leader>ff <CMD>GFiles<CR>
-nnoremap <Leader>fg <CMD>GFiles?<CR>
-nnoremap <Leader>fl <CMD>BLines<CR>
+nnoremap <Leader>fa <CMD>lua require('fzf-lua').grep()<CR>
+nnoremap <Leader>fb <CMD>lua require('fzf-lua').buffers()<CR>
+nnoremap <Leader>ff <CMD>lua require('fzf-lua').files()<CR>
+nnoremap <Leader>fg <CMD>lua require('fzf-lua').git_status()<CR>
+nnoremap <Leader>fl <CMD>lua require('fzf-lua').blines()<CR>
+nnoremap <Leader>fh <CMD>lua require('fzf-lua').help_tags()<CR>
+nnoremap <Leader>fs <CMD>lua require('fzf-lua').spell_suggest()<CR>
+
 
 
 
