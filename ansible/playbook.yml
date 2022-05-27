@@ -1,5 +1,0 @@
----
-- name: Check and install packages, applications, configuartions, scripts, etc.
-  hosts: localhost
-  roles:
-    - install

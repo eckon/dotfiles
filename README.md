@@ -7,33 +7,16 @@ Bigger parts have their own README and can be found here:
 - [Neovim / Vim](./.config/nvim)
 - [Custom scripts](./custom-scripts)
 - [Visual Studio Code](./.config/Code/User)
-- [Ansible](./ansible)
 - [Gists](https://gist.github.com/eckon)
 
 
 ## Install
 
-### With ansible
-
 This allows for a quick installation of everything in my configuration.
-- install `git` and `ansible`
+- install `git`
 - clone this respository
-- run the [bootstrap.sh](./ansible/bootstrap.sh) script (e.g. `$ ./ansible/boostrap.sh`)
+- run the [install.sh](./install.sh) script (e.g. `$ ./install.sh`)
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
-  - see the [ansible part](./ansible) for more information
-
-
-### Without ansible
-
-- symlink files (configs, scripts)
-- install packages/fonts/tools/etc.
-- _and/or copy parts of the configuration_
-
-
-### Optional
-
-- bind capslock to escape (for vim)
-  - ubuntu: Install Tweaks and set it in "Keyboard" -> "Additional Layout Options" -> "Esc..."
 
 
 ## System Structure
@@ -52,7 +35,6 @@ This allows for a quick installation of everything in my configuration.
 ## Used software
 
 Following programs should be highlighted and are installed/used:
-- [ansible](https://github.com/ansible/ansible)
 - [kitty](https://github.com/kovidgoyal/kitty) _with_ [fira code](https://github.com/tonsky/FiraCode), [starship](https://github.com/starship/starship)
 - [fish](https://github.com/fish-shell/fish-shell) _with_ [tmux](https://github.com/tmux/tmux)
 - [neovim](https://github.com/neovim/neovim) _with_ [vim-plug](https://github.com/junegunn/vim-plug), [xclip](https://wiki.ubuntuusers.de/xclip/)
