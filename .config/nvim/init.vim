@@ -2,7 +2,6 @@
 call plug#begin()
   " General Tools
   Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'phaazon/hop.nvim'
   Plug 'tpope/vim-commentary'
@@ -219,9 +218,9 @@ EOF
 " ----- Configurations
 lua << EOF
 -- allow history search with ctrl-n and ctrl-p
-local fzf_history_dir = vim.fn.expand('~/.local/share/fzf-history')
+local share_dir = vim.fn.expand('~/.local/share')
 require('fzf-lua').setup({
-  fzf_opts = { ['--history'] = fzf_history_dir .. '/' .. 'vim' },
+  fzf_opts = { ['--history'] = share_dir .. '/' .. 'fzf-vim-history' },
   previewers = { git_diff = { pager = 'delta' } },
 })
 EOF
