@@ -277,15 +277,6 @@ EOF
 
 " ---------- Filetree
 " ----- Configurations
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_group_empty = 1
-let g:nvim_tree_show_icons = {
-  \   'git': 0,
-  \   'folders': 0,
-  \   'files': 0,
-  \   'folder_arrows': 0,
-  \ }
-
 lua << EOF
 require('nvim-tree').setup({
   git = { ignore = false },
@@ -294,6 +285,16 @@ require('nvim-tree').setup({
     hide_root_folder = true,
     relativenumber = true,
     width = '35%',
+  },
+  renderer = {
+    add_trailing = true,
+    group_empty = true,
+    icons = { show = {
+      file = false,
+      folder = false,
+      folder_arrow = false,
+      git = false,
+    }}
   },
 })
 EOF
