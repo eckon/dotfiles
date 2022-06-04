@@ -3,7 +3,12 @@
 The scripts can be found in the current folder.
 
 All scripts were only tested and used privately. There is no guarantee that they work on other systems or environments.
-These can be "installed" (linked) inside a sourced folder like `/usr/local/bin/`.
+These can be "installed" (linked) inside a sourced folder like `/usr/local/bin/` or `~/.local/bin/`.
+
+
+## Setup scripts
+
+Different scripts for setting up a new environment can be found in the [setup folder](./setup).
 
 
 ## Alternatives
