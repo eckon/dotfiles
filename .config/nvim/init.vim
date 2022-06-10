@@ -17,7 +17,7 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
   " Syntax/Styling/Appearance/Special
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'ellisonleao/gruvbox.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
