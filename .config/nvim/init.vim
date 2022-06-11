@@ -281,13 +281,8 @@ EOF
 " ----- Configurations
 lua << EOF
 require('nvim-tree').setup({
-  git = { ignore = false },
   actions = { open_file = { quit_on_open = true } },
-  view = {
-    hide_root_folder = true,
-    relativenumber = true,
-    width = '35%',
-  },
+  git = { ignore = false },
   renderer = {
     add_trailing = true,
     group_empty = true,
@@ -296,7 +291,12 @@ require('nvim-tree').setup({
       folder = false,
       folder_arrow = false,
       git = false,
-    }}
+    }},
+  },
+  view = {
+    adaptive_size = true,
+    hide_root_folder = true,
+    relativenumber = true,
   },
 })
 EOF
