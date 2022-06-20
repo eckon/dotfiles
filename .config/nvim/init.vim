@@ -152,7 +152,6 @@ let g:coc_global_extensions += [
 
 
 " ----- Mappings
-nnoremap g? <CMD>CocOutline<CR>
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <C-Space> coc#refresh()
 
@@ -233,8 +232,6 @@ nnoremap <Leader>ff <CMD>lua require('fzf-lua').files()<CR>
 nnoremap <Leader>fg <CMD>lua require('fzf-lua').git_status()<CR>
 nnoremap <Leader>fl <CMD>lua require('fzf-lua').blines()<CR>
 nnoremap <Leader>fh <CMD>lua require('fzf-lua').help_tags()<CR>
-nnoremap <Leader>fs <CMD>lua require('fzf-lua').spell_suggest()<CR>
-
 
 
 
