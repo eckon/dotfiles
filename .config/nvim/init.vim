@@ -249,8 +249,8 @@ EOF
 nnoremap <Leader>gb <CMD>lua require('gitsigns').blame_line({ full = true })<CR>
 nnoremap <Leader>gq <CMD>lua require('gitsigns').setqflist('all')<CR>
 
-nnoremap ]c <CMD>Gitsigns next_hunk<CR>
-nnoremap [c <CMD>Gitsigns prev_hunk<CR>
+nnoremap ]c <CMD>Gitsigns next_hunk<CR>zz
+nnoremap [c <CMD>Gitsigns prev_hunk<CR>zz
 
 
 
