@@ -11,6 +11,15 @@ The structure tries to be easy to read and change, that's one of the main reason
 [init.vim](./init.vim) is the entry point and has multiple parts, which are indicated by comments. The config is grouped into parts with a specific task (LSP, Git, Statusline, etc.).
 
 
+## LSP
+
+`LSP` is handled by [coc](https://github.com/neoclide/coc.nvim) and automatically installed with nvim.
+
+Notes:
+- update of references after file-rename is only possible with external [watchman](https://facebook.github.io/watchman/) program (but might depend on the given `LSP`)
+  - the trigger of the rename action does not matter (file-tree, command-line, vim, etc.) it will be handled as long as the `LSP` is attached to a vim instance, which will show a prompt to update the other references
+
+
 ## Install
 
 - if the main `install script` was run, the following will be available

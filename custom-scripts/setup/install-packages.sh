@@ -27,6 +27,7 @@ sudo apt install -y \
   silversearcher-ag \
   tldr \
   tree \
+  watchman \
   wget \
   xclip \
   zsh
