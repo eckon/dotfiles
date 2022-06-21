@@ -6,7 +6,7 @@
 
 if [[ $(basename "$(pwd)") != "dotfiles" ]]; then
   echo "This script can only be run in the \"dotfiles\" folder"
-  exit 1
+  exit
 fi
 
 configPaths=(
