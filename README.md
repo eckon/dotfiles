@@ -12,10 +12,10 @@ Bigger parts have their own README and can be found here:
 
 ## Install
 
-This allows for a quick installation of everything in my configuration.
+Installation of everything in my configuration:
 - install `git`
 - clone this respository
-- run the [install.sh](./install.sh) script (e.g. `$ ./install.sh`)
+- run `make`
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
 
 
