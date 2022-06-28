@@ -15,7 +15,6 @@ sudo apt install -y \
   build-essential \
   curl \
   entr \
-  fonts-firacode \
   git \
   jq \
   libevent-dev \
@@ -27,6 +26,7 @@ sudo apt install -y \
   silversearcher-ag \
   tldr \
   tree \
+  unzip \
   watchman \
   wget \
   xclip \
@@ -179,4 +179,22 @@ fi
 if ! command -v "starship" &> /dev/null; then
   echo "[+] Install \"starship\""
   curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
+if ! (fc-list | grep -qF "FiraCode"); then
+  echo "[+] Install \"Patched FiraCode\" via \"Nerdfonts\""
+
+  # nerdfont is gigantic, only clone minimum (only root)
+  git clone --depth 1 --filter=blob:none --sparse \
+    "https://github.com/ryanoasis/nerd-fonts.git" \
+    "$HOME/.nerdfonts"
+
+  pushd "$HOME/.nerdfonts" || exit
+
+  # afterwards use sparse-checkout to furthermore only pull FiraCode
+  git sparse-checkout add "patched-fonts/FiraCode"
+  git sparse-checkout init
+  ./install.sh FiraCode
+
+  popd || exit
 fi
