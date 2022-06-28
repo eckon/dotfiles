@@ -84,8 +84,7 @@ if ! command -v "lazygit" &> /dev/null; then
   echo "[+] Install \"lazygit\""
   mkdir -p "/tmp/lazygit"
 
-  wget -q --show-progress \
-    -O "/tmp/lazygit/lazygit.tar.gz" \
+  wget -O "/tmp/lazygit/lazygit.tar.gz" \
     "https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz"
 
   tar xf "/tmp/lazygit/lazygit.tar.gz" --directory="/tmp/lazygit"
@@ -96,8 +95,7 @@ if ! command -v "delta" &> /dev/null; then
   echo "[+] Install \"delta\""
   mkdir -p "/tmp/delta"
 
-  wget -q --show-progress \
-    -O "/tmp/delta/delta.tar.gz" \
+  wget -O "/tmp/delta/delta.tar.gz" \
     "https://github.com/dandavison/delta/releases/download/0.13.0/delta-0.13.0-x86_64-unknown-linux-gnu.tar.gz"
 
   tar xf "/tmp/delta/delta.tar.gz" --directory="/tmp/delta"
@@ -113,8 +111,7 @@ if ! command -v "nvim" &> /dev/null; then
   echo "[+] Install \"nvim\""
   mkdir -p "/tmp/neovim"
 
-  wget -q --show-progress \
-    -O "/tmp/neovim/nvim.appimage" \
+  wget -O "/tmp/neovim/nvim.appimage" \
     "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
 
   chmod +x "/tmp/neovim/nvim.appimage"
