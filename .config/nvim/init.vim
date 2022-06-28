@@ -18,6 +18,7 @@ call plug#begin()
 
   " Syntax/Styling/Appearance/Special
   Plug 'ellisonleao/gruvbox.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -258,7 +259,6 @@ require('lualine').setup({
   options = {
     component_separators = {},
     globalstatus = true,
-    icons_enabled = false,
     section_separators = {},
   },
   sections = {
@@ -283,12 +283,6 @@ require('nvim-tree').setup({
   renderer = {
     add_trailing = true,
     group_empty = true,
-    icons = { show = {
-      file = false,
-      folder = false,
-      folder_arrow = false,
-      git = false,
-    }},
   },
   view = {
     adaptive_size = true,
