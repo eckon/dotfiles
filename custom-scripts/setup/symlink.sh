@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-############################################################
+##################################################################
 # script to symlink all my local configurations and scripts
-############################################################
-
-if [[ $(basename "$(pwd)") != "dotfiles" ]]; then
-  echo "This script can only be run in the \"dotfiles\" folder"
-  exit
-fi
+# relies on being executed in the correct context (root dotfiles)
+##################################################################
 
 configPaths=(
   ".config/Code/User/keybindings.json"
@@ -36,6 +32,11 @@ for path in "${configPaths[@]}"; do
   fromPath="$(pwd)/$path"
   toPath="$HOME/$path"
 
+  if ! test -e "$fromPath"; then
+    echo "[!] Path \"$fromPath\" does not exist -> exit script"
+    exit
+  fi
+
   parentDirectory=$(dirname "$toPath")
   if ! test -d "$parentDirectory"; then
     printf "[+] Create directory: %s\n" "$parentDirectory"
@@ -58,6 +59,11 @@ for path in "${!scriptPaths[@]}"; do
   scriptName=${scriptPaths[$path]}
   fromPath="$(pwd)/custom-scripts/$path"
   toPath="$HOME/.local/bin/$scriptName"
+
+  if ! test -e "$fromPath"; then
+    echo "[!] Path \"$fromPath\" does not exist -> exit script"
+    exit
+  fi
 
   parentDirectory=$(dirname "$toPath")
   if ! test -d "$parentDirectory"; then
