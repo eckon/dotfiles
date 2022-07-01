@@ -73,8 +73,7 @@ augroup END
 
 augroup ResourceConfigOnSave
   autocmd!
-  autocmd BufWritePost */.config/nvim/init.vim
-    \ source <sfile> | execute 'echo "Resourced Config"'
+  execute "autocmd BufWritePost " . expand("$MYVIMRC") . " source <sfile>"
 augroup END
 
 
