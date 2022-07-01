@@ -71,6 +71,12 @@ augroup RestoreCursor
     \ endif
 augroup END
 
+augroup ResourceConfigOnSave
+  autocmd!
+  autocmd BufWritePost */.config/nvim/init.vim
+    \ source <sfile> | execute 'echo "Resourced Config"'
+augroup END
+
 
 
 " -------------------- General Key Bindings / Commands
