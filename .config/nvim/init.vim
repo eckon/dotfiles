@@ -233,6 +233,7 @@ EOF
 
 " ----- Mappings
 nnoremap <Leader>fa <CMD>lua require('fzf-lua').grep()<CR>
+nnoremap <Leader>fr <CMD>lua require('fzf-lua').resume()<CR>
 nnoremap <Leader>fb <CMD>lua require('fzf-lua').buffers()<CR>
 nnoremap <Leader>ff <CMD>lua require('fzf-lua').files()<CR>
 nnoremap <Leader>fg <CMD>lua require('fzf-lua').git_status()<CR>
