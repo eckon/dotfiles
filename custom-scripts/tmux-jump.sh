@@ -7,11 +7,14 @@
 # needed plugins: fzf, zoxide
 #######################################################################
 
-# always init scratch and dotfiles session
-session="scratch"
+# always init notes and dotfiles session
+session="notes"
 if ! (tmux has-session -t "$session" 2>/dev/null); then
   echo "Create \"$session\" session"
-  tmux new-session -s "$session" -d -c "$HOME/Development"
+  tmux new-session -s "$session" -d -c "$HOME/Documents/notes"
+
+  echo "  Start editor via \"vim\""
+  tmux send-key -t "$session":1 "vim -c 'normal! G' ./_refill.md" C-m
 fi
 
 session="dotfiles"
