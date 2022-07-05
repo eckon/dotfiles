@@ -181,7 +181,7 @@ if ! command -v "starship" &> /dev/null; then
   curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
-if ! (fc-list | grep -qF "FiraCode"); then
+if ! (fc-list | grep -qF "FiraCode Nerd Font Mono"); then
   echo "[+] Install \"Patched FiraCode\" via \"Nerdfonts\""
 
   # nerdfont is gigantic, only clone minimum (only root)
