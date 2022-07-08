@@ -16,7 +16,11 @@
 	abbrevCommit = true
 
 [merge]
+	tool = vscode
 	conflictstyle = diff3
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
 
 [pull]
 	rebase = true

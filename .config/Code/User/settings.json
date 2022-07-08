@@ -3,6 +3,7 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.tabSize": 2,
+    "editor.lineNumbers": "relative",
     "vim.enableNeovim": true,
     "vim.handleKeys": {
         "<C-f>": false
@@ -38,7 +39,6 @@
             ]
         }
     ],
-    "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
     "vim.visualModeKeyBindings": [
         {
@@ -61,4 +61,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "vetur.experimental.templateInterpolationService": true,
     "vetur.validation.templateProps": true,
+    "git.mergeEditor": true,
 }
