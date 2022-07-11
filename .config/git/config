@@ -15,6 +15,9 @@
 [log]
 	abbrevCommit = true
 
+[commit]
+	verbose = true
+
 [merge]
 	tool = vscode
 	conflictstyle = diff3
