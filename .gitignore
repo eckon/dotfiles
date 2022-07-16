@@ -1,4 +1,4 @@
-custom-scripts/*.cfg
+scripts/*.cfg
 
 .config/nvim/.netrwhist
 .config/nvim/plugged

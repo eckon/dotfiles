@@ -57,7 +57,7 @@ echo "----------------------"
 
 for path in "${!scriptPaths[@]}"; do
   scriptName=${scriptPaths[$path]}
-  fromPath="$(pwd)/custom-scripts/$path"
+  fromPath="$(pwd)/scripts/$path"
   toPath="$HOME/.local/bin/$scriptName"
 
   if ! test -e "$fromPath"; then

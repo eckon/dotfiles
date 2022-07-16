@@ -6,9 +6,7 @@
 # these can be searched, filtered and executed through fzf
 #############################################################
 
-scriptsPaths=(
-  "$HOME/Development/dotfiles/custom-scripts"
-)
+scriptsPaths=("$HOME/Development/dotfiles/scripts")
 
 scriptList=""
 for i in "${scriptsPaths[@]}"; do

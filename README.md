@@ -5,7 +5,7 @@ The structure represents the home directory to allow easy symlinks.
 
 Bigger parts have their own README and can be found here:
 - [Neovim / Vim](./.config/nvim)
-- [Custom scripts](./custom-scripts)
+- [Scripts](./scripts)
 - [Visual Studio Code](./.config/Code/User)
 - [Gists](https://gist.github.com/eckon)
 

@@ -3,8 +3,8 @@
 all: packages symlinks
 
 symlinks:
-	@ ./custom-scripts/setup/symlink.sh
+	@ ./scripts/setup/symlink.sh
 
 packages:
 	@ sudo -v
-	@ ./custom-scripts/setup/install-packages.sh
+	@ ./scripts/setup/install-packages.sh
