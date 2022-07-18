@@ -29,7 +29,7 @@ call plug#end()
 " -------------------- General Configuration
 let mapleader = "\<Space>"
 
-set clipboard+=unnamedplus shell=bash mouse=a undofile noswapfile title
+set clipboard+=unnamedplus shell=bash undofile noswapfile title
 set completeopt=menuone,noinsert,noselect
 set magic lazyredraw ignorecase smartcase
 set number relativenumber
