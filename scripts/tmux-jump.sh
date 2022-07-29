@@ -14,7 +14,7 @@ if ! (tmux has-session -t "$session" 2>/dev/null); then
   tmux new-session -s "$session" -d -c "$HOME/Documents/notes"
 
   echo "  Start editor via \"vim\""
-  tmux send-key -t "$session":1 "vim -c 'normal! G' ./_refill.md" C-m
+  tmux send-key -t "$session":1 "vim -c 'NeorgStart'" C-m
 fi
 
 session="dotfiles"

@@ -22,6 +22,9 @@ call plug#begin()
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
+
+  " Notetaking/Organization
+  Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 
@@ -313,3 +316,26 @@ EOF
 
 " ----- Mappings
 noremap H <CMD>HopChar1<CR>
+
+
+
+" ---------- neorg
+" ----- Configurations
+lua << EOF
+require('neorg').setup({
+  load = {
+    ["core.defaults"] = {},
+    ["core.norg.concealer"] = {},
+    ["core.norg.dirman"] = {
+      config = {
+        workspaces = {
+          private = "~/Documents/notes/private",
+          work = "~/Documents/notes/work",
+        },
+        autochdir = true,
+        index = "_refill.norg",
+      },
+    },
+  },
+})
+EOF
