@@ -2,6 +2,7 @@
   "Lua.telemetry.enable": false,
   "Lua.workspace.library": ["~/.local/share/nvim/plugged"],
   "coc.preferences.listOfWorkspaceEdit": "none",
+  "python.formatting.provider": "black",
   "prettier.disableLanguages": ["markdown"],
   "sumneko-lua.enableNvimLuaDev": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",

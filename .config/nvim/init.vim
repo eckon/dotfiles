@@ -153,6 +153,7 @@ let g:coc_global_extensions += [
   \   'coc-emmet',
   \   'coc-eslint8',
   \   'coc-prettier',
+  \   'coc-pyright',
   \   'coc-sumneko-lua',
   \   'coc-toml',
   \   'coc-tsserver',
