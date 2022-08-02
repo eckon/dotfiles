@@ -1,26 +1,41 @@
 #!/usr/bin/env bash
 
-#######################################################################
-# script to quickly and easily jump between tmux sessions and
+#########################################################################
+# script to quickly and easily create and jump between tmux sessions and
 # start different edge cases
 #
-# needed plugins: fzf, zoxide
-#######################################################################
+# needed plugins: fzf, zoxide, tmux
+#########################################################################
 
-# always init notes and dotfiles session
-session="notes"
+get_session_indentifier () {
+  # map path to session identifier
+  path="$1"
+  directory=$(basename "$path")
+  if [[ -z "$path" ]]; then
+    exit
+  fi
+
+  # replace characters that tmux session names do not allow
+  echo "$directory" | tr ".:" "-"
+}
+
+# always init notes session
+path=$(zoxide query "notes")
+session=$(get_session_indentifier "$path")
 if ! (tmux has-session -t "$session" 2>/dev/null); then
   echo "Create \"$session\" session"
-  tmux new-session -s "$session" -d -c "$HOME/Documents/notes"
+  tmux new-session -s "$session" -d -c "$path"
 
   echo "  Start editor via \"vim\""
   tmux send-key -t "$session":1 "vim -c 'NeorgStart'" C-m
 fi
 
-session="dotfiles"
+# always init dotfiles session
+path=$(zoxide query "dotfiles")
+session=$(get_session_indentifier "$path")
 if ! (tmux has-session -t "$session" 2>/dev/null); then
   echo "Create \"$session\" session"
-  tmux new-session -s "$session" -d -c "$HOME/Development/dotfiles"
+  tmux new-session -s "$session" -d -c "$path"
 
   echo "  Start editor via \"vim\""
   tmux send-key -t "$session":1 'vim' C-m
@@ -29,13 +44,13 @@ fi
 # select special edge cases when no arguments are given
 if [[ "$#" -le 0 ]]; then
   selected=$(printf "backend\nfrontend" | fzf --height 10% --reverse)
-  workRoot="$HOME/Development/work"
 
   if [[ "$selected" == "backend" ]]; then
-    session="idss"
+    path=$(zoxide query "idss")
+    session=$(get_session_indentifier "$path")
     if ! (tmux has-session -t "$session" 2>/dev/null); then
       echo "Create \"$session\" session"
-      tmux new-session -s "$session" -d -c "$workRoot/idss-shared-resources"
+      tmux new-session -s "$session" -d -c "$path"
 
       echo "  Start services via \"docker-compose up\""
       tmux send-key -t "$session":1 'docker-compose up' C-m
@@ -43,10 +58,21 @@ if [[ "$#" -le 0 ]]; then
   fi
 
   if [[ "$selected" == "frontend" ]]; then
-    session="orchestrator"
+    path=$(zoxide query "orchestrator")
+    session=$(get_session_indentifier "$path")
     if ! (tmux has-session -t "$session" 2>/dev/null); then
       echo "Create \"$session\" session"
-      tmux new-session -s "$session" -d -c "$workRoot/epos_fe.spa-orchestrator"
+      tmux new-session -s "$session" -d -c "$path"
+
+      echo "  Start services via \"npm run serve\""
+      tmux send-key -t "$session":1 'npm run serve' C-m
+    fi
+
+    path=$(zoxide query "core-applets")
+    session=$(get_session_indentifier "$path")
+    if ! (tmux has-session -t "$session" 2>/dev/null); then
+      echo "Create \"$session\" session"
+      tmux new-session -s "$session" -d -c "$path"
 
       echo "  Start services via \"npm run serve\""
       tmux send-key -t "$session":1 'npm run serve' C-m
@@ -56,22 +82,15 @@ if [[ "$#" -le 0 ]]; then
   exit
 fi
 
-# get result of zoxide and create/attach to returning session
-# exit if we get no result from zoxide
-path=$(zoxide query "$@")
-directory=$(basename "$path")
-if [[ -z "$path" ]]; then
-  exit
-fi
-
-# replace characters that tmux session names do not allow
-session=$(echo "$directory" | tr ".:" "-")
+# query path of given match otherwise exit
+path=$(zoxide query "$@") || exit
+session=$(get_session_indentifier "$path")
 if ! (tmux has-session -t "$session" 2>/dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
 fi
 
-
+# context aware change to session
 if [[ -z "$TMUX" ]];then
   # outside of tmux -> attach to session
   tmux attach -t "$session"
