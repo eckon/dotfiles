@@ -5,17 +5,18 @@
 # relies on being executed in the correct context (root dotfiles)
 ##################################################################
 
+declare -A configPaths
 configPaths=(
-  ".config/Code/User/keybindings.json"
-  ".config/Code/User/settings.json"
-  ".config/fish/config.fish"
-  ".config/git"
-  ".config/kitty/kitty.conf"
-  ".config/lazygit/config.yml"
-  ".config/nvim"
-  ".config/starship.toml"
-  ".config/tmux"
-  ".zshrc"
+  ["config/Code/User/keybindings.json"]=".config/Code/User/keybindings.json"
+  ["config/Code/User/settings.json"]=".config/Code/User/settings.json"
+  ["config/fish/config.fish"]=".config/fish/config.fish"
+  ["config/git"]=".config/git"
+  ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
+  ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
+  ["config/nvim"]=".config/nvim"
+  ["config/starship.toml"]=".config/starship.toml"
+  ["config/tmux"]=".config/tmux"
+  ["zshrc"]=".zshrc"
 )
 
 declare -A scriptPaths
@@ -28,9 +29,10 @@ echo ""
 echo "Symlink configurations"
 echo "----------------------"
 
-for path in "${configPaths[@]}"; do
-  fromPath="$(pwd)/$path"
-  toPath="$HOME/$path"
+for configPath in "${!configPaths[@]}"; do
+  targetPath=${configPaths[$configPath]}
+  fromPath="$(pwd)/$configPath"
+  toPath="$HOME/$targetPath"
 
   if ! test -e "$fromPath"; then
     echo "[!] Path \"$fromPath\" does not exist -> exit script"
