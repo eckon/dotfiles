@@ -1,7 +1,6 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
-  Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -10,6 +9,8 @@ call plug#begin()
 
   " Fuzzy-Finder/Tree-View/Navigation
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } | Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'phaazon/hop.nvim'
 
   " Treesitter
@@ -226,23 +227,42 @@ EOF
 " ---------- Fuzzy-Finder
 " ----- Configurations
 lua << EOF
--- allow history search with ctrl-n and ctrl-p
-local share_dir = vim.fn.expand('~/.local/share')
-require('fzf-lua').setup({
-  fzf_opts = { ['--history'] = share_dir .. '/' .. 'fzf-vim-history' },
-  previewers = { git_diff = { pager = 'delta' } },
+local actions = require('telescope.actions')
+require('telescope').setup({
+  defaults = {
+    color_devicons = true,
+    layout_strategy = 'vertical',
+    path_display = { 'truncate' },
+    mappings = {
+      i = {
+        ['<C-j>'] = actions.cycle_history_next,
+        ['<C-k>'] = actions.cycle_history_prev,
+      },
+    },
+  },
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = { ['<C-f>'] = actions.to_fuzzy_refine },
+      },
+    },
+  },
 })
+
+require('telescope').load_extension('fzf')
 EOF
 
 
 " ----- Mappings
-nnoremap <Leader>fa <CMD>lua require('fzf-lua').grep()<CR>
-nnoremap <Leader>fr <CMD>lua require('fzf-lua').resume()<CR>
-nnoremap <Leader>fb <CMD>lua require('fzf-lua').buffers()<CR>
-nnoremap <Leader>ff <CMD>lua require('fzf-lua').files()<CR>
-nnoremap <Leader>fg <CMD>lua require('fzf-lua').git_status()<CR>
-nnoremap <Leader>fl <CMD>lua require('fzf-lua').blines()<CR>
-nnoremap <Leader>fh <CMD>lua require('fzf-lua').help_tags()<CR>
+nnoremap <Leader>fa <CMD>lua require('telescope.builtin').grep_string({ search = vim.fn.input({ prompt = 'Grep > ' }) })<CR>
+nnoremap <Leader>fA <CMD>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <Leader>fr <CMD>lua require('telescope.builtin').resume()<CR>
+
+nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>ff <CMD>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
+nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <Leader>fs <CMD>lua require('telescope.builtin').spell_suggest()<CR>
 
 
 
