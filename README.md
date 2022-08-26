@@ -4,9 +4,9 @@ This repository includes all of my public _**scripts**_ and _**configurations**_
 The structure represents the home directory to allow easy symlinks.
 
 Bigger parts have their own README and can be found here:
-- [Neovim / Vim](./.config/nvim)
+- [Neovim / Vim](./config/nvim)
 - [Scripts](./scripts)
-- [Visual Studio Code](./.config/Code/User)
+- [Visual Studio Code](./config/Code/User)
 - [Gists](https://gist.github.com/eckon)
 
 
@@ -29,7 +29,7 @@ Installation of everything in my configuration:
   - has my personal projects
 - `~/Development/work/`
   - has work related projects
-  - uses a pre-configured [.gitconfig](./.config/git/work)
+  - uses a pre-configured [.gitconfig](./config/git/work)
 
 
 ## Used software
