@@ -2,12 +2,15 @@
 call plug#begin()
   " General Tools
   Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'phaazon/hop.nvim'
+  Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
+
+  " Fuzzy-Finder/Tree-View/Navigation
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'phaazon/hop.nvim'
 
   " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -22,9 +25,6 @@ call plug#begin()
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
-
-  " Notetaking/Organization
-  Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 
@@ -325,16 +325,16 @@ noremap H <CMD>HopChar1<CR>
 lua << EOF
 require('neorg').setup({
   load = {
-    ["core.defaults"] = {},
-    ["core.norg.concealer"] = {},
-    ["core.norg.dirman"] = {
+    ['core.defaults'] = {},
+    ['core.norg.concealer'] = {},
+    ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          private = "~/Documents/notes/private",
-          work = "~/Documents/notes/work",
+          private = '~/Documents/notes/private',
+          work = '~/Documents/notes/work',
         },
         autochdir = true,
-        index = "_refill.norg",
+        index = '_refill.norg',
       },
     },
   },
