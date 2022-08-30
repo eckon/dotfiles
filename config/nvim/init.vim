@@ -312,13 +312,7 @@ require('telescope').setup({
       i = {
         ['<C-j>'] = actions.cycle_history_next,
         ['<C-k>'] = actions.cycle_history_prev,
-      },
-    },
-  },
-  pickers = {
-    live_grep = {
-      mappings = {
-        i = { ['<C-f>'] = actions.to_fuzzy_refine },
+        ['<C-f>'] = actions.to_fuzzy_refine,
       },
     },
   },
@@ -333,7 +327,7 @@ nnoremap <Leader>fa <CMD>lua require('telescope.builtin').grep_string({ search =
 nnoremap <Leader>fA <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <Leader>fr <CMD>lua require('telescope.builtin').resume()<CR>
 
-nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>fb <CMD>lua require('telescope.builtin').buffers({ sort_mru = true })<CR>
 nnoremap <Leader>ff <CMD>lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>fg <CMD>lua require('telescope.builtin').git_status()<CR>
 nnoremap <Leader>fl <CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
