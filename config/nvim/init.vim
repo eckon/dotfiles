@@ -1,11 +1,10 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
+  Plug 'kylechui/nvim-surround'
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
-  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
-  Plug 'tpope/vim-surround'
 
   " Fuzzy-Finder/Tree-View/Navigation
   Plug 'kyazdani42/nvim-tree.lua'
@@ -410,6 +409,14 @@ noremap H <CMD>HopChar1<CR>
 " ----- Configurations
 lua << EOF
 require('Comment').setup()
+EOF
+
+
+
+" ---------- surround
+" ----- Configurations
+lua << EOF
+require('nvim-surround').setup()
 EOF
 
 
