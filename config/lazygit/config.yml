@@ -1,3 +1,6 @@
+gui:
+  sidePanelWidth: 0.2
+
 git:
   paging:
     colorArg: always
