@@ -5,6 +5,7 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
   Plug 'tpope/vim-sleuth'
+  Plug 'windwp/nvim-autopairs'
 
   " Fuzzy-Finder/Tree-View/Navigation
   Plug 'kyazdani42/nvim-tree.lua'
@@ -215,6 +216,10 @@ cmp.setup({
     { name = 'path' },
   }),
 })
+
+-- trigger autopairs after cmp completion was confirmed
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 EOL
 
 
@@ -417,6 +422,14 @@ EOF
 " ----- Configurations
 lua << EOF
 require('nvim-surround').setup()
+EOF
+
+
+
+" ---------- autopairs
+" ----- Configurations
+lua << EOF
+require('nvim-autopairs').setup()
 EOF
 
 
