@@ -1,8 +1,8 @@
 " -------------------- Plugin Installations
 call plug#begin()
   " General Tools
+  Plug 'numToStr/Comment.nvim'
   Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
-  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
@@ -15,7 +15,6 @@ call plug#begin()
 
   " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
   " LSP
   Plug 'neovim/nvim-lspconfig'
@@ -293,7 +292,6 @@ require('nvim-treesitter.configs').setup({
     -- regex highlight is still better than Treesitter highlight
     disable = { 'php', 'vim' },
   },
-  context_commentstring = { enable = true },
 })
 EOF
 
@@ -405,6 +403,14 @@ EOF
 
 " ----- Mappings
 noremap H <CMD>HopChar1<CR>
+
+
+
+" ---------- comment
+" ----- Configurations
+lua << EOF
+require('Comment').setup()
+EOF
 
 
 
