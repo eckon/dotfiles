@@ -1,0 +1,20 @@
+require('nvim-treesitter.configs').setup({
+  auto_install = true,
+  ensure_installed = {
+    'comment',
+    'css',
+    'fish',
+    'help',
+    'html',
+    'json',
+    'lua',
+    'markdown',
+    'markdown_inline',
+    'python',
+    'rust',
+    'typescript',
+    'vim',
+    'yaml',
+  },
+  highlight = { enable = true },
+})

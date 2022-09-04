@@ -1,11 +1,11 @@
 local M = {}
 
 ---Visually select an indented area
-M.indent_textobject_selection = function ()
+M.indent_textobject_selection = function()
   ---Check if given line number is blank
   ---@param line_number number
   ---@return boolean
-  local is_blank_line = function (line_number)
+  local is_blank_line = function(line_number)
     local blank_line_pattern = '^%s*$'
     local line_content = vim.fn.getline(line_number)
     return string.match(line_content, blank_line_pattern) ~= nil
@@ -21,7 +21,6 @@ M.indent_textobject_selection = function ()
     vim.cmd(tostring(next_non_blank))
   end
 
-
   -- handle passed ranges for other indentation levels
   local base_indent = vim.fn.indent(vim.fn.line('.'))
   if vim.v.count > 0 then
@@ -35,7 +34,7 @@ M.indent_textobject_selection = function ()
   ---meaning a non blank line and an indent smaller than the base is found
   ---@param line_number number
   ---@return boolean
-  local has_higher_indent = function (line_number)
+  local has_higher_indent = function(line_number)
     return is_blank_line(line_number) or vim.fn.indent(line_number) >= base_indent
   end
 
@@ -58,7 +57,7 @@ M.indent_textobject_selection = function ()
   end
 end
 
-M.indent_around_textobject = function ()
+M.indent_around_textobject = function()
   M.indent_textobject_selection()
   -- after selecting the indented area, switch to the start of the selection
   vim.cmd('normal! o')
@@ -70,7 +69,7 @@ M.indent_around_textobject = function ()
   vim.cmd('+')
 end
 
-M.indent_inner_textobject = function ()
+M.indent_inner_textobject = function()
   M.indent_textobject_selection()
 end
 
