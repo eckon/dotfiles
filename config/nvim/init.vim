@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'windwp/nvim-autopairs'
 
   " Fuzzy-Finder/Tree-View/Navigation
+  " TODO: replace nvim tree as it is one of the slowest parts of this config
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } | Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -298,7 +299,12 @@ nnoremap <silent> <Leader>dc <CMD>lua require('dap').run_to_cursor()<CR>
 " ----- Configurations
 lua << EOF
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'all',
+  auto_install = true,
+  ensure_installed = {
+    'html', 'json', 'yaml', 'css',
+    'rust', 'vim', 'lua', 'typescript', 'python',
+    'comment', 'markdown', 'markdown_inline', 'help',
+  },
   highlight = { enable = true },
 })
 EOF
