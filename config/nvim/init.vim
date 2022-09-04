@@ -37,7 +37,7 @@ call plug#begin()
   Plug 'theHamsta/nvim-dap-virtual-text'
 
   " Syntax/Styling/Appearance/Special
-  Plug 'ellisonleao/gruvbox.nvim'
+  Plug 'navarasu/onedark.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
@@ -63,7 +63,8 @@ set wildmode=list:longest,list:full
 
 
 " -------------------- Color/Style Configuration
-colorscheme gruvbox
+let g:onedark_config = { 'style': 'warmer' }
+colorscheme onedark
 
 set cursorline colorcolumn=80,120,121
 set list listchars=nbsp:¬,extends:»,precedes:«,lead:\ ,trail:·,space:\ ,tab:▸\ 
@@ -291,11 +292,7 @@ nnoremap <silent> <Leader>dc <CMD>lua require('dap').run_to_cursor()<CR>
 lua << EOF
 require('nvim-treesitter.configs').setup({
   ensure_installed = 'all',
-  highlight = {
-    enable = true,
-    -- regex highlight is still better than Treesitter highlight
-    disable = { 'php', 'vim' },
-  },
+  highlight = { enable = true },
 })
 EOF
 
