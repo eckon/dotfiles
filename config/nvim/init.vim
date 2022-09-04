@@ -110,6 +110,10 @@ noremap U <Nop>
 vnoremap < <gv
 vnoremap > >gv
 
+" center view after common jump actions
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " append jump-commands for quickfix-list jumps
 nnoremap [q <CMD>cprevious<CR>zz
 nnoremap ]q <CMD>cnext<CR>zz
