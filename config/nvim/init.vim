@@ -32,6 +32,10 @@ call plug#begin()
   Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
   Plug 'j-hui/fidget.nvim'
 
+  " Git
+  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'sindrets/diffview.nvim' | Plug 'nvim-lua/plenary.nvim'
+
   " Debugger
   Plug 'mfussenegger/nvim-dap'
   Plug 'theHamsta/nvim-dap-virtual-text'
@@ -39,7 +43,6 @@ call plug#begin()
   " Syntax/Styling/Appearance/Special
   Plug 'navarasu/onedark.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
@@ -342,12 +345,26 @@ nnoremap <Leader>fs <CMD>lua require('telescope.builtin').spell_suggest()<CR>
 " ----- Configurations
 lua << EOF
 require('gitsigns').setup({ keymaps = {} })
+require('diffview').setup({
+  enhanced_diff_hl = true,
+  keymaps = {
+    file_history_panel = { ['q'] = '<CMD>tabclose<CR>' },
+    file_panel = { ['q'] = '<CMD>tabclose<CR>' },
+    view = { ['q'] = '<CMD>tabclose<CR>' }
+  },
+})
 EOF
 
 
 " ----- Mappings
+nnoremap <Leader>gg <CMD>DiffviewOpen<CR>
+
+nnoremap <Leader>gs <CMD>Gitsigns stage_hunk<CR>
+vnoremap <Leader>gs :Gitsigns stage_hunk<CR>
+nnoremap <Leader>gu <CMD>Gitsigns undo_stage_hunk<CR>
+vnoremap <Leader>gu :Gitsigns undo_stage_hunk<CR>
+
 nnoremap <Leader>gb <CMD>lua require('gitsigns').blame_line({ full = true })<CR>
-nnoremap <Leader>gq <CMD>lua require('gitsigns').setqflist('all')<CR>
 
 nnoremap ]c <CMD>Gitsigns next_hunk<CR>zz
 nnoremap [c <CMD>Gitsigns prev_hunk<CR>zz
