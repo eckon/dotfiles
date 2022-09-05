@@ -126,7 +126,7 @@ if ! test -f "$vimPlugLocation"; then
 fi
 
 packerLocation="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if ! test -f "$packerLocation"; then
+if ! test -d "$packerLocation"; then
   echo "[+] Install \"packer\""
   git clone --depth 1 https://github.com/wbthomason/packer.nvim "$packerLocation"
 fi

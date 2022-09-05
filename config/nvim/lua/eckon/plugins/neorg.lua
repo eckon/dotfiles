@@ -9,7 +9,7 @@ require('neorg').setup({
           work = '~/Documents/notes/work',
         },
         autochdir = true,
-        index = '_refill.norg',
+        index = '_todo.norg',
       },
     },
   },

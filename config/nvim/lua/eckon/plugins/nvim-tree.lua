@@ -12,4 +12,5 @@ require('nvim-tree').setup({
   },
 })
 
-vim.cmd([[nnoremap <Leader>. <CMD>NvimTreeFindFileToggle<CR>]])
+local nnoremap = require('eckon.utils').nnoremap
+nnoremap('<Leader>.', '<CMD>NvimTreeFindFileToggle<CR>')

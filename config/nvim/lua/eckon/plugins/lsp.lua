@@ -3,8 +3,6 @@ require('fidget').setup({})
 require('lsp_lines').setup()
 vim.diagnostic.config({ virtual_text = false })
 
-require('nvim-autopairs').setup()
-
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -39,6 +37,20 @@ require('mason-lspconfig').setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({
       capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      on_attach = function(_, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+
+        if vim.api.nvim_buf_line_count(bufnr) < 10000 then
+          return
+        end
+
+        vim.notify('Stopped LSP (file too big)')
+        local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+        for _, client in pairs(clients) do
+          client.stop()
+        end
+      end,
     })
   end,
   ['sumneko_lua'] = function()
@@ -81,33 +93,37 @@ cmp.setup({
   }),
 })
 
--- trigger autopairs after cmp completion was confirmed
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+local nnoremap = require('eckon.utils').nnoremap
+local inoremap = require('eckon.utils').inoremap
 
-vim.cmd([[
-nnoremap <silent>K :call Show_documentation()<CR>
-inoremap <C-k> <CMD>lua vim.lsp.buf.signature_help()<CR>
-
-nnoremap gd <CMD>lua require('telescope.builtin').lsp_definitions({ show_line = false })<CR>
-nnoremap gD <CMD>lua require('telescope.builtin').lsp_type_definitions({ show_line = false })<CR>
-nnoremap gr <CMD>lua require('telescope.builtin').lsp_references({ show_line = false })<CR>
-nnoremap [d <CMD>lua vim.diagnostic.goto_prev()<CR>
-nnoremap ]d <CMD>lua vim.diagnostic.goto_next()<CR>
-
-nnoremap <Leader>la <CMD>lua vim.lsp.buf.code_action()<CR>
-nnoremap <Leader>lr <CMD>lua vim.lsp.buf.rename()<CR>
-nnoremap <Leader>lf <CMD>lua vim.lsp.buf.format({ async = true })<CR>
-nnoremap <Leader>ld <CMD>lua vim.diagnostic.open_float()<CR>
-nnoremap <Leader>lh <CMD>lua require('lsp_lines').toggle()<CR>
-nnoremap <Leader>ll <CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>
-
-" rewrite in lua, example: https://github.dev/YodaEmbedding/dotfiles/tree/master/nvim/.config/nvim/lua/plugins
-function! Show_documentation() abort
-  if (index(['vim', 'help'], &filetype) >= 0)
-    execute 'help ' . expand('<cword>')
+nnoremap('K', function()
+  local filetype = vim.bo.filetype
+  if filetype == 'vim' or filetype == 'help' then
+    vim.api.nvim_command('h ' .. vim.fn.expand('<cword>'))
   else
-    execute 'lua vim.lsp.buf.hover()'
-  endif
-endfunction
-]])
+    vim.lsp.buf.hover()
+  end
+end)
+
+inoremap('<C-k>', vim.lsp.buf.signature_help)
+
+nnoremap('gd', function()
+  require('telescope.builtin').lsp_definitions({ show_line = false })
+end)
+nnoremap('gD', function()
+  require('telescope.builtin').lsp_type_definitions({ show_line = false })
+end)
+nnoremap('gr', function()
+  require('telescope.builtin').lsp_references({ show_line = false })
+end)
+nnoremap('[d', vim.diagnostic.goto_prev)
+nnoremap(']d', vim.diagnostic.goto_next)
+
+nnoremap('<Leader>la', vim.lsp.buf.code_action)
+nnoremap('<Leader>lr', vim.lsp.buf.rename)
+nnoremap('<Leader>lf', function()
+  vim.lsp.buf.format({ async = true })
+end)
+nnoremap('<Leader>ld', vim.diagnostic.open_float)
+nnoremap('<Leader>lh', require('lsp_lines').toggle)
+nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols)

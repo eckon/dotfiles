@@ -57,7 +57,10 @@ M.indent_textobject_selection = function()
   end
 end
 
-M.indent_around_textobject = function()
+---Textobject to get indented around block
+---@param inclusive boolean
+M.indent_around_textobject = function(inclusive)
+  inclusive = inclusive or false
   M.indent_textobject_selection()
   -- after selecting the indented area, switch to the start of the selection
   vim.cmd('normal! o')
@@ -65,10 +68,15 @@ M.indent_around_textobject = function()
   vim.cmd('-')
   -- then switch to the end of the selection
   vim.cmd('normal! o')
-  -- and add one line to the bottom (one down)
-  vim.cmd('+')
+
+  -- ignore last line for non bracket languages (python, yaml, etc.)
+  if inclusive then
+    -- and add one line to the bottom (one down)
+    vim.cmd('+')
+  end
 end
 
+---Textobject to get indented inner block
 M.indent_inner_textobject = function()
   M.indent_textobject_selection()
 end
