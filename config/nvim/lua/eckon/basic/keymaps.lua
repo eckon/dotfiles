@@ -25,5 +25,5 @@ nnoremap(']Q', '<CMD>clast<CR>zz')
 
 -- mappings to handle copy/paste/delete to different registers
 vnoremap('<Leader>p', '"_dP')
-noremap('<Leader>d', '"_d')
-noremap('<Leader>y', '"+y')
+vnoremap('<Leader>y', '"+y')
+vnoremap('<Leader>d', '"_d')

@@ -2,7 +2,7 @@ local set = vim.opt
 
 vim.g.mapleader = ' '
 
--- TODO: test if this works out fine (use my copy/paste mapings instead)
+-- test if this is a better workflow than to put everything into system clipboard
 -- set.clipboard = 'unnamedplus'
 
 set.shell = 'bash'
