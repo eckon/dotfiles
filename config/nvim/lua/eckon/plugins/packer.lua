@@ -9,12 +9,8 @@ require('packer').startup(function(use)
   -- Navigation
   use('kyazdani42/nvim-tree.lua')
   use({
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    },
+    { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } },
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   })
   use('phaazon/hop.nvim')
 
@@ -23,7 +19,7 @@ require('packer').startup(function(use)
 
   -- LSP
   use('neovim/nvim-lspconfig')
-  use({ 'williamboman/mason.nvim', requires = { 'williamboman/mason-lspconfig.nvim' } })
+  use({ 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' })
   use('jose-elias-alvarez/null-ls.nvim')
 
   use('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
@@ -32,13 +28,11 @@ require('packer').startup(function(use)
   -- Completion
   use({
     'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip',
-    },
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
   })
 
   -- Git
