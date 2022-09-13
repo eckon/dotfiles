@@ -2,8 +2,7 @@ require('eckon.plugins.packer')
 
 require('impatient')
 
--- TODO: not really using it, and now it has similar keybinds to leader-d
--- require('eckon.plugins.dap')
+require('eckon.plugins.dap')
 require('eckon.plugins.git')
 require('eckon.plugins.lsp')
 require('eckon.plugins.lualine')
