@@ -2,9 +2,6 @@ local set = vim.opt
 
 vim.g.mapleader = ' '
 
--- test if this is a better workflow than to put everything into system clipboard
--- set.clipboard = 'unnamedplus'
-
 set.shell = 'bash'
 set.undofile = true
 set.swapfile = false

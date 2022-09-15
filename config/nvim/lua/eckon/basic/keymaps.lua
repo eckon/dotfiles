@@ -6,7 +6,7 @@ local inoremap = require('eckon.utils').inoremap
 -- disable annoying keys
 nnoremap('<F1>', '<Nop>')
 inoremap('<F1>', '<Nop>')
-noremap('U', '<Nop>')
+nnoremap('U', '<Nop>')
 noremap('<Space>', '<Nop>')
 
 -- rehighlight text after indenting
