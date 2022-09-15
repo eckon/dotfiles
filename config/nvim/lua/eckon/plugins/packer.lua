@@ -7,9 +7,9 @@ require('packer').startup(function(use)
   use('tpope/vim-sleuth')
 
   -- Navigation
-  use('kyazdani42/nvim-tree.lua')
+  use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
   use({
-    { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } },
+    { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   })
   use('phaazon/hop.nvim')
@@ -37,7 +37,7 @@ require('packer').startup(function(use)
 
   -- Git
   use('lewis6991/gitsigns.nvim')
-  use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
+  use({ 'sindrets/diffview.nvim', requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } })
 
   -- Debugger
   use('mfussenegger/nvim-dap')
@@ -47,9 +47,8 @@ require('packer').startup(function(use)
   use({ 'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim' })
 
   -- Syntax/Styling/Appearance/Special
-  use('kyazdani42/nvim-web-devicons')
   use('lewis6991/impatient.nvim')
   use('navarasu/onedark.nvim')
-  use('nvim-lualine/lualine.nvim')
+  use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
   use('tmux-plugins/vim-tmux-focus-events')
 end)

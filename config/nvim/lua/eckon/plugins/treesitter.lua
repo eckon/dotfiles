@@ -1,22 +1,6 @@
 require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-    'comment',
-    'css',
-    'fish',
-    'help',
-    'html',
-    'javascript',
-    'json',
-    'lua',
-    'markdown',
-    'markdown_inline',
-    'python',
-    'rust',
-    'typescript',
-    'vim',
-    'vue',
-    'yaml',
-  },
+  -- more startuptime with `all` setting, but can be ignored for now
+  ensure_installed = 'all',
   highlight = {
     enable = true,
     disable = function(_, bufnr)

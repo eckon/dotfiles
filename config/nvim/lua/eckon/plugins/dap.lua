@@ -23,7 +23,6 @@ dap.configurations.typescript = { { name = 'Attach to process', type = 'node2', 
 
 local nnoremap = require('eckon.utils').nnoremap
 
--- TODO: use something like hydra or map keybindings only after setup and in the buffer
 nnoremap('<Leader>db', require('dap').toggle_breakpoint)
 nnoremap('<Leader>dK', require('dap.ui.widgets').hover)
 nnoremap('<Leader>dd', require('dap').continue)

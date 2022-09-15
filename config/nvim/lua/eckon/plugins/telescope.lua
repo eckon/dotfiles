@@ -30,5 +30,13 @@ end)
 nnoremap('<Leader>ff', require('telescope.builtin').find_files)
 nnoremap('<Leader>fg', require('telescope.builtin').git_status)
 nnoremap('<Leader>fl', require('telescope.builtin').current_buffer_fuzzy_find)
-nnoremap('<Leader>fs', require('telescope.builtin').spell_suggest)
+nnoremap('<Leader>fs', function()
+  require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({
+    prompt_title = '',
+    layout_config = {
+      height = 0.25,
+      width = 0.25,
+    },
+  }))
+end)
 nnoremap('<Leader>fh', require('telescope.builtin').help_tags)

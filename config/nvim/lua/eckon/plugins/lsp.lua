@@ -24,10 +24,11 @@ require('mason-lspconfig').setup({
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
-    null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.stylua,
   },
 })
@@ -114,7 +115,7 @@ nnoremap('gD', function()
   require('telescope.builtin').lsp_type_definitions({ show_line = false })
 end)
 nnoremap('gr', function()
-  require('telescope.builtin').lsp_references({ show_line = false })
+  require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false })
 end)
 nnoremap('[d', vim.diagnostic.goto_prev)
 nnoremap(']d', vim.diagnostic.goto_next)

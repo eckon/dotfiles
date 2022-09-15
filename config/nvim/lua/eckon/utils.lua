@@ -1,9 +1,5 @@
 local M = {}
 
---[[
--- String manipulation
---]]
-
 ---Trim string to remove empty trailing lines and new lines
 ---@param str string
 ---@return string
@@ -13,10 +9,6 @@ local function trim_string(str)
 end
 
 M.trim = trim_string
-
---[[
--- User Command
---]]
 
 ---Create user command with 'CC'-prefix for quick access
 ---@param name string
@@ -44,10 +36,6 @@ end
 
 M.custom_command = custom_command
 M.command_complete_filter = command_complete_filter
-
---[[
--- Key mappings
---]]
 
 ---Create partial function to store mode and options
 ---@param mode string|table
