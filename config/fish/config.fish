@@ -1,6 +1,7 @@
 # -------------------- Path --------------------
 test -d ~/.fnm;       and fish_add_path ~/.fnm
 test -d ~/.local/bin; and fish_add_path ~/.local/bin
+test -d ~/.cargo/bin; and fish_add_path ~/.cargo/bin
 
 
 
