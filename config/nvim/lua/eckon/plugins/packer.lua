@@ -1,10 +1,22 @@
 require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
+  use('lewis6991/impatient.nvim')
 
   -- General
-  use('kylechui/nvim-surround')
-  use('numToStr/Comment.nvim')
   use('tpope/vim-sleuth')
+  use({
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  })
+
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  })
 
   -- Navigation
   use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
@@ -12,7 +24,6 @@ require('packer').startup(function(use)
     { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   })
-  use('phaazon/hop.nvim')
 
   -- Treesitter
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
@@ -47,8 +58,13 @@ require('packer').startup(function(use)
   use({ 'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim' })
 
   -- Syntax/Styling/Appearance/Special
-  use('lewis6991/impatient.nvim')
-  use('navarasu/onedark.nvim')
-  use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
   use('tmux-plugins/vim-tmux-focus-events')
+  use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
+  use({
+    'navarasu/onedark.nvim',
+    config = function()
+      require('onedark').setup({ style = 'warmer' })
+      require('onedark').load()
+    end,
+  })
 end)
