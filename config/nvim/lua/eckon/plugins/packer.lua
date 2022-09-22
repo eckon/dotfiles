@@ -32,8 +32,6 @@ require('packer').startup(function(use)
   use('neovim/nvim-lspconfig')
   use({ 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' })
   use('jose-elias-alvarez/null-ls.nvim')
-
-  use('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
   use('j-hui/fidget.nvim')
 
   -- Completion

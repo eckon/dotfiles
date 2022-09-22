@@ -1,8 +1,5 @@
 require('fidget').setup({})
 
-require('lsp_lines').setup()
-vim.diagnostic.config({ virtual_text = false })
-
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -117,6 +114,9 @@ end)
 nnoremap('gr', function()
   require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false })
 end)
+
+nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols)
+
 nnoremap('[d', vim.diagnostic.goto_prev)
 nnoremap(']d', vim.diagnostic.goto_next)
 
@@ -126,5 +126,3 @@ nnoremap('<Leader>lf', function()
   vim.lsp.buf.format({ async = true })
 end)
 nnoremap('<Leader>ld', vim.diagnostic.open_float)
-nnoremap('<Leader>lh', require('lsp_lines').toggle)
-nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols)
