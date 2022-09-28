@@ -53,7 +53,7 @@ require('packer').startup(function(use)
   use('theHamsta/nvim-dap-virtual-text')
 
   -- Notes
-  use({ 'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim' })
+  use({ 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' })
 
   -- Syntax/Styling/Appearance/Special
   use('tmux-plugins/vim-tmux-focus-events')
