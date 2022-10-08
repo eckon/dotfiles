@@ -43,6 +43,7 @@ set.listchars = { nbsp = '¬', extends = '»', precedes = '«', lead = ' ', trai
 
 set.scrolloff = 5
 set.sidescrolloff = 5
+set.splitkeep = 'screen'
 set.wrap = false
 
 set.termguicolors = true
@@ -50,7 +51,3 @@ set.termguicolors = true
 set.winbar = '%t %m'
 
 set.foldenable = false
-
--- TODO: set spell always true because of spelloption -> noplainbuffer
---       but for now it seems to be not working (should show spell errors in comments)
---       (note, syntax does not need to be true, as treesitter handles it)
