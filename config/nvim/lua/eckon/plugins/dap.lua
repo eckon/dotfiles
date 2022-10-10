@@ -1,16 +1,17 @@
 local dap = require('dap')
 require('nvim-dap-virtual-text').setup({})
+require('dapui').setup()
 
-dap.listeners.after['event_initialized']['repl_config'] = function()
-  dap.repl.open()
-end
+dap.listeners.after['event_initialized']['repl_config'] = function() require('dapui').open({}) end
 
 dap.listeners.before['event_exited']['repl_config'] = function()
-  dap.repl.close()
+  require('dapui').close({})
+  vim.cmd('bd! \\[dap-repl]')
 end
 
 dap.listeners.before['event_terminated']['repl_config'] = function()
-  dap.repl.close()
+  require('dapui').close({})
+  vim.cmd('bd! \\[dap-repl]')
 end
 
 dap.adapters.node2 = {

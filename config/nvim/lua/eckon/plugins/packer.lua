@@ -38,8 +38,7 @@ require('packer').startup(function(use)
   use({ 'sindrets/diffview.nvim', requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } })
 
   -- Debugger
-  use('mfussenegger/nvim-dap')
-  use('theHamsta/nvim-dap-virtual-text')
+  use({ 'mfussenegger/nvim-dap', 'rcarriga/nvim-dap-ui', 'theHamsta/nvim-dap-virtual-text' })
 
   -- Notes
   use({ 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' })
