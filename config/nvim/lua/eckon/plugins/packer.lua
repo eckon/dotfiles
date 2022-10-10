@@ -5,7 +5,6 @@ require('packer').startup(function(use)
   -- General
   use('tpope/vim-sleuth')
   use({ 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end })
-
   use({ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end })
 
   -- Navigation
@@ -16,7 +15,7 @@ require('packer').startup(function(use)
   })
 
   -- Treesitter
-  use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+  use({ { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }, 'nvim-treesitter/nvim-treesitter-context' })
 
   -- LSP
   use('neovim/nvim-lspconfig')

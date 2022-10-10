@@ -13,3 +13,5 @@ require('nvim-treesitter.configs').setup({
     end,
   },
 })
+
+require('treesitter-context').setup()
