@@ -25,9 +25,10 @@ end
 ---@return table
 local function command_complete_filter(completion_strings, passed_arguments)
   -- filter completions out, which the caller did not type on the command line
-  local filtered_completion_strings = vim.tbl_filter(function(s)
-    return s:sub(1, #passed_arguments) == passed_arguments
-  end, completion_strings)
+  local filtered_completion_strings = vim.tbl_filter(
+    function(s) return s:sub(1, #passed_arguments) == passed_arguments end,
+    completion_strings
+  )
 
   table.sort(filtered_completion_strings)
 

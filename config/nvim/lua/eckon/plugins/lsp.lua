@@ -71,11 +71,7 @@ if cmp == nil then
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
-    end,
-  },
+  snippet = { expand = function(args) vim.fn['vsnip#anonymous'](args.body) end },
   mapping = cmp.mapping.preset.insert({
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -105,15 +101,12 @@ end)
 
 inoremap('<C-k>', vim.lsp.buf.signature_help)
 
-nnoremap('gd', function()
-  require('telescope.builtin').lsp_definitions({ show_line = false })
-end)
-nnoremap('gD', function()
-  require('telescope.builtin').lsp_type_definitions({ show_line = false })
-end)
-nnoremap('gr', function()
-  require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false })
-end)
+nnoremap('gd', function() require('telescope.builtin').lsp_definitions({ show_line = false }) end)
+nnoremap('gD', function() require('telescope.builtin').lsp_type_definitions({ show_line = false }) end)
+nnoremap(
+  'gr',
+  function() require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false }) end
+)
 
 nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols)
 
@@ -122,7 +115,5 @@ nnoremap(']d', vim.diagnostic.goto_next)
 
 nnoremap('<Leader>la', vim.lsp.buf.code_action)
 nnoremap('<Leader>lr', vim.lsp.buf.rename)
-nnoremap('<Leader>lf', function()
-  vim.lsp.buf.format({ async = true })
-end)
+nnoremap('<Leader>lf', function() vim.lsp.buf.format({ async = true }) end)
 nnoremap('<Leader>ld', vim.diagnostic.open_float)

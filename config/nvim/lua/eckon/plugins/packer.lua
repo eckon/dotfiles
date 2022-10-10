@@ -4,19 +4,9 @@ require('packer').startup(function(use)
 
   -- General
   use('tpope/vim-sleuth')
-  use({
-    'kylechui/nvim-surround',
-    config = function()
-      require('nvim-surround').setup()
-    end,
-  })
+  use({ 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end })
 
-  use({
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  })
+  use({ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end })
 
   -- Navigation
   use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })

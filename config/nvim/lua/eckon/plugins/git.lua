@@ -28,9 +28,7 @@ nnoremap('<Leader>gs', '<CMD>Gitsigns stage_hunk<CR>')
 vnoremap('<Leader>gs', ':Gitsigns stage_hunk<CR>')
 nnoremap('<Leader>gu', '<CMD>Gitsigns undo_stage_hunk<CR>')
 
-nnoremap('<Leader>gb', function()
-  require('gitsigns').blame_line({ full = true })
-end)
+nnoremap('<Leader>gb', function() require('gitsigns').blame_line({ full = true }) end)
 
 nnoremap(']c', '<CMD>Gitsigns next_hunk<CR>zz')
 nnoremap('[c', '<CMD>Gitsigns prev_hunk<CR>zz')
