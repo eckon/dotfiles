@@ -9,7 +9,7 @@ inoremap('<F1>', '<Nop>')
 nnoremap('U', '<Nop>')
 noremap('<Space>', '<Nop>')
 
--- rehighlight text after indenting
+-- re-highlight text after indenting
 vnoremap('<', '<gv')
 vnoremap('>', '>gv')
 

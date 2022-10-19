@@ -1,4 +1,4 @@
-" set errorformat to manuelly update the quickfix list
+" set errorformat to manually update the quickfix list
 setlocal errorformat=%f\|%l\ col\ %c\|%m
 
 " way of easily update the quickfix list
