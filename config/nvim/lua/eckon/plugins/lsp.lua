@@ -1,4 +1,5 @@
 require('fidget').setup({})
+require('lsp_signature').setup({ hint_enable = false })
 
 require('mason').setup()
 require('mason-lspconfig').setup({
