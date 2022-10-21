@@ -37,13 +37,6 @@ require('packer').startup(function(use)
   -- Git
   use('lewis6991/gitsigns.nvim')
 
-  -- Debugger
-  use({
-    { 'mfussenegger/nvim-dap', requires = { 'anuvyklack/hydra.nvim' } },
-    'rcarriga/nvim-dap-ui',
-    'theHamsta/nvim-dap-virtual-text',
-  })
-
   -- Notes
   use({ 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' })
 

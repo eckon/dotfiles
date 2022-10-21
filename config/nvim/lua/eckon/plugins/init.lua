@@ -2,7 +2,6 @@ require('eckon.plugins.packer')
 
 require('impatient')
 
-require('eckon.plugins.dap')
 require('eckon.plugins.git')
 require('eckon.plugins.lsp')
 require('eckon.plugins.lualine')
