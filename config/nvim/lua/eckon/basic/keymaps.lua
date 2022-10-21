@@ -27,3 +27,7 @@ nnoremap(']Q', '<CMD>clast<CR>zz')
 vnoremap('<Leader>p', '"_dP')
 vnoremap('<Leader>y', '"+y')
 vnoremap('<Leader>d', '"_d')
+
+-- update jumplist when using relative jumps
+nnoremap('k', "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true })
+nnoremap('j', "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true })
