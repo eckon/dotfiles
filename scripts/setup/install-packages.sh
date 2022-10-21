@@ -96,10 +96,10 @@ if ! command -v "delta" &> /dev/null; then
   mkdir -p "/tmp/delta"
 
   wget -O "/tmp/delta/delta.tar.gz" \
-    "https://github.com/dandavison/delta/releases/download/0.13.0/delta-0.13.0-x86_64-unknown-linux-gnu.tar.gz"
+    "https://github.com/dandavison/delta/releases/download/0.14.0/delta-0.14.0-x86_64-unknown-linux-gnu.tar.gz"
 
   tar xf "/tmp/delta/delta.tar.gz" --directory="/tmp/delta"
-  cp "/tmp/delta/delta-0.13.0-x86_64-unknown-linux-gnu/delta" "$binLocation"
+  cp "/tmp/delta/delta-0.14.0-x86_64-unknown-linux-gnu/delta" "$binLocation"
 fi
 
 
