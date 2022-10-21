@@ -1,9 +1,7 @@
 gui:
+  showRandomTip: false
+  showIcons: true
   sidePanelWidth: 0.2
-
-git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never
+  mainPanelSplitMode: 'vertical'
 
 notARepository: 'skip'
