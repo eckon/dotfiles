@@ -28,6 +28,16 @@ vnoremap('<Leader>p', '"_dP')
 vnoremap('<Leader>y', '"+y')
 vnoremap('<Leader>d', '"_d')
 
--- update jumplist when using relative jumps
-nnoremap('k', "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true })
-nnoremap('j', "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true })
+---Add relative line movement also to the jumplist
+---@param key string
+local jumplisted_relative_movement = function(key)
+  return function()
+    if vim.v.count > 1 then
+      return "m'" .. vim.v.count .. key
+    end
+    return key
+  end
+end
+
+nnoremap('k', jumplisted_relative_movement('k'), { expr = true })
+nnoremap('j', jumplisted_relative_movement('j'), { expr = true })
