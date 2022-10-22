@@ -23,6 +23,8 @@ require('packer').startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim')
   use('j-hui/fidget.nvim')
   use('ray-x/lsp_signature.nvim')
+  -- Fold + LSP
+  use({ 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' })
 
   -- Completion
   use({
