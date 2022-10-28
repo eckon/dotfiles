@@ -43,7 +43,6 @@ set.listchars = { nbsp = '¬', extends = '»', precedes = '«', lead = ' ', trai
 
 set.scrolloff = 5
 set.sidescrolloff = 5
-set.splitkeep = 'screen'
 set.wrap = false
 
 set.termguicolors = true
