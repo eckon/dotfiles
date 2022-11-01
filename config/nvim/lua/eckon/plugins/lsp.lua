@@ -4,18 +4,18 @@ require('lsp_signature').setup({ hint_enable = false })
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'html',
-    'vimls',
-    'sumneko_lua',
-    'jsonls',
-    'yamlls',
     'cssls',
     'emmet_ls',
-    'taplo',
+    'html',
+    'jsonls',
     'pyright',
-    'tsserver',
-    'volar',
     'rust_analyzer',
+    'sumneko_lua',
+    'taplo',
+    'tsserver',
+    'vimls',
+    'volar',
+    'yamlls',
   },
 })
 
