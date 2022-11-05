@@ -4,4 +4,9 @@ gui:
   sidePanelWidth: 0.2
   mainPanelSplitMode: 'vertical'
 
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+
 notARepository: 'skip'
