@@ -34,6 +34,17 @@ null_ls.setup({
 local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup_handlers({
   function(server_name)
+    -- let lsp specific plugins handle the language server
+    if server_name == 'rust_analyzer' then
+      require('rust-tools').setup()
+      return
+    end
+
+    if server_name == 'tsserver' then
+      require('typescript').setup({})
+      return
+    end
+
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     -- this is needed for ufo plugin (folding via lsp)
     capabilities.textDocument.foldingRange = {

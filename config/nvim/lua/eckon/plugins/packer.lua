@@ -23,7 +23,12 @@ require('packer').startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim')
   use('j-hui/fidget.nvim')
   use('ray-x/lsp_signature.nvim')
-  -- Fold + LSP
+
+  -- LSP enhanced language server
+  use('simrat39/rust-tools.nvim')
+  use('jose-elias-alvarez/typescript.nvim')
+
+  -- LSP enhanced fold
   use({ 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' })
 
   -- Completion
