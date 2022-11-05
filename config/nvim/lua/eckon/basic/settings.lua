@@ -56,3 +56,5 @@ set.foldlevelstart = 99
 
 -- still need to set spell, but it will also highlight strings, which is a bit annoying
 set.spelloptions = { 'camel', 'noplainbuffer' }
+
+set.diffopt:append('linematch:60')
