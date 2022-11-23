@@ -1,6 +1,7 @@
 require('neorg').setup({
   load = {
     ['core.defaults'] = {},
+    ['core.norg.news'] = { config = { check_news = false } },
     ['core.norg.concealer'] = {},
     ['core.norg.dirman'] = {
       config = {
