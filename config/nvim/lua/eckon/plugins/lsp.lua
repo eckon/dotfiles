@@ -37,12 +37,6 @@ local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    -- this is needed for ufo plugin (folding via lsp)
-    capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true,
-    }
-
     lspconfig[server_name].setup({
       capabilities = capabilities,
     })
@@ -129,12 +123,6 @@ local nnoremap = require('eckon.utils').nnoremap
 local inoremap = require('eckon.utils').inoremap
 
 nnoremap('K', function()
-  -- check ufo fold before rest of the help actions
-  local winid = require('ufo').peekFoldedLinesUnderCursor()
-  if winid then
-    return
-  end
-
   local filetype = vim.bo.filetype
   if filetype == 'vim' or filetype == 'help' then
     vim.api.nvim_command('h ' .. vim.fn.expand('<cword>'))

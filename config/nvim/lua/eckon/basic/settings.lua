@@ -49,10 +49,7 @@ set.termguicolors = true
 
 set.winbar = '%t %m'
 
--- settings for ufo (lsp based folds)
-set.foldenable = true
-set.foldlevel = 99
-set.foldlevelstart = 99
+set.foldenable = false
 
 -- still need to set spell, but it will also highlight strings, which is a bit annoying
 set.spelloptions = { 'camel', 'noplainbuffer' }

@@ -27,9 +27,6 @@ require('packer').startup(function(use)
   use('simrat39/rust-tools.nvim')
   use('jose-elias-alvarez/typescript.nvim')
 
-  -- LSP enhanced fold
-  use({ 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' })
-
   -- Completion
   use({
     'hrsh7th/nvim-cmp',
