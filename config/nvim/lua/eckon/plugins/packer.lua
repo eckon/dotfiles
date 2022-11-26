@@ -22,7 +22,6 @@ require('packer').startup(function(use)
   use({ 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' })
   use('jose-elias-alvarez/null-ls.nvim')
   use('j-hui/fidget.nvim')
-  use('ray-x/lsp_signature.nvim')
 
   -- LSP enhanced language server
   use('simrat39/rust-tools.nvim')
