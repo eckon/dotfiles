@@ -1,3 +1,6 @@
+local autocmd = vim.api.nvim_create_autocmd
+local autogroup = vim.api.nvim_create_augroup('lsp_autogroup_eckon', {})
+
 require('fidget').setup({})
 
 require('mason').setup()
@@ -33,17 +36,6 @@ null_ls.setup({
 local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup_handlers({
   function(server_name)
-    -- let lsp specific plugins handle the language server
-    if server_name == 'rust_analyzer' then
-      require('rust-tools').setup()
-      return
-    end
-
-    if server_name == 'tsserver' then
-      require('typescript').setup({})
-      return
-    end
-
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     -- this is needed for ufo plugin (folding via lsp)
     capabilities.textDocument.foldingRange = {
@@ -53,22 +45,10 @@ require('mason-lspconfig').setup_handlers({
 
     lspconfig[server_name].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-        vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
-
-        if vim.api.nvim_buf_line_count(bufnr) < 10000 then
-          return
-        end
-
-        vim.notify('Stopped LSP (file too big)')
-        local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-        for _, client in pairs(clients) do
-          client.stop()
-        end
-      end,
     })
   end,
+  ['rust_analyzer'] = function() require('rust-tools').setup() end,
+  ['tsserver'] = function() require('typescript').setup({}) end,
   ['sumneko_lua'] = function()
     lspconfig.sumneko_lua.setup({
       settings = {
@@ -116,6 +96,33 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
+})
+
+autocmd('lspattach', {
+  desc = 'Stop lsp clients on buffer if buffer too big',
+  callback = function(args)
+    local bufnr = args.buf
+    if vim.api.nvim_buf_line_count(bufnr) < 10000 then
+      return
+    end
+
+    vim.notify('stopped lsp (file too big)')
+    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    for _, client in pairs(clients) do
+      client.stop()
+    end
+  end,
+  group = autogroup,
+})
+
+autocmd('lspattach', {
+  desc = 'Update omnifunc/formatexpr for current buffer',
+  callback = function(args)
+    local bufnr = args.buf
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+  end,
+  group = autogroup,
 })
 
 local nnoremap = require('eckon.utils').nnoremap
