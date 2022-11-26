@@ -1,11 +1,10 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup('basic_autogroup', { clear = true })
+local autogroup = vim.api.nvim_create_augroup('basic_autogroup_eckon', {})
 
 autocmd('TextYankPost', {
   desc = 'Highlight yanked area',
   callback = function() vim.highlight.on_yank({ timeout = 75 }) end,
   group = autogroup,
-  pattern = '*',
 })
 
 autocmd('BufReadPost', {
@@ -20,5 +19,4 @@ autocmd('BufReadPost', {
     end
   end,
   group = autogroup,
-  pattern = '*',
 })
