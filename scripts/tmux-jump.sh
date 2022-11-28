@@ -64,8 +64,13 @@ if [[ "$#" -le 0 ]]; then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
+      echo "  Start editor via \"vim\""
+      tmux send-key -t "$session":1 'vim -o .local.js .env' C-m
+      tmux split-window -t "$session":1 -h -c "$path"
+
       echo "  Start services via \"npm run serve\""
       tmux send-key -t "$session":1 'npm run serve' C-m
+      tmux select-pane -L -t "$session":1
     fi
 
     path=$(zoxide query "core-applets")
@@ -74,8 +79,13 @@ if [[ "$#" -le 0 ]]; then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
+      echo "  Start editor via \"vim\""
+      tmux send-key -t "$session":1 'vim .env' C-m
+      tmux split-window -t "$session":1 -h -c "$path"
+
       echo "  Start services via \"npm run serve\""
       tmux send-key -t "$session":1 'npm run serve' C-m
+      tmux select-pane -L -t "$session":1
     fi
   fi
 
