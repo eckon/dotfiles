@@ -119,34 +119,33 @@ autocmd('lspattach', {
   group = autogroup,
 })
 
-local nnoremap = require('eckon.utils').nnoremap
-local inoremap = require('eckon.utils').inoremap
+autocmd('lspattach', {
+  desc = 'Add lsp specific key maps for current buffer',
+  callback = function(args)
+    local nnoremap = require('eckon.utils').nnoremap
+    local inoremap = require('eckon.utils').inoremap
+    local opts = { buffer = args.buf }
 
-nnoremap('K', function()
-  local filetype = vim.bo.filetype
-  if filetype == 'vim' or filetype == 'help' then
-    vim.api.nvim_command('h ' .. vim.fn.expand('<cword>'))
-    return
-  end
+    nnoremap('K', vim.lsp.buf.hover, opts)
+    inoremap('<C-k>', vim.lsp.buf.signature_help, opts)
 
-  vim.lsp.buf.hover()
-end)
+    nnoremap('gd', function() require('telescope.builtin').lsp_definitions({ show_line = false }) end, opts)
+    nnoremap('gD', function() require('telescope.builtin').lsp_type_definitions({ show_line = false }) end, opts)
+    nnoremap(
+      'gr',
+      function() require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false }) end,
+      opts
+    )
 
-inoremap('<C-k>', vim.lsp.buf.signature_help)
+    nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols, opts)
 
-nnoremap('gd', function() require('telescope.builtin').lsp_definitions({ show_line = false }) end)
-nnoremap('gD', function() require('telescope.builtin').lsp_type_definitions({ show_line = false }) end)
-nnoremap(
-  'gr',
-  function() require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false }) end
-)
+    nnoremap('[d', vim.diagnostic.goto_prev, opts)
+    nnoremap(']d', vim.diagnostic.goto_next, opts)
 
-nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols)
-
-nnoremap('[d', vim.diagnostic.goto_prev)
-nnoremap(']d', vim.diagnostic.goto_next)
-
-nnoremap('<Leader>la', vim.lsp.buf.code_action)
-nnoremap('<Leader>lr', vim.lsp.buf.rename)
-nnoremap('<Leader>lf', function() vim.lsp.buf.format({ async = true }) end)
-nnoremap('<Leader>ld', vim.diagnostic.open_float)
+    nnoremap('<Leader>la', vim.lsp.buf.code_action, opts)
+    nnoremap('<Leader>lr', vim.lsp.buf.rename, opts)
+    nnoremap('<Leader>lf', function() vim.lsp.buf.format({ async = true }) end, opts)
+    nnoremap('<Leader>ld', vim.diagnostic.open_float, opts)
+  end,
+  group = autogroup,
+})
