@@ -17,9 +17,13 @@ Lua based configuration also allows for easy standardized formatting via `stylua
 
 - if the main `install script` was run, the following will be available
   - nightly [neovim](https://github.com/neovim/neovim)
-  - newest [packer](https://github.com/wbthomason/packer.nvim)
-- `:PackerInstall` needs to be run on the first startup
-  - the first startup might throw errors, but these should disappear after installing the plugins
+- the first startup will automatically install different things
+  - packages
+  - treesitter
+  - lsp
+  - linter
+  - etc
+- because of this is will take some time and might throw some errors, just wait until its done and reopen vim
 - on second startup, `LSP`, `Treesitter` and others should update/install automatically
 - run `:checkhealth` to see if something is missing
 
