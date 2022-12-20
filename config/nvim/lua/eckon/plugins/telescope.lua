@@ -35,13 +35,13 @@ M.init = function()
     '<Leader>fa',
     function() require('telescope.builtin').grep_string({ search = vim.fn.input({ prompt = 'Grep > ' }) }) end
   )
-  nnoremap('<Leader>fA', require('telescope.builtin').live_grep)
-  nnoremap('<Leader>fr', require('telescope.builtin').resume)
+  nnoremap('<Leader>fA', function() require('telescope.builtin').live_grep() end)
+  nnoremap('<Leader>fr', function() require('telescope.builtin').resume() end)
 
   nnoremap('<Leader>fb', function() require('telescope.builtin').buffers({ sort_mru = true }) end)
-  nnoremap('<Leader>ff', require('telescope.builtin').find_files)
-  nnoremap('<Leader>fg', require('telescope.builtin').git_status)
-  nnoremap('<Leader>fl', require('telescope.builtin').current_buffer_fuzzy_find)
+  nnoremap('<Leader>ff', function() require('telescope.builtin').find_files() end)
+  nnoremap('<Leader>fg', function() require('telescope.builtin').git_status() end)
+  nnoremap('<Leader>fl', function() require('telescope.builtin').current_buffer_fuzzy_find() end)
   nnoremap(
     '<Leader>fs',
     function()
@@ -54,7 +54,7 @@ M.init = function()
       }))
     end
   )
-  nnoremap('<Leader>fh', require('telescope.builtin').help_tags)
+  nnoremap('<Leader>fh', function() require('telescope.builtin').help_tags() end)
 end
 
 return M

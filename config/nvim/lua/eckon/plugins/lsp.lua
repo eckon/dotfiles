@@ -73,64 +73,62 @@ M.config = function()
   })
 end
 
-M.init = function()
-  autocmd('lspattach', {
-    desc = 'Stop lsp clients on buffer if buffer too big',
-    callback = function(args)
-      local bufnr = args.buf
-      if vim.api.nvim_buf_line_count(bufnr) < 10000 then
-        return
-      end
+autocmd('lspattach', {
+  desc = 'Stop lsp clients on buffer if buffer too big',
+  callback = function(args)
+    local bufnr = args.buf
+    if vim.api.nvim_buf_line_count(bufnr) < 10000 then
+      return
+    end
 
-      vim.notify('stopped lsp (file too big)')
-      local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-      for _, client in pairs(clients) do
-        client.stop()
-      end
-    end,
-    group = autogroup,
-  })
+    vim.notify('stopped lsp (file too big)')
+    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    for _, client in pairs(clients) do
+      client.stop()
+    end
+  end,
+  group = autogroup,
+})
 
-  autocmd('lspattach', {
-    desc = 'Update omnifunc/formatexpr for current buffer',
-    callback = function(args)
-      local bufnr = args.buf
-      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-      vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
-    end,
-    group = autogroup,
-  })
+autocmd('lspattach', {
+  desc = 'Update omnifunc/formatexpr for current buffer',
+  callback = function(args)
+    local bufnr = args.buf
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+  end,
+  group = autogroup,
+})
 
-  autocmd('lspattach', {
-    desc = 'Add lsp specific key maps for current buffer',
-    callback = function(args)
-      local nnoremap = require('eckon.utils').nnoremap
-      local inoremap = require('eckon.utils').inoremap
-      local opts = { buffer = args.buf }
+autocmd('lspattach', {
+  desc = 'Add lsp specific key maps for current buffer',
+  callback = function(args)
+    local nnoremap = require('eckon.utils').nnoremap
+    local inoremap = require('eckon.utils').inoremap
+    local opts = { buffer = args.buf }
 
-      nnoremap('K', vim.lsp.buf.hover, opts)
-      inoremap('<C-k>', vim.lsp.buf.signature_help, opts)
+    nnoremap('K', vim.lsp.buf.hover, opts)
+    inoremap('<C-k>', vim.lsp.buf.signature_help, opts)
 
-      nnoremap('gd', function() require('telescope.builtin').lsp_definitions({ show_line = false }) end, opts)
-      nnoremap('gD', function() require('telescope.builtin').lsp_type_definitions({ show_line = false }) end, opts)
-      nnoremap(
-        'gr',
-        function() require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false }) end,
-        opts
-      )
+    nnoremap('gd', function() require('telescope.builtin').lsp_definitions({ show_line = false }) end, opts)
+    nnoremap('gD', function() require('telescope.builtin').lsp_type_definitions({ show_line = false }) end, opts)
+    nnoremap(
+      'gr',
+      function() require('telescope.builtin').lsp_references({ show_line = false, include_declaration = false }) end,
+      opts
+    )
 
-      nnoremap('<Leader>ll', require('telescope.builtin').lsp_document_symbols, opts)
+    nnoremap('<Leader>ll', function() require('telescope.builtin').lsp_document_symbols() end, opts)
 
-      nnoremap('[d', vim.diagnostic.goto_prev, opts)
-      nnoremap(']d', vim.diagnostic.goto_next, opts)
+    nnoremap('[d', vim.diagnostic.goto_prev, opts)
+    nnoremap(']d', vim.diagnostic.goto_next, opts)
 
-      nnoremap('<Leader>la', vim.lsp.buf.code_action, opts)
-      nnoremap('<Leader>lr', vim.lsp.buf.rename, opts)
-      nnoremap('<Leader>lf', function() vim.lsp.buf.format({ async = true }) end, opts)
-      nnoremap('<Leader>ld', vim.diagnostic.open_float, opts)
-    end,
-    group = autogroup,
-  })
-end
+    nnoremap('<Leader>la', vim.lsp.buf.code_action, opts)
+    nnoremap('<Leader>lr', vim.lsp.buf.rename, opts)
+    nnoremap('<Leader>lf', function() vim.lsp.buf.format({ async = true }) end, opts)
+    nnoremap('<Leader>ld', vim.diagnostic.open_float, opts)
+  end,
+  group = autogroup,
+})
 
 return M
