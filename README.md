@@ -4,7 +4,7 @@ This repository includes all of my public _**scripts**_ and _**configurations**_
 The structure represents the home directory to allow easy symlinks.
 
 Bigger parts have their own README and can be found here:
-- [Neovim / Vim](./config/nvim)
+- [Neovim](./config/nvim)
 - [Scripts](./scripts)
 - [Visual Studio Code](./config/Code/User)
 - [Gists](https://gist.github.com/eckon)
@@ -14,7 +14,7 @@ Bigger parts have their own README and can be found here:
 
 Installation of everything in my configuration:
 - install `git`
-- clone this respository
+- clone this repository
 - run `make`
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
 
@@ -37,6 +37,6 @@ Installation of everything in my configuration:
 Following programs should be highlighted and are installed/used:
 - [kitty](https://github.com/kovidgoyal/kitty) _with_ [fira code](https://github.com/tonsky/FiraCode), [starship](https://github.com/starship/starship)
 - [fish](https://github.com/fish-shell/fish-shell) _with_ [tmux](https://github.com/tmux/tmux)
-- [neovim](https://github.com/neovim/neovim) _with_ [vim-plug](https://github.com/junegunn/vim-plug), [xclip](https://wiki.ubuntuusers.de/xclip/)
+- [neovim](https://github.com/neovim/neovim) _with_ [packer](https://github.com/wbthomason/packer.nvim), [xclip](https://wiki.ubuntuusers.de/xclip/)
 - [lazygit](https://github.com/jesseduffield/lazygit) _with_ [delta](https://github.com/dandavison/delta)
 - [zoxide (z)](https://github.com/ajeetdsouza/zoxide), [tldr](https://github.com/tldr-pages/tldr), [fzf](https://github.com/junegunn/fzf), [ag](https://github.com/ggreer/the_silver_searcher), [ripgrep](https://github.com/BurntSushi/ripgrep), [fd](https://github.com/sharkdp/fd), [bat](https://github.com/sharkdp/bat), [jq](https://github.com/stedolan/jq), [fnm](https://github.com/Schniz/fnm)
