@@ -118,19 +118,6 @@ if ! command -v "nvim" &> /dev/null; then
   cp "/tmp/neovim/nvim.appimage" "$binLocation/nvim"
 fi
 
-vimPlugLocation="$HOME/.local/share/nvim/site/autoload/plug.vim"
-if ! test -f "$vimPlugLocation"; then
-  echo "[+] Install \"vim-plug\""
-  curl -fLo "$vimPlugLocation" --create-dirs \
-    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-fi
-
-packerLocation="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if ! test -d "$packerLocation"; then
-  echo "[+] Install \"packer\""
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim "$packerLocation"
-fi
-
 
 echo ""
 echo "Install node specific packages"
