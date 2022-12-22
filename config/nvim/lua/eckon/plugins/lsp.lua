@@ -4,9 +4,10 @@ local autogroup = vim.api.nvim_create_augroup('lsp_autogroup_eckon', {})
 local M = {
   'neovim/nvim-lspconfig',
   event = 'BufReadPre',
+  cmd = { 'Mason' },
   dependencies = {
     { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' },
-    'jose-elias-alvarez/null-ls.nvim',
+    { 'jose-elias-alvarez/null-ls.nvim', 'jay-babu/mason-null-ls.nvim' },
     'j-hui/fidget.nvim',
     { 'simrat39/rust-tools.nvim', 'jose-elias-alvarez/typescript.nvim' },
   },
@@ -44,6 +45,9 @@ M.config = function()
       null_ls.builtins.formatting.stylua,
     },
   })
+
+  -- install all sources of above null-ls
+  require('mason-null-ls').setup({ automatic_installation = true })
 
   local lspconfig = require('lspconfig')
   require('mason-lspconfig').setup_handlers({
