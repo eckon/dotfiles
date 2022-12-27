@@ -8,7 +8,6 @@ return {
   { 'tmux-plugins/vim-tmux-focus-events', event = 'VeryLazy' },
   {
     'navarasu/onedark.nvim',
-    lazy = false,
     config = function()
       require('onedark').setup({ style = 'warmer' })
       require('onedark').load()
