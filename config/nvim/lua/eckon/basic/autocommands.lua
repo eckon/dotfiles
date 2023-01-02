@@ -1,17 +1,17 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup('basic_autogroup_eckon', {})
+local autogroup = vim.api.nvim_create_augroup("basic_autogroup_eckon", {})
 
-autocmd('TextYankPost', {
-  desc = 'Highlight yanked area',
+autocmd("TextYankPost", {
+  desc = "Highlight yanked area",
   callback = function() vim.highlight.on_yank({ timeout = 75 }) end,
   group = autogroup,
 })
 
-autocmd('BufReadPost', {
-  desc = 'Restore cursor to last visited position after reenter',
+autocmd("BufReadPost", {
+  desc = "Restore cursor to last visited position after reenter",
   callback = function(args)
     -- ignore temporary git files (commit message, rebase window)
-    if vim.regex('/\\.git/'):match_str(args.file) then
+    if vim.regex("/\\.git/"):match_str(args.file) then
       return
     end
 

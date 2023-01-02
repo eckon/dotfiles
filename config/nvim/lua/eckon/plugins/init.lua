@@ -1,16 +1,16 @@
 return {
   -- General
-  { 'tpope/vim-sleuth', event = 'VeryLazy' },
-  { 'kylechui/nvim-surround', event = 'VeryLazy', config = function() require('nvim-surround').setup() end },
-  { 'numToStr/Comment.nvim', event = 'VeryLazy', config = function() require('Comment').setup() end },
+  { "tpope/vim-sleuth", event = "VeryLazy" },
+  { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("nvim-surround").setup() end },
+  { "numToStr/Comment.nvim", event = "VeryLazy", config = function() require("Comment").setup() end },
 
   -- Styling/Appearance/Special
-  { 'tmux-plugins/vim-tmux-focus-events', event = 'VeryLazy' },
+  { "tmux-plugins/vim-tmux-focus-events", event = "VeryLazy" },
   {
-    'navarasu/onedark.nvim',
+    "navarasu/onedark.nvim",
     config = function()
-      require('onedark').setup({ style = 'warmer' })
-      require('onedark').load()
+      require("onedark").setup({ style = "warmer" })
+      require("onedark").load()
     end,
   },
 }

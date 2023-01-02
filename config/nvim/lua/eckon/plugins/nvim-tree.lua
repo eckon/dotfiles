@@ -1,11 +1,11 @@
-local nnoremap = require('eckon.utils').nnoremap
+local nnoremap = require("eckon.utils").nnoremap
 
 local M = {
-  'kyazdani42/nvim-tree.lua',
-  cmd = 'NvimTreeFindFileToggle',
-  dependencies = { 'kyazdani42/nvim-web-devicons' },
+  "kyazdani42/nvim-tree.lua",
+  cmd = "NvimTreeFindFileToggle",
+  dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
-    require('nvim-tree').setup({
+    require("nvim-tree").setup({
       actions = { open_file = { quit_on_open = true } },
       git = { ignore = false },
       renderer = {
@@ -19,7 +19,7 @@ local M = {
       },
     })
   end,
-  init = function() nnoremap('<Leader>.', '<CMD>NvimTreeFindFileToggle<CR>') end,
+  init = function() nnoremap("<Leader>.", "<CMD>NvimTreeFindFileToggle<CR>") end,
 }
 
 return M

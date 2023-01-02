@@ -4,7 +4,7 @@ local M = {}
 ---@param str string
 ---@return string
 local function trim_string(str)
-  local replace, _ = string.gsub(str, '%s+', '')
+  local replace, _ = string.gsub(str, "%s+", "")
   return replace
 end
 
@@ -16,7 +16,7 @@ M.trim = trim_string
 ---@param options? table
 local function custom_command(name, cmd, options)
   options = options or {}
-  vim.api.nvim_create_user_command('CC' .. name, cmd, options)
+  vim.api.nvim_create_user_command("CC" .. name, cmd, options)
 end
 
 ---Command completion function, to sort and filter passed complete values
@@ -49,19 +49,19 @@ local function bind_map(mode, outer_options)
   ---@param rhs string|function
   ---@param inner_options? table
   return function(lhs, rhs, inner_options)
-    local options = vim.tbl_extend('force', outer_options, inner_options or {})
+    local options = vim.tbl_extend("force", outer_options, inner_options or {})
     vim.keymap.set(mode, lhs, rhs, options)
   end
 end
 
-M.nmap = bind_map('n', { noremap = false })
-M.noremap = bind_map({ 'n', 'v', 'o' })
+M.nmap = bind_map("n", { noremap = false })
+M.noremap = bind_map({ "n", "v", "o" })
 
-M.nnoremap = bind_map('n')
-M.inoremap = bind_map('i')
-M.vnoremap = bind_map('v')
+M.nnoremap = bind_map("n")
+M.inoremap = bind_map("i")
+M.vnoremap = bind_map("v")
 
-M.onoremap = bind_map('o')
-M.xnoremap = bind_map('x')
+M.onoremap = bind_map("o")
+M.xnoremap = bind_map("x")
 
 return M
