@@ -9,13 +9,16 @@ autocmd('TextYankPost', {
 
 autocmd('BufReadPost', {
   desc = 'Restore cursor to last visited position after reenter',
-  callback = function()
-    -- for some reason filetype is not correctly set at this point, so can not check if commit or not (ignore for now)
-    local last_cursor_position = vim.fn.line('\'"')
-    local last_line = vim.fn.line('$')
+  callback = function(args)
+    -- ignore temporary git files (commit message, rebase window)
+    if vim.regex('/\\.git/'):match_str(args.file) then
+      return
+    end
 
-    if last_cursor_position >= 1 and last_cursor_position <= last_line then
-      vim.api.nvim_command('normal! g`"')
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local line_count = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= line_count then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
   group = autogroup,
