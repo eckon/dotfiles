@@ -9,6 +9,7 @@ declare -A configPaths
 configPaths=(
   ["config/Code/User/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/Code/User/settings.json"]=".config/Code/User/settings.json"
+  ["config/alacritty.yml"]=".config/alacritty.yml"
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/git"]=".config/git"
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"

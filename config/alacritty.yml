@@ -1,0 +1,34 @@
+font:
+  normal:
+    family: FiraCode Nerd Font Mono
+  size: 12.0
+
+# Brogrammer (with custom changes)
+# https://github.com/dexpota/kitty-themes/blob/master/themes/Brogrammer.conf
+# fish - test colors: see with "set_color --print-colors"
+colors:
+  primary:
+    background: "#131313"
+    foreground: "#d6dae4"
+  normal:
+    black: "#1f1f1f"
+    red: "#f71118"
+    green: "#2cc55d"
+    yellow: "#ecb90f"
+    blue: "#2a84d2"
+    magenta: "#4e59b7"
+    cyan: "#0f80d5"
+    white: "#d6dae4"
+  bright:
+    black: "#505050"
+    red: "#de342e"
+    green: "#1dd260"
+    yellow: "#f2bd09"
+    blue: "#0f80d5"
+    magenta: "#524fb9"
+    cyan: "#0f7cda"
+    white: "#ffffff"
+
+cursor:
+  style:
+    blinking: On
