@@ -19,7 +19,7 @@ local M = {
       },
     })
   end,
-  init = function() nnoremap("<Leader>.", "<CMD>NvimTreeFindFileToggle<CR>") end,
+  init = function() nnoremap("<Leader>.", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle tree view" }) end,
 }
 
 return M

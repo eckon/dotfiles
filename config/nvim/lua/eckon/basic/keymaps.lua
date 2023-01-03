@@ -17,16 +17,14 @@ vnoremap(">", ">gv")
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
 
--- append jump-commands for quickfix-list jumps
-nnoremap("[q", "<CMD>cprevious<CR>zz")
-nnoremap("]q", "<CMD>cnext<CR>zz")
-nnoremap("[Q", "<CMD>cfirst<CR>zz")
-nnoremap("]Q", "<CMD>clast<CR>zz")
+nnoremap("[q", "<CMD>cprevious<CR>zz", { desc = "Previous quickfix item" })
+nnoremap("]q", "<CMD>cnext<CR>zz", { desc = "Next quickfix item" })
+nnoremap("[Q", "<CMD>cfirst<CR>zz", { desc = "Frist quickfix item" })
+nnoremap("]Q", "<CMD>clast<CR>zz", { desc = "Last quickfix item" })
 
--- mappings to handle copy/paste/delete to different registers
-vnoremap("<Leader>p", '"_dP')
-vnoremap("<Leader>y", '"+y')
-vnoremap("<Leader>d", '"_d')
+vnoremap("<Leader>p", '"_dP', { desc = "Paste without overwriting register" })
+vnoremap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
+vnoremap("<Leader>d", '"_d', { desc = "Delete without overwriteing register" })
 
 ---Add relative line movement also to the jumplist
 ---@param key string
