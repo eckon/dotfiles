@@ -3,6 +3,7 @@ local nnoremap = require("eckon.utils").nnoremap
 local M = {
   "kyazdani42/nvim-tree.lua",
   cmd = "NvimTreeFindFileToggle",
+  enabled = false,
   dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
     require("nvim-tree").setup({
