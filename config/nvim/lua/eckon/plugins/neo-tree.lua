@@ -16,6 +16,7 @@ local M = {
           ["<bs>"] = "none",
           ["."] = "none",
         },
+        auto_expand_width = true,
       },
       event_handlers = {
         {
