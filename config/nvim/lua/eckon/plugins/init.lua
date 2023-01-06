@@ -19,6 +19,7 @@ return {
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events", event = "VeryLazy" },
+  { "karb94/neoscroll.nvim", event = "BufReadPre", config = function() require("neoscroll").setup() end },
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoQuickFix", "TodoTelescope" },
