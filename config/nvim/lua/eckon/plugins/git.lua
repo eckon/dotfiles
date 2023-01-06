@@ -22,8 +22,15 @@ local M = {
         { desc = "Open git blame" }
       )
 
-      nnoremap("]c", "<CMD>Gitsigns next_hunk<CR>zz", { desc = "Next git hunk" })
-      nnoremap("[c", "<CMD>Gitsigns prev_hunk<CR>zz", { desc = "Previous git hunk" })
+      nnoremap("]c", function()
+        require("gitsigns").next_hunk()
+        vim.schedule(function() vim.api.nvim_feedkeys("zz", "n", false) end)
+      end, { desc = "Next git hunk" })
+
+      nnoremap("[c", function()
+        require("gitsigns").prev_hunk()
+        vim.schedule(function() vim.api.nvim_feedkeys("zz", "n", false) end)
+      end, { desc = "Previous git hunk" })
     end,
   },
 }
