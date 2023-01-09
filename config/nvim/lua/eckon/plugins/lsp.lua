@@ -112,6 +112,7 @@ autocmd("lspattach", {
     local inoremap = require("eckon.utils").inoremap
 
     nnoremap("K", vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover" })
+    nnoremap("gK", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "Signature Help" })
     inoremap("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "Signature Help" })
 
     nnoremap(
