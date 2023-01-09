@@ -6,9 +6,9 @@ test -d ~/.cargo/bin; and fish_add_path ~/.cargo/bin
 
 
 # -------------------- Source --------------------
-type -q starship; and starship init fish | source; or echo "[!] No starship"
-type -q fnm;      and fnm env            | source; or echo "[!] No fnm"
-type -q zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
+type --query starship; and starship init fish | source; or echo "[!] No starship"
+type --query fnm;      and fnm env            | source; or echo "[!] No fnm"
+type --query zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
 
 
 
@@ -32,11 +32,14 @@ alias vi   "vim"
 alias vim  "nvim"
 
 
-abbr -a npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr -a j         "tmux-jump"
-abbr -a ta        "tmux attach -t"
-abbr -a tt        "tmux new -s"
+abbr --add npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
+abbr --add j         "tmux-jump"
+abbr --add ta        "tmux attach -t"
+abbr --add tt        "tmux new -s"
 
+# expansion of !! (>= fish v.3.6.0)
+function last_history_item; echo $history[1]; end
+abbr --add !! --position anywhere --function last_history_item
 
 
 # -------------------- Special --------------------
