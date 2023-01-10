@@ -1,11 +1,10 @@
 return {
   -- General
-  { "tpope/vim-sleuth", event = "VeryLazy" },
-  { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("nvim-surround").setup() end },
-  { "numToStr/Comment.nvim", event = "VeryLazy", config = function() require("Comment").setup() end },
+  { "tpope/vim-sleuth" },
+  { "kylechui/nvim-surround", config = function() require("nvim-surround").setup() end },
+  { "numToStr/Comment.nvim", config = function() require("Comment").setup() end },
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
     config = function()
       local key = require("which-key")
       key.setup({ plugins = { spelling = { enabled = true } } })
@@ -18,7 +17,7 @@ return {
   },
 
   -- Styling/Appearance/Special
-  { "tmux-plugins/vim-tmux-focus-events", event = "VeryLazy" },
+  { "tmux-plugins/vim-tmux-focus-events" },
   { "karb94/neoscroll.nvim", event = "BufReadPre", config = function() require("neoscroll").setup() end },
   {
     "folke/todo-comments.nvim",
@@ -29,7 +28,6 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    lazy = false,
     config = function()
       require("onedark").setup({ style = "warmer" })
       require("onedark").load()
