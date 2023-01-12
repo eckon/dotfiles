@@ -10,11 +10,13 @@ local M = {
     { "jose-elias-alvarez/null-ls.nvim", "jay-babu/mason-null-ls.nvim" },
     "j-hui/fidget.nvim",
     { "simrat39/rust-tools.nvim", "jose-elias-alvarez/typescript.nvim" },
+    { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   },
 }
 
 M.config = function()
   require("fidget").setup({})
+  require("trouble").setup()
 
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -58,7 +60,11 @@ M.config = function()
         capabilities = capabilities,
       })
     end,
-    ["rust_analyzer"] = function() require("rust-tools").setup() end,
+    ["rust_analyzer"] = function()
+      require("rust-tools").setup({
+        server = { settings = { ["rust-analyzer"] = { checkOnSave = { command = "clippy" } } } },
+      })
+    end,
     ["tsserver"] = function() require("typescript").setup({}) end,
     ["sumneko_lua"] = function()
       lspconfig.sumneko_lua.setup({
@@ -151,6 +157,7 @@ autocmd("lspattach", {
     )
 
     nnoremap("<Leader>ld", vim.diagnostic.open_float, { buffer = args.buf, desc = "Open diagnostic float" })
+    nnoremap("<Leader>lt", "<CMD>TroubleToggle<CR>", { buffer = args.buf, desc = "Open workspace diagnostics" })
   end,
   group = autogroup,
 })
