@@ -5,7 +5,6 @@ local M = {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function() require("harpoon").setup() end,
   init = function()
-    -- TODO: if using, dont forget to add leader h as which key desciption
     nnoremap("<Leader>ha", function() require("harpoon.mark").add_file() end, { desc = "Add file to harpoon" })
     nnoremap(
       "<Leader>hh",

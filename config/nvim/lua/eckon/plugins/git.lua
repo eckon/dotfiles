@@ -25,12 +25,12 @@ local M = {
       nnoremap("]c", function()
         require("gitsigns").next_hunk()
         vim.schedule(function() vim.api.nvim_feedkeys("zz", "n", false) end)
-      end, { desc = "Next git hunk" })
+      end, { desc = "Jump to next git hunk" })
 
       nnoremap("[c", function()
         require("gitsigns").prev_hunk()
         vim.schedule(function() vim.api.nvim_feedkeys("zz", "n", false) end)
-      end, { desc = "Previous git hunk" })
+      end, { desc = "Jump to previous git hunk" })
     end,
   },
 }

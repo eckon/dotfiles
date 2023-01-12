@@ -3,18 +3,6 @@ return {
   { "tpope/vim-sleuth" },
   { "kylechui/nvim-surround", event = "BufReadPre", config = function() require("nvim-surround").setup() end },
   { "numToStr/Comment.nvim", event = "BufReadPre", config = function() require("Comment").setup() end },
-  {
-    "folke/which-key.nvim",
-    config = function()
-      local key = require("which-key")
-      key.setup({ plugins = { spelling = { enabled = true } } })
-      key.register({
-        f = { name = "find" },
-        g = { name = "git" },
-        l = { name = "lsp" },
-      }, { prefix = "<Leader>" })
-    end,
-  },
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },

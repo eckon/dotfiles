@@ -117,47 +117,51 @@ autocmd("lspattach", {
     local nnoremap = require("eckon.utils").nnoremap
     local inoremap = require("eckon.utils").inoremap
 
-    nnoremap("K", vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover" })
-    nnoremap("gK", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "Signature Help" })
-    inoremap("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "Signature Help" })
+    nnoremap("K", vim.lsp.buf.hover, { buffer = args.buf, desc = "LSP: Hover Action" })
+    nnoremap("gK", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
+    inoremap("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
 
     nnoremap(
       "gd",
       function() require("telescope.builtin").lsp_definitions({ show_line = false }) end,
-      { buffer = args.buf, desc = "Go to definitions" }
+      { buffer = args.buf, desc = "LSP: Go to definitions" }
     )
 
     nnoremap(
       "gD",
       function() require("telescope.builtin").lsp_type_definitions({ show_line = false }) end,
-      { buffer = args.buf, desc = "Go to type definitions" }
+      { buffer = args.buf, desc = "LSP: Go to type definitions" }
     )
 
     nnoremap(
       "gr",
       function() require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false }) end,
-      { buffer = args.buf, desc = "Go to references" }
+      { buffer = args.buf, desc = "LSP: Go to references" }
     )
 
     nnoremap(
       "<Leader>fL",
       function() require("telescope.builtin").lsp_document_symbols() end,
-      { buffer = args.buf, desc = "Search lsp symbols" }
+      { buffer = args.buf, desc = "LSP: Search lsp symbols" }
     )
 
-    nnoremap("[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Previous diagnostic" })
-    nnoremap("]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
+    nnoremap("[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Jump to previous diagnostic" })
+    nnoremap("]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Jump to next diagnostic" })
 
-    nnoremap("<Leader>la", vim.lsp.buf.code_action, { buffer = args.buf, desc = "Code action" })
-    nnoremap("<Leader>lr", vim.lsp.buf.rename, { buffer = args.buf, desc = "Rename variable" })
+    nnoremap("<Leader>la", vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP: Code action" })
+    nnoremap("<Leader>lr", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP: Rename variable" })
     nnoremap(
       "<Leader>lf",
       function() vim.lsp.buf.format({ async = true }) end,
-      { buffer = args.buf, desc = "Format buffer" }
+      { buffer = args.buf, desc = "LSP: Format buffer" }
     )
 
     nnoremap("<Leader>ld", vim.diagnostic.open_float, { buffer = args.buf, desc = "Open diagnostic float" })
-    nnoremap("<Leader>lt", "<CMD>TroubleToggle<CR>", { buffer = args.buf, desc = "Open workspace diagnostics" })
+    nnoremap(
+      "<Leader>lt",
+      "<CMD>TroubleToggle<CR>",
+      { buffer = args.buf, desc = "Trouble: Open workspace diagnostics" }
+    )
   end,
   group = autogroup,
 })

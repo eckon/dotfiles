@@ -55,6 +55,7 @@ M.init = function()
   )
 
   nnoremap("<Leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Search help" })
+  nnoremap("<Leader>fk", function() require("telescope.builtin").keymaps() end, { desc = "Search keymaps" })
 end
 
 return M

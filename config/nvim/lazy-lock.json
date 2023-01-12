@@ -34,6 +34,5 @@
   "vim-fugitive": { "branch": "master", "commit": "9c5f675db54139c18ed4a1a18989ea2da37d6cae" },
   "vim-sleuth": { "branch": "master", "commit": "8332f123a63c739c870c96907d987cc3ff719d24" },
   "vim-tmux-focus-events": { "branch": "master", "commit": "b1330e04ffb95ede8e02b2f7df1f238190c67056" },
-  "vim-vsnip": { "branch": "master", "commit": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e" },
-  "which-key.nvim": { "branch": "main", "commit": "e4fa445065a2bb0bbc3cca85346b67817f28e83e" }
+  "vim-vsnip": { "branch": "master", "commit": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e" }
 }
