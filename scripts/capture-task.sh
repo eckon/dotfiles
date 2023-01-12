@@ -38,7 +38,7 @@ echo "Title: $title
 Description:
 $description
 "
-read -p "Continue?" -n 1
+read -p "Continue?" -n 1 -r
 
 # replace new lines with \n for the api
 description=$(echo "$description" | awk '{printf "%s\\n", $0}')
