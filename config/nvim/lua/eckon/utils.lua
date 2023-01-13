@@ -38,6 +38,59 @@ end
 M.custom_command = custom_command
 M.command_complete_filter = command_complete_filter
 
+---Create async job for running external commands and calling a callback on the output
+---@param command string
+---@param args table
+---@param callback fun(output: table)
+local function async_external_command(command, args, callback)
+  local uv = vim.loop
+  local stdout = uv.new_pipe(false)
+  local stderr = uv.new_pipe(false)
+  local command_output = {}
+
+  local handle
+  handle, _ = uv.spawn(command, {
+    args = args,
+    -- sdtin / stdout / stderr
+    stdio = { nil, stdout, stderr },
+    detached = true,
+  }, function()
+    -- some commands return valid data and error code, so can not check here
+    vim.schedule(function() callback(command_output) end)
+    stdout:read_stop()
+    stderr:read_stop()
+    stdout:close()
+    stderr:close()
+    handle:close()
+  end)
+
+  -- some commands output line by line -> insert everything into one table
+  -- if send in a dump, then the user needs to manually split it
+  uv.read_start(stdout, function(err, data)
+    assert(not err, err)
+    if not data then
+      return
+    end
+
+    table.insert(command_output, data)
+  end)
+
+  uv.read_start(stderr, function(err, data)
+    assert(not err, err)
+    -- seems like i need to ignore these as otherwise also valid calls will log error
+    if not data then
+      return
+    end
+
+    local args_string = ""
+    vim.tbl_map(function(a) args_string = args_string .. " " .. a end, args)
+    local message = "Error while trying to run " .. command .. args_string
+    vim.schedule(function() vim.notify(message .. ":\n\n" .. data) end)
+  end)
+end
+
+M.async_external_command = async_external_command
+
 ---Create partial function to store mode and options
 ---@param mode string|table
 ---@param outer_options? table
