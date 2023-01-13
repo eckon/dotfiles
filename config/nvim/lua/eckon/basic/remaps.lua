@@ -3,6 +3,7 @@ local nnoremap = require("eckon.utils").nnoremap
 local vnoremap = require("eckon.utils").vnoremap
 local inoremap = require("eckon.utils").inoremap
 
+--- OVERWRITE mappings (mainly enhances default behaviour)
 -- disable annoying keys
 nnoremap("<F1>", "<Nop>")
 inoremap("<F1>", "<Nop>")
@@ -13,10 +14,18 @@ noremap("<Space>", "<Nop>")
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
---- center view after common jump actions
+-- keep cursor position while joining single lines
+nnoremap("J", function()
+  local prev_pos = vim.api.nvim_win_get_cursor(0)
+  vim.api.nvim_command("normal! J")
+  vim.api.nvim_win_set_cursor(0, prev_pos)
+end)
+
+-- center view after common jump actions
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
 
+--- NEW mappings
 nnoremap("[q", "<CMD>cprevious<CR>zz", { desc = "Jump to previous quickfix item" })
 nnoremap("]q", "<CMD>cnext<CR>zz", { desc = "Jump to next quickfix item" })
 nnoremap("[Q", "<CMD>cfirst<CR>zz", { desc = "Jump to first quickfix item" })
