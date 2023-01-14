@@ -70,6 +70,39 @@ local function run_eslint_into_qf()
   end)
 end
 
+---Run jest to populate quickfix list
+local function run_jest_into_qf()
+  -- need to use json, as other ways pass not easily useable data
+  async_external_command("npx", { "jest", "--json" }, function(jest_output)
+    local jest_json = vim.fn.json_decode(jest_output[1])
+    if jest_json.numFailedTests == 0 then
+      vim.notify("No failed tests found in project")
+      return
+    end
+
+    local qf_list = {}
+    for _, json in pairs(jest_json.testResults) do
+      if json.status == "failed" then
+        -- parse exmaple: `● ReviewController › save() ... at Object.<anonymous> (review/review.controller.spec.ts:72:22)\n`
+        -- lua specific `%\` escapes `\` and `-` is non greedy for `*`
+        local _, _, message, row, col = string.find(json.message, "(.*)%(.*:(.-):(.-)%)%\n")
+        local qf_entry = {
+          filename = json.name,
+          lnum = row,
+          col = col,
+          text = message,
+        }
+        table.insert(qf_list, qf_entry)
+      end
+    end
+
+    vim.fn.setqflist(qf_list, "a")
+    -- open quickfix and return to previous buffer (as qf will auto focus)
+    vim.api.nvim_command("copen")
+    vim.api.nvim_command("wincmd p")
+  end)
+end
+
 custom_command("TscToQuickfix", function()
   vim.fn.setqflist({}, "r")
   run_tsc_into_qf()
@@ -80,7 +113,6 @@ custom_command("EslintToQuickfix", function()
   run_eslint_into_qf()
 end)
 
--- TODO: add implementation for testing
 custom_command("JestToQuickfix", function()
   vim.fn.setqflist({}, "r")
   run_jest_into_qf()
@@ -90,4 +122,5 @@ custom_command("TypescriptToQuickfix", function()
   vim.fn.setqflist({}, "r")
   run_tsc_into_qf()
   run_eslint_into_qf()
+  run_jest_into_qf()
 end)
