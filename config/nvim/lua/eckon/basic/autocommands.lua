@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup("basic_autogroup_eckon", {})
+local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_basic", {})
 
 autocmd("TextYankPost", {
   desc = "Highlight yanked area",

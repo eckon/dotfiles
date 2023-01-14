@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup("lsp_autogroup_eckon", {})
+local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_lsp", {})
 
 local M = {
   "neovim/nvim-lspconfig",
