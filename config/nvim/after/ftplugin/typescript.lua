@@ -12,8 +12,8 @@ local function run_tsc_into_qf()
     local qf_list = {}
     for _, value in pairs(tsc_output) do
       -- parse example: `src/main.ts(13,5): error TS2304: Argument ...`
-      -- lua specific `%\` escapes `\` and `-` is non greedy for `*`
-      local _, _, path, row, col, message = string.find(value, "(.-)%((.-),(.-)%): (.*)")
+      -- lua specific `%\` escapes `\` and `-` is non greedy for `*` and `%d` is for digits
+      local _, _, path, row, col, message = string.find(value, "(.-)%((%d*),(%d*)%): (.*)")
       if path ~= nil then
         local qf_entry = {
           filename = path,

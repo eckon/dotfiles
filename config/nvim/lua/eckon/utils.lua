@@ -45,18 +45,29 @@ M.command_complete_filter = command_complete_filter
 local function async_external_command(command, args, callback)
   local uv = vim.loop
   local stdout = uv.new_pipe(false)
+  local stderr = uv.new_pipe(false)
+
+  local args_string = ""
+  vim.tbl_map(function(a) args_string = args_string .. " " .. a end, args)
+
   local command_output = {}
 
   local handle
   handle, _ = uv.spawn(command, {
     args = args,
     -- sdtin / stdout / stderr
-    stdio = { nil, stdout, nil },
+    stdio = { nil, stdout, stderr },
     detached = true,
   }, function()
-    vim.schedule(function() callback(command_output) end)
+    vim.schedule(function()
+      vim.notify('Execution of "' .. command .. args_string .. '" done')
+      callback(command_output)
+    end)
+
     stdout:read_stop()
+    stderr:read_stop()
     stdout:close()
+    stderr:close()
     handle:close()
   end)
 
@@ -69,6 +80,17 @@ local function async_external_command(command, args, callback)
     end
 
     table.insert(command_output, data)
+  end)
+
+  uv.read_start(stderr, function(err, data)
+    vim.schedule(function()
+      assert(not err, err)
+      if not data then
+        return
+      end
+
+      vim.notify('Error while runnint "' .. command .. args_string .. '"\n\n' .. data)
+    end)
   end)
 end
 
