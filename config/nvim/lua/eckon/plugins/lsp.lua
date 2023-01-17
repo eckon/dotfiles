@@ -28,6 +28,7 @@ M.config = function()
       "pyright",
       "rust_analyzer",
       "sumneko_lua",
+      "tailwindcss",
       "taplo",
       "tsserver",
       "vimls",
