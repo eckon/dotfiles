@@ -39,29 +39,41 @@ M.custom_command = custom_command
 M.command_complete_filter = command_complete_filter
 
 ---Create async job for running external commands and calling a callback on the output
----@param command string
----@param args table
----@param callback fun(output: table)
-local function async_external_command(command, args, callback)
+---@class JobOptions
+---@field command string
+---@field args table
+---@field on_stdout fun(output: table)
+---@field on_stderr fun(output: table)
+---@field on_completion fun(stdout_output: table, stderr_output: table)
+---@param options JobOptions
+local function async_external_command(options)
   local uv = vim.loop
   local stdout = uv.new_pipe(false)
   local stderr = uv.new_pipe(false)
+  local stdout_output = {}
+  local stderr_output = {}
 
   local args_string = ""
-  vim.tbl_map(function(a) args_string = args_string .. " " .. a end, args)
-
-  local command_output = {}
+  vim.tbl_map(function(a) args_string = args_string .. " " .. a end, options.args)
 
   local handle
-  handle, _ = uv.spawn(command, {
-    args = args,
-    -- sdtin / stdout / stderr
+  handle, _ = uv.spawn(options.command, {
+    args = options.args,
     stdio = { nil, stdout, stderr },
     detached = true,
   }, function()
     vim.schedule(function()
-      vim.notify('Execution of "' .. command .. args_string .. '" done')
-      callback(command_output)
+      vim.notify('Execution of "' .. options.command .. args_string .. '" done')
+
+      if type(options.on_stdout) == "function" then
+        options.on_stdout(stdout_output)
+      end
+      if type(options.on_stderr) == "function" then
+        options.on_stderr(stderr_output)
+      end
+      if type(options.on_completion) == "function" then
+        options.on_completion(stdout_output, stderr_output)
+      end
     end)
 
     stdout:read_stop()
@@ -71,27 +83,18 @@ local function async_external_command(command, args, callback)
     handle:close()
   end)
 
-  -- some commands output line by line -> insert everything into one table
-  -- if send in a dump, then the user needs to manually split it
-  uv.read_start(stdout, function(err, data)
-    assert(not err, err)
-    if not data then
-      return
-    end
-
-    table.insert(command_output, data)
-  end)
-
-  uv.read_start(stderr, function(err, data)
-    vim.schedule(function()
+  local combine_output_into_table = function(output_table)
+    return function(err, data)
       assert(not err, err)
       if not data then
         return
       end
+      table.insert(output_table, data)
+    end
+  end
 
-      vim.notify('Error while runnint "' .. command .. args_string .. '"\n\n' .. data)
-    end)
-  end)
+  uv.read_start(stdout, combine_output_into_table(stdout_output))
+  uv.read_start(stderr, combine_output_into_table(stderr_output))
 end
 
 M.async_external_command = async_external_command
