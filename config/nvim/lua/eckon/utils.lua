@@ -1,15 +1,5 @@
 local M = {}
 
----Trim string to remove empty trailing lines and new lines
----@param str string
----@return string
-local function trim_string(str)
-  local replace, _ = string.gsub(str, "%s+", "")
-  return replace
-end
-
-M.trim = trim_string
-
 ---Create user command with 'CC'-prefix for quick access
 ---@param name string
 ---@param cmd string|function

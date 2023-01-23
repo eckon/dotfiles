@@ -23,8 +23,14 @@ custom_command("Browser", function()
         || echo blob/$(git branch --show-current)
   ]])
 
-  local trim = require("eckon.utils").trim
-  local cmd = '!xdg-open "' .. trim(repo_base_path) .. "/" .. trim(repo_branch) .. "/" .. vim.fn.expand("%") .. '"'
+  local cmd = '!xdg-open "'
+    .. vim.trim(repo_base_path)
+    .. "/"
+    .. vim.trim(repo_branch)
+    .. "/"
+    .. vim.fn.expand("%")
+    .. '"'
+
   vim.api.nvim_command(cmd)
 end)
 
