@@ -4,7 +4,6 @@ local M = {
   {
     "nvim-tree/nvim-tree.lua",
     cmd = "NvimTreeFindFileToggle",
-    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
@@ -21,10 +20,11 @@ local M = {
         },
       })
     end,
-    init = function() nnoremap("<Leader>.", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle tree view" }) end,
+    init = function() nnoremap("<Leader>ft", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle tree view" }) end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
     cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
