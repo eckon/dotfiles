@@ -27,7 +27,7 @@ M.config = function()
       "jsonls",
       "pyright",
       "rust_analyzer",
-      "sumneko_lua",
+      "lua_ls",
       "tailwindcss",
       "taplo",
       "tsserver",
@@ -67,8 +67,8 @@ M.config = function()
       })
     end,
     ["tsserver"] = function() require("typescript").setup({}) end,
-    ["sumneko_lua"] = function()
-      lspconfig.sumneko_lua.setup({
+    ["lua_ls"] = function()
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
