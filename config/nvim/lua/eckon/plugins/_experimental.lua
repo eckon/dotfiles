@@ -20,12 +20,12 @@ local M = {
           },
         },
         -- only allow for specific files for now
-        filetypes = {
-          lua = true,
-          rust = true,
-          typescript = true,
-          ["*"] = false,
-        },
+        -- filetypes = {
+        --   lua = true,
+        --   rust = true,
+        --   typescript = true,
+        --   ["*"] = false,
+        -- },
       })
     end,
   },
@@ -49,31 +49,6 @@ local M = {
           { desc = "Jump to harpoon file " .. i }
         )
       end
-    end,
-  },
-  {
-    "LeonHeidelbach/trailblazer.nvim",
-    config = function()
-      require("trailblazer").setup({
-        trail_options = {
-          newest_mark_symbol = "",
-          cursor_mark_symbol = "",
-          next_mark_symbol = "",
-          previous_mark_symbol = "",
-          number_line_color_enabled = true,
-          symbol_line_enabled = true,
-        },
-        mappings = {
-          nv = {
-            motions = {
-              new_trail_mark = "<A-n>",
-              track_back = "<A-O>",
-              peek_move_next_down = "<A-i>",
-              peek_move_previous_up = "<A-o>",
-            },
-          },
-        },
-      })
     end,
   },
 }
