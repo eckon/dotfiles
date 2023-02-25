@@ -21,6 +21,7 @@ M.config = function()
         i = {
           ["<C-j>"] = actions.cycle_history_next,
           ["<C-k>"] = actions.cycle_history_prev,
+          ["<C-b>"] = actions.delete_buffer,
           -- allow fuzzy search over search result
           ["<C-f>"] = actions.to_fuzzy_refine,
         },
