@@ -86,6 +86,20 @@ M.config = function()
 end
 
 autocmd("lspattach", {
+  desc = "Ignore formatting of lua_ls", -- it conflicts with stylua
+  callback = function(args)
+    local bufnr = args.buf
+    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    for _, client in pairs(clients) do
+      if client.name == "lua_ls" then
+        client.server_capabilities.documentFormattingProvider = false
+      end
+    end
+  end,
+  group = autogroup,
+})
+
+autocmd("lspattach", {
   desc = "Stop lsp clients on buffer if buffer too big",
   callback = function(args)
     local bufnr = args.buf
