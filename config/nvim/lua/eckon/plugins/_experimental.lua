@@ -6,26 +6,17 @@ local M = {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      -- it also has a cmp plugin, but that one does not really complete always as good as the dafault plugin
       require("copilot").setup({
         suggestion = {
           enabled = true,
           auto_trigger = true,
           debounce = 75,
-          -- emulate the same as normal completion just with `alt` key instead
           keymap = {
             accept = "<M-CR>",
             next = "<M-n>",
             prev = "<M-p>",
           },
         },
-        -- only allow for specific files for now
-        -- filetypes = {
-        --   lua = true,
-        --   rust = true,
-        --   typescript = true,
-        --   ["*"] = false,
-        -- },
       })
     end,
   },

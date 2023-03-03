@@ -5,7 +5,6 @@ local M = {
   dependencies = { "nvim-treesitter/nvim-treesitter-context" },
   config = function()
     require("nvim-treesitter.configs").setup({
-      -- more startuptime with `all` setting, but can be ignored for now
       ensure_installed = "all",
       highlight = {
         enable = true,

@@ -172,11 +172,6 @@ autocmd("lspattach", {
     )
 
     nnoremap("<Leader>ld", vim.diagnostic.open_float, { buffer = args.buf, desc = "Open diagnostic float" })
-    nnoremap(
-      "<Leader>lt",
-      "<CMD>TroubleToggle<CR>",
-      { buffer = args.buf, desc = "Trouble: Open workspace diagnostics" }
-    )
   end,
   group = autogroup,
 })
