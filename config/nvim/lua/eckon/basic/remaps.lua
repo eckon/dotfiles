@@ -17,7 +17,7 @@ vnoremap(">", ">gv")
 -- keep cursor position while joining single lines
 nnoremap("J", function()
   local prev_pos = vim.api.nvim_win_get_cursor(0)
-  vim.api.nvim_command("normal! J")
+  vim.api.nvim_command("normal! " .. vim.v.count + 1 .. "J")
   vim.api.nvim_win_set_cursor(0, prev_pos)
 end)
 
