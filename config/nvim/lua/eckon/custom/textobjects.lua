@@ -34,8 +34,9 @@ M.indent_textobject_selection = function()
   ---meaning a non blank line and an indent smaller than the base is found
   ---@param line_number number
   ---@return boolean
-  local has_higher_indent =
-    function(line_number) return is_blank_line(line_number) or vim.fn.indent(line_number) >= base_indent end
+  local has_higher_indent = function(line_number)
+    return is_blank_line(line_number) or vim.fn.indent(line_number) >= base_indent
+  end
 
   -- go to start of selection
   local prev_line = vim.fn.line(".") - 1
@@ -76,6 +77,8 @@ M.indent_around_textobject = function(inclusive)
 end
 
 ---Textobject to get indented inner block
-M.indent_inner_textobject = function() M.indent_textobject_selection() end
+M.indent_inner_textobject = function()
+  M.indent_textobject_selection()
+end
 
 return M

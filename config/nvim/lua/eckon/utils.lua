@@ -15,10 +15,9 @@ end
 ---@return table
 local function command_complete_filter(completion_strings, passed_arguments)
   -- filter completions out, which the caller did not type on the command line
-  local filtered_completion_strings = vim.tbl_filter(
-    function(s) return s:sub(1, #passed_arguments) == passed_arguments end,
-    completion_strings
-  )
+  local filtered_completion_strings = vim.tbl_filter(function(s)
+    return s:sub(1, #passed_arguments) == passed_arguments
+  end, completion_strings)
 
   table.sort(filtered_completion_strings)
 
@@ -44,7 +43,9 @@ local function async_external_command(options)
   local stderr_output = {}
 
   local args_string = ""
-  vim.tbl_map(function(a) args_string = args_string .. " " .. a end, options.args)
+  vim.tbl_map(function(a)
+    args_string = args_string .. " " .. a
+  end, options.args)
 
   local handle
   handle, _ = uv.spawn(options.command, {

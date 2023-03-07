@@ -3,7 +3,9 @@ local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_basic", {})
 
 autocmd("TextYankPost", {
   desc = "Highlight yanked area",
-  callback = function() vim.highlight.on_yank({ timeout = 75 }) end,
+  callback = function()
+    vim.highlight.on_yank({ timeout = 75 })
+  end,
   group = autogroup,
 })
 
