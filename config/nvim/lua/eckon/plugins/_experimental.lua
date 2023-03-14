@@ -2,6 +2,19 @@ local nnoremap = require("eckon.utils").nnoremap
 
 local M = {
   {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    lazy = true,
+    config = function()
+      require("treesj").setup({ use_default_keymaps = false })
+    end,
+    init = function()
+      nnoremap("S", function()
+        require("treesj").toggle()
+      end, { desc = "Toggle split/join via treesitter" })
+    end,
+  },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -11,11 +24,7 @@ local M = {
           enabled = true,
           auto_trigger = true,
           debounce = 75,
-          keymap = {
-            accept = "<M-CR>",
-            next = "<M-n>",
-            prev = "<M-p>",
-          },
+          keymap = { accept = "<M-CR>", next = "<M-n>", prev = "<M-p>" },
         },
       })
     end,
