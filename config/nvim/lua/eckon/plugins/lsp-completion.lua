@@ -1,5 +1,6 @@
 local M = {
   "hrsh7th/nvim-cmp",
+  cond = not require("eckon.utils").run_minimal(),
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer",

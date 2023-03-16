@@ -28,7 +28,7 @@ fish_vi_key_bindings
 alias clip "xclip -sel clip"
 alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
-alias vi   "vim"
+alias vi   "nvim --cmd \"let g:run_minimal=1\""
 alias vim  "nvim"
 
 

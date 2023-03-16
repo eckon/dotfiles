@@ -3,6 +3,7 @@ local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_lsp", {})
 
 local M = {
   "neovim/nvim-lspconfig",
+  cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPre",
   cmd = { "Mason" },
   dependencies = {

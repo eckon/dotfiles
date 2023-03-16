@@ -1,8 +1,11 @@
+local nnoremap = require("eckon.utils").nnoremap
+
 local M = {
   "nvim-treesitter/nvim-treesitter",
+  cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPost",
   build = ":TSUpdate",
-  dependencies = { "nvim-treesitter/nvim-treesitter-context" },
+  dependencies = { "nvim-treesitter/nvim-treesitter-context", "Wansmer/treesj" },
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = "all",
@@ -29,6 +32,12 @@ local M = {
     })
 
     require("treesitter-context").setup()
+    require("treesj").setup({ use_default_keymaps = false })
+  end,
+  init = function()
+    nnoremap("S", function()
+      require("treesj").toggle()
+    end, { desc = "Toggle split/join via treesitter" })
   end,
 }
 

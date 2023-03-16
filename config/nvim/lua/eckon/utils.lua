@@ -1,5 +1,16 @@
 local M = {}
 
+--- Return true or fales depending on whether neovim should be started in minimal mode
+--- this is mainly as some things might not yet work on bigger files,
+--- so we can manually disable them
+---
+--- mainly for gigantic files that would break otherwise (mainly as treesitter still gets init)
+local function run_minimal()
+  return vim.fn.exists("g:run_minimal") == 1
+end
+
+M.run_minimal = run_minimal
+
 ---Create user command with 'CC'-prefix for quick access
 ---@param name string
 ---@param cmd string|function
