@@ -62,4 +62,8 @@
     "vetur.experimental.templateInterpolationService": true,
     "vetur.validation.templateProps": true,
     "git.mergeEditor": true,
+    "editor.inlineSuggest.enabled": true,
+    "Lua.diagnostics.globals": [
+        "vim"
+    ],
 }

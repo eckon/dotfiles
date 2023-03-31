@@ -17,6 +17,7 @@ local M = {
           adaptive_size = true,
           hide_root_folder = true,
           relativenumber = true,
+          side = "right",
         },
       })
     end,

@@ -28,10 +28,9 @@ return {
     end,
   },
   {
-    "navarasu/onedark.nvim",
+    "rebelot/kanagawa.nvim",
     config = function()
-      require("onedark").setup({ style = "warmer" })
-      require("onedark").load()
+      vim.cmd("colorscheme kanagawa-wave")
     end,
   },
 }
