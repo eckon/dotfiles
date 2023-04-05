@@ -1,7 +1,7 @@
 # -------------------- Path --------------------
-test -d ~/.fnm;       and fish_add_path ~/.fnm
-test -d ~/.local/bin; and fish_add_path ~/.local/bin
-test -d ~/.cargo/bin; and fish_add_path ~/.cargo/bin
+test -d ~/.local/share/fnm; and fish_add_path ~/.local/share/fnm
+test -d ~/.local/bin;       and fish_add_path ~/.local/bin
+test -d ~/.cargo/bin;       and fish_add_path ~/.cargo/bin
 
 
 
@@ -19,7 +19,6 @@ set -Ux LESS      "--mouse --wheel-lines=5 -r"
 set fish_greeting
 
 
-fzf_key_bindings
 fish_vi_key_bindings
 
 

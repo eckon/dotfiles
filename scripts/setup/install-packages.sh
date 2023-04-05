@@ -9,6 +9,7 @@ echo "Install basic packages"
 echo "----------------------"
 
 sudo apt install -y \
+  autoconf \
   automake \
   bash \
   bison \
@@ -21,6 +22,7 @@ sudo apt install -y \
   libncurses5-dev \
   libncursesw5-dev \
   moreutils \
+  pkg-config \
   ripgrep \
   shellcheck \
   silversearcher-ag \
@@ -128,7 +130,7 @@ if ! command -v "fnm" &> /dev/null; then
   curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
   eval "$(fnm env)"
-  fnm use 16 --install-if-missing
+  fnm install 16
   fnm default "$(node --version)"
 fi
 
@@ -174,7 +176,7 @@ if ! command -v "starship" &> /dev/null; then
   curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
-if ! (fc-list | grep -qF "FiraCode Nerd Font Mono"); then
+if ! (fc-list | grep -qF "FiraCode Nerd Font"); then
   echo "[+] Install \"Patched FiraCode\" via \"Nerdfonts\""
 
   # nerdfont is gigantic, only clone minimum (only root)
