@@ -45,7 +45,9 @@ M.init = function()
     require("telescope.builtin").resume()
   end, { desc = "Continue previous search" })
 
+  local remove_unused_buffers = require("eckon.utils").enable_removal_of_unused_buffers()
   nnoremap("<Leader>fb", function()
+    remove_unused_buffers()
     require("telescope.builtin").buffers({ sort_mru = true })
   end, { desc = "Search buffer" })
 
