@@ -1,8 +1,8 @@
 local custom_command = require("eckon.utils").custom_command
 local command_complete_filter = require("eckon.utils").command_complete_filter
 
--- quickly setup vim for pair programming
-custom_command("PairProgramming", "tabdo windo set norelativenumber")
+-- show absolute lines for pair programming
+custom_command("PairProgramming", [[tabdo windo set statuscolumn=%l\ %r]])
 
 -- open current project and goto the current buffer file in vscode
 custom_command("VSCode", "!code $(pwd) -g %")

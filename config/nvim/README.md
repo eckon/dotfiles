@@ -32,3 +32,13 @@ Lua based configuration also allows for easy standardized formatting via [stylua
 
 - [Vim plugin structure](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
 - [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc)
+
+
+## Special
+
+Sadly my config does not handle gigantic files always perfectly, so for things like million lines of json or similar,
+I added a global variable `run_minimal` which can be when calling vim and will disable some of the more resource intense plugins.
+
+This mainly includes `lsp`, `treesitter` and other things that take long or do not handle gigantic files well.
+
+For that the `vi` command is mapped to this minimal config (and the normal `vim` / `nvim` to the full config).

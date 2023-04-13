@@ -19,8 +19,8 @@ M.config = function()
       path_display = { "truncate" },
       mappings = {
         i = {
-          ["<C-j>"] = actions.cycle_history_next,
-          ["<C-k>"] = actions.cycle_history_prev,
+          ["<M-n>"] = actions.cycle_history_next,
+          ["<M-p>"] = actions.cycle_history_prev,
           ["<C-b>"] = actions.delete_buffer,
           -- allow fuzzy search over search result
           ["<C-f>"] = actions.to_fuzzy_refine,
