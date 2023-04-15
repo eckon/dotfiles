@@ -12,10 +12,10 @@ local M = {
         renderer = {
           add_trailing = true,
           group_empty = true,
+          root_folder_label = false,
         },
         view = {
           adaptive_size = true,
-          hide_root_folder = true,
           relativenumber = true,
           side = "right",
         },
