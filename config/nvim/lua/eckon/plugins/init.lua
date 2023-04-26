@@ -12,7 +12,8 @@ return {
     "numToStr/Comment.nvim",
     event = "BufReadPre",
     config = function()
-      require("Comment").setup()
+      -- NOTE: remove if mini alternative is good
+      -- require("Comment").setup()
     end,
   },
 
@@ -28,10 +29,9 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "stevearc/dressing.nvim",
     config = function()
-      -- vim.cmd("colorscheme catppuccin")
+      require("dressing").setup({ input = { insert_only = false } })
     end,
   },
   {
