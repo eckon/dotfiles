@@ -19,7 +19,7 @@ nnoremap("J", function()
   local prev_pos = vim.api.nvim_win_get_cursor(0)
   vim.api.nvim_command("normal! " .. vim.v.count + 1 .. "J")
   vim.api.nvim_win_set_cursor(0, prev_pos)
-end)
+end, { desc = "Join lines without moving cursor" })
 
 -- center view after common jump actions
 nnoremap("<C-u>", "<C-u>zz")
@@ -46,5 +46,5 @@ local jumplisted_relative_movement = function(key)
   end
 end
 
-nnoremap("k", jumplisted_relative_movement("k"), { expr = true })
-nnoremap("j", jumplisted_relative_movement("j"), { expr = true })
+nnoremap("k", jumplisted_relative_movement("k"), { expr = true, desc = "Jump to previous line and append to jumplist" })
+nnoremap("j", jumplisted_relative_movement("j"), { expr = true, desc = "Jump to next line and append to jumplist" })

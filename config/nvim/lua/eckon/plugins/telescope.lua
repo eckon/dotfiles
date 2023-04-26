@@ -41,9 +41,13 @@ M.init = function()
     require("telescope.builtin").live_grep()
   end, { desc = "Live search" })
 
-  nnoremap("<Leader>fr", function()
+  nnoremap("<Leader>fc", function()
     require("telescope.builtin").resume()
   end, { desc = "Continue previous search" })
+
+  nnoremap("<Leader>fr", function()
+    require("telescope.builtin").oldfiles({ only_cwd = true })
+  end, { desc = "Recently opened files" })
 
   local remove_unused_buffers = require("eckon.utils").enable_removal_of_unused_buffers()
   nnoremap("<Leader>fb", function()
