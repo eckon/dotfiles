@@ -8,14 +8,6 @@ return {
       require("nvim-surround").setup()
     end,
   },
-  {
-    "numToStr/Comment.nvim",
-    event = "BufReadPre",
-    config = function()
-      -- NOTE: remove if mini alternative is good
-      -- require("Comment").setup()
-    end,
-  },
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },

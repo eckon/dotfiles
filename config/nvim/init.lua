@@ -1,8 +1,5 @@
 require("eckon.basic")
 
--- mini.nvim has a textobject for indentations, if it works well, i can remove this here
--- require("eckon.custom")
-
 -- package/plugins management
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
