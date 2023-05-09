@@ -5,7 +5,7 @@ local M = {
   cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPost",
   build = ":TSUpdate",
-  dependencies = { "nvim-treesitter/nvim-treesitter-context", "Wansmer/treesj" },
+  dependencies = { "Wansmer/treesj" },
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = "all",
@@ -31,7 +31,6 @@ local M = {
       },
     })
 
-    require("treesitter-context").setup()
     require("treesj").setup({ use_default_keymaps = false })
   end,
   init = function()
