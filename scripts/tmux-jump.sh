@@ -52,8 +52,8 @@ if [[ "$#" -le 0 ]]; then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
-      echo "  Start services via \"docker-compose up\""
-      tmux send-key -t "$session":1 'docker-compose up' C-m
+      echo "  Start services via \"docker compose up\""
+      tmux send-key -t "$session":1 'docker compose up' C-m
     fi
   fi
 
