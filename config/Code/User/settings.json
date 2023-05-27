@@ -4,6 +4,9 @@
     "editor.fontLigatures": true,
     "editor.tabSize": 2,
     "editor.lineNumbers": "relative",
+    "editor.inlineSuggest.enabled": true,
+    "git.mergeEditor": true,
+    "workbench.colorTheme": "Kanagawa",
     "vim.enableNeovim": true,
     "vim.handleKeys": {
         "<C-f>": false
@@ -11,6 +14,8 @@
     "vim.highlightedyank.enable": true,
     "vim.hlsearch": true,
     "vim.leader": "<space>",
+    "vim.shell": "bash",
+    "vim.visualstar": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -39,31 +44,12 @@
             ]
         }
     ],
-    "vim.useSystemClipboard": true,
-    "vim.visualModeKeyBindings": [
-        {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
-        },
-    ],
-    "workbench.iconTheme": "material-icon-theme",
     "vetur.experimental.templateInterpolationService": true,
     "vetur.validation.templateProps": true,
-    "git.mergeEditor": true,
-    "editor.inlineSuggest.enabled": true,
-    "Lua.diagnostics.globals": [
-        "vim"
-    ],
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
 }

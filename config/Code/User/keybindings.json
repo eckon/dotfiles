@@ -1,22 +1,22 @@
 [
+  // Toggle between terminal and editor focus
   {
-    "key": "tab",
-    "command": "selectNextQuickFix",
-    "when": "editorFocus && quickFixWidgetVisible"
+    "key": "ctrl+'",
+    "command": "workbench.action.terminal.focus"
   },
   {
-    "key": "shift+tab",
-    "command": "selectPrevQuickFix",
-    "when": "editorFocus && quickFixWidgetVisible"
+    "key": "ctrl+'",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  // Toggle between explorer and editor focus
+  {
+    "key": "ctrl+shift+'",
+    "command": "workbench.action.focusSideBar"
   },
   {
-    "key": "tab",
-    "command": "selectNextSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    "key": "ctrl+shift+'",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus"
   },
-  {
-    "key": "shift+tab",
-    "command": "selectPrevSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  }
 ]
