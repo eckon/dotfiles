@@ -18,5 +18,5 @@
     "key": "ctrl+shift+'",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "explorerViewletFocus"
-  },
+  }
 ]

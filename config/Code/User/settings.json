@@ -1,55 +1,77 @@
 {
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.fontLigatures": true,
-    "editor.tabSize": 2,
-    "editor.lineNumbers": "relative",
-    "editor.inlineSuggest.enabled": true,
-    "git.mergeEditor": true,
-    "workbench.colorTheme": "Kanagawa",
-    "vim.enableNeovim": true,
-    "vim.handleKeys": {
-        "<C-f>": false
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.lineNumbers": "relative",
+  "editor.inlineSuggest.enabled": true,
+  "git.mergeEditor": true,
+  "workbench.colorTheme": "Kanagawa",
+  "vim.enableNeovim": true,
+  "vim.handleKeys": {
+    "<C-f>": false
+  },
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.shell": "bash",
+  "vim.visualstar": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-l>"],
+      "commands": [":nohl"]
     },
-    "vim.highlightedyank.enable": true,
-    "vim.hlsearch": true,
-    "vim.leader": "<space>",
-    "vim.shell": "bash",
-    "vim.visualstar": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<C-l>"
-            ],
-            "commands": [
-                ":nohl"
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "g",
-                "h"
-            ]
-        },
-        {
-            "before": [
-                "g",
-                "r"
-            ],
-            "commands": [
-                "editor.action.referenceSearch.trigger"
-            ]
-        }
-    ],
-    "vetur.experimental.templateInterpolationService": true,
-    "vetur.validation.templateProps": true,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
+    {
+      "before": ["K"],
+      "after": ["g", "h"]
     },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    // jump commands
+    {
+      "before": ["[", "c"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.previous"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    // to repeat indent
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.templateProps": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "workbench.startupEditor": "none",
+  "git.autofetch": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
