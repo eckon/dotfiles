@@ -15,7 +15,7 @@ local M = {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
     config = function()
-      require("gitsigns").setup({ keymaps = {} })
+      require("gitsigns").setup()
     end,
     init = function()
       nnoremap("<Leader>gb", function()

@@ -9,7 +9,7 @@ local M = {
   dependencies = {
     { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
     { "jose-elias-alvarez/null-ls.nvim", "jay-babu/mason-null-ls.nvim" },
-    "j-hui/fidget.nvim",
+    { "j-hui/fidget.nvim", branch = "legacy" },
     { "simrat39/rust-tools.nvim", "jose-elias-alvarez/typescript.nvim" },
     { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   },
@@ -74,6 +74,7 @@ M.config = function()
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
+            hint = { enable = true },
             runtime = { version = "LuaJIT" },
             diagnostics = { globals = { "vim" } },
             workspace = {

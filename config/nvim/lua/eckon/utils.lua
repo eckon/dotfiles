@@ -47,9 +47,8 @@ M.command_complete_filter = command_complete_filter
 ---@field on_completion fun(stdout_output: table, stderr_output: table)
 ---@param options JobOptions
 local function async_external_command(options)
-  local uv = vim.loop
-  local stdout = uv.new_pipe(false)
-  local stderr = uv.new_pipe(false)
+  local stdout = vim.uv.new_pipe(false)
+  local stderr = vim.uv.new_pipe(false)
   local stdout_output = {}
   local stderr_output = {}
 
@@ -59,7 +58,7 @@ local function async_external_command(options)
   end, options.args)
 
   local handle
-  handle, _ = uv.spawn(options.command, {
+  handle, _ = vim.uv.spawn(options.command, {
     args = options.args,
     stdio = { nil, stdout, stderr },
     detached = true,
@@ -95,8 +94,8 @@ local function async_external_command(options)
     end
   end
 
-  uv.read_start(stdout, combine_output_into_table(stdout_output))
-  uv.read_start(stderr, combine_output_into_table(stderr_output))
+  vim.uv.read_start(stdout, combine_output_into_table(stdout_output))
+  vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
 end
 
 M.async_external_command = async_external_command
