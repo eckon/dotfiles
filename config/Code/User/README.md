@@ -12,6 +12,11 @@
   - vim
     - vscodevim.vim
     - _asvetliakov.vscode-neovim_
+  - spelling
+    - streetsidesoftware.code-spell-checker
+      - for the general spell check in code
+    - streetsidesoftware.code-spell-checker-german
+      - to add german spelling as well (setting is already set in config)
 
 
 #### Vim plugins
