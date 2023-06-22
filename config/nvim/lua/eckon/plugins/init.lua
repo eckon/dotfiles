@@ -14,12 +14,18 @@ return {
     version = false,
     config = function()
       require("mini.comment").setup()
+      require("mini.files").setup({ windows = { preview = true } })
       -- this also has ii/ai text objects
       require("mini.indentscope").setup({
         draw = {
           animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }),
         },
       })
+    end,
+    init = function()
+      require("eckon.utils").nnoremap("<Leader>fe", function()
+        require("mini.files").open(vim.api.nvim_buf_get_name(0))
+      end, { desc = "Open File Explorer" })
     end,
   },
 
