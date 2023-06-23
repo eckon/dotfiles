@@ -4,9 +4,10 @@ This repository includes all of my public _**scripts**_ and _**configurations**_
 The structure represents the home directory to allow easy symlinks.
 
 Bigger parts have their own README and can be found here:
-- [Neovim](./config/nvim)
-- [Scripts](./scripts)
-- [Visual Studio Code](./config/Code/User)
+- [Neovim](./config/nvim/README.md)
+- [Scripts](./scripts/README.md)
+- [Visual Studio Code](./config/Code/User/README.md)
+- [Jetbrains Tools](./config/jetbrains/README.md)
 - [Gists](https://gist.github.com/eckon)
 
 
