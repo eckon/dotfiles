@@ -10,14 +10,13 @@ local M = {
     { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
     { "jose-elias-alvarez/null-ls.nvim", "jay-babu/mason-null-ls.nvim" },
     { "j-hui/fidget.nvim", branch = "legacy" },
-    { "simrat39/rust-tools.nvim", "jose-elias-alvarez/typescript.nvim" },
-    { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+    { "simrat39/rust-tools.nvim" },
+    { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
 }
 
 M.config = function()
   require("fidget").setup({})
-  require("trouble").setup()
 
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -47,7 +46,6 @@ M.config = function()
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.prettierd,
       null_ls.builtins.formatting.stylua,
-      require("typescript.extensions.null-ls.code-actions"),
     },
   })
 
@@ -68,7 +66,7 @@ M.config = function()
       })
     end,
     ["tsserver"] = function()
-      require("typescript").setup({})
+      require("typescript-tools").setup({})
     end,
     ["lua_ls"] = function()
       lspconfig.lua_ls.setup({
