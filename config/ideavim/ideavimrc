@@ -16,10 +16,17 @@ sethandler <C-F> a:ide
 sethandler <C-S> a:ide
 sethandler <C-V> a:ide
 
+" up/down movement
 sethandler <C-D> a:vim
-sethandler <C-I> a:vim
-sethandler <C-O> a:vim
 sethandler <C-U> a:vim
+" jump between buffers
+sethandler <C-O> a:vim
+sethandler <C-I> a:vim
+" navigating popup menu
+sethandler <C-N> a:vim
+sethandler <C-P> a:vim
+" deletion of word
+sethandler <C-W> a:vim
 
 
 " --- Enable IdeaVim plugins -- https://jb.gg/ideavim-plugins
