@@ -28,6 +28,17 @@ return {
       end, { desc = "Open File Explorer" })
     end,
   },
+  {
+    "folke/flash.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("flash").setup()
+    end,
+    -- stylua: ignore
+    keys = {
+      { "S", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Jump via flash" },
+    },
+  },
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },

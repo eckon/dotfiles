@@ -34,7 +34,7 @@ local M = {
     require("treesj").setup({ use_default_keymaps = false })
   end,
   init = function()
-    nnoremap("S", function()
+    nnoremap("s", function()
       require("treesj").toggle()
     end, { desc = "Toggle split/join via treesitter" })
   end,
