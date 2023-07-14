@@ -14,6 +14,5 @@ packages:
 
 lua:
 	npx @johnnymorganz/stylua-bin \
-		--config-path ./config/nvim/.stylua.toml \
 		--glob '*.lua' \
 		./config/nvim

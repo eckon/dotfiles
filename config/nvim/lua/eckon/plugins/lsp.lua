@@ -12,7 +12,6 @@ local M = {
       build = ":MasonUpdate",
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
-    { "jose-elias-alvarez/null-ls.nvim", dependencies = "jay-babu/mason-null-ls.nvim" },
     { "j-hui/fidget.nvim", branch = "legacy" },
     { "simrat39/rust-tools.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
@@ -40,21 +39,6 @@ M.config = function()
       "yamlls",
     },
   })
-
-  local null_ls = require("null-ls")
-  null_ls.setup({
-    sources = {
-      null_ls.builtins.code_actions.eslint_d,
-      null_ls.builtins.diagnostics.eslint_d,
-      null_ls.builtins.formatting.eslint_d,
-      null_ls.builtins.formatting.black,
-      null_ls.builtins.formatting.prettierd,
-      null_ls.builtins.formatting.stylua,
-    },
-  })
-
-  -- install all sources of above null-ls
-  require("mason-null-ls").setup({ automatic_installation = true })
 
   local lspconfig = require("lspconfig")
   require("mason-lspconfig").setup_handlers({
@@ -90,20 +74,6 @@ M.config = function()
     end,
   })
 end
-
-autocmd("lspattach", {
-  desc = "Ignore formatting of lua_ls", -- it conflicts with stylua
-  callback = function(args)
-    local bufnr = args.buf
-    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-    for _, client in pairs(clients) do
-      if client.name == "lua_ls" then
-        client.server_capabilities.documentFormattingProvider = false
-      end
-    end
-  end,
-  group = autogroup,
-})
 
 autocmd("lspattach", {
   desc = "Stop lsp clients on buffer if buffer too big",
@@ -142,12 +112,12 @@ autocmd("lspattach", {
 
     nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
     nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
+    nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
 
+    -- "lf" used for formatter, but add format of lsp to have both options
+    nmap("<Leader>lF", function() vim.lsp.buf.format({ async = true }) end, "Format buffer")
     nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
-    nmap("<Leader>lf", function() vim.lsp.buf.format({ async = true }) end, "Format buffer")
-
-    nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
     -- stylua: ignore end
   end,
   group = autogroup,
