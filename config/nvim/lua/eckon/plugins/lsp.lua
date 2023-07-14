@@ -7,8 +7,12 @@ local M = {
   event = "BufReadPre",
   cmd = { "Mason" },
   dependencies = {
-    { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
-    { "jose-elias-alvarez/null-ls.nvim", "jay-babu/mason-null-ls.nvim" },
+    {
+      "williamboman/mason.nvim",
+      build = ":MasonUpdate",
+      dependencies = "williamboman/mason-lspconfig.nvim",
+    },
+    { "jose-elias-alvarez/null-ls.nvim", dependencies = "jay-babu/mason-null-ls.nvim" },
     { "j-hui/fidget.nvim", branch = "legacy" },
     { "simrat39/rust-tools.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
