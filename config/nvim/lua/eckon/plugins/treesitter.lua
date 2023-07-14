@@ -1,5 +1,3 @@
-local nnoremap = require("eckon.utils").nnoremap
-
 local M = {
   "nvim-treesitter/nvim-treesitter",
   cond = not require("eckon.utils").run_minimal(),
@@ -34,9 +32,9 @@ local M = {
     require("treesj").setup({ use_default_keymaps = false })
   end,
   init = function()
-    nnoremap("s", function()
+    require("eckon.utils").bind_map("n")("s", function()
       require("treesj").toggle()
-    end, { desc = "Toggle split/join via treesitter" })
+    end, { desc = "Treesj: Toggle split/join" })
   end,
 }
 

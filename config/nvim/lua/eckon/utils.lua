@@ -1,15 +1,13 @@
 local M = {}
 
---- Return true or fales depending on whether neovim should be started in minimal mode
---- this is mainly as some things might not yet work on bigger files,
---- so we can manually disable them
----
---- mainly for gigantic files that would break otherwise (mainly as treesitter still gets init)
+---Return true or fales depending on whether neovim should be started in minimal mode
+---this is mainly as some things might not yet work on gigantic files,
+---so we can manually disable them
+---This is done via calling nvim with the var (see fish config)
+---@return boolean
 local function run_minimal()
   return vim.fn.exists("g:run_minimal") == 1
 end
-
-M.run_minimal = run_minimal
 
 ---Create user command with 'CC'-prefix for quick access
 ---@param name string
@@ -21,6 +19,16 @@ local function custom_command(name, cmd, options)
 end
 
 ---Command completion function, to sort and filter passed complete values
+---Example: As an config param in command
+---{
+---  nargs = "?",
+---  complete = function(arg)
+---    local names = {}
+---    -- iterate and append names
+---    --    table.insert(names, some_item)
+---    return command_complete_filter(names, arg)
+---  end,
+---})
 ---@param completion_strings table
 ---@param passed_arguments table
 ---@return table
@@ -35,8 +43,24 @@ local function command_complete_filter(completion_strings, passed_arguments)
   return filtered_completion_strings
 end
 
-M.custom_command = custom_command
-M.command_complete_filter = command_complete_filter
+---Create partial function to store mode and options
+---Example: To get back a function with preset mode and options
+---local nmap = bind_map("n")
+---@param mode string|table
+---@param outer_options? table
+local function bind_map(mode, outer_options)
+  ---Function to set a mapping of a given mode and a set of options
+  ---@param lhs string
+  ---@param rhs string|function
+  ---@param inner_options? table
+  return function(lhs, rhs, inner_options)
+    local options = vim.tbl_extend("force", outer_options or {}, inner_options or {})
+    vim.keymap.set(mode, lhs, rhs, options)
+  end
+end
+
+------------------------------------------------------------------------------------------
+----- Experimental implementations
 
 ---Create async job for running external commands and calling a callback on the output
 ---@class JobOptions
@@ -98,74 +122,15 @@ local function async_external_command(options)
   vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
 end
 
+------------------------------------------------------------------------------------------
+
+----- Basic
+M.run_minimal = run_minimal
+M.bind_map = bind_map
+M.custom_command = custom_command
+M.command_complete_filter = command_complete_filter
+
+----- Experimental
 M.async_external_command = async_external_command
-
----Create partial function to store mode and options
----@param mode string|table
----@param outer_options? table
-local function bind_map(mode, outer_options)
-  outer_options = outer_options or { noremap = true }
-
-  ---Function to set a mapping of a given mode and a set of options
-  ---@param lhs string
-  ---@param rhs string|function
-  ---@param inner_options? table
-  return function(lhs, rhs, inner_options)
-    local options = vim.tbl_extend("force", outer_options, inner_options or {})
-    vim.keymap.set(mode, lhs, rhs, options)
-  end
-end
-
-M.nmap = bind_map("n", { noremap = false })
-M.noremap = bind_map({ "n", "v", "o" })
-
-M.nnoremap = bind_map("n")
-M.inoremap = bind_map("i")
-M.vnoremap = bind_map("v")
-
-M.onoremap = bind_map("o")
-M.xnoremap = bind_map("x")
-
--- Experimental
--- the buffer list gets way too long after some time, as jumping to definition and search results
--- ends up filling the bufferlist and jumplist full.
--- to try to make at least the buffer jump a bit more reasonable, this resmoves all buffers that were not changed
--- this might not do much and can be removed later on (also remove the place it is called)
-local enable_removal_of_unused_buffers = function()
-  local id = vim.api.nvim_create_augroup("startup", {
-    clear = false,
-  })
-
-  local persistbuffer = function(bufnr)
-    bufnr = bufnr or vim.api.nvim_get_current_buf()
-    vim.fn.setbufvar(bufnr, "bufpersist", 1)
-  end
-
-  vim.api.nvim_create_autocmd({ "BufRead" }, {
-    group = id,
-    pattern = { "*" },
-    callback = function()
-      vim.api.nvim_create_autocmd({ "InsertEnter", "BufModifiedSet" }, {
-        buffer = 0,
-        once = true,
-        callback = function()
-          persistbuffer()
-        end,
-      })
-    end,
-  })
-
-  return function()
-    local curbufnr = vim.api.nvim_get_current_buf()
-    local buflist = vim.api.nvim_list_bufs()
-    for _, bufnr in ipairs(buflist) do
-      if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
-        vim.cmd("bd " .. tostring(bufnr))
-      end
-    end
-  end
-end
-
-M.enable_removal_of_unused_buffers = enable_removal_of_unused_buffers
 
 return M

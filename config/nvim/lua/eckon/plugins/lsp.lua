@@ -123,51 +123,32 @@ autocmd("lspattach", {
 })
 
 autocmd("lspattach", {
-  desc = "Update omnifunc/formatexpr for current buffer",
-  callback = function(args)
-    local bufnr = args.buf
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-    vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-  end,
-  group = autogroup,
-})
-
-autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
   callback = function(args)
-    local nnoremap = require("eckon.utils").nnoremap
-    local inoremap = require("eckon.utils").inoremap
+    local bind_map = require("eckon.utils").bind_map
+    local nmap = function(lhs, rhs, desc)
+      bind_map("n")(lhs, rhs, { desc = "LSP: " .. desc, buffer = args.buf })
+    end
 
-    nnoremap("K", vim.lsp.buf.hover, { buffer = args.buf, desc = "LSP: Hover Action" })
-    nnoremap("gK", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
-    inoremap("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
+    nmap("K", vim.lsp.buf.hover, "Hover Action")
+    nmap("gK", vim.lsp.buf.signature_help, "Signature Help")
+    bind_map("i")("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
 
-    nnoremap("gd", function()
-      require("telescope.builtin").lsp_definitions({ show_line = false })
-    end, { buffer = args.buf, desc = "LSP: Go to definitions" })
+    -- stylua: ignore start
+    nmap("gd", function() require("telescope.builtin").lsp_definitions({ show_line = false }) end, "Go to definitions")
+    nmap("gD", function() require("telescope.builtin").lsp_type_definitions({ show_line = false }) end, "Go to type definitions")
+    nmap("gr", function() require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false }) end, "Go to references")
+    nmap("<Leader>fL", function() require("telescope.builtin").lsp_document_symbols() end, "Search lsp symbols")
 
-    nnoremap("gD", function()
-      require("telescope.builtin").lsp_type_definitions({ show_line = false })
-    end, { buffer = args.buf, desc = "LSP: Go to type definitions" })
+    nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
+    nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
 
-    nnoremap("gr", function()
-      require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false })
-    end, { buffer = args.buf, desc = "LSP: Go to references" })
+    nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
+    nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
+    nmap("<Leader>lf", function() vim.lsp.buf.format({ async = true }) end, "Format buffer")
 
-    nnoremap("<Leader>fL", function()
-      require("telescope.builtin").lsp_document_symbols()
-    end, { buffer = args.buf, desc = "LSP: Search lsp symbols" })
-
-    nnoremap("[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Jump to previous diagnostic" })
-    nnoremap("]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Jump to next diagnostic" })
-
-    nnoremap("<Leader>la", vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP: Code action" })
-    nnoremap("<Leader>lr", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP: Rename variable" })
-    nnoremap("<Leader>lf", function()
-      vim.lsp.buf.format({ async = true })
-    end, { buffer = args.buf, desc = "LSP: Format buffer" })
-
-    nnoremap("<Leader>ld", vim.diagnostic.open_float, { buffer = args.buf, desc = "Open diagnostic float" })
+    nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
+    -- stylua: ignore end
   end,
   group = autogroup,
 })

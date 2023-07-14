@@ -17,15 +17,13 @@ return {
       require("mini.files").setup({ windows = { preview = true } })
       -- this also has ii/ai text objects
       require("mini.indentscope").setup({
-        draw = {
-          animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }),
-        },
+        draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
       })
     end,
     init = function()
-      require("eckon.utils").nnoremap("<Leader>fe", function()
+      require("eckon.utils").bind_map("n")("<Leader>fe", function()
         require("mini.files").open(vim.api.nvim_buf_get_name(0))
-      end, { desc = "Open File Explorer" })
+      end, { desc = "Mini: Open File Explorer" })
     end,
   },
   {
@@ -34,10 +32,11 @@ return {
     config = function()
       require("flash").setup()
     end,
-    -- stylua: ignore
-    keys = {
-      { "S", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Jump via flash" },
-    },
+    init = function()
+      require("eckon.utils").bind_map({ "n", "o", "x" })("S", function()
+        require("flash").jump()
+      end, { desc = "Flash: Jump" })
+    end,
   },
 
   -- Styling/Appearance/Special

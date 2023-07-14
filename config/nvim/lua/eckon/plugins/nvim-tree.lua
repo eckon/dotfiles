@@ -1,5 +1,3 @@
-local nnoremap = require("eckon.utils").nnoremap
-
 local M = {
   {
     "nvim-tree/nvim-tree.lua",
@@ -22,7 +20,11 @@ local M = {
       })
     end,
     init = function()
-      nnoremap("<Leader>ft", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle tree view" })
+      require("eckon.utils").bind_map("n")(
+        "<Leader>ft",
+        "<CMD>NvimTreeFindFileToggle<CR>",
+        { desc = "Nvim-Tree: Toggle find file" }
+      )
     end,
   },
 }

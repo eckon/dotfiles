@@ -1,5 +1,4 @@
 local custom_command = require("eckon.utils").custom_command
-local command_complete_filter = require("eckon.utils").command_complete_filter
 
 -- show absolute lines for pair programming
 custom_command("PairProgramming", [[tabdo windo set statuscolumn=%l\ %r]])
@@ -33,38 +32,3 @@ custom_command("Browser", function()
 
   vim.api.nvim_command(cmd)
 end)
-
--- resource lua based vim config
-custom_command("Resource", function(data)
-  -- lua caches the loaded packages in package.loaded
-  -- to resource these, clear them and then rerun the init.lua file
-  for name, _ in pairs(package.loaded) do
-    if name:match("^eckon") then
-      package.loaded[name] = nil
-      vim.notify("Cleared: " .. name)
-    end
-
-    -- if caller passes package name, also clear cache for given name
-    if data.args ~= "" then
-      if name:match(data.args) then
-        package.loaded[name] = nil
-        vim.notify("Cleared: " .. name)
-      end
-    end
-  end
-
-  dofile(vim.env.MYVIMRC)
-end, {
-  nargs = "?",
-  complete = function(arg)
-    local package_names = {}
-    for name, _ in pairs(package.loaded) do
-      -- only show root packages (that do not include a '.')
-      if not name:match("%.") then
-        table.insert(package_names, name)
-      end
-    end
-
-    return command_complete_filter(package_names, arg)
-  end,
-})
