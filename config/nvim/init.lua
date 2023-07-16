@@ -1,4 +1,17 @@
-require("eckon.basic")
+-- options needs to be the first
+require("eckon.config.options")
+
+-- this is triggered via lazy.nvim (VeryLazy event)
+vim.api.nvim_create_autocmd("User", {
+  desc = "Set autocmds/commands/keymaps later on (to have more buffer info)",
+  pattern = "VeryLazy",
+  callback = function()
+    require("eckon.config.autocmds")
+    require("eckon.config.commands")
+    require("eckon.config.keymaps")
+  end,
+  group = vim.api.nvim_create_augroup("eckon_autogroup_lazy_load_options", {}),
+})
 
 -- package/plugins management
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

@@ -1,12 +1,13 @@
 local custom_command = require("eckon.utils").custom_command
 
--- show absolute lines for pair programming
-custom_command("PairProgramming", [[tabdo windo set statuscolumn=%l\ %r]])
+custom_command(
+  "PairProgramming",
+  [[tabdo windo set statuscolumn=%l\ %r]],
+  { desc = "Show absolute lines for pair programming" }
+)
 
--- open current project and goto the current buffer file in vscode
-custom_command("VSCode", "!code $(pwd) -g %")
+custom_command("VSCode", "!code $(pwd) -g %", { desc = "Open current project in VSCode" })
 
--- open current buffer file in the browser (needs to be cloned over git with ssh)
 custom_command("Browser", function()
   local repo_base_path = vim.fn.system([[
     git config --get remote.origin.url \
@@ -31,4 +32,4 @@ custom_command("Browser", function()
     .. '"'
 
   vim.api.nvim_command(cmd)
-end)
+end, { desc = "Open current buffer file in the browser" })
