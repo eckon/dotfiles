@@ -1,12 +1,12 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_basic", {})
+local augroup = require("eckon.utils").augroup("autocmds")
 
 autocmd("TextYankPost", {
   desc = "Highlight yanked area",
   callback = function()
     vim.highlight.on_yank({ timeout = 75 })
   end,
-  group = autogroup,
+  group = augroup,
 })
 
 autocmd("BufReadPost", {
@@ -24,7 +24,7 @@ autocmd("BufReadPost", {
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
-  group = autogroup,
+  group = augroup,
 })
 
 autocmd("BufWritePre", {
@@ -37,5 +37,5 @@ autocmd("BufWritePre", {
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
-  group = autogroup,
+  group = augroup,
 })

@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_lsp", {})
+local augroup = require("eckon.utils").augroup("lsp")
 
 local M = {
   "neovim/nvim-lspconfig",
@@ -89,7 +89,7 @@ autocmd("lspattach", {
       client.stop()
     end
   end,
-  group = autogroup,
+  group = augroup,
 })
 
 autocmd("lspattach", {
@@ -120,7 +120,7 @@ autocmd("lspattach", {
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
     -- stylua: ignore end
   end,
-  group = autogroup,
+  group = augroup,
 })
 
 return M

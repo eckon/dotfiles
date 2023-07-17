@@ -15,7 +15,10 @@ local M = {
       nmap("<Leader>gb", function() require("gitsigns").blame_line({ full = true }) end, "Open git blame")
       nmap("<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, "Unstage hunk")
       nmap("<Leader>gs", function() require("gitsigns").stage_hunk() end, "Stage hunk")
-      bind_map("v")("<Leader>gs", function() require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = "Git: Stage visual hunk" })
+
+      bind_map("v")("<Leader>gs", function()
+        require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      end, { desc = "Git: Stage visual hunk" })
 
       nmap("]c", function()
         require("gitsigns").next_hunk()

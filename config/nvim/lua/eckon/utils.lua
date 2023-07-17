@@ -43,6 +43,14 @@ local function command_complete_filter(completion_strings, passed_arguments)
   return filtered_completion_strings
 end
 
+---Create augroup with my unique prefix
+---@param name string
+---@param options? table
+---@return integer
+local function augroup(name, options)
+  return vim.api.nvim_create_augroup("eckon_augroup_" .. name, options or {})
+end
+
 ---Create partial function to store mode and options
 ---Example: To get back a function with preset mode and options
 ---local nmap = bind_map("n")
@@ -129,6 +137,7 @@ M.run_minimal = run_minimal
 M.bind_map = bind_map
 M.custom_command = custom_command
 M.command_complete_filter = command_complete_filter
+M.augroup = augroup
 
 ----- Experimental
 M.async_external_command = async_external_command

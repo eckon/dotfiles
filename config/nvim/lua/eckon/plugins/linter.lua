@@ -1,6 +1,3 @@
-local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup("eckon_autogroup_linter", {})
-
 local M = {
   "mfussenegger/nvim-lint",
   lazy = true,
@@ -12,12 +9,12 @@ local M = {
     }
   end,
   init = function()
-    autocmd({ "BufWritePost", "BufReadPost" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
       desc = "Try linting on save or open",
       callback = function()
         require("lint").try_lint()
       end,
-      group = autogroup,
+      group = require("eckon.utils").augroup("linter"),
     })
   end,
 }

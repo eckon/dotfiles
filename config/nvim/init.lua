@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("User", {
     require("eckon.config.commands")
     require("eckon.config.keymaps")
   end,
-  group = vim.api.nvim_create_augroup("eckon_autogroup_lazy_load_options", {}),
+  group = require("eckon.utils").augroup("load_config"),
 })
 
 -- package/plugins management
