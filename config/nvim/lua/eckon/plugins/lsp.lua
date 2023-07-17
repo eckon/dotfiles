@@ -104,21 +104,32 @@ autocmd("lspattach", {
     nmap("gK", vim.lsp.buf.signature_help, "Signature Help")
     bind_map("i")("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
 
-    -- stylua: ignore start
-    nmap("gd", function() require("telescope.builtin").lsp_definitions({ show_line = false }) end, "Go to definitions")
-    nmap("gD", function() require("telescope.builtin").lsp_type_definitions({ show_line = false }) end, "Go to type definitions")
-    nmap("gr", function() require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false }) end, "Go to references")
-    nmap("<Leader>fL", function() require("telescope.builtin").lsp_document_symbols() end, "Search lsp symbols")
+    nmap("gd", function()
+      require("telescope.builtin").lsp_definitions({ show_line = false })
+    end, "Go to definitions")
+
+    nmap("gD", function()
+      require("telescope.builtin").lsp_type_definitions({ show_line = false })
+    end, "Go to type definitions")
+
+    nmap("gr", function()
+      require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false })
+    end, "Go to references")
+
+    nmap("<Leader>fL", function()
+      require("telescope.builtin").lsp_document_symbols()
+    end, "Search lsp symbols")
 
     nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
     nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
 
     -- "lf" used for formatter, but add format of lsp to have both options
-    nmap("<Leader>lF", function() vim.lsp.buf.format({ async = true }) end, "Format buffer")
+    nmap("<Leader>lF", function()
+      vim.lsp.buf.format({ async = true })
+    end, "Format buffer")
     nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
-    -- stylua: ignore end
   end,
   group = augroup,
 })

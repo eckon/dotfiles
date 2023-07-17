@@ -36,18 +36,45 @@ M.init = function()
     bind_map("n")(lhs, rhs, { desc = "Telescope: " .. desc })
   end
 
-  -- stylua: ignore start
-  nmap("<Leader>fa", function() require("telescope.builtin").grep_string({ search = vim.fn.input({ prompt = "Grep > " }) }) end, "Search via grep")
-  nmap("<Leader>fA", function() require("telescope.builtin").live_grep() end, "Live search")
-  nmap("<Leader>fc", function() require("telescope.builtin").resume() end, "Continue previous search")
-  nmap("<Leader>fr", function() require("telescope.builtin").oldfiles({ only_cwd = true }) end, "Recently opened files")
-  nmap("<Leader>fb", function() require("telescope.builtin").buffers({ sort_mru = true }) end, "Search buffer")
-  nmap("<Leader>ff", function() require("telescope.builtin").find_files() end, "Search files")
-  nmap("<Leader>fg", function() require("telescope.builtin").git_status() end, "Search git changes")
-  nmap("<Leader>fl", function() require("telescope.builtin").current_buffer_fuzzy_find() end, "Search current buffer")
-  nmap("<Leader>fh", function() require("telescope.builtin").help_tags() end, "Search help")
-  nmap("<Leader>fk", function() require("telescope.builtin").keymaps() end, "Search keymaps")
-  -- stylua: ignore end
+  nmap("<Leader>fa", function()
+    require("telescope.builtin").grep_string({ search = vim.fn.input({ prompt = "Grep > " }) })
+  end, "Search via grep")
+
+  nmap("<Leader>fA", function()
+    require("telescope.builtin").live_grep()
+  end, "Live search")
+
+  nmap("<Leader>fc", function()
+    require("telescope.builtin").resume()
+  end, "Continue previous search")
+
+  nmap("<Leader>fr", function()
+    require("telescope.builtin").oldfiles({ only_cwd = true })
+  end, "Recently opened files")
+
+  nmap("<Leader>fb", function()
+    require("telescope.builtin").buffers({ sort_mru = true })
+  end, "Search buffer")
+
+  nmap("<Leader>ff", function()
+    require("telescope.builtin").find_files()
+  end, "Search files")
+
+  nmap("<Leader>fg", function()
+    require("telescope.builtin").git_status()
+  end, "Search git changes")
+
+  nmap("<Leader>fl", function()
+    require("telescope.builtin").current_buffer_fuzzy_find()
+  end, "Search current buffer")
+
+  nmap("<Leader>fh", function()
+    require("telescope.builtin").help_tags()
+  end, "Search help")
+
+  nmap("<Leader>fk", function()
+    require("telescope.builtin").keymaps()
+  end, "Search keymaps")
 end
 
 return M

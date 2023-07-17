@@ -9,14 +9,19 @@ local M = {
     local bind_map = require("eckon.utils").bind_map
     local nmap = bind_map("n")
 
-    -- stylua: ignore start
-    nmap("<Leader>ha", function() require("harpoon.mark").add_file() end, { desc = "Harpoon: Add file" })
-    nmap("<Leader>hh", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Harpoon: Open quick menu" })
+    nmap("<Leader>ha", function()
+      require("harpoon.mark").add_file()
+    end, { desc = "Harpoon: Add file" })
+
+    nmap("<Leader>hh", function()
+      require("harpoon.ui").toggle_quick_menu()
+    end, { desc = "Harpoon: Open quick menu" })
 
     for i = 1, 4, 1 do
-      nmap("<M-" .. i .. ">", function() require("harpoon.ui").nav_file(i) end, { desc = "Harpoon: Jump" .. i })
+      nmap("<M-" .. i .. ">", function()
+        require("harpoon.ui").nav_file(i)
+      end, { desc = "Harpoon: Jump" .. i })
     end
-    -- stylua: ignore end
   end,
 }
 
