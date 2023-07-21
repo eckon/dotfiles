@@ -5,7 +5,7 @@ local M = {
   "neovim/nvim-lspconfig",
   cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPre",
-  cmd = { "Mason" },
+  cmd = { "Mason", "MasonUpdate" },
   dependencies = {
     {
       "williamboman/mason.nvim",

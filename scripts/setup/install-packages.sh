@@ -87,7 +87,7 @@ if ! command -v "lazygit" &> /dev/null; then
   mkdir -p "/tmp/lazygit"
 
   wget -O "/tmp/lazygit/lazygit.tar.gz" \
-    "https://github.com/jesseduffield/lazygit/releases/download/v0.36.0/lazygit_0.36.0_Linux_x86_64.tar.gz"
+    "https://github.com/jesseduffield/lazygit/releases/download/v0.39.1/lazygit_0.39.1_Linux_x86_64.tar.gz"
 
   tar xf "/tmp/lazygit/lazygit.tar.gz" --directory="/tmp/lazygit"
   cp "/tmp/lazygit/lazygit" "$binLocation"
@@ -98,10 +98,10 @@ if ! command -v "delta" &> /dev/null; then
   mkdir -p "/tmp/delta"
 
   wget -O "/tmp/delta/delta.tar.gz" \
-    "https://github.com/dandavison/delta/releases/download/0.14.0/delta-0.14.0-x86_64-unknown-linux-gnu.tar.gz"
+    "https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-x86_64-unknown-linux-gnu.tar.gz"
 
   tar xf "/tmp/delta/delta.tar.gz" --directory="/tmp/delta"
-  cp "/tmp/delta/delta-0.14.0-x86_64-unknown-linux-gnu/delta" "$binLocation"
+  cp "/tmp/delta/delta-0.16.5-x86_64-unknown-linux-gnu/delta" "$binLocation"
 fi
 
 
