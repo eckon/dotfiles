@@ -68,6 +68,10 @@ M.init = function()
     require("telescope.builtin").current_buffer_fuzzy_find()
   end, "Search current buffer")
 
+  nmap("<Leader>fq", function()
+    require("telescope.builtin").quickfix()
+  end, "Search quickfix list")
+
   nmap("<Leader>fh", function()
     require("telescope.builtin").help_tags()
   end, "Search help")
