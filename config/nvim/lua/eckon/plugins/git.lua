@@ -3,7 +3,7 @@ local M = {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
     config = function()
-      require("gitsigns").setup()
+      require("gitsigns").setup({})
     end,
     init = function()
       local bind_map = require("eckon.utils").bind_map

@@ -1,6 +1,11 @@
+if require("eckon.utils").run_minimal() then
+  -- increase performance by even disabling syntax highlighting
+  vim.cmd([[ syntax off ]])
+  return {}
+end
+
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPost",
   build = ":TSUpdate",
   dependencies = { "Wansmer/treesj" },

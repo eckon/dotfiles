@@ -1,9 +1,12 @@
+if require("eckon.utils").run_minimal() then
+  return {}
+end
+
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.utils").augroup("lsp")
 
 local M = {
   "neovim/nvim-lspconfig",
-  cond = not require("eckon.utils").run_minimal(),
   event = "BufReadPre",
   cmd = { "Mason", "MasonUpdate" },
   dependencies = {
@@ -84,7 +87,7 @@ autocmd("lspattach", {
     end
 
     vim.notify("stopped lsp (file too big)")
-    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
     for _, client in pairs(clients) do
       client.stop()
     end

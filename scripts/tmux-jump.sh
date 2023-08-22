@@ -83,8 +83,8 @@ if [[ "$#" -le 0 ]]; then
       tmux send-key -t "$session":1 'vim .env' C-m
       tmux split-window -t "$session":1 -h -c "$path"
 
-      echo "  Start services via \"npm run serve\""
-      tmux send-key -t "$session":1 'npm run serve' C-m
+      echo "  Start services via \"npm run dev\""
+      tmux send-key -t "$session":1 'npm run dev' C-m
       tmux select-pane -L -t "$session":1
     fi
   fi

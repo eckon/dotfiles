@@ -24,6 +24,6 @@ custom_command("Browser", function()
   ]])
 
   local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
-  vim.print("Open repo in browser: " .. path)
+  vim.notify("Open repo in browser: " .. path)
   vim.ui.open(path)
 end, { desc = "Open current buffer file in the browser" })

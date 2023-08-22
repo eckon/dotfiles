@@ -1,6 +1,9 @@
+if require("eckon.utils").run_minimal() then
+  return {}
+end
+
 local M = {
   "zbirenbaum/copilot.lua",
-  cond = not require("eckon.utils").run_minimal(),
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
