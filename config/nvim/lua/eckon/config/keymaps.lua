@@ -4,9 +4,11 @@ local vmap = bind_map("v")
 
 --- OVERWRITE mappings (mainly enhances default behaviour)
 -- disable annoying keys
-nmap("U", "<Nop>")
 bind_map({ "i", "n" })("<F1>", "<Nop>")
 bind_map({ "v", "n", "o" })("<Space>", "<Nop>")
+
+-- undo `u` redo `U` -- `U` normal function is useless (I would otherwise <Nop> it)
+nmap("U", "<C-r>")
 
 -- re-highlight text after indenting
 vmap("<", "<gv")
