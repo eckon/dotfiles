@@ -30,7 +30,12 @@ return {
     "folke/flash.nvim",
     event = "BufReadPre",
     config = function()
-      require("flash").setup()
+      require("flash").setup({
+        modes = {
+          search = { enabled = false },
+          char = { enabled = false },
+        },
+      })
     end,
     init = function()
       require("eckon.utils").bind_map({ "n", "o", "x" })("S", function()
