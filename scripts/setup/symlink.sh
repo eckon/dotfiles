@@ -25,6 +25,7 @@ configPaths=(
 declare -A scriptPaths
 scriptPaths=(
   ["tmux-jump.sh"]="tmux-jump"
+  ["tmux-interactive-jump.sh"]="tmux-interactive-jump"
   ["git-tmp-copy.sh"]="git-tmp-copy"
 )
 

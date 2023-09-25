@@ -33,6 +33,7 @@ alias vim  "nvim"
 
 abbr --add npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add j         "tmux-jump"
+abbr --add ji        "tmux-interactive-jump"
 abbr --add ta        "tmux attach -t"
 abbr --add tt        "tmux new -s"
 
