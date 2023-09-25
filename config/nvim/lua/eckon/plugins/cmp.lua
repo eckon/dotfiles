@@ -18,6 +18,7 @@ local M = {
 M.config = function()
   local cmp = require("cmp")
 
+  ---@diagnostic disable-next-line: missing-fields
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -39,11 +40,13 @@ M.config = function()
     }),
   })
 
+  ---@diagnostic disable-next-line: missing-fields
   cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = { { name = "buffer" } },
   })
 
+  ---@diagnostic disable-next-line: missing-fields
   cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),

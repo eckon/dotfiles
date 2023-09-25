@@ -16,6 +16,7 @@ local M = {
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
     { "j-hui/fidget.nvim", branch = "legacy" },
+    { "folke/neodev.nvim" },
     { "simrat39/rust-tools.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
@@ -23,6 +24,7 @@ local M = {
 
 M.config = function()
   require("fidget").setup({})
+  require("neodev").setup()
 
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -64,12 +66,7 @@ M.config = function()
         settings = {
           Lua = {
             hint = { enable = true },
-            runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim" } },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
+            workspace = { checkThirdParty = false },
             telemetry = { enable = false },
           },
         },

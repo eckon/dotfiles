@@ -23,6 +23,11 @@ custom_command("Browser", function()
         || echo blob/$(git branch --show-current)
   ]])
 
+  if repo_base_path == nil or repo_branch == nil then
+    vim.notify("Could not fine repo path")
+    return
+  end
+
   local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
   vim.notify("Open repo in browser: " .. path)
   vim.ui.open(path)

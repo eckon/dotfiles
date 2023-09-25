@@ -109,11 +109,19 @@ local function async_external_command(options)
       end
     end)
 
-    stdout:read_stop()
-    stderr:read_stop()
-    stdout:close()
-    stderr:close()
-    handle:close()
+    if stdout ~= nil then
+      stdout:read_stop()
+      stdout:close()
+    end
+
+    if stderr ~= nil then
+      stderr:read_stop()
+      stderr:close()
+    end
+
+    if handle ~= nil then
+      handle:close()
+    end
   end)
 
   local combine_output_into_table = function(output_table)
@@ -126,8 +134,13 @@ local function async_external_command(options)
     end
   end
 
-  vim.uv.read_start(stdout, combine_output_into_table(stdout_output))
-  vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
+  if stdout ~= nil then
+    vim.uv.read_start(stdout, combine_output_into_table(stdout_output))
+  end
+
+  if stderr ~= nil then
+    vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
+  end
 end
 
 ------------------------------------------------------------------------------------------
