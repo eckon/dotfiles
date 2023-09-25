@@ -87,7 +87,7 @@ if ! command -v "lazygit" &> /dev/null; then
   mkdir -p "/tmp/lazygit"
 
   wget -O "/tmp/lazygit/lazygit.tar.gz" \
-    "https://github.com/jesseduffield/lazygit/releases/download/v0.39.1/lazygit_0.39.1_Linux_x86_64.tar.gz"
+    "https://github.com/jesseduffield/lazygit/releases/download/v0.40.2/lazygit_0.40.2_Linux_x86_64.tar.gz"
 
   tar xf "/tmp/lazygit/lazygit.tar.gz" --directory="/tmp/lazygit"
   cp "/tmp/lazygit/lazygit" "$binLocation"
