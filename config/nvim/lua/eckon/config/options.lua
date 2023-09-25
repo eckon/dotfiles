@@ -54,7 +54,7 @@ set.winbar = "%t %m"
 
 set.foldenable = false
 
--- still need to set spell, but it will also highlight strings, which is a bit annoying
+set.spell = true
 set.spelloptions = { "camel", "noplainbuffer" }
 
 set.diffopt:append("linematch:60")

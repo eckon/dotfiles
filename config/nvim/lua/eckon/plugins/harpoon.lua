@@ -20,7 +20,7 @@ local M = {
     for i = 1, 4, 1 do
       nmap("<M-" .. i .. ">", function()
         require("harpoon.ui").nav_file(i)
-      end, { desc = "Harpoon: Jump" .. i })
+      end, { desc = "Harpoon: Jump position " .. i })
     end
   end,
 }

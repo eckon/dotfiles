@@ -1,9 +1,9 @@
 local M = {}
 
----Return true or fales depending on whether neovim should be started in minimal mode
+---Return true or false depending on whether neovim should be started in minimal mode
 ---this is mainly as some things might not yet work on gigantic files,
 ---so we can manually disable them
----This is done via calling nvim with the var (see fish config)
+---This is done via calling neovim with the var (see fish config)
 ---@return boolean
 local function run_minimal()
   return vim.fn.exists("g:run_minimal") == 1
