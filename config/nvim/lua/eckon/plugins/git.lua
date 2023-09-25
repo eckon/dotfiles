@@ -42,22 +42,6 @@ local M = {
       end, "Jump to previous git hunk")
     end,
   },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "sindrets/diffview.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-    },
-    cmd = "Neogit",
-    config = function()
-      require("neogit").setup({ integrations = { diffview = true } })
-    end,
-    init = function()
-      require("eckon.utils").bind_map("n")("<Leader>gg", function()
-        require("neogit").open({})
-      end, { desc = "Neogit: Open" })
-    end,
-  },
 }
 
 return M

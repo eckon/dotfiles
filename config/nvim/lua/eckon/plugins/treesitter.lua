@@ -8,7 +8,6 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   event = "BufReadPost",
   build = ":TSUpdate",
-  dependencies = { "Wansmer/treesj" },
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
@@ -34,13 +33,6 @@ local M = {
         },
       },
     })
-
-    require("treesj").setup({ use_default_keymaps = false })
-  end,
-  init = function()
-    require("eckon.utils").bind_map("n")("s", function()
-      require("treesj").toggle()
-    end, { desc = "Treesj: Toggle split/join" })
   end,
 }
 

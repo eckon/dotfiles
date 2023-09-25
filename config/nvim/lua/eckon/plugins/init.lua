@@ -47,15 +47,6 @@ return {
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },
   {
-    "folke/todo-comments.nvim",
-    cmd = { "TodoQuickFix", "TodoTelescope" },
-    event = "BufReadPost",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup({ signs = false })
-    end,
-  },
-  {
     "stevearc/dressing.nvim",
     config = function()
       require("dressing").setup({ input = { insert_only = false } })
