@@ -9,6 +9,8 @@ vim.api.nvim_create_autocmd("User", {
     require("eckon.config.autocmds")
     require("eckon.config.commands")
     require("eckon.config.keymaps")
+    -- mainly to set OS specific things
+    require("eckon.config.special")
   end,
   group = require("eckon.utils").augroup("load_config"),
 })
