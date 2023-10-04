@@ -124,10 +124,6 @@ autocmd("lspattach", {
     nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
 
-    -- "lf" used for formatter, but add format of lsp to have both options
-    nmap("<Leader>lF", function()
-      vim.lsp.buf.format({ async = true })
-    end, "Format buffer")
     nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
   end,

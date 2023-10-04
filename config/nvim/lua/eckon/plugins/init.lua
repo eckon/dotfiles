@@ -38,7 +38,7 @@ return {
       })
     end,
     init = function()
-      require("eckon.utils").bind_map({ "n", "o", "x" })("S", function()
+      require("eckon.utils").bind_map({ "n", "o", "x" })("H", function()
         require("flash").jump()
       end, { desc = "Flash: Jump" })
     end,

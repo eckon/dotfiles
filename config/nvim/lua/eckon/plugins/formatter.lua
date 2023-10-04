@@ -1,25 +1,21 @@
 local M = {
-  "mhartington/formatter.nvim",
-  cmd = "Format",
+  "stevearc/conform.nvim",
+  event = "BufReadPre",
   config = function()
-    require("formatter").setup({
-      filetype = {
-        lua = { require("formatter.filetypes.lua").stylua },
-        typescript = {
-          require("formatter.filetypes.typescript").prettierd,
-          require("formatter.filetypes.typescript").eslint_d,
-        },
-        javascript = {
-          require("formatter.filetypes.javascript").prettierd,
-          require("formatter.filetypes.javascript").eslint_d,
-        },
-        json = { require("formatter.filetypes.json").prettierd },
-        ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "stylua" },
+        json = { "prettierd" },
+        javascript = { "prettierd", "eslint_d" },
+        typescript = { "prettierd", "eslint_d" },
+        ["_"] = { "trim_whitespace" },
       },
     })
   end,
   init = function()
-    require("eckon.utils").bind_map("n")("<Leader>lf", "<CMD>Format<CR>", { desc = "Formatter: Run in buffer" })
+    require("eckon.utils").bind_map("n")("<Leader>lf", function()
+      require("conform").format({ lsp_fallback = true, async = true })
+    end, { desc = "Conform: Format buffer" })
   end,
 }
 
