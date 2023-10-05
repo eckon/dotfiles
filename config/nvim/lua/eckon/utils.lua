@@ -67,6 +67,24 @@ local function bind_map(mode, outer_options)
   end
 end
 
+---Extend the treesitter foldtext to enhance it with custom information
+---Like: Number of lines folded
+---@return string|{ [1]: string, [2]: string[] }[]
+local function foldtext()
+  local ts_foldtext = vim.treesitter.foldtext()
+  local line_counter = string.format("  --- [%s lines]", vim.v.foldend - vim.v.foldstart + 1)
+  local formatted_foldtext = { line_counter, "Folded" }
+
+  -- not yet sure when this happens, but added to be type-safe
+  if type(ts_foldtext) == "string" then
+    local line = vim.api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, false)[1]
+    return { { line, "Normal" }, formatted_foldtext }
+  end
+
+  table.insert(ts_foldtext, formatted_foldtext)
+  return ts_foldtext
+end
+
 ------------------------------------------------------------------------------------------
 ----- Experimental implementations
 
@@ -151,6 +169,7 @@ M.bind_map = bind_map
 M.custom_command = custom_command
 M.command_complete_filter = command_complete_filter
 M.augroup = augroup
+M.foldtext = foldtext
 
 ----- Experimental
 M.async_external_command = async_external_command
