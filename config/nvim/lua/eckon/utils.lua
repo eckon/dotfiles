@@ -5,18 +5,54 @@ local M = {}
 ---so we can manually disable them
 ---This is done via calling neovim with the var (see fish config)
 ---@return boolean
-local function run_minimal()
+M.run_minimal = function()
   return vim.fn.exists("g:run_minimal") == 1
 end
 
----Create user command with 'CC'-prefix for quick access
----@param name string
----@param cmd string|function
----@param options? table
-local function custom_command(name, cmd, options)
-  options = options or {}
-  vim.api.nvim_create_user_command("CC" .. name, cmd, options)
-end
+---Hidden reference for all custom commands and how to execute them
+---@type { [string]: { desc: string, callback: string | function } }
+local custom_command_list = {}
+
+---Structure to create and execute custom commands
+M.custom_command = {
+  ---Add/Overwrite a custom command
+  ---@param name string
+  ---@param opts { desc: string, callback: string | function }
+  add = function(name, opts)
+    custom_command_list[name] = opts
+  end,
+
+  ---Get all custom command names
+  ---@return string[]
+  keys = function()
+    local keys = vim.tbl_keys(custom_command_list)
+    table.sort(keys)
+    return keys
+  end,
+
+  ---Get a specific custom command by name
+  ---@param name string
+  ---@return { desc: string, callback: string|function } | nil
+  get = function(name)
+    return custom_command_list[name]
+  end,
+
+  ---Execute a custom command by name
+  ---@param command string
+  execute = function(command)
+    local selected_command = custom_command_list[command]
+    local callback = selected_command.callback
+    if selected_command == nil or callback == nil then
+      return
+    end
+
+    if type(callback) == "string" then
+      vim.cmd(callback)
+    elseif type(callback) == "function" then
+      callback()
+    end
+  end,
+}
 
 ---Command completion function, to sort and filter passed complete values
 ---Example: As an config param in command
@@ -32,7 +68,7 @@ end
 ---@param completion_strings table
 ---@param passed_arguments table
 ---@return table
-local function command_complete_filter(completion_strings, passed_arguments)
+M.command_complete_filter = function(completion_strings, passed_arguments)
   -- filter completions out, which the caller did not type on the command line
   local filtered_completion_strings = vim.tbl_filter(function(s)
     return s:sub(1, #passed_arguments) == passed_arguments
@@ -47,7 +83,7 @@ end
 ---@param name string
 ---@param options? table
 ---@return integer
-local function augroup(name, options)
+M.augroup = function(name, options)
   return vim.api.nvim_create_augroup("eckon_augroup_" .. name, options or {})
 end
 
@@ -56,7 +92,7 @@ end
 ---local nmap = bind_map("n")
 ---@param mode string|table
 ---@param outer_options? table
-local function bind_map(mode, outer_options)
+M.bind_map = function(mode, outer_options)
   ---Function to set a mapping of a given mode and a set of options
   ---@param lhs string
   ---@param rhs string|function
@@ -70,7 +106,7 @@ end
 ---Extend the treesitter foldtext to enhance it with custom information
 ---Like: Number of lines folded
 ---@return string|{ [1]: string, [2]: string[] }[]
-local function foldtext()
+M.foldtext = function()
   local ts_foldtext = vim.treesitter.foldtext()
   local line_counter = string.format("  --- [%s lines]", vim.v.foldend - vim.v.foldstart + 1)
   local formatted_foldtext = { line_counter, "Folded" }
@@ -96,7 +132,7 @@ end
 ---@field on_stderr fun(output: table)
 ---@field on_completion fun(stdout_output: table, stderr_output: table)
 ---@param options JobOptions
-local function async_external_command(options)
+M.async_external_command = function(options)
   local stdout = vim.uv.new_pipe(false)
   local stderr = vim.uv.new_pipe(false)
   local stdout_output = {}
@@ -160,18 +196,5 @@ local function async_external_command(options)
     vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
   end
 end
-
-------------------------------------------------------------------------------------------
-
------ Basic
-M.run_minimal = run_minimal
-M.bind_map = bind_map
-M.custom_command = custom_command
-M.command_complete_filter = command_complete_filter
-M.augroup = augroup
-M.foldtext = foldtext
-
------ Experimental
-M.async_external_command = async_external_command
 
 return M

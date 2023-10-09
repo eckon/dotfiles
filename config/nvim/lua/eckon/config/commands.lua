@@ -1,34 +1,61 @@
 local custom_command = require("eckon.utils").custom_command
 
-custom_command(
-  "PairProgramming",
-  [[tabdo windo set statuscolumn=%l\ %r]],
-  { desc = "Show absolute lines for pair programming" }
-)
+vim.api.nvim_create_user_command("CustomCommand", function()
+  vim.ui.select(custom_command.keys(), {
+    prompt = 'Run "CustomCommand"',
+    format_item = function(item)
+      return item .. " - " .. custom_command.get(item).desc
+    end,
+  }, function(choice)
+    if choice == nil then
+      return
+    end
 
-custom_command("VSCode", "!code $(pwd) -g %", { desc = "Open current project in VSCode" })
+    custom_command.execute(choice)
+  end)
+end, { desc = "Select and run predefined custom command" })
 
-custom_command("Browser", function()
-  local repo_base_path = vim.fn.system([[
-    git config --get remote.origin.url \
-      | sed 's/\.git//g' \
-      | sed 's/:/\//g' \
-      | sed 's/git@/https:\/\//'
-  ]])
+custom_command.add("PairProgramming", {
+  desc = "Toggle absolute lines (for pair programming)",
+  callback = function()
+    local is_set = vim.opt.statuscolumn:get() ~= ""
+    if is_set then
+      vim.opt.statuscolumn = ""
+    else
+      vim.opt.statuscolumn = "%l %r"
+    end
+  end,
+})
 
-  local repo_branch = vim.fn.system([[
-    git config --get remote.origin.url \
-      | grep -q 'bitbucket.org' \
-        && echo 'src/master' \
-        || echo blob/$(git branch --show-current)
-  ]])
+custom_command.add("VSCode", {
+  desc = "Open current project in VSCode",
+  callback = "!code $(pwd) -g %",
+})
 
-  if repo_base_path == nil or repo_branch == nil then
-    vim.notify("Could not fine repo path")
-    return
-  end
+custom_command.add("Browser", {
+  desc = "Open current buffer file in the browser",
+  callback = function()
+    local repo_base_path = vim.fn.system([[
+        git config --get remote.origin.url \
+          | sed 's/\.git//g' \
+          | sed 's/:/\//g' \
+          | sed 's/git@/https:\/\//'
+        ]])
 
-  local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
-  vim.notify("Open repo in browser: " .. path)
-  vim.ui.open(path)
-end, { desc = "Open current buffer file in the browser" })
+    local repo_branch = vim.fn.system([[
+        git config --get remote.origin.url \
+          | grep -q 'bitbucket.org' \
+            && echo 'src/master' \
+            || echo blob/$(git branch --show-current)
+        ]])
+
+    if repo_base_path == nil or repo_branch == nil then
+      vim.notify("Could not fine repo path")
+      return
+    end
+
+    local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
+    vim.notify("Open repo in browser: " .. path)
+    vim.ui.open(path)
+  end,
+})

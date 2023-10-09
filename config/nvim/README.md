@@ -8,7 +8,7 @@ Tmux is being used as an easy way to run multiple vim instances and having the f
 This also extends to things like git, scripts, commands which could be done in vim, but are not here, or only used in limit within vim.
 
 The structure tries to be easy to read and change, it is written with lua, meaning a lsp will help jumping to the different parts.
-Lua based configuration also allows for easy standardized formatting via [stylua](https://github.com/JohnnyMorganz/StyLua) and type annotations can be done via [sumneko](https://github.com/LuaLS/lua-language-server/wiki/Annotations)
+Lua based configuration also allows for easy standardized formatting via [stylua](https://github.com/JohnnyMorganz/StyLua) and type annotations can be done via [sumneko](https://github.com/LuaLS/lua-language-server/wiki/Annotations) see [wiki](https://luals.github.io/wiki/annotations/)
 
 [init.lua](./init.lua) is the entry point and has multiple parts, which can be found in the `lua` folder.
 
