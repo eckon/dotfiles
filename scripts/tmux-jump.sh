@@ -27,7 +27,7 @@ if ! (tmux has-session -t "$session" 2>/dev/null); then
   tmux new-session -s "$session" -d -c "$path"
 
   echo "  Start editor via \"vim\""
-  tmux send-key -t "$session":1 "vim" C-m
+  tmux send-key -t "$session":1 "vim README.md" C-m
 fi
 
 # always init dotfiles session
