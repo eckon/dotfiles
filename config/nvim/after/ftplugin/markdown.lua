@@ -40,6 +40,7 @@ custom_command.add("DailyNote", {
     local file_path = "daily/" .. date_structure .. ".md"
 
     if vim.fn.filereadable(file_path) == 0 then
+      vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
       vim.fn.writefile({
         "# " .. os.date("%Y-%m-%d"),
         "",
