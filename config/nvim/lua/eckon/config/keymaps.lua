@@ -16,9 +16,9 @@ vmap(">", ">gv")
 
 -- keep cursor position while joining single lines
 nmap("J", function()
-  local prev_pos = vim.api.nvim_win_get_cursor(0)
+  local initial_cursor_position = vim.api.nvim_win_get_cursor(0)
   vim.api.nvim_command("normal! " .. vim.v.count + 1 .. "J")
-  vim.api.nvim_win_set_cursor(0, prev_pos)
+  vim.api.nvim_win_set_cursor(0, initial_cursor_position)
 end, { desc = "Join lines without moving cursor" })
 
 -- center view after common jump actions
