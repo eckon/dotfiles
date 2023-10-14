@@ -37,10 +37,13 @@ M.init = function()
   end
 
   nmap("<Leader>fa", function()
-    require("telescope.builtin").grep_string({
-      search = vim.fn.input({ prompt = "Grep > " }),
-      additional_args = { "--hidden" },
-    })
+    vim.ui.input({ prompt = "Grep string" }, function(input)
+      if input == nil or input == "" then
+        return
+      end
+
+      require("telescope.builtin").grep_string({ search = input, additional_args = { "--hidden" } })
+    end)
   end, "Search via grep")
 
   nmap("<Leader>fA", function()
