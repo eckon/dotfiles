@@ -11,10 +11,13 @@ vim.opt_local.wrap = true
 vim.opt_local.tabstop = 2
 vim.opt_local.shiftwidth = 2
 
+-- todo highlight is ugly so ill overwrite it for now (probably should be done differently)
+vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
+
 bind_map({ "n", "v" })(
   "S",
-  ":s/\\v(\\[[ xX]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/g<CR>",
-  { desc = "Toggle checkbox", buffer = true }
+  ":s/\\v(\\[[ xX]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/g<CR>:nohlsearch<CR>",
+  { desc = "Toggle checkbox", buffer = true, silent = true }
 )
 
 -- notetaking specific part, if not notetaking then ignore

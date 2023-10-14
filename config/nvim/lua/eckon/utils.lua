@@ -128,9 +128,9 @@ end
 ---@class JobOptions
 ---@field command string
 ---@field args table
----@field on_stdout fun(output: table)
----@field on_stderr fun(output: table)
----@field on_completion fun(stdout_output: table, stderr_output: table)
+---@field on_stdout? fun(output: table)
+---@field on_stderr? fun(output: table)
+---@field on_completion? fun(stdout_output: table, stderr_output: table)
 ---@param options JobOptions
 M.async_external_command = function(options)
   local stdout = vim.uv.new_pipe(false)

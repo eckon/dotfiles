@@ -1,9 +1,6 @@
-local add_custom_command = require("eckon.utils").custom_command.add
-local async_external_command = require("eckon.utils").async_external_command
-
 ---Run tsc to populate quickfix list
 local function run_tsc_into_qf()
-  async_external_command({
+  require("eckon.utils").async_external_command({
     command = "npx",
     args = { "tsc" },
     on_stdout = function(tsc_output)
@@ -36,7 +33,7 @@ local function run_tsc_into_qf()
   })
 end
 
-add_custom_command("TscToQuickfix", {
+require("eckon.utils").custom_command.add("TscToQuickfix", {
   desc = "Run tsc and populate quickfix list",
   callback = function()
     vim.fn.setqflist({}, "r")
