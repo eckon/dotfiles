@@ -1,6 +1,3 @@
-local custom_command = require("eckon.utils").custom_command
-local bind_map = require("eckon.utils").bind_map
-
 vim.opt_local.spell = true
 
 vim.opt_local.colorcolumn = ""
@@ -14,15 +11,15 @@ vim.opt_local.shiftwidth = 2
 -- todo highlight is ugly so ill overwrite it for now (probably should be done differently)
 vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
 
-bind_map({ "n", "v" })("S", function()
-  local pos1, pos2 = vim.fn.line("."), vim.fn.line("v")
-  if pos1 > pos2 then
-    pos1, pos2 = pos2, pos1
-  end
-
+require("eckon.utils").bind_map({ "n", "v" })("S", function()
   local initial_cursor_position = vim.api.nvim_win_get_cursor(0)
+
+  local positions = require("eckon.utils").get_visual_selection()
+  local range = positions.visual_start.row .. "," .. positions.visual_end.row
+
   local toggle_checkbox = "s/\\v(\\[[ xX]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/ge"
-  vim.api.nvim_command(":" .. pos1 .. "," .. pos2 .. toggle_checkbox)
+
+  vim.api.nvim_command(":" .. range .. toggle_checkbox)
   vim.api.nvim_command("nohlsearch")
   vim.api.nvim_win_set_cursor(0, initial_cursor_position)
 end, { desc = "Toggle checkbox", buffer = true, silent = true })
@@ -32,7 +29,7 @@ if vim.fn.isdirectory(vim.fn.getcwd() .. "/daily") == 0 then
   return
 end
 
-custom_command.add("DailyNote", {
+require("eckon.utils").custom_command.add("DailyNote", {
   desc = "Open searched daily note",
   callback = function()
     vim.ui.input({ prompt = "Search for daily note" }, function(input)

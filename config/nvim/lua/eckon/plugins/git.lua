@@ -24,7 +24,8 @@ local M = {
       end, "Stage hunk")
 
       bind_map("v")("<Leader>gs", function()
-        require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        local positions = require("eckon.utils").get_visual_selection()
+        require("gitsigns").stage_hunk({ positions.visual_start.row, positions.visual_end.row })
       end, { desc = "Git: Stage visual hunk" })
 
       nmap("]c", function()

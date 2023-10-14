@@ -121,6 +121,40 @@ M.foldtext = function()
   return ts_foldtext
 end
 
+---Get start and end of current visual selection
+---@return { visual_start: { row: integer, column: number }, visual_end: { row: integer, column: number } }
+M.get_visual_selection = function()
+  -- possible via vim.fn.line(".") and ("v") for only line numbers
+
+  -- both have the linenumber in 2nd place and rownumber in 3rd
+  ---@type integer[]
+  local current_cursor = vim.fn.getcurpos() or {}
+  local tail_visual_selection = vim.fn.getpos("v") or {}
+
+  local start_position = current_cursor
+  local end_position = tail_visual_selection
+
+  if start_position[2] > end_position[2] then
+    start_position, end_position = end_position, start_position
+  end
+
+  -- in case both are on the same line
+  if start_position[2] == end_position[2] and start_position[3] > end_position[3] then
+    start_position, end_position = end_position, start_position
+  end
+
+  return {
+    visual_start = {
+      row = start_position[2],
+      column = start_position[3],
+    },
+    visual_end = {
+      row = end_position[2],
+      column = end_position[3],
+    },
+  }
+end
+
 ------------------------------------------------------------------------------------------
 ----- Experimental implementations
 
