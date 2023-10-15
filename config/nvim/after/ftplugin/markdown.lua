@@ -23,15 +23,23 @@ require("eckon.utils").bind_map({ "n", "v" })("S", function()
   restore_cursor()
 end, { desc = "Toggle checkbox", buffer = true, silent = true })
 
--- notetaking specific part, if not notetaking then ignore
+-- TODO: check if i can split this into its own note dependent lua file
+-- so that markdown does not get to be mixed with notetaking
+-- meaning i dont need to open a markdown file to get the notetaking commands
+-- as these should not be linked directly
+-- TODO: put note taking commands maybe in its own thing as now custom command gets spammed full of these
+-- otherwise its getting annoying to differ between both (maybe have custom notetaking mappings)
+-- NOTE: notetaking specific part, if not notetaking then ignore
 if vim.fn.isdirectory(vim.fn.getcwd() .. "/daily") == 0 then
   return
 end
 
-require("eckon.utils").custom_command.add("DailyNote", {
+local custom_command = require("eckon.utils").custom_command
+
+custom_command.add("DailyNote", {
   desc = "Open searched daily note",
   callback = function()
-    vim.ui.input({ prompt = "Search for daily note" }, function(input)
+    vim.ui.input({ prompt = "Search for daily note (default today)" }, function(input)
       -- CTRL-C will return, CR will give empty string which defaults to today
       if input == nil then
         return
@@ -64,6 +72,34 @@ require("eckon.utils").custom_command.add("DailyNote", {
       end
 
       vim.cmd("e " .. file_path)
+    end)
+  end,
+})
+
+custom_command.add("FindOpenTasks", {
+  desc = "Find open tasks",
+  callback = function()
+    vim.ui.select({ "daily", "iu", "private", "all" }, {
+      prompt = "Select root",
+      format_item = function(item)
+        return item
+      end,
+    }, function(choice)
+      if choice == nil or choice == "" then
+        return
+      end
+
+      local root = choice
+      if choice == "all" then
+        root = "**"
+      end
+
+      -- TODO: use ripgrep instead
+      -- TODO: maybe split daily with rest
+      local pattern = "- \\[ \\]"
+      local paths = root .. "/**"
+      vim.api.nvim_command("vimgrep '" .. pattern .. "' " .. paths)
+      vim.api.nvim_command("copen")
     end)
   end,
 })
