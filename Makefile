@@ -10,9 +10,9 @@ packages:
 	@ ./scripts/setup/install-packages.sh
 
 
-.PHONY: lua
+.PHONY: format-lua
 
-lua:
+format-lua:
 	npx @johnnymorganz/stylua-bin \
 		--glob '*.lua' \
 		./config/nvim
