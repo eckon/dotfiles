@@ -121,14 +121,11 @@ M.foldtext = function()
   return ts_foldtext
 end
 
----Get start and end of current visual selection
----@return { visual_start: { row: integer, column: number }, visual_end: { row: integer, column: number } }
+---Get start and end positions of current visual selection
+---@return { visual_start: { row: integer, column: integer }, visual_end: { row: integer, column: integer } }
 M.get_visual_selection = function()
-  -- possible via vim.fn.line(".") and ("v") for only line numbers
-
-  -- both have the linenumber in 2nd place and rownumber in 3rd
-  ---@type integer[]
-  local current_cursor = vim.fn.getcurpos() or {}
+  -- both have the linenumber in 2nd place and rownumber in 3rd place
+  local current_cursor = vim.fn.getpos('.') or {}
   local tail_visual_selection = vim.fn.getpos("v") or {}
 
   local start_position = current_cursor
@@ -153,6 +150,16 @@ M.get_visual_selection = function()
       column = end_position[3],
     },
   }
+end
+
+---Save and restore the current cursor position
+---This is useful for things that move the cursor but the user does want to keep it at the same position
+---@return function restore callback to restore the previous cursor position
+M.save_cursor_position = function ()
+  local initial_cursor_position = vim.api.nvim_win_get_cursor(0)
+  return function()
+    vim.api.nvim_win_set_cursor(0, initial_cursor_position)
+  end
 end
 
 ------------------------------------------------------------------------------------------

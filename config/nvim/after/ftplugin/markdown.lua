@@ -12,16 +12,16 @@ vim.opt_local.shiftwidth = 2
 vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
 
 require("eckon.utils").bind_map({ "n", "v" })("S", function()
-  local initial_cursor_position = vim.api.nvim_win_get_cursor(0)
-
   local positions = require("eckon.utils").get_visual_selection()
   local range = positions.visual_start.row .. "," .. positions.visual_end.row
-
   local toggle_checkbox = "s/\\v(\\[[ xX]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/ge"
+
+  local restore_cursor = require("eckon.utils").save_cursor_position()
 
   vim.api.nvim_command(":" .. range .. toggle_checkbox)
   vim.api.nvim_command("nohlsearch")
-  vim.api.nvim_win_set_cursor(0, initial_cursor_position)
+
+  restore_cursor()
 end, { desc = "Toggle checkbox", buffer = true, silent = true })
 
 -- notetaking specific part, if not notetaking then ignore
