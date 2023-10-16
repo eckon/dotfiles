@@ -41,15 +41,16 @@ if is_notes then
       local file_path = "daily/" .. year .. "/" .. month .. "/" .. date .. ".md"
       if vim.fn.filereadable(file_path) == 0 then
         vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
-        vim.fn.writefile({
-          "# " .. date .. " (" .. day .. ")",
-          "",
-          "## work",
-          "",
-          "### daily",
-          "",
-          "## private",
-        }, file_path)
+
+        vim.fn.writefile({ "# " .. date .. " (" .. day .. ")" }, file_path)
+        vim.fn.writefile({ "## work" }, file_path, "a")
+
+        -- reoccuring task for work
+        if day == "Friday" then
+          vim.fn.writefile({ "- [ ] fill out PMS [[pms]]" }, file_path, "a")
+        end
+
+        vim.fn.writefile({ "## private" }, file_path, "a")
       end
 
       vim.cmd("e " .. file_path)
