@@ -36,16 +36,19 @@ vmap("<Leader>p", '"_dP', { desc = "Paste without overwriting register" })
 vmap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
 vmap("<Leader>d", '"_d', { desc = "Delete without overwriteing register" })
 
----Add relative line movement also to the jumplist
+---Enhance jk by
+---1. adding it to the jumplist if its a jump higher than 1
+---2. handle softwrap if its only by line
 ---@param key string
-local jumplisted_relative_movement = function(key)
+local enhance_jk = function(key)
   return function()
     if vim.v.count > 1 then
       return "m'" .. vim.v.count .. key
     end
-    return key
+
+    return "g" .. key
   end
 end
 
-nmap("k", jumplisted_relative_movement("k"), { expr = true, desc = "Jump to previous line and append to jumplist" })
-nmap("j", jumplisted_relative_movement("j"), { expr = true, desc = "Jump to next line and append to jumplist" })
+nmap("k", enhance_jk("k"), { expr = true, desc = "Jump to previous line and append to jumplist (handle softwrap)" })
+nmap("j", enhance_jk("j"), { expr = true, desc = "Jump to next line and append to jumplist (handle softwrap)" })
