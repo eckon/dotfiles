@@ -19,7 +19,7 @@ if is_notes then
     bind_map("n")(lhs, rhs, { desc = "Notes: " .. desc })
   end
 
-  nmap("<Leader>nd", function()
+  nmap("<Leader><Leader>d", function()
     vim.ui.input({ prompt = "Search for daily note (default today)" }, function(input)
       -- CTRL-C will return, CR will give empty string which defaults to today
       if input == nil then
@@ -57,7 +57,7 @@ if is_notes then
     end)
   end, "Open daily note")
 
-  nmap("<Leader>no", function()
+  nmap("<Leader><Leader>o", function()
     vim.ui.select({ "daily", "iu", "private", "all" }, {
       prompt = "Select root",
       format_item = function(item)
@@ -77,8 +77,13 @@ if is_notes then
       -- TODO: maybe split daily with rest
       local pattern = "- \\[ \\]"
       local paths = root .. "/**"
-      vim.api.nvim_command("vimgrep '" .. pattern .. "' " .. paths)
-      vim.api.nvim_command("copen")
+      local ok = pcall(vim.api.nvim_command, "vimgrep '" .. pattern .. "' " .. paths)
+
+      if ok then
+        vim.api.nvim_command("copen")
+      else
+        vim.notify("No matches found")
+      end
     end)
   end, "Search for open tasks")
 end
