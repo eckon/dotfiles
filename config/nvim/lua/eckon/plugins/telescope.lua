@@ -86,7 +86,7 @@ M.init = function()
     require("telescope.builtin").keymaps()
   end, "Search keymaps")
 
-  -- telescope breaks folds, this is a workaround (https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1745374486)
+  -- QUICKFIX: telescope breaks folds, this is a workaround (https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1745374486)
   vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
       if vim.opt.foldmethod:get() == "expr" then

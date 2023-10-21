@@ -6,6 +6,7 @@ local M = {
       lua = { "selene" },
       typescript = { "eslint_d" },
       javascript = { "eslint_d" },
+      markdown = { "markdownlint" },
     }
   end,
   init = function()

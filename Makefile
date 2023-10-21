@@ -10,9 +10,14 @@ packages:
 	@ ./scripts/setup/install-packages.sh
 
 
-.PHONY: format-lua
+.PHONY: format-lua format-markdown
+
+format: format-lua format-markdown
 
 format-lua:
 	npx @johnnymorganz/stylua-bin \
 		--glob '*.lua' \
 		./config/nvim
+
+format-markdown:
+	npx prettier --write '**/*.md'
