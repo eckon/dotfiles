@@ -76,7 +76,16 @@ M.init = function()
 
   nmap("<Leader>fq", function()
     require("telescope.builtin").quickfix()
-  end, "Search quickfix list")
+  end, "Search quickfix list entries")
+
+  nmap("<Leader>fQ", function()
+    local quickfix_files = {}
+    for _, entry in pairs(vim.fn.getqflist()) do
+      table.insert(quickfix_files, vim.fn.bufname(entry.bufnr))
+    end
+
+    require("telescope.builtin").live_grep({ search_dirs = quickfix_files })
+  end, "Live search in quickfix files")
 
   nmap("<Leader>fh", function()
     require("telescope.builtin").help_tags()
