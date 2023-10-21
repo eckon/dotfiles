@@ -59,3 +59,16 @@ custom_command.add("Browser", {
     vim.ui.open(path)
   end,
 })
+
+custom_command.add("CopyFilePath", {
+  desc = "Copy the current file path into system clipboard",
+  callback = function()
+    local path = vim.fn.expand("%")
+    if path == "" then
+      return
+    end
+
+    vim.fn.setreg("+", path)
+    vim.notify('Copied filepath to clipboard: "' .. path .. '"')
+  end,
+})
