@@ -31,9 +31,9 @@ nmap("]q", "<CMD>cnext<CR>zz", { desc = "Jump to next quickfix item" })
 nmap("[Q", "<CMD>cfirst<CR>zz", { desc = "Jump to first quickfix item" })
 nmap("]Q", "<CMD>clast<CR>zz", { desc = "Jump to last quickfix item" })
 
-vmap("<Leader>p", '"_dP', { desc = "Paste without overwriting register" })
+-- align deleting to pasting, as `v_P` is the same as  `"_dp` so should be `D` as well
+vmap("D", '"_d', { desc = "Delete without overwriting register" })
 vmap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
-vmap("<Leader>d", '"_d', { desc = "Delete without overwriteing register" })
 
 ---Enhance jk by
 ---1. adding it to the jumplist if its a jump higher than 1
