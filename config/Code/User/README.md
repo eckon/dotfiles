@@ -3,6 +3,7 @@
 ## Setup
 
 ### Plugins
+
 - Generally these are some of the plugins I use mostly:
   - theme
     - qufiwefefwoyn.kanagawa
@@ -18,8 +19,8 @@
     - streetsidesoftware.code-spell-checker-german
       - to add german spelling as well (setting is already set in config)
 
-
 #### Vim plugins
+
 - vim
   - better integration with vscode
   - better out of the box features
@@ -27,7 +28,6 @@
   - work well enough
     - but many things need to be done via neovim plugins (commenting, surround, etc.)
     - so it is not independent of my neovim setup, which I want to prevent for now
-
 
 ## Useful links
 

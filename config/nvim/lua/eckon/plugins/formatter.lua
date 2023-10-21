@@ -5,7 +5,7 @@ local M = {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        markdown = { "prettierd" },
+        markdown = { "prettierd", "markdownlint" },
         json = { "prettierd" },
         javascript = { "prettierd", "eslint_d" },
         typescript = { "prettierd", "eslint_d" },

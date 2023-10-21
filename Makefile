@@ -10,9 +10,9 @@ packages:
 	@ ./scripts/setup/install-packages.sh
 
 
-.PHONY: format-lua format-markdown
+.PHONY: check format-lua format-markdown lint-markdown
 
-format: format-lua format-markdown
+check: format-lua format-markdown lint-markdown
 
 format-lua:
 	npx @johnnymorganz/stylua-bin \
@@ -21,3 +21,6 @@ format-lua:
 
 format-markdown:
 	npx prettier --write '**/*.md'
+
+lint-markdown:
+	npx markdownlint-cli '**/*.md' -f
