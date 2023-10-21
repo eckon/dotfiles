@@ -23,9 +23,6 @@ set.softtabstop = 2
 set.smartindent = true
 set.expandtab = true
 
--- mainly to handle html/css classes
-set.iskeyword:append("-")
-
 set.shortmess:append("c")
 set.showmode = false
 
