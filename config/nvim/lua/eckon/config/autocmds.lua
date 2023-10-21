@@ -39,3 +39,12 @@ autocmd("BufWritePre", {
   end,
   group = augroup,
 })
+
+autocmd("FileType", {
+  desc = "Set specific things after the filetype was set, to overwrite all other parts (extension of options)",
+  callback = function()
+    -- formatoptions will be updated by some other things, so setting on init does not work
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+  group = augroup,
+})
