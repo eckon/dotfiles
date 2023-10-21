@@ -59,7 +59,7 @@ if is_notes then
 
   nmap("<Leader><Leader>o", function()
     vim.ui.select({ "daily", "iu", "private", "all" }, {
-      prompt = "Select root",
+      prompt = "Select root for open tasks",
       format_item = function(item)
         return item
       end,
@@ -68,22 +68,12 @@ if is_notes then
         return
       end
 
-      local root = choice
-      if choice == "all" then
-        root = "**"
+      local opts = { search = "- [ ]" }
+      if choice ~= "all" then
+        opts.search_dirs = { choice }
       end
 
-      -- TODO: use ripgrep instead
-      -- TODO: maybe split daily with rest
-      local pattern = "- \\[ \\]"
-      local paths = root .. "/**"
-      local ok = pcall(vim.api.nvim_command, "vimgrep '" .. pattern .. "' " .. paths)
-
-      if ok then
-        vim.api.nvim_command("copen")
-      else
-        vim.notify("No matches found")
-      end
+      require("telescope.builtin").grep_string(opts)
     end)
   end, "Search for open tasks")
 end
