@@ -124,6 +124,9 @@ autocmd("lspattach", {
     nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
     nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
+    nmap("<Leader>fd", function()
+      require("telescope.builtin").diagnostics()
+    end, "List all diagnostics")
 
     nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
