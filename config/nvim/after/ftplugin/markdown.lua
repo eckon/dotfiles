@@ -9,6 +9,9 @@ vim.opt_local.shiftwidth = 2
 -- todo highlight is ugly so ill overwrite it for now (probably should be done differently)
 vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
 
+vim.cmd("iabbrev <buffer> O - [ ]")
+vim.cmd("iabbrev <buffer> -- <TAB>-")
+
 require("eckon.utils").bind_map({ "n", "v" })("S", function()
   local positions = require("eckon.utils").get_visual_selection()
   local range = positions.visual_start.row .. "," .. positions.visual_end.row
