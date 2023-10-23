@@ -26,16 +26,16 @@ if is_notes then
         return
       end
 
-      -- if year is longer than a normal year string 1234 then we have an error
-      local year = vim.fn.system({ "date", "+%Y", "-d", input }):gsub("\n", "")
-      if #year > 4 then
-        vim.notify("Could not find date: " .. year)
+      local date_result = vim.fn.system({ "date", "+(%Y) (%m-%B) (%Y-%m-%d) (%A)", "-d", input }):gsub("\n", "")
+      if vim.v.shell_error ~= 0 then
+        vim.notify('Input not valid: "' .. input .. '"\n' .. 'Got error: "' .. date_result .. '"')
         return
       end
 
-      local month = vim.fn.system({ "date", "+%m-%B", "-d", input }):gsub("\n", "")
-      local date = vim.fn.system({ "date", "+%Y-%m-%d", "-d", input }):gsub("\n", "")
-      local day = vim.fn.system({ "date", "+%A", "-d", input }):gsub("\n", "")
+      local year = date_result:gsub("%((.*)%) %(.*%) %(.*%) %(.*%)", "%1")
+      local month = date_result:gsub("%(.*%) %((.*)%) %(.*%) %(.*%)", "%1")
+      local date = date_result:gsub("%(.*%) %(.*%) %((.*)%) %(.*%)", "%1")
+      local day = date_result:gsub("%(.*%) %(.*%) %(.*%) %((.*)%)", "%1")
 
       -- create date in format: 2023/01-January/2023-01-01
       local file_path = "daily/" .. year .. "/" .. month .. "/" .. date .. ".md"
@@ -69,7 +69,7 @@ if is_notes then
         return
       end
 
-      local opts = { search = "- [ ]" }
+      local opts = { search = "^- \\[ \\]", use_regex = true }
       if choice ~= "all" then
         opts.search_dirs = { choice }
       end

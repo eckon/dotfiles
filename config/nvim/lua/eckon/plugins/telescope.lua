@@ -63,8 +63,12 @@ M.init = function()
   end, "Search buffer")
 
   nmap("<Leader>ff", function()
-    require("telescope.builtin").find_files({ hidden = true })
+    require("telescope.builtin").find_files()
   end, "Search files")
+
+  nmap("<Leader>fF", function()
+    require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
+  end, "Search all files")
 
   nmap("<Leader>fg", function()
     require("telescope.builtin").git_status()

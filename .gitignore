@@ -1,6 +1,1 @@
 scripts/*.cfg
-
-config/nvim/.netrwhist
-config/nvim/plugged
-config/nvim/spell
-config/nvim/plugin
