@@ -1,5 +1,6 @@
 local is_wsl = vim.fn.has("wsl") == 1
-local is_notes = vim.fn.fnamemodify(vim.fn.getcwd(), ":t") == "notes"
+local is_notes = vim.fn.fnamemodify(vim.fn.system({ "git", "remote", "get-url", "origin" }), ":t"):gsub("\n", "")
+  == "notes.git"
 
 local bind_map = require("eckon.utils").bind_map
 
@@ -8,7 +9,7 @@ if is_wsl then
   -- overwrites normal <Leader>y to use clipboard (pipe selection into command)
   bind_map("v")(
     "<Leader>y",
-    'y<CMD>system("/mnt/c/windows/system32/clip.exe", @")<CR>',
+    'y<CMD>call system("/mnt/c/Windows/System32/clip.exe", @")<CR>',
     { desc = "Copy into windows system clipboard (from wsl)" }
   )
 end
