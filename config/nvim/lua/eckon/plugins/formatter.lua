@@ -14,6 +14,13 @@ local M = {
     })
   end,
   init = function()
+    require("eckon.utils").ensure_package_installed.add({
+      "stylua",
+      "prettierd",
+      "markdownlint",
+      "eslint_d",
+    })
+
     require("eckon.utils").bind_map("n")("<Leader>lf", function()
       require("conform").format({ lsp_fallback = true, async = true })
     end, { desc = "Conform: Format buffer" })

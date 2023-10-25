@@ -46,6 +46,9 @@ M.config = function()
     },
   })
 
+  -- install packages for formatter and linter
+  require("eckon.utils").ensure_package_installed.execute()
+
   local lspconfig = require("lspconfig")
   require("mason-lspconfig").setup_handlers({
     function(server_name)

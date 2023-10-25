@@ -10,6 +10,12 @@ local M = {
     }
   end,
   init = function()
+    require("eckon.utils").ensure_package_installed.add({
+      "selene",
+      "eslint_d",
+      "markdownlint",
+    })
+
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
       desc = "Try linting on save or open",
       callback = function()

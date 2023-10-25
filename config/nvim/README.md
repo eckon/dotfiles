@@ -30,6 +30,7 @@ which can be found in the `lua` folder.
   - treesitter
   - lsp
   - linter
+  - formatter
   - etc
 - because of this is will take some time and might throw some errors,
   just wait until its done and reopen vim
