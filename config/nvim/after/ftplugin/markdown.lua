@@ -13,7 +13,7 @@ vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
 
 vim.cmd("iabbrev <buffer> T - [ ]")
 
-require("eckon.utils").bind_map({ "n", "v" })("S", function()
+require("eckon.utils").bind_map({ "n", "v" })("s", function()
   local positions = require("eckon.utils").get_visual_selection()
   local range = positions.visual_start.row .. "," .. positions.visual_end.row
   local toggle_checkbox = "s/\\v(\\[[ xX/]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/ge"
