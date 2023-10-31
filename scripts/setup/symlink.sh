@@ -5,8 +5,8 @@
 # relies on being executed in the correct context (root dotfiles)
 ##################################################################
 
-declare -A configPaths
-configPaths=(
+declare -A CONFIG_PATHS
+CONFIG_PATHS=(
   ["config/Code/User/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/Code/User/settings.json"]=".config/Code/User/settings.json"
   ["config/alacritty.yml"]=".config/alacritty.yml"
@@ -22,8 +22,8 @@ configPaths=(
   ["zshrc"]=".zshrc"
 )
 
-declare -A scriptPaths
-scriptPaths=(
+declare -A SCRIPT_PATHS
+SCRIPT_PATHS=(
   ["tmux-jump.sh"]="tmux-jump"
   ["tmux-interactive-jump.sh"]="tmux-interactive-jump"
   ["git-tmp-copy.sh"]="git-tmp-copy"
@@ -34,26 +34,26 @@ echo ""
 echo "Symlink configurations"
 echo "----------------------"
 
-for configPath in "${!configPaths[@]}"; do
-  targetPath=${configPaths[$configPath]}
-  fromPath="$(pwd)/$configPath"
-  toPath="$HOME/$targetPath"
+for configPath in "${!CONFIG_PATHS[@]}"; do
+  target_path=${CONFIG_PATHS[$configPath]}
+  from_path="$(pwd)/$configPath"
+  to_path="$HOME/$target_path"
 
-  if ! test -e "$fromPath"; then
-    echo "[!] Path \"$fromPath\" does not exist -> exit script"
+  if ! test -e "$from_path"; then
+    echo "[!] Path \"$from_path\" does not exist -> exit script"
     exit
   fi
 
-  parentDirectory=$(dirname "$toPath")
-  if ! test -d "$parentDirectory"; then
-    printf "[+] Create directory: %s\n" "$parentDirectory"
-    mkdir -p "$parentDirectory"
+  parent_dir=$(dirname "$to_path")
+  if ! test -d "$parent_dir"; then
+    printf "[+] Create directory: %s\n" "$parent_dir"
+    mkdir -p "$parent_dir"
   fi
 
   # ignore if already symlinked
-  if [ ! -L "$toPath" ]; then
-    printf "[+] Create Symlink (config): %-20s -> \"%s\"\n" "$(basename "$fromPath")" "$toPath"
-    ln -sfn "$fromPath" "$toPath"
+  if [ ! -L "$to_path" ]; then
+    printf "[+] Create Symlink (config): %-20s -> \"%s\"\n" "$(basename "$from_path")" "$to_path"
+    ln -sfn "$from_path" "$to_path"
   fi
 done
 
@@ -62,25 +62,25 @@ echo ""
 echo "Symlink custom scripts"
 echo "----------------------"
 
-for path in "${!scriptPaths[@]}"; do
-  scriptName=${scriptPaths[$path]}
-  fromPath="$(pwd)/scripts/$path"
-  toPath="$HOME/.local/bin/$scriptName"
+for path in "${!SCRIPT_PATHS[@]}"; do
+  scriptName=${SCRIPT_PATHS[$path]}
+  from_path="$(pwd)/scripts/$path"
+  to_path="$HOME/.local/bin/$scriptName"
 
-  if ! test -e "$fromPath"; then
-    echo "[!] Path \"$fromPath\" does not exist -> exit script"
+  if ! test -e "$from_path"; then
+    echo "[!] Path \"$from_path\" does not exist -> exit script"
     exit
   fi
 
-  parentDirectory=$(dirname "$toPath")
-  if ! test -d "$parentDirectory"; then
-    printf "[+] Create directory: %s\n" "$parentDirectory"
-    mkdir -p "$parentDirectory"
+  parent_dir=$(dirname "$to_path")
+  if ! test -d "$parent_dir"; then
+    printf "[+] Create directory: %s\n" "$parent_dir"
+    mkdir -p "$parent_dir"
   fi
 
   # ignore if already symlinked
-  if [ ! -L "$toPath" ]; then
-    printf "[+] Create Symlink (script): %-20s -> \"%s\"\n" "$path" "$toPath"
-    ln -sf "$fromPath" "$toPath"
+  if [ ! -L "$to_path" ]; then
+    printf "[+] Create Symlink (script): %-20s -> \"%s\"\n" "$path" "$to_path"
+    ln -sf "$from_path" "$to_path"
   fi
 done

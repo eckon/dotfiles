@@ -6,31 +6,31 @@
 # these can be searched, filtered and executed through fzf
 #############################################################
 
-scriptsPaths=("$HOME/Development/dotfiles/scripts")
+scripts_paths=("$HOME/Development/dotfiles/scripts")
 
-scriptList=""
-for i in "${scriptsPaths[@]}"; do
+script_list=""
+for i in "${scripts_paths[@]}"; do
   localScripts=$(find "$i" -iname "*.sh")
 
-  if [[ "$scriptList" == "" ]]; then
-    scriptList="${localScripts}"
+  if [[ "$script_list" == "" ]]; then
+    script_list="${localScripts}"
   else
-    scriptList="${scriptList}\n${localScripts}"
+    script_list="${scriptList}\n${localScripts}"
   fi
 done
 
 # use cat in case we do not have bat for colors
-previewWindow="cat"
+preview_window="cat"
 if [ -x "$(command -v bat)" ]; then
-  previewWindow="bat"
+  preview_window="bat"
 fi
 
 # only show the last part of the path (-1)
-selectedScript=$(
-  printf "%s" "$scriptList" | fzf \
+selected_script=$(
+  printf "%s" "$script_list" | fzf \
     --delimiter="/" --with-nth -1 \
-    --preview "$previewWindow {}" \
+    --preview "$preview_window {}" \
     --preview-window up
 )
 
-eval "$selectedScript"
+eval "$selected_script"

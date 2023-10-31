@@ -40,19 +40,19 @@ echo "Install basic packages with edgecases"
 echo "-------------------------------------"
 
 # install location for these special packages
-binLocation="$HOME/.local/bin"
-mkdir -p "$binLocation"
+LOCAL_BIN_PATH="$HOME/.local/bin"
+mkdir -p "$LOCAL_BIN_PATH"
 
 if ! command -v "bat" &> /dev/null; then
   echo "[+] Install \"bat\""
   sudo apt install -y bat
-  ln -sf "$(which batcat)" "$binLocation/bat"
+  ln -sf "$(which batcat)" "$LOCAL_BIN_PATH/bat"
 fi
 
 if ! command -v "fd" &> /dev/null; then
   echo "[+] Install \"fd\""
   sudo apt install -y fd-find
-  ln -sf "$(which fdfind)" "$binLocation/fd"
+  ln -sf "$(which fdfind)" "$LOCAL_BIN_PATH/fd"
 fi
 
 if ! command -v "zoxide" &> /dev/null; then
@@ -90,7 +90,7 @@ if ! command -v "lazygit" &> /dev/null; then
     "https://github.com/jesseduffield/lazygit/releases/download/v0.40.2/lazygit_0.40.2_Linux_x86_64.tar.gz"
 
   tar xf "/tmp/lazygit/lazygit.tar.gz" --directory="/tmp/lazygit"
-  cp "/tmp/lazygit/lazygit" "$binLocation"
+  cp "/tmp/lazygit/lazygit" "$LOCAL_BIN_PATH"
 fi
 
 if ! command -v "delta" &> /dev/null; then
@@ -101,7 +101,7 @@ if ! command -v "delta" &> /dev/null; then
     "https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-x86_64-unknown-linux-gnu.tar.gz"
 
   tar xf "/tmp/delta/delta.tar.gz" --directory="/tmp/delta"
-  cp "/tmp/delta/delta-0.16.5-x86_64-unknown-linux-gnu/delta" "$binLocation"
+  cp "/tmp/delta/delta-0.16.5-x86_64-unknown-linux-gnu/delta" "$LOCAL_BIN_PATH"
 fi
 
 
@@ -117,7 +117,7 @@ if ! command -v "nvim" &> /dev/null; then
     "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
 
   chmod +x "/tmp/neovim/nvim.appimage"
-  cp "/tmp/neovim/nvim.appimage" "$binLocation/nvim"
+  cp "/tmp/neovim/nvim.appimage" "$LOCAL_BIN_PATH/nvim"
 fi
 
 
@@ -145,18 +145,18 @@ if ! command -v "fish" &> /dev/null; then
   sudo apt update -y
   sudo apt install fish -y
 
-  shellsPath="/etc/shells"
-  fishPath=$(which fish)
-  grep -qxF "$fishPath" "$shellsPath" || \
-    (echo "$fishPath" | sudo tee -a "$shellsPath")
+  SHELLS_PATH="/etc/shells"
+  FISH_PATH=$(which fish)
+  grep -qxF "$FISH_PATH" "$SHELLS_PATH" || \
+    (echo "$FISH_PATH" | sudo tee -a "$SHELLS_PATH")
 
-  chsh -s "$fishPath"
+  chsh -s "$FISH_PATH"
 fi
 
 if ! command -v "kitty" &> /dev/null; then
   echo "[+] Install \"kitty\""
   curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
-  ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$binLocation"
+  ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$LOCAL_BIN_PATH"
 
   mkdir -p "$HOME/.local/share/applications"
   cp "$HOME/.local/kitty.app/share/applications/kitty.desktop" "$HOME/.local/share/applications"
