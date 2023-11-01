@@ -57,6 +57,7 @@ if is_notes then
 
         vim.fn.writefile({ "## private" }, file_path, "a")
         vim.fn.writefile({ "- [ ] workout" }, file_path, "a")
+        vim.fn.writefile({ "- [ ] study" }, file_path, "a")
       end
 
       vim.cmd("e " .. file_path)

@@ -12,6 +12,10 @@ vim.opt_local.shiftwidth = 2
 vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
 
 vim.cmd("iabbrev <buffer> T - [ ]")
+vim.cmd([[
+  iabbrev <buffer> D <C-R>=system('date "+%Y-%m-%d" -d ""')[:-2]
+  \<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+]])
 
 require("eckon.utils").bind_map({ "n", "v" })("s", function()
   local positions = require("eckon.utils").get_visual_selection()
