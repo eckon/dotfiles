@@ -27,11 +27,7 @@ if is_notes then
         return
       end
 
-      -- add env to force date to return english dates
-      vim.env.LC_ALL = "en_US"
       local date_result = vim.fn.system({ "date", "+(%Y) (%m-%B) (%Y-%m-%d) (%A)", "-d", input }):gsub("\n", "")
-      vim.env.LC_ALL = nil
-
       if vim.v.shell_error ~= 0 then
         vim.notify('Input not valid: "' .. input .. '"\n' .. 'Got error: "' .. date_result .. '"')
         return

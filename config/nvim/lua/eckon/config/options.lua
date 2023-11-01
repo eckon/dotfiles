@@ -57,8 +57,11 @@ set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- manually extending "v:lua.vim.treesitter.foldtext()"
 set.foldtext = "v:lua.require('eckon.utils').foldtext()"
 
+set.diffopt:append("linematch:60")
+
 -- NOTE: too many words are not recognized, so disable for now
 set.spell = false
 set.spelloptions = { "camel", "noplainbuffer" }
 
-set.diffopt:append("linematch:60")
+-- add env to force `date` command to return english dates
+vim.env.LC_ALL = "en_US"
