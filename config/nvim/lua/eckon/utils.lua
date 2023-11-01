@@ -152,6 +152,16 @@ M.get_visual_selection = function()
   }
 end
 
+---Exit visual mode, if currently in visual mode
+---It is way more difficult to exit visual mode and this is a needed feature for custom visual mode keymaps
+M.exit_visual_mode = function()
+  local ctrl_v = vim.api.nvim_replace_termcodes("<C-v>", true, true, true)
+  local cur_mode = vim.fn.mode()
+  if cur_mode == "v" or cur_mode == "V" or cur_mode == ctrl_v then
+    vim.cmd("normal! " .. cur_mode)
+  end
+end
+
 ---Save and restore the current cursor position
 ---This is useful for things that move the cursor but the user does want to keep it at the same position
 ---@return function restore callback to restore the previous cursor position

@@ -17,7 +17,35 @@ vim.cmd([[
   \<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 ]])
 
-require("eckon.utils").bind_map({ "n", "v" })("s", function()
+local bind_map = require("eckon.utils").bind_map
+
+bind_map("v")("L", function()
+  local positions = require("eckon.utils").get_visual_selection()
+  local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
+
+  -- lines allows multiple but links do not really help on multiple lines, so only allow one line
+  if #lines > 1 then
+    return
+  end
+
+  local content = lines[1]:sub(positions.visual_start.column, positions.visual_end.column)
+  lines[1] = lines[1]:sub(1, positions.visual_start.column - 1)
+    .. "["
+    .. content
+    .. "]("
+    .. vim.fn.getreg("+")
+    .. ")"
+    .. lines[1]:sub(positions.visual_end.column + 1)
+
+  vim.api.nvim_buf_set_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false, lines)
+
+  -- set cursor at the start of the link for quick edit via `ci(`
+  -- 4 chars because `[`, `]`, `(` are added and one to move on the first link character
+  vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_end.column - 1 + 4 })
+  require("eckon.utils").exit_visual_mode()
+end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
+
+bind_map({ "n", "v" })("s", function()
   local positions = require("eckon.utils").get_visual_selection()
   local range = positions.visual_start.row .. "," .. positions.visual_end.row
   local toggle_checkbox = "s/\\v(\\[[ xX/]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/ge"
