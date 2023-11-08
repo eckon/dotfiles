@@ -1,10 +1,8 @@
 local is_notes = vim.fn.fnamemodify(vim.fn.system({ "git", "remote", "get-url", "origin" }), ":t"):gsub("\n", "")
   == "notes.git"
 
-local bind_map = require("eckon.utils").bind_map
-
--- NOTES
 if is_notes then
+  local bind_map = require("eckon.utils").bind_map
   local nmap = function(lhs, rhs, desc)
     bind_map("n")(lhs, rhs, { desc = "Notes: " .. desc })
   end
