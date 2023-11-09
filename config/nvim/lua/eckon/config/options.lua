@@ -62,6 +62,3 @@ set.diffopt:append("linematch:60")
 -- NOTE: too many words are not recognized, so disable for now
 set.spell = false
 set.spelloptions = { "camel", "noplainbuffer" }
-
--- add env to force `date` command to return english dates
-vim.env.LC_ALL = "en_US"
