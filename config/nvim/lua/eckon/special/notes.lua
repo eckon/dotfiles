@@ -35,7 +35,8 @@ if is_notes then
 
         -- reoccuring task for work
         if day == "Friday" then
-          vim.fn.writefile({ "- [ ] fill out PMS [[pms]]" }, file_path, "a")
+          local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
+          vim.fn.writefile({ "- [ ] fill out PMS [[pms]] for week " .. week_number }, file_path, "a")
         end
 
         vim.fn.writefile({ "## private" }, file_path, "a")
