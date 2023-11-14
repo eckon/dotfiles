@@ -1,1 +1,6 @@
-std="lua51+vim"
+std = "lua51+vim"
+
+# neovim plugins use something like `{ "myplugin", event = "init" }` so disabled for now
+# https://github.com/Kampfkarren/selene/blob/main/docs/src/lints/mixed_table.md
+[rules]
+mixed_table = "allow"

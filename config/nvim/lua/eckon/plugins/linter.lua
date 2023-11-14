@@ -10,6 +10,8 @@ local M = {
     }
   end,
   init = function()
+    vim.diagnostic.config({ virtual_text = { source = true } })
+
     require("eckon.utils").ensure_package_installed.add({
       "selene",
       "eslint_d",
