@@ -15,7 +15,7 @@ local M = {
       build = ":MasonUpdate",
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
-    { "j-hui/fidget.nvim", branch = "legacy" },
+    { "j-hui/fidget.nvim" },
     { "folke/neodev.nvim" },
     { "simrat39/rust-tools.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
@@ -23,7 +23,7 @@ local M = {
 }
 
 M.config = function()
-  require("fidget").setup({})
+  require("fidget").setup()
   require("neodev").setup()
 
   require("mason").setup()
