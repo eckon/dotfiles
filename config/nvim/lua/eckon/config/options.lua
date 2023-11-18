@@ -62,3 +62,6 @@ set.diffopt:append("linematch:60")
 -- NOTE: too many words are not recognized, so disable for now
 set.spell = false
 set.spelloptions = { "camel", "noplainbuffer" }
+
+set.grepprg = "rg --smart-case --vimgrep --no-heading --hidden --regexp"
+set.grepformat:prepend("%f:%l:%c:%m")
