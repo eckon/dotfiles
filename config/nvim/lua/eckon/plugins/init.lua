@@ -55,6 +55,8 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("notify").setup({ timeout = 2500 })
       vim.notify = require("notify")
     end,
   },
