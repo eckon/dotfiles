@@ -80,23 +80,6 @@ M.config = function()
 end
 
 autocmd("lspattach", {
-  desc = "Stop lsp clients on buffer if buffer too big",
-  callback = function(args)
-    local bufnr = args.buf
-    if vim.api.nvim_buf_line_count(bufnr) < 10000 then
-      return
-    end
-
-    vim.notify("stopped lsp (file too big)")
-    local clients = vim.lsp.get_clients({ bufnr = bufnr })
-    for _, client in pairs(clients) do
-      client.stop()
-    end
-  end,
-  group = augroup,
-})
-
-autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
   callback = function(args)
     local bind_map = require("eckon.utils").bind_map
