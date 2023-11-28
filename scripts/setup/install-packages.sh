@@ -25,7 +25,6 @@ sudo apt install -y \
   pkg-config \
   ripgrep \
   shellcheck \
-  silversearcher-ag \
   tldr \
   tree \
   unzip \

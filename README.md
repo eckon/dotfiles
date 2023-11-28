@@ -49,7 +49,6 @@ Following programs should be highlighted and are installed/used:
 - [zoxide (z)](https://github.com/ajeetdsouza/zoxide),
   [tldr](https://github.com/tldr-pages/tldr),
   [fzf](https://github.com/junegunn/fzf),
-  [ag](https://github.com/ggreer/the_silver_searcher),
   [ripgrep](https://github.com/BurntSushi/ripgrep),
   [fd](https://github.com/sharkdp/fd),
   [bat](https://github.com/sharkdp/bat),
