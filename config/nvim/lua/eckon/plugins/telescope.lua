@@ -42,7 +42,10 @@ M.init = function()
         return
       end
 
-      require("telescope.builtin").grep_string({ search = input, additional_args = { "--hidden" } })
+      require("telescope.builtin").grep_string({
+        search = input,
+        additional_args = { "--hidden", "--glob=!.git" },
+      })
     end)
   end, "Search via grep")
 

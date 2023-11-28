@@ -63,5 +63,7 @@ set.diffopt:append("linematch:60")
 set.spell = false
 set.spelloptions = { "camel", "noplainbuffer" }
 
-set.grepprg = "rg --smart-case --vimgrep --no-heading --hidden --regexp"
-set.grepformat:prepend("%f:%l:%c:%m")
+if vim.fn.executable("rg") == 1 then
+  set.grepprg = "rg --smart-case --vimgrep --no-heading --glob=!.git --hidden --regexp"
+  set.grepformat:prepend("%f:%l:%c:%m")
+end
