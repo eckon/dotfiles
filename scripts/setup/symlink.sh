@@ -17,6 +17,7 @@ CONFIG_PATHS=(
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/nvim"]=".config/nvim"
+  ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
   ["zshrc"]=".zshrc"
