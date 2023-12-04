@@ -23,6 +23,7 @@ M.config = function()
         vim.snippet.expand(args.body)
       end,
     },
+
     mapping = cmp.mapping.preset.insert({
       ["<C-u>"] = cmp.mapping.scroll_docs(-4),
       ["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -30,11 +31,27 @@ M.config = function()
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping.confirm({ select = false }),
     }),
+
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "buffer" },
       { name = "path" },
     }),
+
+    ---@diagnostic disable-next-line: missing-fields
+    formatting = {
+      format = function(_, vim_item)
+        local label = vim_item.abbr
+        local truncated_label = vim.fn.strcharpart(label, 0, 50)
+
+        -- shorten really long completion labels
+        if truncated_label ~= label then
+          vim_item.abbr = truncated_label .. "…"
+        end
+
+        return vim_item
+      end,
+    },
   })
 
   ---@diagnostic disable-next-line: missing-fields
