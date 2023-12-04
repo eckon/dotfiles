@@ -1,6 +1,7 @@
 local M = {
   "ThePrimeagen/harpoon",
   dependencies = { "nvim-lua/plenary.nvim" },
+  branch = "master",
   lazy = true,
   config = function()
     require("harpoon").setup()
