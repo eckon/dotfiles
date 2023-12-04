@@ -31,11 +31,14 @@ alias vi   "nvim --cmd \"let g:run_minimal=1\""
 alias vim  "nvim"
 
 
-abbr --add npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr --add j         "tmux-jump"
-abbr --add ji        "tmux-interactive-jump"
-abbr --add ta        "tmux attach -t"
-abbr --add tt        "tmux new -s"
+abbr --add npmplease       "rm -rf node_modules/ && rm -f package-lock.json && npm install"
+abbr --add j               "tmux-jump"
+abbr --add ji              "tmux-interactive-jump"
+abbr --add ta              "tmux attach -t"
+abbr --add tt              "tmux new -s"
+abbr --add rgg \
+     --position anywhere \
+     --set-cursor          "rg --json \"%\" | delta"
 
 # expansion of !! (>= fish v.3.6.0)
 function last_history_item; echo $history[1]; end
