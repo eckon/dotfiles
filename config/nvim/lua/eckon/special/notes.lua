@@ -20,28 +20,30 @@ if is_notes then
         return
       end
 
-      local year = date_result:gsub("%((.*)%) %(.*%) %(.*%) %(.*%)", "%1")
-      local month = date_result:gsub("%(.*%) %((.*)%) %(.*%) %(.*%)", "%1")
-      local date = date_result:gsub("%(.*%) %(.*%) %((.*)%) %(.*%)", "%1")
-      local day = date_result:gsub("%(.*%) %(.*%) %(.*%) %((.*)%)", "%1")
+      local year, month, date, day = date_result:match("%((.*)%) %((.*)%) %((.*)%) %((.*)%)")
 
       -- create date in format: 2023/01-January/2023-01-01
       local file_path = "daily/" .. year .. "/" .. month .. "/" .. date .. ".md"
       if vim.fn.filereadable(file_path) == 0 then
         vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
 
-        vim.fn.writefile({ "# " .. date .. " (" .. day .. ")" }, file_path)
-        vim.fn.writefile({ "## work" }, file_path, "a")
+        ---@param content string
+        local write_line = function(content)
+          vim.fn.writefile({ content }, file_path, "a")
+        end
+
+        write_line("# " .. date .. " (" .. day .. ")")
+        write_line("## work")
 
         -- reoccuring task for work
         if day == "Friday" then
           local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
-          vim.fn.writefile({ "- [ ] fill out PMS [[pms]] for week " .. week_number }, file_path, "a")
+          write_line("- [ ] fill out PMS [[pms]] for week " .. week_number)
         end
 
-        vim.fn.writefile({ "## private" }, file_path, "a")
-        vim.fn.writefile({ "- [ ] workout" }, file_path, "a")
-        vim.fn.writefile({ "- [ ] study" }, file_path, "a")
+        write_line("## private")
+        write_line("- [ ] workout")
+        write_line("- [ ] study")
       end
 
       vim.cmd("e " .. file_path)
