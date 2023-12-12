@@ -53,9 +53,13 @@ set.winbar = "%t %m"
 set.foldenable = false
 set.foldlevel = 99
 set.foldmethod = "expr"
-set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- manually extending "v:lua.vim.treesitter.foldtext()"
-set.foldtext = "v:lua.require('eckon.utils').foldtext()"
+
+-- on gigantic files this is slowing down vim alot, so ignore in minimal mode
+if not require("eckon.utils").run_minimal() then
+  set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  -- manually extending "v:lua.vim.treesitter.foldtext()"
+  set.foldtext = "v:lua.require('eckon.utils').foldtext()"
+end
 
 set.diffopt:append("linematch:60")
 

@@ -23,7 +23,7 @@ local M = {
 }
 
 M.config = function()
-  require("fidget").setup()
+  require("fidget").setup({})
   require("neodev").setup()
 
   require("mason").setup()
