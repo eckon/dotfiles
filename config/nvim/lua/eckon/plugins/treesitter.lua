@@ -36,22 +36,6 @@ local M = {
       })
     end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = "BufReadPost",
-    config = function()
-      require("treesitter-context").setup({
-        on_attach = function(bufnr)
-          if vim.api.nvim_buf_line_count(bufnr) < 10000 then
-            return true
-          end
-
-          vim.notify("Big File: Stopped Treesitter-Context")
-          return false
-        end,
-      })
-    end,
-  },
 }
 
 return M
