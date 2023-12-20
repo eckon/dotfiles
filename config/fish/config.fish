@@ -10,6 +10,8 @@ type --query starship; and starship init fish | source; or echo "[!] No starship
 type --query fnm;      and fnm env            | source; or echo "[!] No fnm"
 type --query zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
 
+test -d /home/linuxbrew; and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 
 
 # -------------------- Configuration --------------------
