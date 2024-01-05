@@ -16,7 +16,7 @@ local M = {
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
     { "folke/neodev.nvim" },
-    { "simrat39/rust-tools.nvim" },
+    { "mrcjkb/rustaceanvim", ft = { "rust" } },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
 }
@@ -56,9 +56,7 @@ M.config = function()
       })
     end,
     ["rust_analyzer"] = function()
-      require("rust-tools").setup({
-        server = { settings = { ["rust-analyzer"] = { checkOnSave = { command = "clippy" } } } },
-      })
+      -- do not call anything to not overwrite rustaceanvim
     end,
     ["tsserver"] = function()
       require("typescript-tools").setup({})
