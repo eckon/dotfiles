@@ -59,7 +59,9 @@ M.config = function()
       -- do not call anything to not overwrite rustaceanvim
     end,
     ["tsserver"] = function()
-      require("typescript-tools").setup({})
+      require("typescript-tools").setup({
+        settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
+      })
     end,
     ["lua_ls"] = function()
       lspconfig.lua_ls.setup({
@@ -74,6 +76,14 @@ M.config = function()
     end,
   })
 end
+
+autocmd("lspattach", {
+  desc = "Enable inlay hints by default in all buffers with lsp",
+  callback = function(args)
+    vim.lsp.inlay_hint.enable(args.buf, true)
+  end,
+  group = augroup,
+})
 
 autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
