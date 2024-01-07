@@ -13,17 +13,7 @@ local M = {
       ---@diagnostic disable-next-line: missing-fields
       require("nvim-treesitter.configs").setup({
         ensure_installed = "all",
-        highlight = {
-          enable = true,
-          disable = function(_, bufnr)
-            if vim.api.nvim_buf_line_count(bufnr) < 10000 then
-              return false
-            end
-
-            vim.notify("Big File: Stopped Treesitter")
-            return true
-          end,
-        },
+        highlight = { enable = true },
         incremental_selection = {
           enable = true,
           keymaps = {
