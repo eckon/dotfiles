@@ -44,13 +44,20 @@ which can be found in the `lua` folder.
 
 ## Special
 
-Sadly my config does not handle gigantic files always perfectly,
-so for things like million lines of json or similar,
-I added a global variable `run_minimal` which can be when calling vim and
-will disable some of the more resource intense plugins.
+Similar to others, my vim setup does not handle gigantic files well,
+things like multiple `MB` of `json` or `millions of lines` of some `language`/`format`
+will result in problems with `lsp`, `treesitter`,
+`custom plugins` and `highlight` in general,
+slowing down or potentially even crashing `vim`.
 
-This mainly includes `lsp`, `treesitter` and other things that take long or
-do not handle gigantic files well.
+For this case there are two ways of handling it,
+either every file will be initialized differently
+or we do not allow gigantic files.
 
-For that the `vi` command is mapped to this minimal config
-(and the normal `vim` / `nvim` to the full config).
+My setup has two modes, a `normal` mode and a `performance`/`minimal` mode.
+The `normal` vim will not allow big files, it wipes them before loading them.
+
+Additionally there is another `minimal` mode vim via the `vi` command,
+which can handle these gigantic files well (its close to bare bones vim).
+This is being done by passing the `run_minimal` variable to vim (see `fish` config),
+disabling multiple known sources of problems for big files.

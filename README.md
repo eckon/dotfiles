@@ -53,4 +53,5 @@ Following programs should be highlighted and are installed/used:
   [fd](https://github.com/sharkdp/fd),
   [bat](https://github.com/sharkdp/bat),
   [jq](https://github.com/stedolan/jq),
-  [fnm](https://github.com/Schniz/fnm)
+  [fnm](https://github.com/Schniz/fnm),
+  [brew](https://github.com/Homebrew/brew)
