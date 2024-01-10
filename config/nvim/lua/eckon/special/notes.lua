@@ -27,23 +27,35 @@ if is_notes then
       if vim.fn.filereadable(file_path) == 0 then
         vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
 
-        ---@param content string
-        local write_line = function(content)
-          vim.fn.writefile({ content }, file_path, "a")
+        ---@param content string | string[]
+        local write_content = function(content)
+          if type(content) == "string" then
+            content = { content }
+          end
+
+          vim.fn.writefile(content, file_path, "a")
         end
 
-        write_line("# " .. date .. " (" .. day .. ")")
-        write_line("## work")
+        write_content("# " .. date .. " (" .. day .. ")")
+        write_content("## work")
 
         -- reoccuring task for work
         if day == "Friday" then
           local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
-          write_line("- [ ] fill out PMS [[pms]] for week " .. week_number)
+          write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
         end
 
-        write_line("## private")
-        write_line("- [ ] workout")
-        write_line("- [ ] study")
+        write_content({
+          "## private",
+          "### repeated tasks",
+          "- [ ] workout",
+          "  - [ ] dumbbell",
+          "  - [ ] squats",
+          "  - [ ] push-ups",
+          "  - [ ] sit-ups",
+          "- [ ] study",
+          "### normal tasks",
+        })
       end
 
       vim.cmd("e " .. file_path)
