@@ -1,7 +1,7 @@
 local M = {
   "ThePrimeagen/harpoon",
   dependencies = { "nvim-lua/plenary.nvim" },
-  branch = "master",
+  branch = "harpoon2",
   lazy = true,
   config = function()
     require("harpoon").setup()
@@ -11,16 +11,17 @@ local M = {
     local nmap = bind_map("n")
 
     nmap("<Leader>ha", function()
-      require("harpoon.mark").add_file()
+      require("harpoon"):list():append()
     end, { desc = "Harpoon: Add file" })
 
     nmap("<Leader>hh", function()
-      require("harpoon.ui").toggle_quick_menu()
+      local harpoon = require("harpoon")
+      harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Harpoon: Open quick menu" })
 
     for i = 1, 4, 1 do
       nmap("<M-" .. i .. ">", function()
-        require("harpoon.ui").nav_file(i)
+        require("harpoon"):list():select(i)
       end, { desc = "Harpoon: Jump position " .. i })
     end
   end,
