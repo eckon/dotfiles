@@ -55,8 +55,9 @@ custom_command.add("Browser", {
     end
 
     local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
-    vim.notify("Open repo in browser: " .. path)
+    vim.notify("Open repo in browser (and copy to clipboard): " .. path)
     vim.ui.open(path)
+    vim.fn.setreg("+", path)
   end,
 })
 
