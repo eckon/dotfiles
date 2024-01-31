@@ -24,6 +24,7 @@ sudo apt install -y \
   watchman \
   wget \
   xclip \
+  yad \
   zsh
 
 

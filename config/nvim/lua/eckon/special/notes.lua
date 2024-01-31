@@ -14,11 +14,27 @@ if is_notes then
         return
       end
 
-      local date_result = vim.fn.system({ "date", "+(%Y) (%m-%B) (%Y-%m-%d) (%A)", "-d", input }):gsub("\n", "")
+      -- check if input is a valid date
+      vim.fn.system({ "date", "+%Y", "-d", input })
       if vim.v.shell_error ~= 0 then
-        vim.notify('Input not valid: "' .. input .. '"\n' .. 'Got error: "' .. date_result .. '"')
-        return
+        -- fallback to dialog if input is not a valid date
+        local dialog_result = vim.fn
+          .system({
+            "yad",
+            "--calendar",
+            "--date-format=%Y-%m-%d",
+            "--center",
+            '--title="Select Date"',
+          })
+          :gsub("\n", "")
+
+        -- output can have error inside, so we only take the last 10 characters (which is the date)
+        local length = string.len(dialog_result)
+        input = string.sub(dialog_result, length - 10, length)
       end
+
+      local date_format_parameter = "+(%Y) (%m-%B) (%Y-%m-%d) (%A)"
+      local date_result = vim.fn.system({ "date", date_format_parameter, "-d", input }):gsub("\n", "")
 
       local year, month, date, day = date_result:match("%((.*)%) %((.*)%) %((.*)%) %((.*)%)")
 
