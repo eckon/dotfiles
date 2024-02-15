@@ -12,6 +12,10 @@
 
 [alias]
 	tree = log --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I' --format=format:'%C(yellow)%>|(20)%h%C(reset)  %C(blue)%ad%C(reset) %C(dim green)(%ar)%>|(60)%C(reset)  %C(dim red)%<(16,trunc)%an%C(reset)  %C(dim green)%d%C(reset) %C(white)%>|(1)%s%C(reset)' --all
+	wdiff = diff --word-diff --no-index
+
+[rerere]
+	enable = true
 
 [log]
 	abbrevCommit = true
@@ -32,8 +36,15 @@
 [rebase]
 	autoStash = true
 
+[branch]
+	sort = -committerdate
+
 [tag]
 	sort = version:refname
+
+[maintenance]
+	auto = false
+	strategy = incremental
 
 [includeIf "gitdir:~/Development/work/"]
 	path = ~/.config/git/work
