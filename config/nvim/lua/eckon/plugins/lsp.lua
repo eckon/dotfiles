@@ -22,6 +22,27 @@ local M = {
 }
 
 M.config = function()
+  -- ignore diagnostic context unless its an error (do not spam buffer full of warnings)
+  vim.diagnostic.config({
+    virtual_text = {
+      format = function(diagnostic)
+        if diagnostic.severity == vim.diagnostic.severity.WARN then
+          return "Warning"
+        end
+
+        if diagnostic.severity == vim.diagnostic.severity.INFO then
+          return "Info"
+        end
+
+        if diagnostic.severity == vim.diagnostic.severity.HINT then
+          return "Hint"
+        end
+
+        return diagnostic.message
+      end,
+    },
+  })
+
   require("neodev").setup()
 
   require("mason").setup()
