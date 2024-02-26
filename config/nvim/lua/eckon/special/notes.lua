@@ -70,6 +70,7 @@ if is_notes then
           "  - [ ] push-ups",
           "  - [ ] sit-ups",
           "- [ ] study",
+          "- [ ] programming",
           "### normal tasks",
         })
       end
