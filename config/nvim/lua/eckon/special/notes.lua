@@ -66,11 +66,11 @@ if is_notes then
           "### repeated tasks",
           "- [ ] workout",
           "  - [ ] dumbbell",
-          "  - [ ] squats",
-          "  - [ ] push-ups",
-          "  - [ ] sit-ups",
+          "  - [ ] squat",
+          "  - [ ] push-up",
+          "  - [ ] crunch",
           "- [ ] study",
-          "- [ ] programming",
+          "- [ ] program",
           "### normal tasks",
         })
       end
