@@ -55,7 +55,7 @@ if is_notes then
         write_content("# " .. date .. " (" .. day .. ")")
         write_content("## work")
 
-        -- reoccuring task for work
+        -- reoccurring task for work
         if day == "Friday" then
           local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
           write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
@@ -65,10 +65,6 @@ if is_notes then
           "## private",
           "### repeated tasks",
           "- [ ] workout",
-          "  - [ ] dumbbell",
-          "  - [ ] squat",
-          "  - [ ] push-up",
-          "  - [ ] crunch",
           "- [ ] study",
           "- [ ] program",
           "### normal tasks",

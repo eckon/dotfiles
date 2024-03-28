@@ -61,8 +61,7 @@ end
 
 set.diffopt:append("linematch:60")
 
--- NOTE: too many words are not recognized, so disable for now
-set.spell = false
+set.spell = true
 set.spelloptions = { "camel", "noplainbuffer" }
 
 if vim.fn.executable("rg") == 1 then
