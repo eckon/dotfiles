@@ -8,9 +8,6 @@ vim.opt_local.wrap = true
 vim.opt_local.tabstop = 2
 vim.opt_local.shiftwidth = 2
 
--- todo highlight is ugly so ill overwrite it for now (probably should be done differently)
-vim.api.nvim_set_hl(0, "@text.todo", { link = "Question" })
-
 vim.cmd("iabbrev <buffer> T - [ ]")
 vim.cmd([[
   iabbrev <buffer> D <C-R>=system('date "+%Y-%m-%d" -d ""')[:-2]
