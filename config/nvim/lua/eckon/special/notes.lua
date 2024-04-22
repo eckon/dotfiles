@@ -63,10 +63,6 @@ if is_notes then
 
         write_content({
           "## private",
-          "### repeated tasks",
-          "- [ ] workout",
-          "- [ ] study",
-          "- [ ] program",
           "### normal tasks",
         })
       end
