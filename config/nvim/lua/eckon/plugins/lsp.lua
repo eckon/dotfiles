@@ -100,8 +100,8 @@ end
 
 autocmd("lspattach", {
   desc = "Enable inlay hints by default in all buffers with lsp",
-  callback = function(args)
-    vim.lsp.inlay_hint.enable(args.buf, true)
+  callback = function()
+    vim.lsp.inlay_hint.enable(true)
   end,
   group = augroup,
 })
