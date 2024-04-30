@@ -134,14 +134,13 @@ autocmd("lspattach", {
       require("telescope.builtin").lsp_document_symbols()
     end, "Search lsp symbols")
 
-    nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
-    nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
-
+    -- these now have default keymaps (:h CTRL-W_d :h [d :h ]d)
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
     nmap("<Leader>fd", function()
       require("telescope.builtin").diagnostics()
     end, "List all diagnostics")
 
+    -- these now have default keymaps (:h crn :h crr)
     nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
     nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
   end,
