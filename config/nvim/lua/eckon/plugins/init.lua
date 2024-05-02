@@ -13,7 +13,6 @@ return {
     event = "BufReadPre",
     version = false,
     config = function()
-      require("mini.comment").setup()
       require("mini.files").setup({ windows = { preview = true } })
 
       -- this also has ii/ai text objects
