@@ -19,7 +19,8 @@ via [sumneko](https://github.com/LuaLS/lua-language-server/wiki/Annotations)
 see [wiki](https://luals.github.io/wiki/annotations/)
 
 [init.lua](./init.lua) is the entry point and has multiple parts,
-which can be found in the `lua` folder.
+which can be found in the `lua` folder
+and other parts of the normal vim cycle (`after`, `ftplugin`, `plugin`).
 
 ## Install
 

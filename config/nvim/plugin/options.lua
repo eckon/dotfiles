@@ -1,7 +1,5 @@
 local set = vim.opt
 
-vim.g.mapleader = " "
-
 set.shell = "bash"
 set.undofile = true
 set.swapfile = false
@@ -28,6 +26,7 @@ set.showmode = false
 
 set.signcolumn = "yes"
 
+set.inccommand = "split"
 set.splitbelow = true
 set.splitright = true
 
