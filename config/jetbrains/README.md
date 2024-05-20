@@ -32,3 +32,9 @@ so the following should only be exported and saved here:
     (which are not included in the export as far as I can see)
     - enable prettier for better js formatting
   - vim settings should be done via `~/.config/ideavim/ideavimrc`
+
+## Differences to remember
+
+- keybindings
+  - `Find anything`  -> `SHIFT SHIFT`
+  - `Command Pallet` -> `CTRL-SHIFT-A`
