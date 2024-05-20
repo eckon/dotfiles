@@ -13,14 +13,14 @@ CONFIG_PATHS=(
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/git"]=".config/git"
   ["config/helix/config.toml"]=".config/helix/config.toml"
-  ["config/ideavim/ideavimrc"]=".config/ideavim/ideavimrc"
+  ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/nvim"]=".config/nvim"
   ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
-  ["zshrc"]=".zshrc"
+  ["config/zshrc"]=".zshrc"
 )
 
 declare -A SCRIPT_PATHS
