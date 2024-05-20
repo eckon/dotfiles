@@ -7,8 +7,6 @@
 
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
-  ["config/Code/User/keybindings.json"]=".config/Code/User/keybindings.json"
-  ["config/Code/User/settings.json"]=".config/Code/User/settings.json"
   ["config/alacritty.yml"]=".config/alacritty.yml"
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/git"]=".config/git"
@@ -20,6 +18,8 @@ CONFIG_PATHS=(
   ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
+  ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
+  ["config/vscode/settings.json"]=".config/Code/User/settings.json"
   ["config/zshrc"]=".zshrc"
 )
 
