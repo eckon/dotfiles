@@ -36,5 +36,5 @@ so the following should only be exported and saved here:
 ## Differences to remember
 
 - keybindings
-  - `Find anything`  -> `SHIFT SHIFT`
+  - `Find anything` -> `SHIFT SHIFT`
   - `Command Pallet` -> `CTRL-SHIFT-A`

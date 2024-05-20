@@ -14,20 +14,15 @@ Instead of using the gigantic export or an account, ill use a basic list here to
 note down which extensions and which options are important to me:
 
 - set dark theme
-- overwrite forward/backward jumps
-  - search for keyboard (via command pallet / quick menu)
-  - filter for `View.Navigate` which has two versions one back and one forth
-  - use `CTRL-I` and `CTRL-O` as both are used for non relevant things in vs
-    - need to remove `Edit.IncrementalSearch` as this also uses `CTRL-I`
 
 ### Plugins
 
 - `vsvim`
-  - ignore `rc config`, as this has almost no setting-possibilities
-  - set following keybindings to be handled by vim via the visual studio ui
+  - set following keybindings to be handled by vsvim via the vs ui (vim keybindings)
     - `CTRL-D` `CTRL-U`
-    - seems like jumplist does not exist here, so `CTRL-I` and `CTRL-O` does nothing
-      - do manual overview (see above)
+    - `CTRL-I` `CTRL-O`
+  - copy `vsvimrc` file to `c/user/<name>/.vsvimrc` on windows
+    - _until dotfiles repo works on windows_
 
 ## Differences to remember
 
@@ -35,4 +30,6 @@ note down which extensions and which options are important to me:
   - `Open File` -> `CTRL-T`
   - `Command Pallet` -> `CTRL-Q`
   - `Commenting` -> `CTRL-K CTRL-/`
+    - can be done via vim
   - `Quick Action` -> `CTRL-.`
+    - can be done via vim
