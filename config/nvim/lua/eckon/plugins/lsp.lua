@@ -134,7 +134,10 @@ autocmd("lspattach", {
       require("telescope.builtin").lsp_document_symbols()
     end, "Search lsp symbols")
 
-    -- these now have default keymaps (:h CTRL-W_d :h [d :h ]d)
+    -- diagnostics are not shown on jump via the default [d and ]d so I do it myself here
+    nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
+    nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
+
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
     nmap("<Leader>fd", function()
       require("telescope.builtin").diagnostics()
