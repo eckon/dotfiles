@@ -20,6 +20,13 @@ which then can be handled automatically:
 
 - IdeaVim: `~/.config/ideavim/ideavimrc`
 
+## Important default keybindings
+
+Some of these might be doable with other configurations like vim plugin
+
+- `Find anything` -> `SHIFT SHIFT`
+- `Command Pallet` -> `CTRL-SHIFT-A`
+
 ## Setup to export
 
 I do not want to export all things,
@@ -32,9 +39,3 @@ so the following should only be exported and saved here:
     (which are not included in the export as far as I can see)
     - enable prettier for better js formatting
   - vim settings should be done via `~/.config/ideavim/ideavimrc`
-
-## Differences to remember
-
-- keybindings
-  - `Find anything` -> `SHIFT SHIFT`
-  - `Command Pallet` -> `CTRL-SHIFT-A`

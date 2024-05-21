@@ -8,6 +8,15 @@ An option is to export the config and then import it, sadly this is not really
 a good solution as the file is gigantic and most likely will not include
 some more important things like which extensions should be installed.
 
+## Important default keybindings
+
+Some of these might be doable with other configurations like vim plugin
+
+- `Open File` -> `CTRL-T`
+- `Command Pallet` -> `CTRL-Q`
+- `Commenting` -> `CTRL-K CTRL-/`
+- `Quick Action` -> `CTRL-.`
+
 ## Manual configuration
 
 Instead of using the gigantic export or an account, ill use a basic list here to
@@ -23,13 +32,3 @@ note down which extensions and which options are important to me:
     - `CTRL-I` `CTRL-O`
   - copy `vsvimrc` file to `c/user/<name>/.vsvimrc` on windows
     - _until dotfiles repo works on windows_
-
-## Differences to remember
-
-- keybindings
-  - `Open File` -> `CTRL-T`
-  - `Command Pallet` -> `CTRL-Q`
-  - `Commenting` -> `CTRL-K CTRL-/`
-    - can be done via vim
-  - `Quick Action` -> `CTRL-.`
-    - can be done via vim
