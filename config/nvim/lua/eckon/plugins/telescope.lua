@@ -5,6 +5,7 @@ local M = {
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } },
   },
 }
 
@@ -25,9 +26,11 @@ M.config = function()
         },
       },
     },
+    extensions = { smart_open = { match_algorithm = "fzf" } },
   })
 
   require("telescope").load_extension("fzf")
+  require("telescope").load_extension("smart_open")
 end
 
 M.init = function()
@@ -65,9 +68,14 @@ M.init = function()
     require("telescope.builtin").buffers({ sort_mru = true })
   end, "Search buffer")
 
+  -- nmap("<Leader>ff", function()
+  --   require("telescope.builtin").find_files()
+  -- end, "Search files")
+
+  -- try to use smart-open instead of find_files for now (later remap/replace)
   nmap("<Leader>ff", function()
-    require("telescope.builtin").find_files()
-  end, "Search files")
+    require("telescope").extensions.smart_open.smart_open()
+  end, "Search smart files")
 
   nmap("<Leader>fF", function()
     require("telescope.builtin").find_files({ hidden = true, no_ignore = true })

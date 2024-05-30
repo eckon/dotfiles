@@ -74,5 +74,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.language": "en,de-DE"
+  "cSpell.language": "en,de-DE",
+  "github.copilot.editor.enableAutoCompletions": true
 }
