@@ -15,14 +15,14 @@ local M = {
       build = ":MasonUpdate",
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
-    { "folke/neodev.nvim" },
+    { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", ft = { "rust" } },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
 }
 
 M.config = function()
-  require("neodev").setup()
+  require("lazydev").setup()
 
   require("mason").setup()
   require("mason-lspconfig").setup({
