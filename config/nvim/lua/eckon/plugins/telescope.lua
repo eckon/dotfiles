@@ -75,7 +75,7 @@ M.init = function()
 
   -- try to use smart-open instead of find_files for now (later remap/replace)
   nmap("<Leader>ff", function()
-    require("telescope").extensions.smart_open.smart_open()
+    require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
   end, "Search smart files")
 
   nmap("<Leader>fF", function()
