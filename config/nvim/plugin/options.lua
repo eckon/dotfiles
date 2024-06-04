@@ -67,3 +67,26 @@ if vim.fn.executable("rg") == 1 then
   set.grepprg = "rg --smart-case --vimgrep --no-heading --glob=!.git --hidden --regexp"
   set.grepformat:prepend("%f:%l:%c:%m")
 end
+
+vim.diagnostic.config({
+  -- ignore diagnostic context unless its an error (do not spam buffer full of warnings)
+  virtual_text = {
+    format = function(diagnostic)
+      if diagnostic.severity == vim.diagnostic.severity.WARN then
+        return "Warning"
+      end
+
+      if diagnostic.severity == vim.diagnostic.severity.INFO then
+        return "Info"
+      end
+
+      if diagnostic.severity == vim.diagnostic.severity.HINT then
+        return "Hint"
+      end
+
+      return diagnostic.message
+    end,
+  },
+  -- open float on default jump bindings ([d and ]d)
+  jump = { float = true },
+})

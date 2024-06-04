@@ -68,9 +68,10 @@ M.init = function()
     require("telescope.builtin").buffers({ sort_mru = true })
   end, "Search buffer")
 
-  -- nmap("<Leader>ff", function()
-  --   require("telescope.builtin").find_files()
-  -- end, "Search files")
+  -- as a fall back for now as the other smart finder is not perfect yet
+  nmap("<Leader>FF", function()
+    require("telescope.builtin").find_files()
+  end, "Search files")
 
   -- try to use smart-open instead of find_files for now (later remap/replace)
   nmap("<Leader>ff", function()

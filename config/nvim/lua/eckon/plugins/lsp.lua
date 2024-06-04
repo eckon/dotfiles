@@ -22,27 +22,6 @@ local M = {
 }
 
 M.config = function()
-  -- ignore diagnostic context unless its an error (do not spam buffer full of warnings)
-  vim.diagnostic.config({
-    virtual_text = {
-      format = function(diagnostic)
-        if diagnostic.severity == vim.diagnostic.severity.WARN then
-          return "Warning"
-        end
-
-        if diagnostic.severity == vim.diagnostic.severity.INFO then
-          return "Info"
-        end
-
-        if diagnostic.severity == vim.diagnostic.severity.HINT then
-          return "Hint"
-        end
-
-        return diagnostic.message
-      end,
-    },
-  })
-
   require("neodev").setup()
 
   require("mason").setup()
@@ -134,18 +113,20 @@ autocmd("lspattach", {
       require("telescope.builtin").lsp_document_symbols()
     end, "Search lsp symbols")
 
-    -- diagnostics are not shown on jump via the default [d and ]d so I do it myself here
-    nmap("[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic")
-    nmap("]d", vim.diagnostic.goto_next, "Jump to next diagnostic")
-
     nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
     nmap("<Leader>fd", function()
       require("telescope.builtin").diagnostics()
     end, "List all diagnostics")
 
-    -- these now have default keymaps (:h crn :h crr)
-    nmap("<Leader>la", vim.lsp.buf.code_action, "Code action")
-    nmap("<Leader>lr", vim.lsp.buf.rename, "Rename variable")
+    nmap("<Leader>la", function()
+      vim.print("Use: `gra` instead")
+      vim.lsp.buf.code_action()
+    end, "Code action")
+
+    nmap("<Leader>lr", function()
+      vim.print("Use: `grn` instead")
+      vim.lsp.buf.rename()
+    end, "Rename variable")
   end,
   group = augroup,
 })
