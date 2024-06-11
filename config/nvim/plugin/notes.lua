@@ -57,8 +57,9 @@ nmap("<Leader><Leader>d", function()
 
       write_content("# " .. date .. " (" .. day .. ")")
       write_content("## work")
+      write_content("- [ ] move previous work tasks here")
 
-      -- reoccurring task for work
+      -- repeating tasks for work
       if day == "Friday" then
         local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
         write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
@@ -66,7 +67,12 @@ nmap("<Leader><Leader>d", function()
 
       write_content({
         "## private",
+        "### repeating tasks",
+        "- [ ] do babbel",
+        "- [ ] do uni",
+        "- [ ] do workout",
         "### normal tasks",
+        "- [ ] move previous normal tasks here",
       })
     end
 
