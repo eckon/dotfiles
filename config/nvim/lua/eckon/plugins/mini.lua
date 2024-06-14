@@ -3,19 +3,27 @@ return {
   event = "BufReadPre",
   version = false,
   config = function()
+    -- buffer based file explorer
     require("mini.files").setup({ windows = { preview = true } })
 
-    -- this also has ii/ai text objects
+    -- show indent and this also has ii/ai text objects
     require("mini.indentscope").setup({
       draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
     })
 
-    -- this also shows lsp progress
+    -- show better notifications and lsp progress
     require("mini.notify").setup()
     vim.notify = require("mini.notify").make_notify()
+
+    -- mainly for git diff information
+    require("mini.diff").setup({
+      view = { style = "sign" },
+      mappings = { goto_first = "[C", goto_prev = "[c", goto_next = "]c", goto_last = "]C" },
+    })
   end,
   init = function()
-    require("eckon.utils").bind_map("n")("<Leader>fe", function()
+    local nmap = require("eckon.utils").bind_map("n")
+    nmap("<Leader>fe", function()
       require("mini.files").open(vim.api.nvim_buf_get_name(0))
     end, { desc = "Mini: Open File Explorer" })
   end,

@@ -73,3 +73,27 @@ custom_command.add("CopyFilePath", {
     vim.notify('Copied filepath to clipboard: "' .. path .. '"')
   end,
 })
+
+custom_command.add("OpenGitLog", {
+  desc = "Open Git log in tmux (also saves to clipboard)",
+  callback = function()
+    local path = vim.fn.expand("%")
+    if path == "" then
+      return
+    end
+
+    local diff = vim.fn.system("git diff -- " .. path)
+    local has_diff = diff ~= ""
+    if has_diff then
+      vim.notify("File has uncommitted changes, can not open git log")
+      return
+    end
+
+    local positions = require("eckon.utils").get_visual_selection()
+    local range = positions.visual_start.row .. "," .. positions.visual_end.row
+
+    local git_log = "git log -L " .. range .. ":" .. path
+    vim.fn.setreg("+", git_log)
+    vim.cmd('silent !tmux new-window "' .. git_log .. '"')
+  end,
+})
