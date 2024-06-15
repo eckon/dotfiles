@@ -7,6 +7,7 @@ Bigger parts have their own README and can be found here:
 
 - [Neovim](./config/nvim/README.md)
 - [Scripts](./scripts/README.md)
+- [Bootstrap](./bootstrap/README.md)
 - [Visual Studio Code](./config/vscode/README.md)
 - [Visual Studio](./config/visual-studio/README.md)
 - [Jetbrains Tools](./config/jetbrains/README.md)

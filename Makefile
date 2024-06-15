@@ -3,11 +3,11 @@
 setup: packages symlinks
 
 symlinks:
-	@ ./scripts/setup/symlink.sh
+	@ ./bootstrap/symlink.sh
 
 packages:
 	@ sudo -v
-	@ ./scripts/setup/install-packages.sh
+	@ ./bootstrap/install-packages.sh
 
 
 .PHONY: check format-lua format-markdown lint-markdown
