@@ -42,5 +42,5 @@ if test -f "$cacheFile"; then
 fi
 
 # otherwise continue and build the cache
-# either ttl was reached or no file, eval command and save it to file
-eval "$@" | tee "$cacheFile"
+# either ttl was reached or no file, run command and save it to file
+"$@" | tee "$cacheFile"

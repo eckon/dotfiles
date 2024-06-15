@@ -6,16 +6,16 @@
 # these can be searched, filtered and executed through fzf
 #############################################################
 
-scripts_paths=("$HOME/Development/dotfiles/scripts")
+SCRIPTS_PATHS=("$HOME/Development/dotfiles/scripts")
 
 script_list=""
-for i in "${scripts_paths[@]}"; do
-  localScripts=$(find "$i" -iname "*.sh")
+for i in "${SCRIPTS_PATHS[@]}"; do
+  local_scripts=$(find "$i" -iname "*.sh")
 
   if [[ "$script_list" == "" ]]; then
-    script_list="${localScripts}"
+    script_list="${local_scripts}"
   else
-    script_list="${scriptList}\n${localScripts}"
+    script_list="${script_list}\n${local_scripts}"
   fi
 done
 
@@ -28,9 +28,10 @@ fi
 # only show the last part of the path (-1)
 selected_script=$(
   printf "%s" "$script_list" | fzf \
+    --ansi \
     --delimiter="/" --with-nth -1 \
-    --preview "$preview_window {}" \
+    --preview "$preview_window --color=always {}" \
     --preview-window up
 )
 
-eval "$selected_script"
+"$selected_script"

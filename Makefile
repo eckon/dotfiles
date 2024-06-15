@@ -15,7 +15,7 @@ neovim:
 
 .PHONY: check format-lua format-markdown lint-markdown
 
-check: format-lua format-markdown lint-markdown
+check: format-lua format-markdown lint-markdown lint-scripts
 
 format-lua:
 	npx @johnnymorganz/stylua-bin \
@@ -27,3 +27,6 @@ format-markdown:
 
 lint-markdown:
 	npx markdownlint-cli '**/*.md' -f
+
+lint-scripts:
+	shellcheck -S warning **/*.sh
