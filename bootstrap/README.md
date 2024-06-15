@@ -1,4 +1,4 @@
-# Bootstap scripts
+# Bootstrap scripts
 
 ## Setup scripts
 

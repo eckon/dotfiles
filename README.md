@@ -19,9 +19,9 @@ Installation of everything in my configuration:
 
 - install `git` and `make`
 - clone this repository
-- run `make`
-  - this will install the different parts for a quick setup
-    (terminal, tools, symlinks, configs, etc.)
+- run `make setup`
+  - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
+  - should correctly handle the different OSes
 
 ## System Structure
 

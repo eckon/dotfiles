@@ -19,10 +19,9 @@ fi
 brew bundle --file "$package_root/Brewfile"
 
 
+# wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
 current_os="$(cat /proc/version)"
 case "$(echo "$current_os" | tr "[:upper:]" "[:lower:]")" in
-
-# wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
 *'wsl'*)
     echo "[!] Install for WSL"
     "$package_root/install-fish.sh"
