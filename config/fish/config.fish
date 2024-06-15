@@ -8,6 +8,7 @@ test -d ~/.cargo/bin;       and fish_add_path ~/.cargo/bin
 type --query starship; and starship init fish | source; or echo "[!] No starship"
 type --query fnm;      and fnm env            | source; or echo "[!] No fnm"
 type --query zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
+type --query fzf;      and fzf --fish         | source; or echo "[!] No fzf"
 
 
 
