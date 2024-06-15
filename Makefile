@@ -1,4 +1,4 @@
-.PHONY: setup symlinks packages
+.PHONY: setup symlinks packages neovim
 
 setup: packages symlinks
 
@@ -8,6 +8,9 @@ symlinks:
 packages:
 	@ sudo -v
 	@ ./bootstrap/install-packages.sh
+
+neovim:
+	@ ./bootstrap/packages/install-neovim.sh --force
 
 
 .PHONY: check format-lua format-markdown lint-markdown
