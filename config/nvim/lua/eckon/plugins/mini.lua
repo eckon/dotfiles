@@ -4,7 +4,7 @@ return {
   version = false,
   config = function()
     -- buffer based file explorer
-    require("mini.files").setup({ windows = { preview = true } })
+    require("mini.files").setup({ windows = { preview = true, width_preview = 50 } })
 
     -- show indent and this also has ii/ai text objects
     require("mini.indentscope").setup({
