@@ -16,6 +16,7 @@ sudo apt install -y \
   curl \
   entr \
   libevent-dev \
+  libfuse2 \
   libncurses5-dev \
   libncursesw5-dev \
   moreutils \
@@ -80,24 +81,6 @@ if ! command -v "nvim" &> /dev/null; then
   cp "/tmp/neovim/nvim.appimage" "$LOCAL_BIN_PATH/nvim"
 fi
 
-if ! command -v "kitty" &> /dev/null; then
-  echo "[+] Install \"kitty\""
-  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
-  ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$LOCAL_BIN_PATH"
-
-  mkdir -p "$HOME/.local/share/applications"
-  cp "$HOME/.local/kitty.app/share/applications/kitty.desktop" "$HOME/.local/share/applications"
-  cp "$HOME/.local/kitty.app/share/applications/kitty-open.desktop" "$HOME/.local/share/applications"
-
-  sed -i \
-    "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" \
-    "$HOME/.local/share/applications/kitty.desktop"
-
-  sed -i \
-    "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" \
-    "$HOME/.local/share/applications/kitty.desktop"
-fi
-
 if command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Font"); then
   echo "[+] Install \"Patched FiraCode\" via \"Nerdfonts\""
 
@@ -114,4 +97,28 @@ if command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Fon
   ./install.sh FiraCode
 
   popd || exit
+fi
+
+# WSL does not need kitty, as it has its own terminal emulator
+if cat "/proc/version" | grep -qiF "wsl"; then
+  echo "[!] Early exit - currently in WSL"
+  exit
+fi
+
+if ! command -v "kitty" &> /dev/null; then
+  echo "[+] Install \"kitty\""
+  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
+  ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$LOCAL_BIN_PATH"
+
+  mkdir -p "$HOME/.local/share/applications"
+  cp "$HOME/.local/kitty.app/share/applications/kitty.desktop" "$HOME/.local/share/applications"
+  cp "$HOME/.local/kitty.app/share/applications/kitty-open.desktop" "$HOME/.local/share/applications"
+
+  sed -i \
+    "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" \
+    "$HOME/.local/share/applications/kitty.desktop"
+
+  sed -i \
+    "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" \
+    "$HOME/.local/share/applications/kitty.desktop"
 fi

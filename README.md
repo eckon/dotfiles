@@ -16,7 +16,7 @@ Bigger parts have their own README and can be found here:
 
 Installation of everything in my configuration:
 
-- install `git`
+- install `git` and `make`
 - clone this repository
 - run `make`
   - this will install the different parts for a quick setup
