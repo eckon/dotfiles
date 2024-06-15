@@ -4,11 +4,11 @@
 # script to install all packages depending on the OS
 ####################################################
 
-package_root="$(pwd)/bootstrap/packages"
+PACKAGE_ROOT="$(pwd)/bootstrap/packages"
 
 sudo apt update
 sudo apt upgrade -y
-cat "$package_root/apt-packages.txt" | xargs sudo apt install -y
+cat "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
 
 if ! command -v "brew" &> /dev/null; then
   NONINTERACTIVE=1 /bin/bash -c \
@@ -16,28 +16,28 @@ if ! command -v "brew" &> /dev/null; then
    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew bundle --file "$package_root/Brewfile"
+brew bundle --file "$PACKAGE_ROOT/Brewfile"
 
 
 # wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
-current_os="$(cat /proc/version)"
-case "$(echo "$current_os" | tr "[:upper:]" "[:lower:]")" in
+CURRENT_OS="$(cat /proc/version)"
+case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
 *'wsl'*)
     echo "[!] Install for WSL"
-    "$package_root/install-fish.sh"
-    "$package_root/install-neovim.sh"
-    "$package_root/install-font.sh"
+    "$PACKAGE_ROOT/install-fish.sh"
+    "$PACKAGE_ROOT/install-neovim.sh"
+    "$PACKAGE_ROOT/install-font.sh"
     ;;
 
 *'linux'*)
     echo "[!] Install for Linux"
-    "$package_root/install-fish.sh"
-    "$package_root/install-neovim.sh"
-    "$package_root/install-font.sh"
-    "$package_root/install-kitty.sh"
+    "$PACKAGE_ROOT/install-fish.sh"
+    "$PACKAGE_ROOT/install-neovim.sh"
+    "$PACKAGE_ROOT/install-font.sh"
+    "$PACKAGE_ROOT/install-kitty.sh"
     ;;
 
   *)
-    echo "[!] Unknown OS: \"$current_os\""
+    echo "[!] Unknown OS: \"$CURRENT_OS\""
     ;;
 esac
