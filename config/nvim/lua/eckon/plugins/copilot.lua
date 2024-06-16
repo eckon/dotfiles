@@ -25,7 +25,7 @@ local M = {
     "supermaven-inc/supermaven-nvim",
     enabled = use_supermaven,
     config = function()
-      require("supermaven-nvim").setup({})
+      require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<M-CR>", accept_word = "<M-n>" } })
     end,
   },
 }
