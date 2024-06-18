@@ -34,7 +34,8 @@ autocmd("BufWritePre", {
       return
     end
 
-    local file = vim.uv.fs_realpath(event.match) or event.match
+    ---@diagnostic disable-next-line: undefined-field
+    local file = (vim.uv or vim.loop).fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
   group = augroup,

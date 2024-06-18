@@ -1,21 +1,6 @@
-local custom_command = require("eckon.utils").custom_command
+local cc = require("eckon.custom-command").custom_command
 
-vim.api.nvim_create_user_command("CustomCommand", function()
-  vim.ui.select(custom_command.keys(), {
-    prompt = 'Run "CustomCommand"',
-    format_item = function(item)
-      return item .. " - " .. custom_command.get(item).desc
-    end,
-  }, function(choice)
-    if choice == nil then
-      return
-    end
-
-    custom_command.execute(choice)
-  end)
-end, { desc = "Select and run predefined custom command" })
-
-custom_command.add("PairProgramming", {
+cc.add("PairProgramming", {
   desc = "Toggle absolute lines (for pair programming)",
   callback = function()
     local is_set = vim.opt.statuscolumn:get() ~= ""
@@ -27,12 +12,12 @@ custom_command.add("PairProgramming", {
   end,
 })
 
-custom_command.add("VSCode", {
+cc.add("VSCode", {
   desc = "Open current project in VSCode",
   callback = "!code $(pwd) -g %",
 })
 
-custom_command.add("Browser", {
+cc.add("Browser", {
   desc = "Open current buffer file in the browser",
   callback = function()
     local repo_base_path = vim.fn.system([[
@@ -61,7 +46,7 @@ custom_command.add("Browser", {
   end,
 })
 
-custom_command.add("CopyFilePath", {
+cc.add("CopyFilePath", {
   desc = "Copy the current file path into system clipboard",
   callback = function()
     local path = vim.fn.expand("%")
@@ -74,8 +59,8 @@ custom_command.add("CopyFilePath", {
   end,
 })
 
-custom_command.add("OpenGitLog", {
-  desc = "Open Git log in tmux (also saves to clipboard)",
+cc.add("OpenGitLog", {
+  desc = "Open Git log/blame",
   callback = function()
     local path = vim.fn.expand("%")
     if path == "" then

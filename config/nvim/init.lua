@@ -2,7 +2,9 @@ vim.g.mapleader = " "
 
 -- package/plugins management
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazy_path) then
+
+---@diagnostic disable-next-line: undefined-field
+if not (vim.uv or vim.loop).fs_stat(lazy_path) then
   vim.fn.system({
     "git",
     "clone",
@@ -13,7 +15,6 @@ if not vim.uv.fs_stat(lazy_path) then
   })
 end
 
----@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazy_path)
 
 require("lazy").setup({ import = "eckon.plugins" }, {

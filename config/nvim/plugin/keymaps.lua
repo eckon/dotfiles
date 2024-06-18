@@ -51,3 +51,20 @@ end
 
 nmap("k", enhance_jk("k"), { expr = true, desc = "Jump to previous line and append to jumplist (handle softwrap)" })
 nmap("j", enhance_jk("j"), { expr = true, desc = "Jump to next line and append to jumplist (handle softwrap)" })
+
+-- open custom command menu
+nmap("<TAB>", function()
+  local cc = require("eckon.custom-command").custom_command
+  vim.ui.select(cc.keys(), {
+    prompt = 'Run "CustomCommand"',
+    format_item = function(item)
+      return item .. " - " .. cc.get(item).desc
+    end,
+  }, function(choice)
+    if choice == nil then
+      return
+    end
+
+    cc.execute(choice)
+  end)
+end, { desc = "Select and run predefined custom command" })

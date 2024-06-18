@@ -51,7 +51,7 @@ set.foldenable = false
 set.foldlevel = 99
 set.foldmethod = "expr"
 
--- on gigantic files this is slowing down vim alot, so ignore in minimal mode
+-- on gigantic files this is slowing down vim a lot, so ignore in minimal mode
 if not require("eckon.utils").run_minimal() then
   set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   -- manually extending "v:lua.vim.treesitter.foldtext()"
