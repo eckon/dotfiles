@@ -7,7 +7,7 @@
 # needed plugins: fzf, zoxide, tmux
 #########################################################################
 
-get_session_indentifier () {
+get_session_indentifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
@@ -22,7 +22,7 @@ get_session_indentifier () {
 # always init notes session
 path=$(zoxide query "notes")
 session=$(get_session_indentifier "$path")
-if ! (tmux has-session -t "$session" 2>/dev/null); then
+if ! (tmux has-session -t "$session" 2> /dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
 
@@ -33,7 +33,7 @@ fi
 # always init dotfiles session
 path=$(zoxide query "dotfiles")
 session=$(get_session_indentifier "$path")
-if ! (tmux has-session -t "$session" 2>/dev/null); then
+if ! (tmux has-session -t "$session" 2> /dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
 
@@ -48,7 +48,7 @@ if [[ "$#" -le 0 ]]; then
   if [[ "$selected" == "backend" ]]; then
     path=$(zoxide query "idss")
     session=$(get_session_indentifier "$path")
-    if ! (tmux has-session -t "$session" 2>/dev/null); then
+    if ! (tmux has-session -t "$session" 2> /dev/null); then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
@@ -60,7 +60,7 @@ if [[ "$#" -le 0 ]]; then
   if [[ "$selected" == "frontend" ]]; then
     path=$(zoxide query "orchestrator")
     session=$(get_session_indentifier "$path")
-    if ! (tmux has-session -t "$session" 2>/dev/null); then
+    if ! (tmux has-session -t "$session" 2> /dev/null); then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
@@ -75,7 +75,7 @@ if [[ "$#" -le 0 ]]; then
 
     path=$(zoxide query "core-applets")
     session=$(get_session_indentifier "$path")
-    if ! (tmux has-session -t "$session" 2>/dev/null); then
+    if ! (tmux has-session -t "$session" 2> /dev/null); then
       echo "Create \"$session\" session"
       tmux new-session -s "$session" -d -c "$path"
 
@@ -95,13 +95,13 @@ fi
 # query path of given match otherwise exit
 path=$(zoxide query "$@") || exit
 session=$(get_session_indentifier "$path")
-if ! (tmux has-session -t "$session" 2>/dev/null); then
+if ! (tmux has-session -t "$session" 2> /dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
 fi
 
 # context aware change to session
-if [[ -z "$TMUX" ]];then
+if [[ -z "$TMUX" ]]; then
   # outside of tmux -> attach to session
   tmux attach -t "$session"
 else

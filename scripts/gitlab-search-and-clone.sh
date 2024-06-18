@@ -56,12 +56,12 @@ if [[ $# == 0 ]]; then
       )
 
       # now get all pages from the api
-      while (( currentPage <= pageCount )); do
+      while ((currentPage <= pageCount)); do
         curl --silent --header "$header" \
           "$url?per_page=$perPage&page=$currentPage&order_by=last_activity_at" \
           | jq ".[].ssh_url_to_repo" \
           | tr -d '"' &
-        currentPage=$(( currentPage + 1 ))
+        currentPage=$((currentPage + 1))
       done
     } | fzf
   )

@@ -13,9 +13,18 @@ neovim:
 	@ ./bootstrap/packages/install-neovim.sh --force
 
 
-.PHONY: check format-lua format-markdown lint-markdown
+.PHONY: setup-npx
 
-check: format-lua format-markdown lint-markdown lint-scripts
+# run setup-npx at least once to install the necessary tools
+setup-npx:
+	npm i -D @johnnymorganz/stylua-bin
+	npm i -D prettier prettier-plugin-sh
+	npm i -D markdownlint-cli
+
+
+.PHONY: check format-lua format-markdown lint-markdown format-scripts lint-scripts
+
+check: format-lua format-markdown lint-markdown format-scripts lint-scripts
 
 format-lua:
 	npx @johnnymorganz/stylua-bin \
@@ -26,7 +35,10 @@ format-markdown:
 	npx prettier --write '**/*.md'
 
 lint-markdown:
-	npx markdownlint-cli '**/*.md' -f
+	npx markdownlint-cli '**/*.md' -f --ignore-path '.gitignore'
+
+format-scripts:
+	npx prettier --write '**/*.sh'
 
 lint-scripts:
 	shellcheck -S warning **/*.sh

@@ -49,7 +49,7 @@ description=$(echo "$description" | sed 's/"/\\"/g')
 curl "https://api.todoist.com/rest/v1/tasks" \
   -X POST \
   --data \
-    "{
+  "{
       \"content\": \"$title\",
       \"description\": \"$description\"
     }" \

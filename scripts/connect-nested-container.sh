@@ -7,7 +7,6 @@
 # which might have changed the id and needs to be newly identified
 ###############################################################################
 
-
 serverName="manager"
 containerName="bighost-dev"
 containerCurrentPath="/opt/myWebsites/singularity/www/cli/"

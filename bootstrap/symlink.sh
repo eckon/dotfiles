@@ -30,7 +30,6 @@ SCRIPT_PATHS=(
   ["git-tmp-copy.sh"]="git-tmp-copy"
 )
 
-
 echo ""
 echo "Symlink configurations"
 echo "----------------------"
@@ -57,7 +56,6 @@ for configPath in "${!CONFIG_PATHS[@]}"; do
     ln -sfn "$from_path" "$to_path"
   fi
 done
-
 
 echo ""
 echo "Symlink custom scripts"

@@ -12,7 +12,7 @@
 # and these will be symlinked instead form the main one (resulting in less resources)
 # then git worktrees might be a good soltuion as they only copy committed files
 
-if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+if ! git rev-parse --is-inside-work-tree &> /dev/null; then
   echo "Script needs to be called inside of git repository"
   exit 1
 fi
@@ -28,7 +28,7 @@ if test -d "$copy_root"; then
   exit 1
 fi
 
-pushd "$repo_root" >/dev/null || exit
+pushd "$repo_root" > /dev/null || exit
 printf "Copy from \n\"$(pwd)\" to\n\"%s\"\n" "$copy_root"
 
 # to distinguish between enter, space, esc etc (otherwise all would be the same
@@ -47,6 +47,6 @@ if git status -s | grep "$copy_name" -q; then
   printf "\n\n# DEEP_COPY IGNORE: DO NOT COMMIT\n%s" "$copy_name" >> .gitignore
 fi
 
-popd >/dev/null || exit
+popd > /dev/null || exit
 
 echo "Created \"$copy_name\""
