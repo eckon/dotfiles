@@ -9,12 +9,12 @@ cc.add("PairProgramming", {
 })
 
 cc.add("VSCode", {
-  desc = "Open current project in VSCode",
+  desc = "Open project in VSCode",
   callback = "!code $(pwd) -g %",
 })
 
 cc.add("Browser", {
-  desc = "Open current buffer file in the browser",
+  desc = "Open buffer in browser",
   callback = function()
     local repo_base_path = vim.fn.system([[
         git config --get remote.origin.url \
@@ -43,7 +43,7 @@ cc.add("Browser", {
 })
 
 cc.add("CopyFilePath", {
-  desc = "Copy the current file path into system clipboard",
+  desc = "Copy file path to system clipboard",
   callback = function()
     local path = vim.fn.expand("%")
     if path == "" then

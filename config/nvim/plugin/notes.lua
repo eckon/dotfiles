@@ -79,8 +79,8 @@ cc.add("DailyNote", {
   end,
 })
 
-cc.add("OpenTasks", {
-  desc = "Notes: Search for open tasks",
+cc.add("Todo", {
+  desc = "Notes: Search open tasks",
   callback = function()
     vim.ui.select({ "daily", "iu", "private", "all" }, {
       prompt = "Select root for open tasks",
