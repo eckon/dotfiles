@@ -14,7 +14,7 @@ local M = {
     })
   end,
   init = function()
-    require("eckon.utils").ensure_package_installed.add({
+    require("eckon.mason-helper").ensure_package_installed.add({
       "stylua",
       "prettierd",
       "markdownlint",
