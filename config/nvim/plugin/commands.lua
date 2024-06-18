@@ -1,8 +1,9 @@
 local cc = require("eckon.custom-command").custom_command
 
 cc.add("PairProgramming", {
-  desc = "Toggle absolute lines (for pair programming)",
+  desc = "Toggle absolute lines",
   callback = function()
+    ---@diagnostic disable-next-line: undefined-field
     vim.opt.relativenumber = not vim.opt.relativenumber:get()
   end,
 })
@@ -54,7 +55,7 @@ cc.add("CopyFilePath", {
   end,
 })
 
-cc.add("OpenGitLog", {
+cc.add("GitLog", {
   desc = "Open Git log/blame",
   callback = function()
     local path = vim.fn.expand("%")
