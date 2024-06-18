@@ -31,17 +31,50 @@ M.custom_command = {
   ---Execute a custom command by name
   ---@param command string
   execute = function(command)
-    local selected_command = custom_command_list[command]
-    local callback = selected_command.callback
-    if selected_command == nil or callback == nil then
+    local selected_command = M.custom_command.get(command)
+    if selected_command == nil or selected_command.callback == nil then
       return
     end
 
-    if type(callback) == "string" then
-      vim.cmd(callback)
-    elseif type(callback) == "function" then
-      callback()
+    local cb = selected_command.callback
+    if type(cb) == "string" then
+      vim.cmd(cb)
+    elseif type(cb) == "function" then
+      cb()
     end
+  end,
+
+  ---Open a menu to select a custom command
+  open_select = function()
+    local longest_name = 0
+    for _, name in ipairs(M.custom_command.keys()) do
+      if #name > longest_name then
+        longest_name = #name
+      end
+    end
+
+    vim.ui.select(M.custom_command.keys(), {
+      prompt = 'Run "CustomCommand"',
+      format_item = function(item)
+        -- pad command name with spaces to align the description
+        local padded_item = string.format("%-" .. longest_name .. "s", item)
+        local formatted_item = padded_item .. " - " .. M.custom_command.get(item).desc
+
+        -- truncate to not run over the selection window
+        local max_len = 70
+        if #formatted_item > max_len then
+          formatted_item = formatted_item:sub(1, max_len) .. "…"
+        end
+
+        return formatted_item
+      end,
+    }, function(choice)
+      if choice == nil then
+        return
+      end
+
+      M.custom_command.execute(choice)
+    end)
   end,
 }
 
