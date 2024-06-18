@@ -124,7 +124,7 @@ end
 ---Get start and end positions of current visual selection
 ---@return { visual_start: { row: integer, column: integer }, visual_end: { row: integer, column: integer } }
 M.get_visual_selection = function()
-  -- both have the linenumber in 2nd place and rownumber in 3rd place
+  -- both have the line number in 2nd place and row number in 3rd place
   local current_cursor = vim.fn.getpos(".") or {}
   local tail_visual_selection = vim.fn.getpos("v") or {}
 
@@ -223,81 +223,5 @@ M.ensure_package_installed = {
     vim.defer_fn(deferred_function, 0)
   end,
 }
-
-------------------------------------------------------------------------------------------
------ Experimental implementations
-
----Create async job for running external commands and calling a callback on the output
----@class JobOptions
----@field command string
----@field args table
----@field on_stdout? fun(output: table)
----@field on_stderr? fun(output: table)
----@field on_completion? fun(stdout_output: table, stderr_output: table)
----@param options JobOptions
-M.async_external_command = function(options)
-  local stdout = vim.uv.new_pipe(false)
-  local stderr = vim.uv.new_pipe(false)
-  local stdout_output = {}
-  local stderr_output = {}
-
-  local args_string = ""
-  vim.tbl_map(function(a)
-    args_string = args_string .. " " .. a
-  end, options.args)
-
-  local handle
-  handle, _ = vim.uv.spawn(options.command, {
-    args = options.args,
-    stdio = { nil, stdout, stderr },
-    detached = true,
-  }, function()
-    vim.schedule(function()
-      vim.notify('Execution of "' .. options.command .. args_string .. '" done')
-
-      if type(options.on_stdout) == "function" then
-        options.on_stdout(stdout_output)
-      end
-      if type(options.on_stderr) == "function" then
-        options.on_stderr(stderr_output)
-      end
-      if type(options.on_completion) == "function" then
-        options.on_completion(stdout_output, stderr_output)
-      end
-    end)
-
-    if stdout ~= nil then
-      stdout:read_stop()
-      stdout:close()
-    end
-
-    if stderr ~= nil then
-      stderr:read_stop()
-      stderr:close()
-    end
-
-    if handle ~= nil then
-      handle:close()
-    end
-  end)
-
-  local combine_output_into_table = function(output_table)
-    return function(err, data)
-      assert(not err, err)
-      if not data then
-        return
-      end
-      table.insert(output_table, data)
-    end
-  end
-
-  if stdout ~= nil then
-    vim.uv.read_start(stdout, combine_output_into_table(stdout_output))
-  end
-
-  if stderr ~= nil then
-    vim.uv.read_start(stderr, combine_output_into_table(stderr_output))
-  end
-end
 
 return M
