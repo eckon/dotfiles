@@ -3,12 +3,7 @@ local cc = require("eckon.custom-command").custom_command
 cc.add("PairProgramming", {
   desc = "Toggle absolute lines (for pair programming)",
   callback = function()
-    local is_set = vim.opt.statuscolumn:get() ~= ""
-    if is_set then
-      vim.opt.statuscolumn = ""
-    else
-      vim.opt.statuscolumn = "%l %r"
-    end
+    vim.opt.relativenumber = not vim.opt.relativenumber:get()
   end,
 })
 
