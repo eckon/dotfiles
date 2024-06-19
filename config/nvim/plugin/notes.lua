@@ -5,14 +5,67 @@ if not is_notes then
   return
 end
 
+---Create a new daily note or open an existing one, default today
+---@param date_string? string
+local function open_daily_note(date_string)
+  local input = date_string or "today"
+  local date_format_parameter = "+(%Y) (%m-%B) (%Y-%m-%d) (%A)"
+  local date_result = vim.fn.system({ "date", date_format_parameter, "-d", input }):gsub("\n", "")
+
+  local year, month, date, day = date_result:match("%((.*)%) %((.*)%) %((.*)%) %((.*)%)")
+
+  -- create date in format: 2023/01-January/2023-01-01
+  local file_path = "daily/" .. year .. "/" .. month .. "/" .. date .. ".md"
+  if vim.fn.filereadable(file_path) == 0 then
+    vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
+
+    ---@param content string | string[]
+    local write_content = function(content)
+      if type(content) == "string" then
+        content = { content }
+      end
+
+      vim.fn.writefile(content, file_path, "a")
+    end
+
+    write_content("# " .. date .. " (" .. day .. ")")
+    write_content("## work")
+    write_content("- [ ] move previous work tasks here")
+
+    -- repeating tasks for work
+    if day == "Friday" then
+      local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
+      write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
+    end
+
+    write_content({
+      "## private",
+      "### repeating tasks",
+      "- [ ] do babbel",
+      "- [ ] do workout",
+      "### normal tasks",
+      "- [ ] move previous normal tasks here",
+    })
+  end
+
+  vim.cmd("e " .. file_path)
+end
+
 local cc = require("eckon.custom-command").custom_command
 
 cc.add("DailyNote", {
-  desc = "Notes: Open daily notes",
+  desc = "Notes: Open todays daily note",
   callback = function()
-    vim.ui.input({ prompt = "Search for daily note (default today)" }, function(input)
-      -- CTRL-C will return, CR will give empty string which defaults to today
-      if input == nil then
+    open_daily_note()
+  end,
+})
+
+cc.add("DailyNoteCustom", {
+  desc = "Notes: Open custom daily note",
+  callback = function()
+    vim.ui.input({ prompt = "Search for daily note" }, function(input)
+      -- CTRL-C will return, CR will give empty string
+      if input == nil or input == "" then
         return
       end
 
@@ -35,46 +88,7 @@ cc.add("DailyNote", {
         input = string.sub(dialog_result, length - 10, length)
       end
 
-      local date_format_parameter = "+(%Y) (%m-%B) (%Y-%m-%d) (%A)"
-      local date_result = vim.fn.system({ "date", date_format_parameter, "-d", input }):gsub("\n", "")
-
-      local year, month, date, day = date_result:match("%((.*)%) %((.*)%) %((.*)%) %((.*)%)")
-
-      -- create date in format: 2023/01-January/2023-01-01
-      local file_path = "daily/" .. year .. "/" .. month .. "/" .. date .. ".md"
-      if vim.fn.filereadable(file_path) == 0 then
-        vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
-
-        ---@param content string | string[]
-        local write_content = function(content)
-          if type(content) == "string" then
-            content = { content }
-          end
-
-          vim.fn.writefile(content, file_path, "a")
-        end
-
-        write_content("# " .. date .. " (" .. day .. ")")
-        write_content("## work")
-        write_content("- [ ] move previous work tasks here")
-
-        -- repeating tasks for work
-        if day == "Friday" then
-          local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
-          write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
-        end
-
-        write_content({
-          "## private",
-          "### repeating tasks",
-          "- [ ] do babbel",
-          "- [ ] do workout",
-          "### normal tasks",
-          "- [ ] move previous normal tasks here",
-        })
-      end
-
-      vim.cmd("e " .. file_path)
+      open_daily_note(input)
     end)
   end,
 })
