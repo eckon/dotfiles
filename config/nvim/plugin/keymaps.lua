@@ -52,7 +52,7 @@ end
 nmap("k", enhance_jk("k"), { expr = true, desc = "Jump to previous line and append to jumplist (handle softwrap)" })
 nmap("j", enhance_jk("j"), { expr = true, desc = "Jump to next line and append to jumplist (handle softwrap)" })
 
--- open custom command menu
-nmap("<Tab>", function()
+-- open custom command menu (do not use <Tab> to not overwrite <CTRL-I> - maybe useable in the future)
+nmap("<Leader><Leader>", function()
   require("eckon.custom-command").custom_command.open_select()
 end, { desc = "Select and run predefined custom command" })
