@@ -25,11 +25,11 @@ return {
       end, { desc = "Flash: Jump" })
     end,
   },
-  { "lewis6991/whatthejump.nvim" },
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },
   {
+    -- improved vim.ui
     "stevearc/dressing.nvim",
     config = function()
       require("dressing").setup({ input = { insert_only = false } })
