@@ -31,13 +31,6 @@ local function open_daily_note(date_string)
     write_content("# " .. date .. " (" .. day .. ")")
     write_content("## work")
     write_content("- [ ] move previous work tasks here")
-
-    -- repeating tasks for work
-    if day == "Friday" then
-      local week_number = vim.fn.system({ "date", "+%V", "-d", input }):gsub("\n", "")
-      write_content("- [ ] fill out PMS [[pms]] for week " .. week_number)
-    end
-
     write_content({
       "## private",
       "### repeating tasks",
