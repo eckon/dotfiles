@@ -120,12 +120,10 @@ autocmd("lspattach", {
 
     nmap("<Leader>la", function()
       vim.print("Use: `gra` instead")
-      vim.lsp.buf.code_action()
     end, "Code action")
 
     nmap("<Leader>lr", function()
       vim.print("Use: `grn` instead")
-      vim.lsp.buf.rename()
     end, "Rename variable")
   end,
   group = augroup,
