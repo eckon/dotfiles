@@ -19,8 +19,9 @@ via [sumneko](https://github.com/LuaLS/lua-language-server/wiki/Annotations)
 see [wiki](https://luals.github.io/wiki/annotations/)
 
 [init.lua](./init.lua) is the entry point and has multiple parts,
-which can be found in the `lua` folder
-and other parts of the normal vim cycle (`after`, `ftplugin`, `plugin`).
+it will install a plugin manager which will then handle/install/update the plugins located in `lua/eckon/plugins`.
+Vim will load other parts itself, like `after/ftplugin` and `plugin` so these include configurations.
+Last part are some helper scripts which can be found in `lua/eckon`.
 
 ## Install
 
