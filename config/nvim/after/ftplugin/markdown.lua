@@ -1,12 +1,13 @@
 vim.opt_local.spell = true
 
-vim.opt_local.conceallevel = 2
 vim.opt_local.colorcolumn = { "120" }
 vim.opt_local.textwidth = 120
 
 vim.opt_local.wrap = true
 vim.opt_local.tabstop = 2
 vim.opt_local.shiftwidth = 2
+
+vim.b.miniindentscope_disable = true
 
 vim.cmd("iabbrev <buffer> T - [ ]")
 vim.cmd([[
