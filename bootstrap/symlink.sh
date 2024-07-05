@@ -26,7 +26,7 @@ CONFIG_PATHS=(
 declare -A SCRIPT_PATHS
 SCRIPT_PATHS=(
   ["tmux-jump.sh"]="tmux-jump"
-  ["tmux-interactive-jump.sh"]="tmux-interactive-jump"
+  ["tmux-jumpstart.sh"]="tmux-jumpstart"
   ["git-tmp-copy.sh"]="git-tmp-copy"
 )
 
