@@ -29,12 +29,6 @@ return {
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },
   {
-    "OXY2DEV/markview.nvim",
-    config = function()
-      require("markview").setup()
-    end,
-  },
-  {
     -- improved vim.ui
     "stevearc/dressing.nvim",
     config = function()
