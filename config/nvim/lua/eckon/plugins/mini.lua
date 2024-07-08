@@ -26,5 +26,10 @@ return {
     nmap("<Leader>fe", function()
       require("mini.files").open(vim.api.nvim_buf_get_name(0))
     end, { desc = "Mini: Open File Explorer" })
+
+    require("eckon.custom-command").custom_command.add("ShowNotifications", {
+      desc = "Open all previous `vim.notify` messages",
+      callback = "lua MiniNotify.show_history()",
+    })
   end,
 }

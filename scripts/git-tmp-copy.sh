@@ -31,7 +31,7 @@ fi
 pushd "$repo_root" > /dev/null || exit
 printf "Copy from \n\"$(pwd)\" to\n\"%s\"\n" "$copy_root"
 
-# to distinguish between enter, space, esc etc (otherwise all would be the same
+# to distinguish between enter, space, esc etc (otherwise all would be the same)
 IFS=""
 read -p "Continue? [Y/n]" -s -n 1 -r confirm
 printf "\n\n"

@@ -63,18 +63,19 @@ cc.add("GitLog", {
       return
     end
 
+    local positions = require("eckon.utils").get_visual_selection()
+    local range = positions.visual_start.row .. "," .. positions.visual_end.row
+    local git_command = "git log -L " .. range .. ":" .. path
+
     local diff = vim.fn.system("git diff -- " .. path)
     local has_diff = diff ~= ""
     if has_diff then
-      vim.notify("File has uncommitted changes, can not open git log")
-      return
+      vim.notify("File has uncommitted changes, git log might be incorrect -> use git blame instead")
+      git_command = "git blame -C -M -L" .. range .. " -- " .. path
     end
 
-    local positions = require("eckon.utils").get_visual_selection()
-    local range = positions.visual_start.row .. "," .. positions.visual_end.row
-
-    local git_log = "git log -L " .. range .. ":" .. path
-    vim.fn.setreg("+", git_log)
-    vim.cmd('silent !tmux new-window "' .. git_log .. '"')
+    vim.notify('Running "' .. git_command .. '"')
+    vim.fn.setreg("+", git_command)
+    vim.cmd('silent !tmux new-window "' .. git_command .. '"')
   end,
 })
