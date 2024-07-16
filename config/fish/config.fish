@@ -5,10 +5,10 @@ test -d ~/.local/share/fnm; and fish_add_path ~/.local/share/fnm
 test -d ~/.local/bin;       and fish_add_path ~/.local/bin
 test -d ~/.cargo/bin;       and fish_add_path ~/.cargo/bin
 
-type --query starship; and starship init fish | source; or echo "[!] No starship"
-type --query fnm;      and fnm env            | source; or echo "[!] No fnm"
-type --query zoxide;   and zoxide init fish   | source; or echo "[!] No zoxide"
-type --query fzf;      and fzf --fish         | source; or echo "[!] No fzf"
+type --query starship;      and starship init fish | source; or echo "[!] No starship"
+type --query fnm;           and fnm env            | source; or echo "[!] No fnm"
+type --query zoxide;        and zoxide init fish   | source; or echo "[!] No zoxide"
+type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf"
 
 
 
@@ -30,6 +30,8 @@ alias ssh  "TERM=xterm-256color command ssh"
 alias vi   "nvim --cmd \"let g:run_minimal=1\""
 alias vim  "nvim"
 
+# not as safe as `sudoedit` but I rarely need it, to should be fine
+abbr --add sudo-vim        "sudo -Es nvim"
 abbr --add npmplease       "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add j               "tmux-jump"
 abbr --add js              "tmux-jumpstart"
