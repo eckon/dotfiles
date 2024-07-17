@@ -1,0 +1,6 @@
+### global gitignore
+
+# supermaven (ai editor tool) creates a config folder per project -> ignore it
+.supermaven/
+
+# vim:filetype=gitignore
