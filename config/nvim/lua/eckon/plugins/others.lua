@@ -32,11 +32,16 @@ return {
     "MeanderingProgrammer/markdown.nvim",
     config = function()
       require("render-markdown").setup({
+        heading = { backgrounds = { "DiffChange" } },
         checkbox = {
+          unchecked = { highlight = "DiagnosticOk" },
+          checked = { highlight = "Comment" },
           custom = {
-            canceled = { raw = "[/]", rendered = "󰜺 ", highlight = "Error" },
+            todo = { raw = "[-]", rendered = "󰥔 ", highlight = "DiagnosticWarn" },
+            canceled = { raw = "[/]", rendered = "󰜺 ", highlight = "DiagnosticError" },
           },
         },
+        bullet = { highlight = "DiagnosticHint" },
       })
     end,
   },
