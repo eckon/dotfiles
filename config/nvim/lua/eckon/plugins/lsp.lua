@@ -110,7 +110,6 @@ autocmd("lspattach", {
       require("telescope.builtin").lsp_document_symbols()
     end, "Search lsp symbols")
 
-    nmap("<Leader>ld", vim.diagnostic.open_float, "Open diagnostic float")
     nmap("<Leader>fd", function()
       require("telescope.builtin").diagnostics()
     end, "List all diagnostics")
