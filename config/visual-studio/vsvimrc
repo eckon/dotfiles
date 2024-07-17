@@ -35,3 +35,5 @@ nmap grn        :vsc Refactor.Rename<CR>
 nmap <leader>la :vsc View.QuickActions<CR>
 nmap gra        :vsc View.QuickActions<CR>
 nmap <leader>lf :vsc Edit.FormatDocument<CR>
+nmap gq         :vsc Edit.FormatDocument<CR>
+nmap gQ         :vsc Edit.FormatDocument<CR>

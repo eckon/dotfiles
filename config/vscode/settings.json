@@ -46,6 +46,7 @@
       "before": ["]", "d"],
       "commands": ["editor.action.marker.next"]
     }
+    // add formatting `gq` and codeactions `gra` `grn` if not already set by plugin
   ],
   "vim.visualModeKeyBindings": [
     // to repeat indent
