@@ -43,15 +43,40 @@ bind_map("v")("L", function()
   require("eckon.utils").exit_visual_mode()
 end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
 
-bind_map({ "n", "v" })("s", function()
-  local positions = require("eckon.utils").get_visual_selection()
-  local range = positions.visual_start.row .. "," .. positions.visual_end.row
-  local toggle_checkbox = "s/\\v(\\[[ xX/]])/\\=submatch(1) == '[ ]' ? '[x]' : '[ ]'/ge"
-
+bind_map({ "n", "v" })("D", function()
   local restore_cursor = require("eckon.utils").save_cursor_position()
 
+  local positions = require("eckon.utils").get_visual_selection()
+  local range = positions.visual_start.row .. "," .. positions.visual_end.row
+
+  -- from done to canceled (in that order to not override the previous)
+  local toggle_checkbox = "s/- \\[x\\]/- [\\/]/ge"
   vim.api.nvim_command(":" .. range .. toggle_checkbox)
+
+  -- from open/pending to done
+  toggle_checkbox = "s/- \\[[ -]\\]/- [x]/ge"
+  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+
   vim.api.nvim_command("nohlsearch")
 
   restore_cursor()
-end, { desc = "Toggle checkbox", buffer = true, silent = true })
+end, { desc = "Toggle checkbox to finished state", buffer = true, silent = true })
+
+bind_map({ "n", "v" })("S", function()
+  local restore_cursor = require("eckon.utils").save_cursor_position()
+
+  local positions = require("eckon.utils").get_visual_selection()
+  local range = positions.visual_start.row .. "," .. positions.visual_end.row
+
+  -- from open to pending (in that order to not override the previous)
+  local toggle_checkbox = "s/- \\[ \\]/- [-]/ge"
+  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+
+  -- from done/canceled to open
+  toggle_checkbox = "s/- \\[[x\\/]\\]/- [ ]/ge"
+  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+
+  vim.api.nvim_command("nohlsearch")
+
+  restore_cursor()
+end, { desc = "Toggle checkbox to open state", buffer = true, silent = true })

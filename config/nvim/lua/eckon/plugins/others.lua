@@ -29,6 +29,18 @@ return {
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },
   {
+    "MeanderingProgrammer/markdown.nvim",
+    config = function()
+      require("render-markdown").setup({
+        checkbox = {
+          custom = {
+            canceled = { raw = "[/]", rendered = "󰜺 ", highlight = "Error" },
+          },
+        },
+      })
+    end,
+  },
+  {
     -- improved vim.ui
     "stevearc/dressing.nvim",
     config = function()
