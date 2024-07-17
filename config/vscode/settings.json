@@ -26,7 +26,7 @@
       "after": ["g", "h"]
     },
     {
-      "before": ["g", "r"],
+      "before": ["g", "r", "r"],
       "commands": ["editor.action.referenceSearch.trigger"]
     },
     // jump commands

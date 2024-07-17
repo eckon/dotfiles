@@ -38,8 +38,8 @@ Plug 'tpope/vim-surround'
 
 
 " --- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-map gr <Action>(GotoDeclaration)
-map gR <Action>(FindUsages)
+map grr <Action>(GotoDeclaration)
+map grR <Action>(FindUsages)
 
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
@@ -47,6 +47,9 @@ map ]d <Action>(GotoNextError)
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]c <Action>(VcsShowNextChangeMarker)
 
+" duplication for new "defaults"
 map <leader>lr <Action>(RenameElement)
+map grn        <Action>(RenameElement)
 map <leader>la <Action>(ShowIntentionActions)
+map gra        <Action>(ShowIntentionActions)
 map <leader>lf <Action>(ReformatCode)

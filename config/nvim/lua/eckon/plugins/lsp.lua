@@ -93,10 +93,7 @@ autocmd("lspattach", {
       bind_map("n")(lhs, rhs, { desc = "LSP: " .. desc, buffer = args.buf })
     end
 
-    nmap("K", vim.lsp.buf.hover, "Hover Action")
-    nmap("gK", vim.lsp.buf.signature_help, "Signature Help")
-    bind_map("i")("<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "LSP: Signature Help" })
-
+    -- `K` is default to hover in neovim, for more see `lsp-defaults`
     nmap("gd", function()
       require("telescope.builtin").lsp_definitions({ show_line = false })
     end, "Go to definitions")
@@ -105,7 +102,7 @@ autocmd("lspattach", {
       require("telescope.builtin").lsp_type_definitions({ show_line = false })
     end, "Go to type definitions")
 
-    nmap("gr", function()
+    nmap("grr", function()
       require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false })
     end, "Go to references")
 

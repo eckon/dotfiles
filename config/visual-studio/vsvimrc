@@ -18,18 +18,20 @@ vmap > >gv
 
 " use vs commenting for current line and visual lines
 nmap gcc :vsc Edit.ToggleLineComment<CR>
-vmap gc :vsc Edit.ToggleLineComment<CR>
+vmap gc  :vsc Edit.ToggleLineComment<CR>
 
 " quickly jump to errors
 nmap [d :vsc View.PreviousError<CR>
 nmap ]d :vsc View.NextError<CR>
 
 " general lsp mappings
-nmap K :vsc Edit.QuickInfo<CR>
-nmap gr :vsc Edit.FindAllReferences<CR>
-nmap gd :vsc Edit.GoToDefinition<CR>
+nmap K   :vsc Edit.QuickInfo<CR>
+nmap grr :vsc Edit.FindAllReferences<CR>
+nmap gd  :vsc Edit.GoToDefinition<CR>
 
-" general lsp action mappings
+" general lsp action mappings (duplication for new "defaults")
 nmap <leader>lr :vsc Refactor.Rename<CR>
+nmap grn        :vsc Refactor.Rename<CR>
 nmap <leader>la :vsc View.QuickActions<CR>
+nmap gra        :vsc View.QuickActions<CR>
 nmap <leader>lf :vsc Edit.FormatDocument<CR>
