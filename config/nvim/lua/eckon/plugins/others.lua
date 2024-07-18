@@ -31,18 +31,25 @@ return {
   {
     "MeanderingProgrammer/markdown.nvim",
     config = function()
-      require("render-markdown").setup({
+      local custom_config = {
         heading = { backgrounds = { "DiffChange" } },
         checkbox = {
           unchecked = { highlight = "DiagnosticOk" },
-          checked = { highlight = "Comment" },
+          checked = { highlight = "DiagnosticInfo" },
           custom = {
             todo = { raw = "[-]", rendered = "󰥔 ", highlight = "DiagnosticWarn" },
             canceled = { raw = "[/]", rendered = "󰜺 ", highlight = "DiagnosticError" },
           },
         },
         bullet = { highlight = "DiagnosticHint" },
-      })
+      }
+
+      -- setup on wsl has no icons, so disable checkboxes for better visuals
+      if require("eckon.utils").is_windows_wsl() then
+        custom_config.checkbox.enabled = false
+      end
+
+      require("render-markdown").setup(custom_config)
     end,
   },
   {

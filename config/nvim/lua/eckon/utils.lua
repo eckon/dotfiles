@@ -102,4 +102,16 @@ M.save_cursor_position = function()
   end
 end
 
+---Returns if we are currently running on wsl
+---@return boolean
+M.is_windows_wsl = function()
+  return vim.fn.has("wsl") == 1 and vim.fn.has("linux") == 1
+end
+
+---Returns if we are currently running on linux
+---@return boolean
+M.is_linux = function()
+  return vim.fn.has("linux") == 1 and vim.fn.has("unix") == 1
+end
+
 return M
