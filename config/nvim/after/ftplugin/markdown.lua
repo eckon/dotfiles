@@ -44,39 +44,46 @@ bind_map("v")("L", function()
 end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
 
 bind_map({ "n", "v" })("D", function()
-  local restore_cursor = require("eckon.utils").save_cursor_position()
-
   local positions = require("eckon.utils").get_visual_selection()
-  local range = positions.visual_start.row .. "," .. positions.visual_end.row
+  local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
 
-  -- from done to canceled (in that order to not override the previous)
-  local toggle_checkbox = "s/- \\[x\\]/- [\\/]/ge"
-  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+  local has_any_checkbox = false
+  local is_dirty = false
 
-  -- from open/pending to done
-  toggle_checkbox = "s/- \\[[ -]\\]/- [x]/ge"
-  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+  for i, line in ipairs(lines) do
+    local has_checkbox = line:match("- %[[ x%-/]%]") ~= nil
+    if has_checkbox then
+      has_any_checkbox = true
 
-  vim.api.nvim_command("nohlsearch")
+      -- order of change: open/pending > done > canceled > open
+      -- only allow one change at a time
+      if lines[i] == line then
+        lines[i] = lines[i]:gsub("- %[[ %-]%]", "- [x]")
+      end
 
-  restore_cursor()
-end, { desc = "Toggle checkbox to finished state", buffer = true, silent = true })
+      if lines[i] == line then
+        lines[i] = lines[i]:gsub("- %[x%]", "- [/]")
+      end
 
-bind_map({ "n", "v" })("S", function()
-  local restore_cursor = require("eckon.utils").save_cursor_position()
+      if lines[i] == line then
+        lines[i] = lines[i]:gsub("- %[/%]", "- [ ]")
+      end
 
-  local positions = require("eckon.utils").get_visual_selection()
-  local range = positions.visual_start.row .. "," .. positions.visual_end.row
+      if lines[i] ~= line then
+        is_dirty = true
+      end
+    end
+  end
 
-  -- from open to pending (in that order to not override the previous)
-  local toggle_checkbox = "s/- \\[ \\]/- [-]/ge"
-  vim.api.nvim_command(":" .. range .. toggle_checkbox)
+  -- return to a fallback in case we did not find any checkbox
+  if not has_any_checkbox then
+    vim.notify("No checkbox, return to fallback")
+    vim.api.nvim_command("normal! D")
+    return
+  end
 
-  -- from done/canceled to open
-  toggle_checkbox = "s/- \\[[x\\/]\\]/- [ ]/ge"
-  vim.api.nvim_command(":" .. range .. toggle_checkbox)
-
-  vim.api.nvim_command("nohlsearch")
-
-  restore_cursor()
-end, { desc = "Toggle checkbox to open state", buffer = true, silent = true })
+  -- only update if we actually changed something (to keep undo actions clean)
+  if is_dirty then
+    vim.api.nvim_buf_set_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false, lines)
+  end
+end, { desc = "Switch checkbox state 'open > done > canceled > open'", buffer = true, silent = true })
