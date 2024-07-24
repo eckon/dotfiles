@@ -9,6 +9,7 @@ local M = {
         json = { "prettierd" },
         javascript = { "prettierd", "eslint_d" },
         typescript = { "prettierd", "eslint_d" },
+        yaml = { "prettierd" },
         ["_"] = { "trim_whitespace" },
       },
     })
