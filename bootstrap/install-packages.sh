@@ -25,7 +25,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     echo "[!] Install for WSL"
     "$PACKAGE_ROOT/install-fish.sh"
     "$PACKAGE_ROOT/install-neovim.sh"
-    "$PACKAGE_ROOT/install-font.sh"
+    echo "[!] Manually install FiraCode Nerd Font and set in terminal"
     ;;
 
   *'linux'*)
