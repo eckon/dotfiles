@@ -44,11 +44,6 @@ return {
         bullet = { highlight = "DiagnosticHint" },
       }
 
-      -- setup on wsl has no icons, so disable checkboxes for better visuals
-      if require("eckon.utils").is_windows_wsl() then
-        custom_config.checkbox.enabled = false
-      end
-
       require("render-markdown").setup(custom_config)
     end,
   },

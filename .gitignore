@@ -5,3 +5,8 @@ Brewfile.lock.json
 package.json
 package-lock.json
 node_modules
+
+# do not store edge-cases like work related values
+config/git/
+!config/git/config
+!config/git/ignore
