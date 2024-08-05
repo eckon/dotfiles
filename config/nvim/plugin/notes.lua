@@ -29,8 +29,18 @@ local function open_daily_note(date_string)
     end
 
     write_content("# " .. date .. " (" .. day .. ")")
-    write_content("## work")
-    write_content("- [ ] move previous work tasks here")
+    write_content({
+      "## work",
+      "### repeating tasks",
+      "- [ ] reserve desk",
+      "- [ ] check-in",
+      "- [ ] check [food](https://www.sv-restaurant.de/bigdutchman-vechta/home)",
+      "- [ ] put spent time in tickets (or overflow ticket if non specific)",
+      "- [ ] check-out (and reserve desk for tomorrow)",
+      "### normal tasks",
+      "- [ ] move previous work tasks here",
+    })
+
     write_content({
       "## private",
       "### repeating tasks",
@@ -89,7 +99,7 @@ cc.add("DailyNoteCustom", {
 cc.add("Todo", {
   desc = "Notes: Search open tasks",
   callback = function()
-    vim.ui.select({ "daily", "iu", "private", "all" }, {
+    vim.ui.select({ "daily", "big-dutchman", "private", "all" }, {
       prompt = "Select root for open tasks",
       format_item = function(item)
         return item
