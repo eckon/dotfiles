@@ -5,6 +5,9 @@
 # relies on being executed in the correct context (root dotfiles)
 ##################################################################
 
+
+CURRENT_OS="$(cat /proc/version)"
+
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
   ["config/alacritty.yml"]=".config/alacritty.yml"
@@ -23,6 +26,14 @@ CONFIG_PATHS=(
   ["config/zshrc"]=".zshrc"
 )
 
+if cat "/proc/version" | grep --ignore-case "wsl" -q; then
+  # vscode in wsl will create an additional config file, link it
+  CONFIG_PATHS+=(
+    ["config/vscode/keybindings.json"]=".vscode-server/data/Machine/keybindings.json"
+    ["config/vscode/settings.json"]=".vscode-server/data/Machine/settings.json"
+  )
+fi
+
 declare -A SCRIPT_PATHS
 SCRIPT_PATHS=(
   ["tmux-jump.sh"]="tmux-jump"
@@ -34,9 +45,9 @@ echo ""
 echo "Symlink configurations"
 echo "----------------------"
 
-for configPath in "${!CONFIG_PATHS[@]}"; do
-  target_path=${CONFIG_PATHS[$configPath]}
-  from_path="$(pwd)/$configPath"
+for config_path in "${!CONFIG_PATHS[@]}"; do
+  target_path=${CONFIG_PATHS[$config_path]}
+  from_path="$(pwd)/$config_path"
   to_path="$HOME/$target_path"
 
   if ! test -e "$from_path"; then
