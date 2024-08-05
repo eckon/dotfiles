@@ -33,7 +33,12 @@ Installation of everything in my configuration:
   - has my personal projects
 - `~/Development/work/`
   - has work related projects
-  - uses a pre-configured [.gitconfig](./config/git/work)
+  - can be found in `.config/git/work`
+    - is not versioned, so needs to be created - example:
+      > [user]
+      >
+      > email = foo
+      > name  = bar
 
 ## Used software
 
