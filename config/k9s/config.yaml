@@ -1,0 +1,6 @@
+k9s:
+  readOnly: true
+  ui:
+    logoless: true
+  logger:
+    showTime: true

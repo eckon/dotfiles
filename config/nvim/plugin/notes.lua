@@ -36,7 +36,7 @@ local function open_daily_note(date_string)
       "  - [ ] today",
       "  - [ ] next day",
       "- [ ] get food and drink",
-      "  - [ ] check todays [food](https://www.sv-restaurant.de/bigdutchman-vechta/home)",
+      "- [ ] check todays [food](https://www.sv-restaurant.de/bigdutchman-vechta/home)",
       "- [ ] check-in",
       "- [ ] mails",
       "- [ ] jira board",

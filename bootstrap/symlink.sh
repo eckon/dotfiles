@@ -15,6 +15,7 @@ CONFIG_PATHS=(
   ["config/git"]=".config/git"
   ["config/helix/config.toml"]=".config/helix/config.toml"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
+  ["config/k9s/config.yaml"]=".config/k9s/config.yaml"
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/nvim"]=".config/nvim"
