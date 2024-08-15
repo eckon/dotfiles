@@ -1,0 +1,12 @@
+plugins:
+  pretty-logs:
+    shortCut: Ctrl-L
+    description: Pretty logs
+    confirm: false
+    scopes:
+    - pod
+    command: sh
+    background: false
+    args:
+    - -c
+    - "kubectl logs -f $NAME -n $NAMESPACE --context  $CONTEXT | jq -CSR '. as $line | try (fromjson) catch $line' | less -R"
