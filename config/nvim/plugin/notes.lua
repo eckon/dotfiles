@@ -32,9 +32,7 @@ local function open_daily_note(date_string)
     write_content({
       "## work",
       "### repeating tasks",
-      "- [ ] reserve desk",
-      "  - [ ] today",
-      "  - [ ] next day",
+      "- [ ] reserve desk (now and later)",
       "- [ ] get food and drink",
       "- [ ] check todays [food](https://www.sv-restaurant.de/bigdutchman-vechta/home)",
       "- [ ] check-in",

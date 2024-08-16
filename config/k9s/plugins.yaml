@@ -1,7 +1,7 @@
 plugins:
-  pretty-logs:
+  stream-pretty-json-logs:
     shortCut: Ctrl-L
-    description: Pretty logs
+    description: Pretty json logs
     confirm: false
     scopes:
     - pod
@@ -9,4 +9,4 @@ plugins:
     background: false
     args:
     - -c
-    - "kubectl logs -f $NAME -n $NAMESPACE --context  $CONTEXT | jq -CSR '. as $line | try (fromjson) catch $line' | less -R"
+    - "kubectl logs $NAME -f --tail=100 -n $NAMESPACE --context  $CONTEXT | jq -CSR '. as $line | try (fromjson) catch $line'"
