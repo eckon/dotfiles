@@ -38,7 +38,7 @@ local function open_daily_note(date_string)
       "- [ ] check-in",
       "- [ ] mails",
       "- [ ] jira board",
-      "- [ ] put spent time in tickets (or overflow ticket if non specific)",
+      "- [ ] put spent time in tickets",
       "- [ ] check-out",
       "### normal tasks",
       "- [ ] move previous work tasks here",

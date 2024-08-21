@@ -10,3 +10,14 @@ plugins:
     args:
     - -c
     - "kubectl logs $NAME -f --tail=100 -n $NAMESPACE --context  $CONTEXT | jq -CSR '. as $line | try (fromjson) catch $line'"
+  persist-all-logs:
+    shortCut: Ctrl-T
+    description: Persist all logs to `/tmp/logs-dump`
+    confirm: false
+    scopes:
+    - pod
+    command: sh
+    background: false
+    args:
+    - -c
+    - "kubectl logs $NAME -n $NAMESPACE --context  $CONTEXT > /tmp/logs-dump"
