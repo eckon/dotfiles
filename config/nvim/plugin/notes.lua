@@ -28,9 +28,11 @@ local function open_daily_note(date_string)
       vim.fn.writefile(content, file_path, "a")
     end
 
-    write_content("# " .. date .. " (" .. day .. ")")
     write_content({
+      "# " .. date .. " (" .. day .. ")",
+      "",
       "## work",
+      "",
       "### repeating tasks",
       "- [ ] reserve desk (now and later)",
       "- [ ] get food and drink",
@@ -40,16 +42,18 @@ local function open_daily_note(date_string)
       "- [ ] jira board",
       "- [ ] put spent time in tickets",
       "- [ ] check-out",
+      "",
       "### normal tasks",
       "- [ ] move previous work tasks here",
-    })
-
-    write_content({
+      "",
       "## private",
+      "",
       "### repeating tasks",
       "- [ ] do babbel",
       "- [ ] do workout",
+      "",
       "### normal tasks",
+      "- [ ] look into [[todo]]",
       "- [ ] move previous normal tasks here",
     })
   end
