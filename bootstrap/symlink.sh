@@ -5,9 +5,6 @@
 # relies on being executed in the correct context (root dotfiles)
 ##################################################################
 
-
-CURRENT_OS="$(cat /proc/version)"
-
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
   ["config/alacritty.yml"]=".config/alacritty.yml"
@@ -30,6 +27,7 @@ CONFIG_PATHS=(
 
 if cat "/proc/version" | grep --ignore-case "wsl" -q; then
   # vscode in wsl will create an additional config file, link it
+  # some settings can not be linked like this and need to be put into user file (check vscode for info)
   CONFIG_PATHS+=(
     ["config/vscode/keybindings.json"]=".vscode-server/data/Machine/keybindings.json"
     ["config/vscode/settings.json"]=".vscode-server/data/Machine/settings.json"
