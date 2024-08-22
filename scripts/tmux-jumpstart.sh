@@ -38,6 +38,13 @@ done
 selected=$(printf "$option_string" | fzf --height 10% --reverse)
 
 if [[ "$selected" == "backend" ]]; then
+  session="backend"
+  echo "Create \"$session\" session"
+  tmux new-session -s "$session" -d -c "$HOME/Development"
+
+  echo "  Start backend editor Rider"
+  tmux send-key -t "$session":1 "rider" C-m
+
   path=$(zoxide query "idss")
   session=$(get_session_indentifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
@@ -45,7 +52,7 @@ if [[ "$selected" == "backend" ]]; then
     tmux new-session -s "$session" -d -c "$path"
 
     echo "  Start services via \"docker compose up\""
-    tmux send-key -t "$session":1 'docker compose up' C-m
+    tmux send-key -t "$session":1 "docker compose up" C-m
   fi
 
   exit
@@ -59,11 +66,11 @@ if [[ "$selected" == "frontend" ]]; then
     tmux new-session -s "$session" -d -c "$path"
 
     echo "  Start editor via \"vim\""
-    tmux send-key -t "$session":1 'vim -o .local.js .env' C-m
+    tmux send-key -t "$session":1 "vim -o .local.js .env" C-m
     tmux split-window -t "$session":1 -h -c "$path"
 
     echo "  Start services via \"npm run dev\""
-    tmux send-key -t "$session":1 'npm run dev' C-m
+    tmux send-key -t "$session":1 "npm run dev" C-m
     tmux select-pane -L -t "$session":1
   fi
 
@@ -74,11 +81,11 @@ if [[ "$selected" == "frontend" ]]; then
     tmux new-session -s "$session" -d -c "$path"
 
     echo "  Start editor via \"vim\""
-    tmux send-key -t "$session":1 'vim .env' C-m
+    tmux send-key -t "$session":1 "vim .env" C-m
     tmux split-window -t "$session":1 -h -c "$path"
 
     echo "  Start services via \"npm run dev\""
-    tmux send-key -t "$session":1 'npm run dev' C-m
+    tmux send-key -t "$session":1 "npm run dev" C-m
     tmux select-pane -L -t "$session":1
   fi
 
