@@ -4,7 +4,16 @@ return {
   version = false,
   config = function()
     -- buffer based file explorer
-    require("mini.files").setup({ windows = { preview = true, width_preview = 50 } })
+    require("mini.files").setup({
+      mappings = {
+        -- default `q` -> use esc to allow for macros recoding via ´q´
+        close = "<ESC>",
+        -- use `L` and `H` via `go_x_plus` default mapping instead (makes moving in the buffer easier)
+        go_in = "",
+        go_out = "",
+      },
+      windows = { preview = true, width_preview = 50 },
+    })
 
     -- show indent and this also has ii/ai text objects
     require("mini.indentscope").setup({
