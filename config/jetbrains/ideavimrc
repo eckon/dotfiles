@@ -7,7 +7,6 @@ let mapleader=" "
 set scrolloff=5
 set incsearch ignorecase smartcase
 set number relativenumber
-set iskeyword+=-
 set ideajoin
 
 
@@ -40,6 +39,8 @@ Plug 'tpope/vim-surround'
 " --- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map grr <Action>(GotoDeclaration)
 map grR <Action>(FindUsages)
+map gri <Action>(GotoImplementation)
+map grd <Action>(GotoTypeDeclaration)
 
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
@@ -47,11 +48,10 @@ map ]d <Action>(GotoNextError)
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]c <Action>(VcsShowNextChangeMarker)
 
-" duplication for new "defaults"
-map <leader>lr <Action>(RenameElement)
 map grn        <Action>(RenameElement)
-map <leader>la <Action>(ShowIntentionActions)
 map gra        <Action>(ShowIntentionActions)
-map <leader>lf <Action>(ReformatCode)
 map gq         <Action>(ReformatCode)
 map gQ         <Action>(ReformatCode)
+
+vmap < <gv
+vmap > >gv

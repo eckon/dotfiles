@@ -29,11 +29,8 @@ nmap K   :vsc Edit.QuickInfo<CR>
 nmap grr :vsc Edit.FindAllReferences<CR>
 nmap gd  :vsc Edit.GoToDefinition<CR>
 
-" general lsp action mappings (duplication for new "defaults")
-nmap <leader>lr :vsc Refactor.Rename<CR>
+" general lsp action mappings
 nmap grn        :vsc Refactor.Rename<CR>
-nmap <leader>la :vsc View.QuickActions<CR>
 nmap gra        :vsc View.QuickActions<CR>
-nmap <leader>lf :vsc Edit.FormatDocument<CR>
 nmap gq         :vsc Edit.FormatDocument<CR>
 nmap gQ         :vsc Edit.FormatDocument<CR>
