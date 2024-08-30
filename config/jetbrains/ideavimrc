@@ -48,10 +48,10 @@ map ]d <Action>(GotoNextError)
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]c <Action>(VcsShowNextChangeMarker)
 
-map grn        <Action>(RenameElement)
-map gra        <Action>(ShowIntentionActions)
-map gq         <Action>(ReformatCode)
-map gQ         <Action>(ReformatCode)
+map grn <Action>(RenameElement)
+map gra <Action>(ShowIntentionActions)
+map gq  <Action>(ReformatCode)
+map gQ  <Action>(ReformatCode)
 
 vmap < <gv
 vmap > >gv
