@@ -5,7 +5,7 @@ set.undofile = true
 set.swapfile = false
 set.title = true
 
-set.completeopt = { "menuone", "noinsert", "noselect" }
+set.completeopt = { "menuone", "noinsert", "noselect", "fuzzy" }
 
 set.magic = true
 set.lazyredraw = true
