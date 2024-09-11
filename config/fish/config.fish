@@ -31,15 +31,20 @@ alias vi   "nvim --cmd \"let g:run_minimal=1\""
 alias vim  "nvim"
 
 # not as safe as `sudoedit` but I rarely need it, to should be fine
-abbr --add sudo-vim        "sudo -Es nvim"
-abbr --add npmplease       "rm -rf node_modules/ && rm -f package-lock.json && npm install"
-abbr --add j               "tmux-jump"
-abbr --add js              "tmux-jumpstart"
-abbr --add ta              "tmux attach -t"
-abbr --add tt              "tmux new -s"
+abbr --add sudo-vim  "sudo -Es nvim"
+abbr --add npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
+
+abbr --add j  "tmux-jump"
+abbr --add js "tmux-jumpstart"
+abbr --add ta "tmux attach -t"
+abbr --add tt "tmux new -s"
+
+abbr --add gr \
+     --set-cursor "git rebase --interactive HEAD~%"
+
 abbr --add rgg \
-     --position anywhere \
-     --set-cursor          "rg --json \"%\" | delta"
+     --set-cursor \
+     --position anywhere "rg --json \"%\" | delta"
 
 # expansion of !! (>= fish v.3.6.0)
 function last_history_item; echo $history[1]; end

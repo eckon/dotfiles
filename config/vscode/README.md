@@ -24,6 +24,10 @@ Some of these might be doable with other configurations like vim plugin
       - also the other experimental features
   - vim
     - vscodevim.vim
+      - > [!NOTE]
+        > additional setting for WSL -> vim plugin is installed on local machine -> configure vimrc path
+        > in local settings, set the vimrc path into the wsl, this is not versioned so needs to be done manually
+        > example: `das`
     - _asvetliakov.vscode-neovim_
   - spelling
     - streetsidesoftware.code-spell-checker

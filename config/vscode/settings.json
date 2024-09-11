@@ -6,7 +6,7 @@
   "editor.lineNumbers": "relative",
   "editor.inlineSuggest.enabled": true,
   "git.mergeEditor": true,
-  "workbench.colorTheme": "Kanagawa",
+  "workbench.colorTheme": "Default Dark Modern",
   "vim.enableNeovim": true,
   "vim.handleKeys": {
     "<C-f>": false
