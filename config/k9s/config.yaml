@@ -2,5 +2,6 @@ k9s:
   readOnly: true
   ui:
     logoless: true
+    enableMouse: true
   logger:
     showTime: true
