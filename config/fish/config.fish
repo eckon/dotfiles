@@ -31,8 +31,9 @@ alias vi   "nvim --cmd \"let g:run_minimal=1\""
 alias vim  "nvim"
 
 # not as safe as `sudoedit` but I rarely need it, to should be fine
-abbr --add sudo-vim  "sudo -Es nvim"
-abbr --add npmplease "rm -rf node_modules/ && rm -f package-lock.json && npm install"
+abbr --add sudo-vim   "sudo -Es nvim"
+abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
+abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 
 abbr --add j  "tmux-jump"
 abbr --add js "tmux-jumpstart"
