@@ -25,6 +25,12 @@ return {
       end, { desc = "Flash: Jump" })
     end,
   },
+  {
+    "stevearc/quicker.nvim",
+    config = function()
+      require("quicker").setup()
+    end,
+  },
 
   -- Styling/Appearance/Special
   { "tmux-plugins/vim-tmux-focus-events" },
