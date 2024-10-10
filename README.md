@@ -17,9 +17,12 @@ Bigger parts have their own README and can be found here:
 
 Installation of everything in my configuration:
 
-- install `git` and `make`
+- install `git`
+  - optionally `just`
 - clone this repository
-- run `make setup`
+- run setup scripts
+  - if `just` is installed just do `just setup`
+    - otherwise look in the `justfile` and run the scripts under `setup` manually
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
   - should correctly handle the different OSes
 
