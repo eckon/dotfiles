@@ -37,7 +37,7 @@ M.config = function()
       "rust_analyzer",
       "tailwindcss",
       "taplo",
-      "tsserver",
+      "ts_ls",
       "vimls",
       "volar",
       "yamlls",
@@ -58,7 +58,7 @@ M.config = function()
     ["rust_analyzer"] = function()
       -- do not call anything to not overwrite rustaceanvim
     end,
-    ["tsserver"] = function()
+    ["ts_ls"] = function()
       require("typescript-tools").setup({
         settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
       })
