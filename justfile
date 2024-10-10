@@ -37,14 +37,17 @@ _dependency-npx:
 
 [group('lua')]
 [group('check')]
-lua-check: lua-format
+lua-check: lua-format lua-lint
 
 [group('lua')]
 [group('format')]
 lua-format:
-  npx @johnnymorganz/stylua-bin \
-    --glob '*.lua' \
-    ./config/nvim
+  npx @johnnymorganz/stylua-bin --glob '*.lua' ./config/nvim
+
+[group('lua')]
+[group('lint')]
+lua-lint:
+  selene config/nvim
 
 
 [group('markdown')]
