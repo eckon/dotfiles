@@ -8,7 +8,7 @@ local ai_options = {
   supermaven = 2,
 }
 
-local use_ai = ai_options.deactivated
+local use_ai = ai_options.supermaven
 
 local M = {
   {

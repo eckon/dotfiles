@@ -16,7 +16,7 @@ local M = {
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
     { "folke/lazydev.nvim", ft = { "lua" } },
-    { "mrcjkb/rustaceanvim", ft = { "rust" } },
+    { "mrcjkb/rustaceanvim", version = "^5", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
 }
