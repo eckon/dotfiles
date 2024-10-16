@@ -26,10 +26,11 @@ setup: packages symlinks
 
 # run all formatters and linters over the whole repo
 [group('check')]
-check: _dependency-npx lua-check markdown-check scripts-check
+check: lua-check markdown-check scripts-check
 
-# some formatters need specific dependencies, this will install them
-_dependency-npx:
+# RUN ONCE on initial setup: some formatters need specific dependencies
+[group('setup')]
+dependency-npx:
   npm i -D @johnnymorganz/stylua-bin
   npm i -D prettier prettier-plugin-sh
   npm i -D markdownlint-cli
