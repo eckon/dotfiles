@@ -18,6 +18,7 @@ local M = {
     { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", version = "^5", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
+    { "iabdelkareem/csharp.nvim", dependencies = { "mfussenegger/nvim-dap", "Tastyep/structlog.nvim" }, ft = { "cs" } },
   },
 }
 
@@ -37,6 +38,7 @@ M.config = function()
       "rust_analyzer",
       "tailwindcss",
       "taplo",
+      "terraformls",
       "ts_ls",
       "vimls",
       "volar",
@@ -44,11 +46,16 @@ M.config = function()
     },
   })
 
+  require("csharp").setup()
+
   -- install packages for formatter and linter
   require("eckon.mason-helper").ensure_package_installed.execute()
 
   local lspconfig = require("lspconfig")
   require("mason-lspconfig").setup_handlers({
+    function(server_name)
+      lspconfig[server_name].setup({})
+    end,
     ["rust_analyzer"] = function()
       -- do not call anything to not overwrite rustaceanvim
     end,
