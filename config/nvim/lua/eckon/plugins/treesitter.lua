@@ -7,7 +7,6 @@ end
 local M = {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufReadPost",
     build = ":TSUpdate",
     config = function()
       ---@diagnostic disable-next-line: missing-fields
