@@ -14,14 +14,15 @@ return {
         accept = { auto_brackets = { enabled = true } },
         trigger = { signature_help = { enabled = true } },
         keymap = {
-          select_prev = { "<C-p>" },
-          select_next = { "<C-n>" },
+          accept = "<CR>",
+          select_prev = "<C-p>",
+          select_next = "<C-n>",
           scroll_documentation_up = "<C-u>",
           scroll_documentation_down = "<C-d>",
         },
         windows = {
-          autocomplete = { border = "single" },
-          documentation = { border = "single" },
+          autocomplete = { border = "single", selection = "manual" },
+          documentation = { border = "single", auto_show = true },
         },
       })
     end,
