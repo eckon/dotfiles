@@ -3,10 +3,12 @@ local M = {
   lazy = true,
   config = function()
     require("lint").linters_by_ft = {
-      lua = { "selene" },
-      typescript = { "eslint_d" },
       javascript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      lua = { "selene" },
       markdown = { "markdownlint" },
+      typescript = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
     }
   end,
   init = function()
