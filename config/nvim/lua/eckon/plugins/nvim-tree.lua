@@ -10,6 +10,7 @@ local M = {
         add_trailing = true,
         group_empty = true,
         root_folder_label = false,
+        symlink_destination = false,
       },
       view = {
         adaptive_size = true,
