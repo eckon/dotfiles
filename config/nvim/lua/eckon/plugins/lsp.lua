@@ -18,7 +18,6 @@ local M = {
     { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", version = "^5", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
-    { "iabdelkareem/csharp.nvim", dependencies = { "mfussenegger/nvim-dap", "Tastyep/structlog.nvim" }, ft = { "cs" } },
   },
 }
 
@@ -46,8 +45,6 @@ M.config = function()
       "yamlls",
     },
   })
-
-  require("csharp").setup()
 
   -- install packages for formatter and linter
   require("eckon.mason-helper").ensure_package_installed.execute()
