@@ -40,6 +40,7 @@ M.config = function()
       "taplo",
       "terraformls",
       "ts_ls",
+      "typst_lsp",
       "vimls",
       "volar",
       "yamlls",
