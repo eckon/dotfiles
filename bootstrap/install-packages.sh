@@ -9,6 +9,7 @@ PACKAGE_ROOT="$(pwd)/bootstrap/packages"
 sudo apt update
 sudo apt upgrade -y
 cat "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
+sudo apt autoremove -y
 
 if ! command -v "brew" &> /dev/null; then
   NONINTERACTIVE=1 /bin/bash -c \
@@ -16,7 +17,10 @@ if ! command -v "brew" &> /dev/null; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+brew update
+brew upgrade
 brew bundle --file "$PACKAGE_ROOT/Brewfile"
+brew cleanup
 
 # wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
 CURRENT_OS="$(cat /proc/version)"
