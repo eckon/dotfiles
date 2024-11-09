@@ -33,7 +33,6 @@ return {
   },
 
   -- Styling/Appearance/Special
-  { "tmux-plugins/vim-tmux-focus-events" },
   {
     "MeanderingProgrammer/markdown.nvim",
     config = function()

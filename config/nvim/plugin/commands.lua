@@ -76,6 +76,8 @@ cc.add("GitLog", {
 
     vim.notify('Running "' .. git_command .. '"')
     vim.fn.setreg("+", git_command)
-    vim.cmd('silent !tmux new-window "' .. git_command .. '"')
+    vim.cmd(
+      "silent !zellij run --close-on-exit --floating --width 100\\% --height 100\\% --x 0 --y 0 -- " .. git_command
+    )
   end,
 })

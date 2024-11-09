@@ -22,6 +22,7 @@ CONFIG_PATHS=(
   ["config/tmux"]=".config/tmux"
   ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
+  ["config/zellij/config.kdl"]=".config/zellij/config.kdl"
   ["config/zshrc"]=".zshrc"
 )
 
@@ -36,9 +37,10 @@ fi
 
 declare -A SCRIPT_PATHS
 SCRIPT_PATHS=(
+  ["git-tmp-copy.sh"]="git-tmp-copy"
   ["tmux-jump.sh"]="tmux-jump"
   ["tmux-jumpstart.sh"]="tmux-jumpstart"
-  ["git-tmp-copy.sh"]="git-tmp-copy"
+  ["zellij-jump.sh"]="zellij-jump"
 )
 
 echo ""

@@ -40,22 +40,9 @@ Installation of everything in my configuration:
 
 ## Used software
 
-Following programs should be highlighted and are installed/used:
+Used software can be found here:
 
-- [kitty](https://github.com/kovidgoyal/kitty) _with_
-  [fira code](https://github.com/tonsky/FiraCode),
-  [starship](https://github.com/starship/starship)
-- [fish](https://github.com/fish-shell/fish-shell) _with_
-  [tmux](https://github.com/tmux/tmux)
-- [neovim](https://github.com/neovim/neovim)
-- [lazygit](https://github.com/jesseduffield/lazygit) _with_
-  [delta](https://github.com/dandavison/delta)
-- [zoxide (z)](https://github.com/ajeetdsouza/zoxide),
-  [tldr](https://github.com/tldr-pages/tldr),
-  [fzf](https://github.com/junegunn/fzf),
-  [ripgrep](https://github.com/BurntSushi/ripgrep),
-  [fd](https://github.com/sharkdp/fd),
-  [bat](https://github.com/sharkdp/bat),
-  [jq](https://github.com/stedolan/jq),
-  [fnm](https://github.com/Schniz/fnm),
-  [brew](https://github.com/Homebrew/brew)
+- [packages](./bootstrap/packages/packages.txt) which mostly includes
+  - [Brewfile](./bootstrap/packages/Brewfile)
+  - [apt-packages.txt](./bootstrap/packages/apt-packages.txt)
+  - and other specific scripts

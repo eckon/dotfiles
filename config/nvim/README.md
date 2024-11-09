@@ -5,7 +5,7 @@ My ever changing setup for neovim as a development editor.
 It focuses (mostly) on the linux philosophy "Do One Thing and Do It Well",
 meaning parts that some people might have in their vim config are not present here.
 
-Tmux is being used as an easy way to run multiple vim instances and
+A Terminal Multiplexer (Tmux/Zellij) is being used as an easy way to run multiple vim instances and
 having the freedom of using emulators everywhere.
 This also extends to things like git, scripts, commands which could be done in vim,
 but are not here, or only used in limit within vim.

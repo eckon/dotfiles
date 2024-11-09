@@ -21,6 +21,7 @@ brew "tldr"
 brew "tmux"
 brew "typst"
 brew "typstyle"
+brew "zellij"
 brew "zoxide"
 
 tap "hashicorp/tap"
