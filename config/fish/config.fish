@@ -35,7 +35,8 @@ abbr --add sudo-vim   "sudo -Es nvim"
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 
-abbr --add j  "zellij-jump"
+abbr --add j  "tmux-jump"
+abbr --add js "tmux-jumpstart"
 
 abbr --add gr \
      --set-cursor "git rebase --interactive HEAD~%"
