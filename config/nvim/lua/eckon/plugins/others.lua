@@ -31,6 +31,24 @@ return {
       require("quicker").setup()
     end,
   },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("snacks").setup({
+        bigfile = {
+          enabled = true,
+          setup = function(ctx)
+            vim.schedule(function()
+              -- always disable syntax for big files just to be sure
+              vim.bo[ctx.buf].syntax = "off"
+            end)
+          end,
+        },
+      })
+    end,
+  },
 
   -- Styling/Appearance/Special
   {

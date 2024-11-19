@@ -1,7 +1,3 @@
-if require("eckon.utils").run_minimal() then
-  return {}
-end
-
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.utils").augroup("lsp")
 

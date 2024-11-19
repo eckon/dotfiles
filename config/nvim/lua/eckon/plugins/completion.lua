@@ -1,7 +1,3 @@
-if require("eckon.utils").run_minimal() then
-  return {}
-end
-
 -- fallback to cmp as blink has no auto import and has still some completion issues
 local use_blink = false
 
@@ -42,9 +38,28 @@ return {
     config = function()
       local cmp = require("cmp")
 
+      -- disabled completion in bigfiles
+      cmp.setup.filetype({ "bigfile" }, { enabled = false })
+
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = { { name = "buffer" } },
+        sources = {
+          {
+            name = "buffer",
+            option = {
+              get_bufnrs = function()
+                -- ignore if current buffer is a bigfile
+                local ft = vim.api.nvim_get_option_value("filetype", {})
+                if ft == "bigfile" then
+                  return {}
+                end
+
+                local buf = vim.api.nvim_get_current_buf()
+                return { buf }
+              end,
+            },
+          },
+        },
       })
 
       cmp.setup.cmdline(":", {

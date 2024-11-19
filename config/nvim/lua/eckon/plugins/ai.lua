@@ -1,7 +1,3 @@
-if require("eckon.utils").run_minimal() then
-  return {}
-end
-
 local ai_options = {
   deactivated = 0,
   copilot = 1,
@@ -18,6 +14,7 @@ local M = {
     enabled = use_ai == ai_options.copilot,
     config = function()
       require("copilot").setup({
+        filetypes = { bigfile = false },
         suggestion = {
           enabled = true,
           auto_trigger = true,
@@ -31,7 +28,13 @@ local M = {
     "supermaven-inc/supermaven-nvim",
     enabled = use_ai == ai_options.supermaven,
     config = function()
-      require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<M-CR>", accept_word = "<M-n>" } })
+      require("supermaven-nvim").setup({
+        ignore_filetypes = { bigfile = true },
+        keymaps = {
+          accept_suggestion = "<M-CR>",
+          accept_word = "<M-n>",
+        },
+      })
     end,
   },
 }

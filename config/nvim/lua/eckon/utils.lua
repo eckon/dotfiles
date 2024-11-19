@@ -1,14 +1,5 @@
 local M = {}
 
----Return true or false depending on whether neovim should be started in minimal mode
----this is mainly as some things might not yet work on gigantic files,
----so we can manually disable them
----This is done via calling neovim with the var (see fish config)
----@return boolean
-M.run_minimal = function()
-  return vim.fn.exists("g:run_minimal") == 1
-end
-
 ---Create augroup with my unique prefix
 ---@param name string
 ---@param options? table

@@ -27,7 +27,7 @@ fish_vi_key_bindings
 alias clip "xclip -sel clip"
 alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
-alias vi   "nvim --cmd \"let g:run_minimal=1\""
+alias vi   "vim"
 alias vim  "nvim"
 
 # not as safe as `sudoedit` but I rarely need it, to should be fine
