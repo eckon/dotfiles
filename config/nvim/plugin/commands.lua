@@ -16,29 +16,7 @@ cc.add("VSCode", {
 cc.add("Browser", {
   desc = "Open buffer in browser",
   callback = function()
-    local repo_base_path = vim.fn.system([[
-        git config --get remote.origin.url \
-          | sed 's/\.git//g' \
-          | sed 's/:/\//g' \
-          | sed 's/git@/https:\/\//'
-        ]])
-
-    local repo_branch = vim.fn.system([[
-        git config --get remote.origin.url \
-          | grep -q 'bitbucket.org' \
-            && echo 'src/master' \
-            || echo blob/$(git branch --show-current)
-        ]])
-
-    if repo_base_path == nil or repo_branch == nil then
-      vim.notify("Could not fine repo path")
-      return
-    end
-
-    local path = vim.trim(repo_base_path) .. "/" .. vim.trim(repo_branch) .. "/" .. vim.fn.expand("%")
-    vim.notify("Open repo in browser (and copy to clipboard): " .. path)
-    vim.ui.open(path)
-    vim.fn.setreg("+", path)
+    require('snacks.gitbrowse').open()
   end,
 })
 
@@ -58,24 +36,6 @@ cc.add("CopyFilePath", {
 cc.add("GitLog", {
   desc = "Open Git log/blame",
   callback = function()
-    local path = vim.fn.expand("%")
-    if path == "" then
-      return
-    end
-
-    local positions = require("eckon.utils").get_visual_selection()
-    local range = positions.visual_start.row .. "," .. positions.visual_end.row
-    local git_command = "git log -L " .. range .. ":" .. path
-
-    local diff = vim.fn.system("git diff -- " .. path)
-    local has_diff = diff ~= ""
-    if has_diff then
-      vim.notify("File has uncommitted changes, git log might be incorrect -> use git blame instead")
-      git_command = "git blame -C -M -L" .. range .. " -- " .. path
-    end
-
-    vim.notify('Running "' .. git_command .. '"')
-    vim.fn.setreg("+", git_command)
-    vim.cmd('silent !tmux new-window "' .. git_command .. '"')
+    require('snacks.git').blame_line()
   end,
 })
