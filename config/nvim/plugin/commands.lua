@@ -13,13 +13,6 @@ cc.add("VSCode", {
   callback = "!code $(pwd) -g %",
 })
 
-cc.add("Browser", {
-  desc = "Open buffer in browser",
-  callback = function()
-    require('snacks.gitbrowse').open()
-  end,
-})
-
 cc.add("CopyFilePath", {
   desc = "Copy file path to system clipboard",
   callback = function()
@@ -29,13 +22,6 @@ cc.add("CopyFilePath", {
     end
 
     vim.fn.setreg("+", path)
-    vim.notify('Copied filepath to clipboard: "' .. path .. '"')
-  end,
-})
-
-cc.add("GitLog", {
-  desc = "Open Git log/blame",
-  callback = function()
-    require('snacks.git').blame_line()
+    vim.notify('Copied filepath to clipboard: "' .. path .. '"', "info", { title = "Copied filepath" })
   end,
 })

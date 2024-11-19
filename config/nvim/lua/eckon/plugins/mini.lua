@@ -20,10 +20,6 @@ return {
       draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
     })
 
-    -- show better notifications and lsp progress
-    require("mini.notify").setup()
-    vim.notify = require("mini.notify").make_notify()
-
     -- mainly for git diff information
     require("mini.diff").setup({
       view = { style = "sign" },
@@ -35,10 +31,5 @@ return {
     nmap("<Leader>fe", function()
       require("mini.files").open(vim.api.nvim_buf_get_name(0))
     end, { desc = "Mini: Open File Explorer" })
-
-    require("eckon.custom-command").custom_command.add("ShowNotifications", {
-      desc = "Open all previous `vim.notify` messages",
-      callback = "lua MiniNotify.show_history()",
-    })
   end,
 }

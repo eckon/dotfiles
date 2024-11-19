@@ -23,7 +23,7 @@ M.ensure_package_installed = {
   execute = function()
     local function deferred_function()
       if #to_ensured_packages == 0 then
-        vim.notify("No packages were provided to be installed - maybe the loading-order is wrong?")
+        vim.notify("No packages were provided to be installed - maybe the loading-order is wrong?", "error")
         return
       end
 
@@ -37,12 +37,11 @@ M.ensure_package_installed = {
         if ok then
           if not pkg:is_installed() then
             registry.refresh(function()
-              vim.notify("Installing " .. package_identifier)
               pkg:install()
             end)
           end
         else
-          vim.notify("Package " .. package_identifier .. " not found")
+          vim.notify("Package " .. package_identifier .. " not found", "warn")
         end
       end
     end
