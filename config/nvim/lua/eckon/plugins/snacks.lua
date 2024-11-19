@@ -19,6 +19,7 @@ local M = {
         end,
       },
       notifier = { enabled = true },
+      statuscolumn = { enabled = true },
       styles = {
         blame_line = { width = 0.9, height = 0.9 },
         notification = { wo = { wrap = true } },
