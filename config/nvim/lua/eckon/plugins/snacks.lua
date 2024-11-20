@@ -27,6 +27,12 @@ local M = {
       },
     })
   end,
+  init = function()
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.print = function(...)
+      require("snacks.debug").inspect(...)
+    end
+  end,
 }
 
 cc.add("Browser", {
