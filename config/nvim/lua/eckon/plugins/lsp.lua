@@ -112,14 +112,6 @@ autocmd("lspattach", {
     nmap("<Leader>fd", function()
       require("telescope.builtin").diagnostics()
     end, "List all diagnostics")
-
-    nmap("<Leader>la", function()
-      vim.print("Use: `gra` instead")
-    end, "Code action")
-
-    nmap("<Leader>lr", function()
-      vim.print("Use: `grn` instead")
-    end, "Rename variable")
   end,
   group = augroup,
 })

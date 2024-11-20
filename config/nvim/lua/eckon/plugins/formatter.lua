@@ -31,10 +31,6 @@ local M = {
     require("eckon.utils").bind_map("n")("gQ", function()
       require("conform").format({ lsp_fallback = true, async = true })
     end, { desc = "Conform: Format whole buffer" })
-
-    require("eckon.utils").bind_map("n")("<Leader>lf", function()
-      vim.print("Use: `gq`/`gQ` instead")
-    end, { desc = "Conform: Format buffer" })
   end,
 }
 
