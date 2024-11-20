@@ -26,6 +26,15 @@ end
 
 ---Extend the treesitter foldtext to enhance it with custom information
 ---Like: Number of lines folded
+---
+---Example usage:
+---
+---```lua
+---  vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+---  -- manually extending "v:lua.vim.treesitter.foldtext()"
+---  vim.opt.foldtext = "v:lua.require('eckon.utils').foldtext()"
+---```
+---
 ---@return string|{ [1]: string, [2]: string[] }[]
 M.foldtext = function()
   local ts_foldtext = vim.treesitter.foldtext()
