@@ -11,10 +11,16 @@ set ideajoin
 
 
 " --- Handle keymap conflicts -- https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+" some maps are used, others are just not used in vim, so to keep them open
 sethandler <C-C> a:ide
 sethandler <C-F> a:ide
 sethandler <C-S> a:ide
 sethandler <C-V> a:ide
+sethandler <C-L> a:ide
+sethandler <S-UP> a:ide
+sethandler <S-DOWN> a:ide
+sethandler <S-LEFT> a:ide
+sethandler <S-RIGHT> a:ide
 
 " up/down movement
 sethandler <C-D> a:vim
