@@ -28,6 +28,13 @@ local M = {
         blame_line = { width = 0.9, height = 0.9 },
         notification = { wo = { wrap = true } },
         ["notification.history"] = { width = 0.9, height = 0.9 },
+        -- make vim.ui.input handle like any other buffer (esc to normal mode, esc again to close)
+        input = {
+          keys = {
+            i_esc = { "<esc>", "stopinsert", mode = "i" },
+            n_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "n" },
+          },
+        },
       },
     })
   end,
