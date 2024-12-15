@@ -15,11 +15,6 @@ return {
       windows = { preview = true, width_preview = 50 },
     })
 
-    -- show indent and this also has ii/ai text objects
-    require("mini.indentscope").setup({
-      draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
-    })
-
     -- mainly for git diff information
     require("mini.diff").setup({
       view = { style = "sign" },

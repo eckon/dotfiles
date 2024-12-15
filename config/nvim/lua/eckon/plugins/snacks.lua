@@ -9,6 +9,7 @@ local M = {
   lazy = false,
   config = function()
     require("snacks").setup({
+      -- way of ignoring many plugins on big files, see bigfiles filetype
       bigfile = {
         enabled = true,
         setup = function(ctx)
@@ -18,8 +19,17 @@ local M = {
           end)
         end,
       },
+      -- pretty toast like notifications
       notifier = { enabled = true },
+      -- enhanced statusline
       statuscolumn = { enabled = true },
+      -- indent guide (without text objects)
+      indent = {
+        enabled = true,
+        indent = { only_scope = true, only_current = true },
+      },
+      -- text objects for indentation (ii, ai and [i, ]i)
+      scope = { enabled = true, cursor = false },
       styles = {
         blame_line = { width = 0.9, height = 0.9 },
         notification = { wo = { wrap = true } },
