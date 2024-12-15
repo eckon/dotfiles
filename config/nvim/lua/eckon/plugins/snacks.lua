@@ -23,13 +23,6 @@ local M = {
       notifier = { enabled = true },
       -- enhanced statusline
       statuscolumn = { enabled = true },
-      -- text objects for indentation (ii, ai and [i, ]i)
-      scope = { enabled = true, cursor = false },
-      -- plus visual guide for indentation
-      indent = {
-        enabled = true,
-        indent = { only_scope = true, only_current = true },
-      },
       input = { enabled = true },
       styles = {
         blame_line = { width = 0.9, height = 0.9 },
