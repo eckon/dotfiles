@@ -23,6 +23,7 @@ local M = {
       notifier = { enabled = true },
       -- enhanced statusline
       statuscolumn = { enabled = true },
+      -- enhanced vim.ui.input
       input = { enabled = true },
       styles = {
         blame_line = { width = 0.9, height = 0.9 },
@@ -56,12 +57,12 @@ cc.add("Browser", {
   callback = "lua Snacks.gitbrowse()",
 })
 
-cc.add("GitLog", {
+cc.add("Git Log", {
   desc = "Open Git log/blame",
   callback = "lua Snacks.git.blame_line()",
 })
 
-cc.add("ShowNotifications", {
+cc.add("Show Notifications", {
   desc = "Open all previous `vim.notify` messages",
   callback = "lua Snacks.notifier.show_history()",
 })

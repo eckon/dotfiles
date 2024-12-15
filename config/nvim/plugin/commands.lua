@@ -1,6 +1,6 @@
 local cc = require("eckon.custom-command").custom_command
 
-cc.add("PairProgramming", {
+cc.add("Pair Programming", {
   desc = "Toggle absolute lines",
   callback = function()
     ---@diagnostic disable-next-line: undefined-field
@@ -8,12 +8,12 @@ cc.add("PairProgramming", {
   end,
 })
 
-cc.add("VSCode", {
+cc.add("VS Code", {
   desc = "Open project in VSCode",
   callback = "!code $(pwd) -g %",
 })
 
-cc.add("CopyFilePath", {
+cc.add("Copy File Path", {
   desc = "Copy file path to system clipboard",
   callback = function()
     local path = vim.fn.expand("%")

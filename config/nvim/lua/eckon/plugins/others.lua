@@ -53,19 +53,6 @@ return {
     end,
   },
   {
-    -- mainly for improved vim.ui, maybe later to replace telescope
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
-    end,
-    init = function()
-      require("fzf-lua").register_ui_select()
-    end,
-  },
-  {
     "rebelot/kanagawa.nvim",
     config = function()
       vim.cmd("colorscheme kanagawa")

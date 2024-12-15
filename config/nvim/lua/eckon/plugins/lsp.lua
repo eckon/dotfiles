@@ -35,7 +35,6 @@ M.config = function()
       "taplo",
       "terraformls",
       "ts_ls",
-      "typst_lsp",
       "vimls",
       "volar",
       "yamlls",
@@ -92,26 +91,19 @@ autocmd("lspattach", {
       bind_map("n")(lhs, rhs, { desc = "LSP: " .. desc, buffer = args.buf })
     end
 
+    local ok, _ = pcall(require, "fzf-lua")
+    if not ok then
+      ---@diagnostic disable-next-line: param-type-mismatch
+      vim.notify("LSP required plugins are not installed, please install fzf-lua", "error")
+      return
+    end
+
     -- `K` is default to hover in neovim, for more see `lsp-defaults`
     nmap("gd", function()
-      require("telescope.builtin").lsp_definitions({ show_line = false })
+      -- using finder instead of definitions as this might be more useful, even if its not "correct"
+      -- this replaces all other calls like references, definitions, implementations, etc
+      require("fzf-lua").lsp_finder()
     end, "Go to definitions")
-
-    nmap("gD", function()
-      require("telescope.builtin").lsp_type_definitions({ show_line = false })
-    end, "Go to type definitions")
-
-    nmap("grr", function()
-      require("telescope.builtin").lsp_references({ show_line = false, include_declaration = false })
-    end, "Go to references")
-
-    nmap("<Leader>fL", function()
-      require("telescope.builtin").lsp_document_symbols()
-    end, "Search lsp symbols")
-
-    nmap("<Leader>fd", function()
-      require("telescope.builtin").diagnostics()
-    end, "List all diagnostics")
   end,
   group = augroup,
 })
@@ -122,6 +114,7 @@ autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    ---@diagnostic disable-next-line: param-type-mismatch
     vim.notify(vim.lsp.status(), "info", {
       id = "lsp_progress",
       title = "LSP Progress",

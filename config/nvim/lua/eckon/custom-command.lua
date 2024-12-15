@@ -46,22 +46,37 @@ M.custom_command = {
 
   ---Open a menu to select a custom command
   open_select = function()
-    local longest_name = 0
+    local longest_name_len = 0
     for _, name in ipairs(M.custom_command.keys()) do
-      if #name > longest_name then
-        longest_name = #name
+      if #name > longest_name_len then
+        longest_name_len = #name
+      end
+    end
+
+    local find_index = function(name)
+      for i, n in ipairs(M.custom_command.keys()) do
+        if n == name then
+          return i
+        end
       end
     end
 
     vim.ui.select(M.custom_command.keys(), {
-      prompt = 'Run "CustomCommand" > ',
+      prompt = "Custom Command",
       format_item = function(item)
+        -- handle the shown index (number 10. etc will be shown and misaligns the format here otherwise)
+        -- so we add spaces before the item to align with the highest number
+        local index = find_index(item)
+        local index_len = #tostring(index)
+        local biggest_index_len = #tostring(#M.custom_command.keys())
+        local index_padding = string.rep(" ", biggest_index_len - index_len)
+
         -- pad command name with spaces to align the description
-        local padded_item = string.format("%-" .. longest_name .. "s", item)
-        local formatted_item = padded_item .. " - " .. M.custom_command.get(item).desc
+        local padded_item = string.format("%-" .. longest_name_len .. "s", item)
+        local formatted_item = index_padding .. padded_item .. " - " .. M.custom_command.get(item).desc
 
         -- truncate to not run over the selection window
-        local max_len = 70
+        local max_len = 80
         if #formatted_item > max_len then
           formatted_item = formatted_item:sub(1, max_len) .. "…"
         end

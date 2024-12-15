@@ -61,15 +61,15 @@ end
 
 local cc = require("eckon.custom-command").custom_command
 
-cc.add("DailyNote", {
-  desc = "Notes: Open todays daily note",
+cc.add("Daily Note", {
+  desc = "Open todays daily note",
   callback = function()
     open_daily_note()
   end,
 })
 
-cc.add("DailyNoteCustom", {
-  desc = "Notes: Open custom daily note",
+cc.add("Daily Note Custom", {
+  desc = "Open custom daily note",
   callback = function()
     vim.ui.input({ prompt = "Search for daily note" }, function(input)
       -- CTRL-C will return, CR will give empty string
@@ -102,7 +102,7 @@ cc.add("DailyNoteCustom", {
 })
 
 cc.add("Todo", {
-  desc = "Notes: Search open tasks",
+  desc = "Search open tasks",
   callback = function()
     vim.ui.select({ "daily", "big-dutchman", "private", "all" }, {
       prompt = "Select root for open tasks",
@@ -114,12 +114,19 @@ cc.add("Todo", {
         return
       end
 
-      local opts = { search = "^- \\[ \\]", use_regex = true }
+      local opts = {
+        -- search should allow regex, so dont escape automatically
+        no_esc = true,
+        search = "^- \\[ \\]",
+        -- we have templates, ignore them always
+        fzf_opts = { ["--query"] = "!_templates " },
+      }
+
       if choice ~= "all" then
-        opts.search_dirs = { choice }
+        opts.fzf_opts["--query"] = opts.fzf_opts["--query"] .. "'" .. choice .. " "
       end
 
-      require("telescope.builtin").grep_string(opts)
+      require("fzf-lua").grep(opts)
     end)
   end,
 })
