@@ -54,7 +54,7 @@ M.custom_command = {
     end
 
     vim.ui.select(M.custom_command.keys(), {
-      prompt = 'Run "CustomCommand"',
+      prompt = 'Run "CustomCommand" > ',
       format_item = function(item)
         -- pad command name with spaces to align the description
         local padded_item = string.format("%-" .. longest_name .. "s", item)

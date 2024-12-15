@@ -53,10 +53,16 @@ return {
     end,
   },
   {
-    -- improved vim.ui
-    "stevearc/dressing.nvim",
+    -- mainly for improved vim.ui, maybe later to replace telescope
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("dressing").setup({ input = { insert_only = false } })
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end,
+    init = function()
+      require("fzf-lua").register_ui_select()
     end,
   },
   {

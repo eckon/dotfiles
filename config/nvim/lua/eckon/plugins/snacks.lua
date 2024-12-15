@@ -23,13 +23,14 @@ local M = {
       notifier = { enabled = true },
       -- enhanced statusline
       statuscolumn = { enabled = true },
-      -- indent guide (without text objects)
+      -- text objects for indentation (ii, ai and [i, ]i)
+      scope = { enabled = true, cursor = false },
+      -- plus visual guide for indentation
       indent = {
         enabled = true,
         indent = { only_scope = true, only_current = true },
       },
-      -- text objects for indentation (ii, ai and [i, ]i)
-      scope = { enabled = true, cursor = false },
+      input = { enabled = true },
       styles = {
         blame_line = { width = 0.9, height = 0.9 },
         notification = { wo = { wrap = true } },
@@ -41,6 +42,11 @@ local M = {
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.print = function(...)
       require("snacks.debug").inspect(...)
+    end
+
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.ui.input = function(...)
+      require("snacks.input").input(...)
     end
   end,
 }
