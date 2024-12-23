@@ -48,7 +48,9 @@ M.config = function()
   require("mason-lspconfig").setup_handlers({
     function(server_name)
       -- used for cmp, without keep the lspconfig but remove the capabilities
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- used for blink.cmp
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       lspconfig[server_name].setup({
         capabilities = capabilities,
       })
