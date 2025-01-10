@@ -1,4 +1,5 @@
 k9s:
+  # use `k9s --write` to manually override this and make destroy changes
   readOnly: true
   ui:
     logoless: true

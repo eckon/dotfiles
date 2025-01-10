@@ -16,6 +16,8 @@
   "vim.leader": "<space>",
   "vim.shell": "bash",
   "vim.visualstar": true,
+  // NOTE: vim settings seem to be now in user settings, which is not usable here
+  // if in wsl, this means we need to paste it into user settings from windows
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-l>"],
