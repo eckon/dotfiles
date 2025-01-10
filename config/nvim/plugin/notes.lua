@@ -44,6 +44,7 @@ local function open_daily_note(date_string)
       "- [ ] jira board",
       "- [ ] put spent time in tickets",
       "- [ ] write down potential retro topics",
+      "- [ ] check my goals and tasks (create/tag ui/dx/research, improve logging, take hendrik tasks)",
       "- [ ] check-out",
       "",
       "### normal tasks",
