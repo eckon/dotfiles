@@ -13,9 +13,9 @@ local M = {
   end,
   init = function()
     require("eckon.mason-helper").ensure_package_installed.add({
-      "selene",
       "eslint_d",
       "markdownlint",
+      "selene",
     })
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {

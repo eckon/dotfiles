@@ -95,7 +95,7 @@ return {
     config = function()
       require("blink.cmp").setup({
         completion = {
-          list = { selection = "auto_insert" },
+          list = { selection = { auto_insert = true, preselect = false } },
         },
         keymap = { preset = "enter" },
         sources = {
