@@ -9,6 +9,9 @@ set incsearch ignorecase smartcase
 set number relativenumber
 set ideajoin
 
+" fix of pasting crash in WSL2 - https://github.com/microsoft/wslg/issues/589
+set clipboard=unnamedplus
+
 
 " --- Handle keymap conflicts -- https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
 " some maps are used, others are just not used in vim, so to keep them open
