@@ -60,6 +60,9 @@ if vim.fn.executable("rg") == 1 then
   set.grepformat:prepend("%f:%l:%c:%m")
 end
 
+set.foldmethod = "expr"
+set.foldexpr = "v:lua.vim.lsp.foldexpr()"
+
 vim.diagnostic.config({
   -- ignore diagnostic context unless its an error (do not spam buffer full of warnings)
   virtual_text = {
