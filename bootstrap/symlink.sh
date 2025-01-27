@@ -15,6 +15,7 @@ CONFIG_PATHS=(
   ["config/k9s/config.yaml"]=".config/k9s/config.yaml"
   ["config/k9s/plugins.yaml"]=".config/k9s/plugins.yaml"
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
+  ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/nvim"]=".config/nvim"
   ["config/ripgreprc"]=".config/ripgreprc"
