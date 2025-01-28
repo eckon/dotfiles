@@ -41,6 +41,10 @@ abbr --add js "tmux-jumpstart"
 abbr --add gr \
      --set-cursor "git rebase --interactive HEAD~%"
 
+abbr --add gs \
+     --set-cursor \
+     --position anywhere "git switch % && git pull && git switch - && git rebase -"
+
 abbr --add rgg \
      --set-cursor \
      --position anywhere "rg --json \"%\" | delta"
