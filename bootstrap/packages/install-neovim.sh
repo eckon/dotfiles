@@ -18,7 +18,7 @@ fi
 echo "[+] Install \"nvim\""
 
 wget -O "/tmp/neovim/nvim.appimage" \
-  "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+  "https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage"
 
 chmod +x "/tmp/neovim/nvim.appimage"
 cp "/tmp/neovim/nvim.appimage" "$NVIM_PATH"
