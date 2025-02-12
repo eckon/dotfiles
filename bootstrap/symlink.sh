@@ -13,6 +13,7 @@ CONFIG_PATHS=(
   ["config/helix/config.toml"]=".config/helix/config.toml"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
   ["config/k9s/config.yaml"]=".config/k9s/config.yaml"
+  ["config/k9s/hotkeys.yaml"]=".config/k9s/hotkeys.yaml"
   ["config/k9s/plugins.yaml"]=".config/k9s/plugins.yaml"
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
