@@ -12,6 +12,8 @@ local M = {
       -- way of ignoring many plugins on big files, see bigfiles filetype
       bigfile = {
         enabled = true,
+        size = 1.5 * 1024 * 1024, -- size check - 1.5MB
+        line_length = 500, -- average line length check, to handle minified files
         setup = function(ctx)
           vim.schedule(function()
             -- always disable syntax for big files just to be sure
