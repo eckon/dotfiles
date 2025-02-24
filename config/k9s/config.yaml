@@ -3,9 +3,7 @@ k9s:
   readOnly: true
   ui:
     logoless: true
-    # mouse will break terminal highlighting, so for now disable it
-    # use full screen mode to easily copy/paste
-    enableMouse: false
+    enableMouse: true
   logger:
     showTime: true
     textWrap: true

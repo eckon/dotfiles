@@ -46,7 +46,6 @@ check_and_start "$path"
 path=$(zoxide query "dotfiles")
 check_and_start "$path"
 
-
 if [[ "$#" -le 0 ]]; then
   # start interactive selection when no arguments are given
   path=$(zoxide query --interactive) || exit
