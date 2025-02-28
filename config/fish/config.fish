@@ -38,16 +38,12 @@ abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 abbr --add j  "tmux-jump"
 abbr --add js "tmux-jumpstart"
 
-abbr --add gr \
-     --set-cursor "git rebase --interactive HEAD~%"
+abbr --add --command git R \
+     --set-cursor "rebase --interactive HEAD~%"
 
-abbr --add gs \
+abbr --add --command git S \
      --set-cursor \
-     --position anywhere "git switch % && git pull && git switch - && git rebase -"
-
-abbr --add rgg \
-     --set-cursor \
-     --position anywhere "rg --json \"%\" | delta"
+     --position anywhere "switch % && git pull && git switch - && git rebase -"
 
 # expansion of !!
 function last_history_item; echo $history[1]; end
