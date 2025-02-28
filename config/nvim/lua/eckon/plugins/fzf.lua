@@ -34,7 +34,7 @@ M.init = function()
 
   -- find in all vial live grep (normal grep via toggle)
   nmap("<Leader>fa", function()
-    require("fzf-lua").live_grep()
+    require("fzf-lua").live_grep({ hidden = true })
   end, "(Live-)Grep files")
 
   -- search in quickfix (generally press enter with multiple files to populate quickfix)
