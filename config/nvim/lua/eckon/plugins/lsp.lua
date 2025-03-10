@@ -102,20 +102,18 @@ autocmd("lspattach", {
 
     -- `K` is default to hover in neovim, for more see `lsp-defaults`
 
-    -- using finder instead of definitions as this might be more useful, even if its not "correct"
-    -- this replaces all other calls like references, definitions, implementations, etc
     nmap("gd", function()
-      require("fzf-lua").lsp_finder()
-    end, "Go to everything via finder")
-
-    -- overwrite other default mappings with fzf-lua and allow the gd to be mapped via gD to keep options
-    nmap("gD", function()
       require("fzf-lua").lsp_definitions()
     end, "Go to definitions")
 
+    -- this should collect all things, but might not find everything thats expected
+    nmap("gD", function()
+      require("fzf-lua").lsp_finder()
+    end, "Go to everything via finder")
+
     nmap("grr", function()
       require("fzf-lua").lsp_references()
-    end, "Go to definitions")
+    end, "Go to references")
 
     nmap("gri", function()
       require("fzf-lua").lsp_implementations()
