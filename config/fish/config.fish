@@ -45,6 +45,10 @@ abbr --add --command git S \
      --set-cursor \
      --position anywhere "switch % && git pull && git switch - && git rebase -"
 
+abbr --add retry \
+     --set-cursor \
+     --position anywhere "while not %; echo 'Command failed. Retrying...'; sleep 1; end"
+
 # expansion of !!
 function last_history_item; echo $history[1]; end
 abbr --add !! --position anywhere --function last_history_item
