@@ -75,6 +75,11 @@ M.custom_command = {
         local padded_item = string.format("%-" .. longest_name_len .. "s", item)
         local formatted_item = index_padding .. padded_item .. " - " .. M.custom_command.get(item).desc
 
+        -- ignore the index_padding when the biggest index is bigger than 10, as with 11. it auto formats
+        if #M.custom_command.keys() > 10 then
+          formatted_item = padded_item .. " - " .. M.custom_command.get(item).desc
+        end
+
         -- truncate to not run over the selection window
         local max_len = 80
         if #formatted_item > max_len then
