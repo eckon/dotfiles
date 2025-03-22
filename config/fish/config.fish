@@ -19,6 +19,7 @@ set -Ux LESS                "--mouse --wheel-lines=5 -r"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 set fish_greeting
 
+# NOTE: use fish_config to set colors etc.
 fish_vi_key_bindings
 
 
