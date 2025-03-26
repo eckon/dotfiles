@@ -46,6 +46,7 @@ set.sidescrolloff = 5
 set.wrap = false
 
 set.winbar = "%t %m"
+set.winborder = "single"
 
 set.foldenable = false
 set.foldlevel = 99
@@ -64,24 +65,7 @@ set.foldmethod = "expr"
 set.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 vim.diagnostic.config({
-  -- ignore diagnostic context unless its an error (do not spam buffer full of warnings)
-  virtual_text = {
-    format = function(diagnostic)
-      if diagnostic.severity == vim.diagnostic.severity.WARN then
-        return "Warning"
-      end
-
-      if diagnostic.severity == vim.diagnostic.severity.INFO then
-        return "Info"
-      end
-
-      if diagnostic.severity == vim.diagnostic.severity.HINT then
-        return "Hint"
-      end
-
-      return diagnostic.message
-    end,
-  },
+  virtual_lines = true,
   -- open float on default jump bindings ([d and ]d)
   jump = { float = true },
 })
