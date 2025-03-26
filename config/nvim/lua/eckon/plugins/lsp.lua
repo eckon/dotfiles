@@ -1,7 +1,10 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.utils").augroup("lsp")
+local mason_helper = require("eckon.mason-helper")
 
 local M = {
+  -- NOTE: keep lspconfig for more difficult lsp setups also some plugins use it interally
+  --       simpler setups are done manually to see if i can move away from lspconfig
   "neovim/nvim-lspconfig",
   event = "BufReadPre",
   cmd = { "Mason", "MasonUpdate" },
@@ -19,61 +22,57 @@ local M = {
 
 M.config = function()
   require("lazydev").setup()
-
-  require("mason").setup()
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      "cssls",
-      "emmet_ls",
-      "html",
-      "jsonls",
-      "lua_ls",
-      "marksman",
-      "pyright",
-      "rust_analyzer",
-      "tailwindcss",
-      "taplo",
-      "terraformls",
-      "ts_ls",
-      "vimls",
-      "volar",
-      "yamlls",
-    },
+  require("typescript-tools").setup({
+    settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
   })
 
-  -- install packages for formatter and linter
-  require("eckon.mason-helper").ensure_package_installed.execute()
+  require("mason").setup()
+  require("mason-lspconfig").setup()
+
+  local handled_manually = {
+    "lua_ls",
+    "marksman",
+  }
+
+  local handled_by_mason = {
+    "cssls",
+    "emmet_ls",
+    "html",
+    "jsonls",
+    "pyright",
+    "rust_analyzer",
+    "tailwindcss",
+    "taplo",
+    "terraformls",
+    "ts_ls",
+    "vimls",
+    "volar",
+    "yamlls",
+  }
+
+  -- try installing packages for lsps, formatters and linters at least once
+  mason_helper.ensure_package_installed.add(handled_manually)
+  mason_helper.ensure_package_installed.add(handled_by_mason)
+  mason_helper.ensure_package_installed.execute()
+
+  -- NOTE: setup basic lsps manually, to someday move away from lspconfig alltogether
+  vim.lsp.enable(handled_manually)
 
   local lspconfig = require("lspconfig")
   require("mason-lspconfig").setup_handlers({
     function(server_name)
       -- used for cmp, without keep the lspconfig but remove the capabilities
-      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       -- used for blink.cmp
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      lspconfig[server_name].setup({
-        capabilities = capabilities,
-      })
+      -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+      lspconfig[server_name].setup({ capabilities = capabilities })
     end,
-    ["rust_analyzer"] = function()
-      -- do not call anything to not overwrite rustaceanvim
-    end,
-    ["ts_ls"] = function()
-      require("typescript-tools").setup({
-        settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
-      })
-    end,
-    ["lua_ls"] = function()
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            hint = { enable = true },
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-          },
-        },
-      })
-    end,
+
+    -- ignore these, they will be handled either manually or by another plugin
+    ["lua_ls"] = function() end,
+    ["marksman"] = function() end,
+    ["rust_analyzer"] = function() end,
+    ["ts_ls"] = function() end,
   })
 end
 

@@ -3,7 +3,7 @@ local completion_options = {
   blink = 1,
 }
 
-local used_completion = completion_options.blink
+local used_completion = completion_options.cmp
 
 return {
   {

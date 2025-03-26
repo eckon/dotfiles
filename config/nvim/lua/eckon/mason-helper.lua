@@ -23,6 +23,7 @@ M.ensure_package_installed = {
   execute = function()
     local function deferred_function()
       if #to_ensured_packages == 0 then
+        ---@diagnostic disable-next-line: param-type-mismatch
         vim.notify("No packages were provided to be installed - maybe the loading-order is wrong?", "error")
         return
       end
@@ -41,6 +42,7 @@ M.ensure_package_installed = {
             end)
           end
         else
+          ---@diagnostic disable-next-line: param-type-mismatch
           vim.notify("Package " .. package_identifier .. " not found", "warn")
         end
       end
