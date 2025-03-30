@@ -55,16 +55,21 @@ M.config = function()
   mason_helper.ensure_package_installed.add(handled_by_mason)
   mason_helper.ensure_package_installed.execute()
 
+  -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
+  -- used for cmp, without keep the lspconfig but remove the capabilities
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  -- used for blink.cmp
+  -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+  -- NOTE: table gets extended, but parts get overwritten (so .git is overwritten by other markers)
+  vim.lsp.config("*", { capabilities = capabilities, root_markers = { ".git" } })
+
   -- NOTE: setup basic lsps manually, to someday move away from lspconfig alltogether
   vim.lsp.enable(handled_manually)
 
   local lspconfig = require("lspconfig")
   require("mason-lspconfig").setup_handlers({
     function(server_name)
-      -- used for cmp, without keep the lspconfig but remove the capabilities
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      -- used for blink.cmp
-      -- local capabilities = require("blink.cmp").get_lsp_capabilities()
       lspconfig[server_name].setup({ capabilities = capabilities })
     end,
 
