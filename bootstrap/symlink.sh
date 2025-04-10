@@ -26,7 +26,7 @@ CONFIG_PATHS=(
   ["config/zshrc"]=".zshrc"
 )
 
-if cat "/proc/version" | grep --ignore-case "wsl" -q; then
+if [ -f "/proc/version" ] && cat "/proc/version" | grep --ignore-case "wsl" -q; then
   # vscode in wsl will create an additional config file, link it
   # some settings can not be linked like this and need to be put into user file (check vscode for info)
   CONFIG_PATHS+=(

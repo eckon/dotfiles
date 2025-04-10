@@ -22,8 +22,14 @@ brew upgrade
 brew bundle --file "$PACKAGE_ROOT/Brewfile"
 brew cleanup
 
-# wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
-CURRENT_OS="$(cat /proc/version)"
+if [ -f /proc/version ]; then
+  # wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
+  CURRENT_OS="$(cat /proc/version)"
+else
+  # mac has no /proc so we use the uname for that instead
+  CURRENT_OS="$(uname -a)"
+fi
+
 case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
   *'wsl'*)
     echo "[!] Install for WSL"
@@ -40,6 +46,11 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     "$PACKAGE_ROOT/install-neovim.sh"
     "$PACKAGE_ROOT/install-font.sh"
     "$PACKAGE_ROOT/install-kitty.sh"
+    ;;
+
+  *'darwin'*)
+    echo "[!] Install for Mac"
+    "$PACKAGE_ROOT/install-fish.sh"
     ;;
 
   *)
