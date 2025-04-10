@@ -1,6 +1,7 @@
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 
+brew "bash"
 brew "bat"
 brew "fd"
 brew "fish"
