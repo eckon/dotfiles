@@ -1,4 +1,5 @@
 # -------------------- Sources --------------------
+test -d /opt/homebrew;      and eval "$(/opt/homebrew/bin/brew shellenv)"
 test -d /home/linuxbrew;    and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 test -d ~/.local/share/fnm; and fish_add_path ~/.local/share/fnm
