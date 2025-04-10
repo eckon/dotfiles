@@ -10,7 +10,21 @@ end
 local function open_daily_note(date_string)
   local input = date_string or "today"
   local date_format_parameter = "+(%Y) (%m-%B) (%Y-%m-%d) (%A)"
-  local date_result = vim.fn.system({ "date", date_format_parameter, "-d", input }):gsub("\n", "")
+
+  -- macs `date` function is different, use `gdate` then as this is like linux
+  local date_function = "date"
+  if vim.fn.executable("gdate") then
+    date_function = "gdate"
+  end
+
+  local date_result = vim.fn
+    .system({
+      date_function,
+      date_format_parameter,
+      "-d",
+      input,
+    })
+    :gsub("\n", "")
 
   local year, month, date, day = date_result:match("%((.*)%) %((.*)%) %((.*)%) %((.*)%)")
 
