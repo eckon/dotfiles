@@ -5,6 +5,7 @@ local mason_helper = require("eckon.mason-helper")
 local M = {
   -- NOTE: keep lspconfig for more difficult lsp setups also some plugins use it interally
   --       simpler setups are done manually to see if i can move away from lspconfig
+  -- NOTE: lspconfig is also using lsp/ folder so using vim.lsp.enable() is enough
   "neovim/nvim-lspconfig",
   event = "BufReadPre",
   cmd = { "Mason", "MasonUpdate" },
@@ -12,6 +13,7 @@ local M = {
     {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
+      -- NOTE: mainly used for automatic installation of lsp packages (mapping lsp <-> mason)
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
     { "folke/lazydev.nvim", ft = { "lua" } },
@@ -21,6 +23,9 @@ local M = {
 }
 
 M.config = function()
+  -- enable inlay hints by default in all buffers with lsp and this feature
+  vim.lsp.inlay_hint.enable(true)
+
   require("lazydev").setup()
   require("typescript-tools").setup({
     settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
@@ -29,12 +34,12 @@ M.config = function()
   require("mason").setup()
   require("mason-lspconfig").setup()
 
-  local handled_manually = {
+  local servers = {
+    -- handled locally in this repo
     "lua_ls",
     "marksman",
-  }
 
-  local handled_by_mason = {
+    -- handled by lspconfig
     "cssls",
     "emmet_ls",
     "html",
@@ -51,8 +56,7 @@ M.config = function()
   }
 
   -- try installing packages for lsps, formatters and linters at least once
-  mason_helper.ensure_package_installed.add(handled_manually)
-  mason_helper.ensure_package_installed.add(handled_by_mason)
+  mason_helper.ensure_package_installed.add(servers)
   mason_helper.ensure_package_installed.execute()
 
   -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
@@ -61,33 +65,10 @@ M.config = function()
   -- used for blink.cmp
   -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-  -- NOTE: table gets extended, but parts get overwritten (so .git is overwritten by other markers)
+  -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
   vim.lsp.config("*", { capabilities = capabilities, root_markers = { ".git" } })
-
-  -- NOTE: setup basic lsps manually, to someday move away from lspconfig alltogether
-  vim.lsp.enable(handled_manually)
-
-  local lspconfig = require("lspconfig")
-  require("mason-lspconfig").setup_handlers({
-    function(server_name)
-      lspconfig[server_name].setup({ capabilities = capabilities })
-    end,
-
-    -- ignore these, they will be handled either manually or by another plugin
-    ["lua_ls"] = function() end,
-    ["marksman"] = function() end,
-    ["rust_analyzer"] = function() end,
-    ["ts_ls"] = function() end,
-  })
+  vim.lsp.enable(servers)
 end
-
-autocmd("lspattach", {
-  desc = "Enable inlay hints by default in all buffers with lsp",
-  callback = function()
-    vim.lsp.inlay_hint.enable(true)
-  end,
-  group = augroup,
-})
 
 autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",

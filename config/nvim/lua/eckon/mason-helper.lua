@@ -29,6 +29,9 @@ M.ensure_package_installed = {
       end
 
       local registry = require("mason-registry")
+
+      -- NOTE: just used as mason has not 1:1 name of the lsp itself
+      --       otherwise I would need to manually map the lsp to mason
       local lspconfig = require("mason-lspconfig")
 
       for _, package_identifier in ipairs(to_ensured_packages) do
