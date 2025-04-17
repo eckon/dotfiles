@@ -13,7 +13,7 @@ local function open_daily_note(date_string)
 
   -- macs `date` function is different, use `gdate` then as this is like linux
   local date_function = "date"
-  if vim.fn.executable("gdate") then
+  if vim.fn.executable("gdate") == 1 then
     date_function = "gdate"
   end
 
