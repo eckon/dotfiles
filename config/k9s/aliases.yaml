@@ -1,4 +1,5 @@
 aliases:
+  # default
   dp: deployments
   sec: v1/secrets
   jo: jobs
@@ -7,3 +8,10 @@ aliases:
   ro: roles
   rb: rolebindings
   np: networkpolicies
+
+  # custom
+  n: namespaces
+  ns: namespaces
+  p: pods
+  po: pods
+  s: secrets
