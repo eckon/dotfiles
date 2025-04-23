@@ -16,6 +16,7 @@ local M = {
       "eslint_d",
       "markdownlint",
       "selene",
+      "tflint",
     })
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
