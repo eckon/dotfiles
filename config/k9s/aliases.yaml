@@ -15,3 +15,4 @@ aliases:
   p: pods
   po: pods
   s: secrets
+  c: contexts
