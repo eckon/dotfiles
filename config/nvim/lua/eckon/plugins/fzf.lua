@@ -16,12 +16,6 @@ M.config = function()
 end
 
 M.init = function()
-  -- use fzf-lua's `select` function to replace `vim.ui.select`
-  ---@diagnostic disable-next-line: unused-local
-  require("fzf-lua").register_ui_select(function(config, _items)
-    return { prompt = config.prompt .. " > " }
-  end)
-
   local bind_map = require("eckon.utils").bind_map
   local nmap = function(lhs, rhs, desc)
     bind_map("n")(lhs, rhs, { desc = "Fzf: " .. desc })

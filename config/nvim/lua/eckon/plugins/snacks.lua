@@ -27,11 +27,24 @@ local M = {
       statuscolumn = { enabled = true },
       -- enhanced vim.ui.input
       input = { enabled = true },
+      picker = {
+        enabled = true,
+        layout = {
+          preset = function()
+            return vim.o.columns >= 120 and "ivy" or "ivy_split"
+          end,
+        },
+        matcher = { frecency = true },
+      },
       styles = {
+        ---@diagnostic disable-next-line: missing-fields
         blame_line = { width = 0.9, height = 0.9 },
+        ---@diagnostic disable-next-line: missing-fields
         notification = { wo = { wrap = true } },
+        ---@diagnostic disable-next-line: missing-fields
         ["notification.history"] = { width = 0.9, height = 0.9 },
         -- make vim.ui.input handle like any other buffer (esc to normal mode, esc again to close)
+        ---@diagnostic disable-next-line: missing-fields
         input = {
           keys = {
             i_esc = { "<esc>", "stopinsert", mode = "i" },
@@ -44,13 +57,23 @@ local M = {
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.print = function(...)
-      require("snacks.debug").inspect(...)
+      require("snacks").debug.inspect(...)
     end
 
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.input = function(...)
-      require("snacks.input").input(...)
+      require("snacks").input.input(...)
     end
+
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.ui.select = function(...)
+      require("snacks").picker.select(...)
+    end
+
+    local nmap = require("eckon.utils").bind_map("n")
+    nmap("<TAB><TAB>", function()
+      require("snacks").picker.pick()
+    end, { desc = "snacks picker" })
   end,
 }
 
