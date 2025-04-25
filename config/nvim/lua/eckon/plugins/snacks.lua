@@ -36,12 +36,14 @@ local M = {
       -- enhanced vim.ui.select and be used as a picker for many things
       picker = {
         enabled = true,
-        layout = {
-          preset = function()
-            return vim.o.columns >= 120 and "ivy" or "ivy_split"
-          end,
-        },
+        layout = { preset = "ivy_split" },
         matcher = { frecency = true },
+        sources = {
+          select = { layout = { preset = "vscode" } },
+          pickers = { layout = { preset = "vscode" } },
+          grep = { hidden = true },
+          finder = { hidden = true },
+        },
       },
 
       styles = {
@@ -86,12 +88,16 @@ local M = {
     end
 
     nmap("<Leader>ff", function()
-      require("snacks").picker.files({ hidden = true })
+      require("snacks").picker.files()
     end, "Search files based on filename")
 
     nmap("<Leader>fa", function()
-      require("snacks").picker.grep({ regex = false, hidden = true })
+      require("snacks").picker.grep({ regex = false })
     end, "Grep files without regex")
+
+    nmap("<Leader>fA", function()
+      require("snacks").picker.grep()
+    end, "Grep files with regex")
 
     nmap("<Leader>fq", function()
       require("snacks").picker.qflist()
@@ -105,22 +111,14 @@ local M = {
       require("snacks").picker.git_status()
     end, "Search git changes")
 
-    nmap("<Leader>fl", function()
-      require("snacks").picker.lines()
-    end, "Search current buffer")
-
     nmap("<Leader>fh", function()
       require("snacks").picker.help()
     end, "Search help")
-
-    nmap("<Leader>fc", function()
-      require("snacks").picker.resume()
-    end, "Continue/Resume last search")
   end,
 }
 
-cc.add("Picker", {
-  desc = "Open all available picker",
+cc.add("Pickers", {
+  desc = "Show all available picker",
   callback = "lua Snacks.picker.pick()",
 })
 
