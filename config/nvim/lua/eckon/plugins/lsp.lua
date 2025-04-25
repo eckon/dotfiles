@@ -17,7 +17,7 @@ local M = {
       dependencies = "williamboman/mason-lspconfig.nvim",
     },
     { "folke/lazydev.nvim", ft = { "lua" } },
-    { "mrcjkb/rustaceanvim", version = "^5", lazy = false },
+    { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
   },
 }
@@ -27,6 +27,7 @@ M.config = function()
   vim.lsp.inlay_hint.enable(true)
 
   require("lazydev").setup()
+
   require("typescript-tools").setup({
     settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
   })
@@ -34,6 +35,9 @@ M.config = function()
   require("mason").setup()
   require("mason-lspconfig").setup()
 
+  -- edge cases therefore removed:
+  -- - ts_ls         -> typescript-tools handles all of it (do not install)
+  -- - rust_analyzer -> rustaceanvim handles setup, but we need to install it
   local servers = {
     -- handled locally in this repo
     "lua_ls",
@@ -45,11 +49,9 @@ M.config = function()
     "html",
     "jsonls",
     "pyright",
-    "rust_analyzer",
     "tailwindcss",
     "taplo",
     "terraformls",
-    "ts_ls",
     "vimls",
     "volar",
     "yamlls",
@@ -57,6 +59,8 @@ M.config = function()
 
   -- try installing packages for lsps, formatters and linters at least once
   mason_helper.ensure_package_installed.add(servers)
+  -- rustaceanvim needs it, but we are not allowed to set it up
+  mason_helper.ensure_package_installed.add({ "rust_analyzer" })
   mason_helper.ensure_package_installed.execute()
 
   -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
