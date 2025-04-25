@@ -51,6 +51,11 @@ abbr --add retry \
      --set-cursor \
      --position anywhere "while not %; echo 'Command failed. Retrying...'; sleep 1; end"
 
+# quickly add a diff between two files, uses custom git word diff alias
+abbr --add compare \
+     --set-cursor \
+     --position anywhere "git wdiff (cat % | sort | psub) (cat second.txt | sort | psub)"
+
 # expansion of !!
 function last_history_item; echo $history[1]; end
 abbr --add !! --position anywhere --function last_history_item
