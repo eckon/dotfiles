@@ -135,18 +135,18 @@ cc.add("Todo", {
       end
 
       local opts = {
-        -- search should allow regex, so dont escape automatically
-        no_esc = true,
+        -- search is in live search, user then can use normal picker to further filter
+        live = false,
+        regex = true,
         search = "^- \\[ \\]",
-        -- we have templates, ignore them always
-        fzf_opts = { ["--query"] = "!_templates " },
+        exclude = { "_templates" },
       }
 
       if choice ~= "all" then
-        opts.fzf_opts["--query"] = opts.fzf_opts["--query"] .. "'" .. choice .. " "
+        opts.dirs = { choice }
       end
 
-      require("fzf-lua").grep(opts)
+      require("snacks").picker.grep(opts)
     end)
   end,
 })

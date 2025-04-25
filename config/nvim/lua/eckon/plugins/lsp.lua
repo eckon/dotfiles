@@ -82,30 +82,18 @@ autocmd("lspattach", {
       bind_map("n")(lhs, rhs, { desc = "LSP: " .. desc, buffer = args.buf })
     end
 
-    local ok, _ = pcall(require, "fzf-lua")
-    if not ok then
-      ---@diagnostic disable-next-line: param-type-mismatch
-      vim.notify("LSP required plugins are not installed, please install fzf-lua", "error")
-      return
-    end
-
     -- `K` is default to hover in neovim, for more see `lsp-defaults`
 
     nmap("gd", function()
-      require("fzf-lua").lsp_definitions()
+      require("snacks").picker.lsp_definitions()
     end, "Go to definitions")
 
-    -- this should collect all things, but might not find everything thats expected
-    nmap("gD", function()
-      require("fzf-lua").lsp_finder()
-    end, "Go to everything via finder")
-
     nmap("grr", function()
-      require("fzf-lua").lsp_references()
+      require("snacks").picker.lsp_references()
     end, "Go to references")
 
     nmap("gri", function()
-      require("fzf-lua").lsp_implementations()
+      require("snacks").picker.lsp_implementations()
     end, "Go to implementations")
   end,
   group = augroup,

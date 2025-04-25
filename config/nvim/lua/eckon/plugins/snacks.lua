@@ -5,8 +5,10 @@ local augroup = require("eckon.utils").augroup("snacks")
 
 local M = {
   "folke/snacks.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   priority = 1000,
   lazy = false,
+
   config = function()
     require("snacks").setup({
       -- way of ignoring many plugins on big files, see bigfiles filetype
@@ -21,12 +23,17 @@ local M = {
           end)
         end,
       },
+
       -- pretty toast like notifications
       notifier = { enabled = true },
+
       -- enhanced statusline
       statuscolumn = { enabled = true },
+
       -- enhanced vim.ui.input
       input = { enabled = true },
+
+      -- enhanced vim.ui.select and be used as a picker for many things
       picker = {
         enabled = true,
         layout = {
@@ -36,6 +43,7 @@ local M = {
         },
         matcher = { frecency = true },
       },
+
       styles = {
         ---@diagnostic disable-next-line: missing-fields
         blame_line = { width = 0.9, height = 0.9 },
@@ -54,6 +62,7 @@ local M = {
       },
     })
   end,
+
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.print = function(...)
@@ -70,12 +79,50 @@ local M = {
       require("snacks").picker.select(...)
     end
 
-    local nmap = require("eckon.utils").bind_map("n")
-    nmap("<TAB><TAB>", function()
-      require("snacks").picker.pick()
-    end, { desc = "snacks picker" })
+    -- snacks.picker
+    local bind_map = require("eckon.utils").bind_map
+    local nmap = function(lhs, rhs, desc)
+      bind_map("n")(lhs, rhs, { desc = "Picker: " .. desc })
+    end
+
+    nmap("<Leader>ff", function()
+      require("snacks").picker.files({ hidden = true })
+    end, "Search files based on filename")
+
+    nmap("<Leader>fa", function()
+      require("snacks").picker.grep({ regex = false, hidden = true })
+    end, "Grep files without regex")
+
+    nmap("<Leader>fq", function()
+      require("snacks").picker.qflist()
+    end, "Search quickfix list entries")
+
+    nmap("<Leader>fb", function()
+      require("snacks").picker.buffers()
+    end, "Search open buffers")
+
+    nmap("<Leader>fg", function()
+      require("snacks").picker.git_status()
+    end, "Search git changes")
+
+    nmap("<Leader>fl", function()
+      require("snacks").picker.lines()
+    end, "Search current buffer")
+
+    nmap("<Leader>fh", function()
+      require("snacks").picker.help()
+    end, "Search help")
+
+    nmap("<Leader>fc", function()
+      require("snacks").picker.resume()
+    end, "Continue/Resume last search")
   end,
 }
+
+cc.add("Picker", {
+  desc = "Open all available picker",
+  callback = "lua Snacks.picker.pick()",
+})
 
 cc.add("Browser", {
   desc = "Open buffer in browser",

@@ -62,7 +62,7 @@ M.custom_command = {
     end
 
     vim.ui.select(M.custom_command.keys(), {
-      prompt = "Custom Command > ",
+      prompt = "Custom Command",
       format_item = function(item)
         -- handle the shown index (number 10. etc will be shown and misaligns the format here otherwise)
         -- so we add spaces before the item to align with the highest number
