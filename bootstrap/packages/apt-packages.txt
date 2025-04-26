@@ -1,6 +1,5 @@
 autoconf
 automake
-bash
 bison
 build-essential
 curl
