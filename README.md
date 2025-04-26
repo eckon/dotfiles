@@ -17,32 +17,33 @@ Bigger parts have their own README and can be found here:
 
 Installation of everything in my configuration:
 
-- install `git`
-  - optionally `just`
-- clone this repository
-- run setup scripts
-  - if `just` is installed just do `just setup`
-    - otherwise look in the `justfile` and run the scripts under `setup` manually
+- pre-requirements
+  - `git` to clone this repository
+  - _`just` (optional) to execute different scripts_
+- run `just setup`
+  - _or manually execute the `setup` step, see [justfile](./justfile)_
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
-  - should correctly handle the different OSes
+  - should handle the different OSes
 
 ## System Structure
 
 - `~` and `~/.config/`
   - includes the "real" configurations
+  - will symlink to the this project
 - `~/Development/dotfiles/`
   - has this project inside, acts as a central configuration place
 - `~/Development/personal/`
   - has my personal projects
 - `~/Development/work/`
   - has work related projects
-  - create a `.config/git/work` file (similar to the default `.config/git/config`
+  - use a `.config/git/work` file to handle work related git configurations
+    - these should not be versioned, and therefore need to be added manually
 
 ## Used software
 
 Used software can be found here:
 
-- [packages](./bootstrap/packages/packages.txt) which mostly includes
+- [packages](./bootstrap/packages/) which mostly includes
   - [Brewfile](./bootstrap/packages/Brewfile)
   - [apt-packages.txt](./bootstrap/packages/apt-packages.txt)
   - and other specific scripts
