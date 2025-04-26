@@ -4,3 +4,5 @@ if &modifiable
 else
   nnoremap <buffer> q <C-w>q
 endif
+
+let b:miniindentscope_disable = v:true
