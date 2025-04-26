@@ -1,5 +1,6 @@
 -- needs to be set before lazy is loaded
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- package/plugins management
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
