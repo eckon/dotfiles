@@ -42,7 +42,8 @@ local M = {
           select = { layout = { preset = "vscode" } },
           pickers = { layout = { preset = "vscode" } },
           grep = { hidden = true },
-          finder = { hidden = true },
+          files = { hidden = true },
+          buffers = { hidden = true },
         },
       },
 
@@ -89,7 +90,7 @@ local M = {
 
     nmap("<Leader>ff", function()
       require("snacks").picker.files()
-    end, "Search files based on filename")
+    end, "Search files")
 
     nmap("<Leader>fa", function()
       require("snacks").picker.grep({ regex = false })
