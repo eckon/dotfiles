@@ -9,6 +9,6 @@ Contains idempotent scripts for setting up a new environment, mainly to symlink 
     - `Brewfile` for `brew`
     - `apt-packages.txt` for `apt`
   - specific installation scripts for other tools
-    - for example `install-neovim.sh` for `neovim`
+    - for example `install-fish.sh` for `fish`
   - is setup to be used with different OSes in the future
 - `symlink.sh` symlinks all my local configurations and scripts

@@ -2,7 +2,6 @@ autoconf
 automake
 bison
 build-essential
-curl
 entr
 libevent-dev
 libfuse2

@@ -34,7 +34,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
   *'wsl'*)
     echo "[!] Install for WSL"
     "$PACKAGE_ROOT/install-fish.sh"
-    "$PACKAGE_ROOT/install-neovim.sh"
+    "$PACKAGE_ROOT/install-neovim-appimage.sh"
     if (command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Font")); then
       echo "[!] Manually install FiraCode Nerd Font and set in terminal"
     fi
@@ -43,7 +43,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
   *'linux'*)
     echo "[!] Install for Linux"
     "$PACKAGE_ROOT/install-fish.sh"
-    "$PACKAGE_ROOT/install-neovim.sh"
+    "$PACKAGE_ROOT/install-neovim-appimage.sh"
     "$PACKAGE_ROOT/install-font.sh"
     "$PACKAGE_ROOT/install-kitty.sh"
     ;;
@@ -51,6 +51,8 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
   *'darwin'*)
     echo "[!] Install for Mac"
     "$PACKAGE_ROOT/install-fish.sh"
+    # prebuilt packages on mac are a bit finicky, for now I just use the stable neovim version
+    brew install "neovim"
     ;;
 
   *)
