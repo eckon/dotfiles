@@ -1,21 +1,11 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.utils").augroup("lsp")
-local mason_helper = require("eckon.mason-helper")
 
 local M = {
-  -- NOTE: keep lspconfig for more difficult lsp setups also some plugins use it interally
-  --       simpler setups are done manually to see if i can move away from lspconfig
-  -- NOTE: lspconfig is also using lsp/ folder so using vim.lsp.enable() is enough
+  -- used for more complicated setups, all handled by the `vim.lsp.enable()` part
   "neovim/nvim-lspconfig",
-  event = "BufReadPre",
-  cmd = { "Mason", "MasonUpdate" },
   dependencies = {
-    {
-      "williamboman/mason.nvim",
-      build = ":MasonUpdate",
-      -- NOTE: mainly used for automatic installation of lsp packages (mapping lsp <-> mason)
-      dependencies = "williamboman/mason-lspconfig.nvim",
-    },
+    { "mason-org/mason.nvim", build = ":MasonUpdate", lazy = false },
     { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
@@ -23,9 +13,6 @@ local M = {
 }
 
 M.config = function()
-  -- enable inlay hints by default in all buffers with lsp and this feature
-  vim.lsp.inlay_hint.enable(true)
-
   require("lazydev").setup()
 
   require("typescript-tools").setup({
@@ -33,11 +20,11 @@ M.config = function()
   })
 
   require("mason").setup()
-  require("mason-lspconfig").setup()
 
+  -- NOTE: manual installation is needed
   -- edge cases therefore removed:
-  -- - ts_ls         -> typescript-tools handles all of it (do not install)
-  -- - rust_analyzer -> rustaceanvim handles setup, but we need to install it
+  -- - ts_ls         -> typescript-tools - handles all of it  -> **DO NOT INSTALL**
+  -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
   local servers = {
     -- handled locally in this repo
     "lua_ls",
@@ -57,12 +44,6 @@ M.config = function()
     "yamlls",
   }
 
-  -- try installing packages for lsps, formatters and linters at least once
-  mason_helper.ensure_package_installed.add(servers)
-  -- rustaceanvim needs it, but we are not allowed to set it up
-  mason_helper.ensure_package_installed.add({ "rust_analyzer" })
-  mason_helper.ensure_package_installed.execute()
-
   -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
   -- used for cmp, without keep the lspconfig but remove the capabilities
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -72,6 +53,9 @@ M.config = function()
   -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
   vim.lsp.config("*", { capabilities = capabilities, root_markers = { ".git" } })
   vim.lsp.enable(servers)
+
+  -- enable inlay hints by default in all buffers with lsp and this feature
+  vim.lsp.inlay_hint.enable(true)
 end
 
 autocmd("lspattach", {

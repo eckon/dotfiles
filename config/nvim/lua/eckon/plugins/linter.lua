@@ -1,7 +1,9 @@
 local M = {
   "mfussenegger/nvim-lint",
   lazy = true,
+
   config = function()
+    -- NOTE: manual installation is needed
     require("lint").linters_by_ft = {
       javascript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
@@ -11,14 +13,8 @@ local M = {
       typescriptreact = { "eslint_d" },
     }
   end,
-  init = function()
-    require("eckon.mason-helper").ensure_package_installed.add({
-      "eslint_d",
-      "markdownlint",
-      "selene",
-      "tflint",
-    })
 
+  init = function()
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
       desc = "Try linting on save or open",
       callback = function()

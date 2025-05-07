@@ -29,13 +29,13 @@ Last part are some helper scripts which can be found in `lua/eckon`.
   - plugin manager
   - plugins
   - treesitters
-  - lsps
-  - linters
-  - formatters
-  - etc
 - for the initial start, this means it will take some time until everything is installed
   - just wait until it looks fine
   - early closing and restarting should be fine and fix itself over time
+- use `:Mason` to install (based on the setup in the lsp/linter/formatter config files)
+  - lsps
+  - linters
+  - formatters
 - run `:checkhealth` to see if something is missing
 
 ## References
