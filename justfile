@@ -21,7 +21,7 @@ setup: packages symlinks
 [confirm('This will overwrite neovim, are you sure? (y/N)')]
 [group('setup')]
 @neovim:
-  ./bootstrap/packages/install-neovim.sh --force
+  ./bootstrap/packages/install-neovim-appimage.sh --force
 
 
 # run all formatters and linters over the whole repo
