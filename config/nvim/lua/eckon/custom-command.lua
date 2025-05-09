@@ -53,32 +53,12 @@ M.custom_command = {
       end
     end
 
-    local find_index = function(name)
-      for i, n in ipairs(M.custom_command.keys()) do
-        if n == name then
-          return i
-        end
-      end
-    end
-
     vim.ui.select(M.custom_command.keys(), {
       prompt = "Custom Command",
       format_item = function(item)
-        -- handle the shown index (number 10. etc will be shown and misaligns the format here otherwise)
-        -- so we add spaces before the item to align with the highest number
-        local index = find_index(item)
-        local index_len = #tostring(index)
-        local biggest_index_len = #tostring(#M.custom_command.keys())
-        local index_padding = string.rep(" ", biggest_index_len - index_len)
-
         -- pad command name with spaces to align the description
-        local padded_item = string.format("%-" .. longest_name_len .. "s", item)
-        local formatted_item = index_padding .. padded_item .. " - " .. M.custom_command.get(item).desc
-
-        -- ignore the index_padding when the biggest index is bigger than 10, as with 11. it auto formats
-        if #M.custom_command.keys() > 10 then
-          formatted_item = padded_item .. " - " .. M.custom_command.get(item).desc
-        end
+        local padded_item = ("%-" .. longest_name_len .. "s"):format(item)
+        local formatted_item = padded_item .. "   " .. M.custom_command.get(item).desc
 
         -- truncate to not run over the selection window
         local max_len = 80
