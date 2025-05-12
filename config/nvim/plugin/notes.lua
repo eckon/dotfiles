@@ -73,6 +73,7 @@ local function open_daily_note(date_string)
       "## private",
       "",
       "- [ ] move previous private tasks here",
+      "- [ ] do some basic physical exercises",
       "- [ ] look into [[todo]]",
     })
   end
