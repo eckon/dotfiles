@@ -41,8 +41,8 @@ local M = {
         sources = {
           select = { layout = { preset = "vscode" } },
           pickers = { layout = { preset = "vscode" } },
-          grep = { hidden = true },
-          files = { hidden = true },
+          grep = { hidden = true, ignored = true },
+          files = { hidden = true, ignored = true },
           buffers = { hidden = true },
         },
       },
