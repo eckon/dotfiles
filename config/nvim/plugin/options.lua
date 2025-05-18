@@ -65,7 +65,7 @@ set.foldmethod = "expr"
 set.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 vim.diagnostic.config({
-  virtual_lines = true,
+  virtual_lines = false,
   -- open float on default jump bindings ([d and ]d)
   jump = { float = true },
 })
