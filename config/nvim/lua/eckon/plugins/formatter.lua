@@ -6,15 +6,16 @@ local M = {
     require("conform").setup({
       -- NOTE: manual installation is needed
       formatters_by_ft = {
-        lua = { "stylua" },
-        markdown = { "prettierd", "markdownlint" },
-        json = { "prettierd" },
+        ["_"] = { "trim_whitespace" },
         javascript = { "prettierd", "eslint_d" },
         javascriptreact = { "prettierd", "eslint_d" },
+        json = { "prettierd" },
+        lua = { "stylua" },
+        markdown = { "prettierd", "markdownlint" },
+        python = { "black" },
         typescript = { "prettierd", "eslint_d" },
         typescriptreact = { "prettierd", "eslint_d" },
         yaml = { "prettierd" },
-        ["_"] = { "trim_whitespace" },
       },
     })
   end,
