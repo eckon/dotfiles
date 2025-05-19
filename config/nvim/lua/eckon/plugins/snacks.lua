@@ -42,7 +42,7 @@ local M = {
           select = { layout = { preset = "vscode" } },
           pickers = { layout = { preset = "vscode" } },
           grep = { hidden = true, ignored = true },
-          files = { hidden = true, ignored = true },
+          files = { hidden = true },
           buffers = { hidden = true },
         },
       },
