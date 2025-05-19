@@ -16,6 +16,7 @@ type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf
 # -------------------- Configurations --------------------
 set -Ux EDITOR              "nvim"
 set -Ux VISUAL              "nvim"
+set -Ux MANPAGER            "nvim +Man!"
 set -Ux LESS                "--mouse --wheel-lines=5 -r"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 set fish_greeting
