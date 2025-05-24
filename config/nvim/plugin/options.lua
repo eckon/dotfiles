@@ -44,8 +44,6 @@ set.fillchars = { fold = " " }
 set.scrolloff = 5
 set.sidescrolloff = 5
 set.wrap = false
-
-set.winbar = "%t %m"
 set.winborder = "single"
 
 set.foldenable = false
