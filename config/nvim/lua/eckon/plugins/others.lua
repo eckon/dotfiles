@@ -1,6 +1,5 @@
 return {
   -- General
-  { "tpope/vim-sleuth" },
   {
     "kylechui/nvim-surround",
     event = "BufReadPre",
