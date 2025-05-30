@@ -9,31 +9,22 @@ local M = {
     { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
-    { "seblyng/roslyn.nvim", ft = "cs" },
   },
 }
 
 M.config = function()
   require("lazydev").setup()
-  require("roslyn").setup()
 
   require("typescript-tools").setup({
     settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
   })
 
-  require("mason").setup({
-    registries = {
-      "github:mason-org/mason-registry",
-      -- used for c#, registries can be removed when its not used anymore
-      "github:Crashdummyy/mason-registry",
-    },
-  })
+  require("mason").setup()
 
   -- NOTE: manual installation is needed
   -- edge cases therefore removed:
   -- - ts_ls         -> typescript-tools - handles all of it  -> **DO NOT INSTALL**
   -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
-  -- - c#            -> roslyn.nvim      - handles only setup -> **DO INSTALL**
   local servers = {
     -- handled locally in this repo
     "lua_ls",
