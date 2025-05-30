@@ -115,6 +115,15 @@ local M = {
     nmap("<Leader>fh", function()
       require("snacks").picker.help()
     end, "Search help")
+
+    -- continue with previous search
+    nmap("<Leader>fc", function()
+      require("snacks").picker.resume()
+    end, "Resume")
+
+    nmap("<Leader>fr", function()
+      require("snacks").picker.resume()
+    end, "Resume")
   end,
 }
 
