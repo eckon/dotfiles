@@ -9,6 +9,8 @@ local M = {
     { "folke/lazydev.nvim", ft = { "lua" } },
     { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
     { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
+    -- used in the `/lsp` folder
+    { "b0o/schemastore.nvim" },
   },
 }
 
@@ -25,16 +27,14 @@ M.config = function()
   -- edge cases therefore removed:
   -- - ts_ls         -> typescript-tools - handles all of it  -> **DO NOT INSTALL**
   -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
+  -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
   local servers = {
-    -- handled locally in this repo
-    "lua_ls",
-    "marksman",
-
-    -- handled by lspconfig
     "cssls",
     "emmet_ls",
     "html",
     "jsonls",
+    "lua_ls",
+    "marksman",
     "pyright",
     "tailwindcss",
     "taplo",
