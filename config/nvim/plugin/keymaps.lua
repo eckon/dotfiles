@@ -1,6 +1,7 @@
 local bind_map = require("eckon.utils").bind_map
 local nmap = bind_map("n")
-local vmap = bind_map("v")
+-- xmap is used for visual mode mappings as it excludes operator pending mode
+local xmap = bind_map("x")
 
 --- OVERWRITE mappings (mainly enhances default behaviour)
 -- disable annoying keys
@@ -11,8 +12,12 @@ bind_map({ "v", "n", "o" })("<Space>", "<Nop>")
 nmap("U", "<C-r>")
 
 -- re-highlight text after indenting
-vmap("<", "<gv")
-vmap(">", ">gv")
+xmap("<", "<gv")
+xmap(">", ">gv")
+
+-- search in selection
+xmap("/", "<Esc>/\\%V")
+xmap("?", "<Esc>?\\%V")
 
 -- keep cursor position while joining single lines
 nmap("J", function()
@@ -26,8 +31,8 @@ nmap("<C-u>", "<C-u>zz")
 nmap("<C-d>", "<C-d>zz")
 
 -- align deleting to pasting, as `v_P` is the same as  `"_dp` so should be `D` as well
-vmap("D", '"_d', { desc = "Delete without overwriting register" })
-vmap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
+xmap("D", '"_d', { desc = "Delete without overwriting register" })
+xmap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
 
 ---Enhance jk by
 ---1. adding it to the jumplist if its a jump higher than 1
