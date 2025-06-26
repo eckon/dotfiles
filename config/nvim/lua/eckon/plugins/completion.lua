@@ -44,7 +44,13 @@ return {
 
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+        sources = cmp.config.sources({ { name = "path" } }, {
+          {
+            name = "cmdline",
+            -- QUICKFIX: for wsl as otherwise autocompletion with `!` will be stuck
+            option = { ignore_cmds = { "Man", "!", "read", "write" } },
+          },
+        }),
       })
 
       cmp.setup({
