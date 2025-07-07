@@ -1,6 +1,5 @@
 gui:
   border: 'single'
-  showBottomLine: false
   expandFocusedSidePanel: true
   returnImmediately: true
 
