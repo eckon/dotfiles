@@ -23,12 +23,21 @@ M.config = function()
 
   require("mason").setup()
 
+  -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
+  -- used for cmp, without keep the lspconfig but remove the capabilities
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  -- used for blink.cmp
+  -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+  -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
+  vim.lsp.config("*", { capabilities = capabilities, root_markers = { ".git" } })
+
   -- NOTE: manual installation is needed
   -- edge cases therefore removed:
   -- - ts_ls         -> typescript-tools - handles all of it  -> **DO NOT INSTALL**
   -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
   -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
-  local servers = {
+  vim.lsp.enable({
     "cssls",
     "emmet_ls",
     "html",
@@ -40,19 +49,8 @@ M.config = function()
     "taplo",
     "terraformls",
     "vimls",
-    "vue_ls",
     "yamlls",
-  }
-
-  -- NOTE: keeping both capabilities, until I decide for one or the other completion engine
-  -- used for cmp, without keep the lspconfig but remove the capabilities
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
-  -- used for blink.cmp
-  -- local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-  -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
-  vim.lsp.config("*", { capabilities = capabilities, root_markers = { ".git" } })
-  vim.lsp.enable(servers)
+  })
 
   -- enable inlay hints by default in all buffers with lsp and this feature
   vim.lsp.inlay_hint.enable(true)
