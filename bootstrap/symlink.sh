@@ -17,6 +17,7 @@ CONFIG_PATHS=(
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/nvim"]=".config/nvim"
+  ["config/opencode/opencode.json"]=".config/opencode/opencode.json"
   ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
