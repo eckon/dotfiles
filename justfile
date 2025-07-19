@@ -58,7 +58,7 @@ markdown-check: markdown-format markdown-lint
 [group('markdown')]
 [group('format')]
 markdown-format:
-  npx prettier --write '**/*.md'
+  npx prettier --write --cache --log-level warn '**/*.md'
 
 [group('markdown')]
 [group('lint')]
@@ -73,7 +73,7 @@ scripts-check: scripts-format scripts-lint
 [group('scripts')]
 [group('format')]
 scripts-format:
-  npx prettier --write '**/*.sh'
+  npx prettier --write --cache --log-level warn '**/*.sh'
 
 [group('scripts')]
 [group('lint')]
