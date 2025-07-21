@@ -43,6 +43,9 @@
 [rebase]
 	autoStash = true
 
+[fetch]
+	prune = true
+
 [branch]
 	sort = -committerdate
 
