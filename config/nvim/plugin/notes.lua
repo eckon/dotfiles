@@ -55,7 +55,7 @@ local function open_daily_note(date_string)
       "- [ ] write down potential retro topics",
       "- [ ] check my goals and tasks",
       "  - [ ] `UI/UX` tag and focus on new tasks",
-      "  - [ ] `DX` tag and setting new standards",
+      "  - [ ] `DX`/`TechnicalDebt` tag and improve workflows",
       "  - [ ] `Research` tag and creation of new dev-day tasks",
       "  - [ ] `Knowledge-Share` tag and taking Hendrik tasks",
       "  - [ ] `Monitoring` tag and Improving Monitoring",
