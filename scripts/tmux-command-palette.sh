@@ -20,8 +20,9 @@ commands=(
 # Use fzf to create a searchable menu (no height limit since we're in a popup)
 selected=$(
   printf "%s\n" "${commands[@]}" \
-  | cut -d'|' -f1 \
-  | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window"
+    | awk -F'|' '{ printf "%-30s %s\n", $1, $2 }' \
+    | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
+    | awk '{ print $NF }'
 )
 
 # Exit if nothing was selected
@@ -29,17 +30,4 @@ if [[ -z "$selected" ]]; then
   exit 0
 fi
 
-# Find the matching command
-for cmd in "${commands[@]}"; do
-  description=$(echo "$cmd" | cut -d'|' -f1)
-  if [[ "$description" == "$selected" ]]; then
-    command_to_run=$(echo "$cmd" | cut -d'|' -f2)
-
-    # Get the current pane's working directory
-    current_path=$(tmux display-message -p "#{pane_current_path}")
-
-    # Create a new window and execute the command
-    tmux new-window -c "$current_path" "$command_to_run"
-    break
-  fi
-done
+tmux new-window -c "#{pane_current_path}" "$selected"
