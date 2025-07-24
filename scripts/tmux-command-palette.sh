@@ -11,10 +11,10 @@
 # Define commands with their descriptions and actions
 # Format: "Description|Command to execute"
 commands=(
-  "Lazygit|lazygit"
-  "OpenCode AI Assistant|opencode"
+  "AI Assistant|opencode"
+  "Docker TUI|lazydocker"
+  "Git TUI|lazygit"
   "Jump to Project|tmux-jump"
-  "Lazydocker|lazydocker"
 )
 
 # Use fzf to create a searchable menu (no height limit since we're in a popup)
