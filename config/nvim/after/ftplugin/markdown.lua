@@ -94,3 +94,37 @@ bind_map({ "n", "v", "i" })("<C-s>", function()
     end
   end
 end, { desc = "Create/Switch bullet-point/checkbox state", buffer = true, silent = true })
+
+bind_map({ "n", "v", "i" })("<A-s>", function()
+  local positions = require("eckon.utils").get_visual_selection()
+  local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start_0.row, positions.visual_end.row, false)
+
+  local is_dirty = false
+
+  -- helper function to get current date
+  local function get_current_date()
+    return vim.fn.system("date '+%Y-%m-%d'"):gsub("\n", "")
+  end
+
+  for i, line in ipairs(lines) do
+    -- check if line already has a date at the end
+    local has_date = line:match(" %(%d%d%d%d%-%d%d%-%d%d%)%s*$")
+
+    if has_date then
+      -- remove the date
+      lines[i] = line:gsub(" %(%d%d%d%d%-%d%d%-%d%d%)%s*$", "")
+    else
+      -- add the current date
+      lines[i] = line .. " (" .. get_current_date() .. ")"
+    end
+
+    if lines[i] ~= line then
+      is_dirty = true
+    end
+  end
+
+  -- only update if we actually changed something
+  if is_dirty then
+    vim.api.nvim_buf_set_lines(0, positions.visual_start_0.row, positions.visual_end.row, false, lines)
+  end
+end, { desc = "Toggle date at end of line", buffer = true, silent = true })

@@ -52,7 +52,7 @@ M.foldtext = function()
 end
 
 ---Get start and end positions of current visual selection
----@return { visual_start: { row: integer, column: integer }, visual_end: { row: integer, column: integer } }
+---@return { visual_start: { row: integer, column: integer }, visual_end: { row: integer, column: integer }, visual_start_0: { row: integer, column: integer } }
 M.get_visual_selection = function()
   -- both have the line number in 2nd place and row number in 3rd place
   local current_cursor = vim.fn.getpos(".") or {}
