@@ -20,6 +20,8 @@
 	# find commit by content of commits (without and with changes)
 	find  = "!f() { git log --no-merges -S\"$*\"; }; f"
 	ffind = "!f() { git log -c --no-merges -S\"$*\"; }; f"
+	# create commit without changes (to start with a defined commit message)
+	empty = commit --allow-empty
 
 [rerere]
 	enable = true
