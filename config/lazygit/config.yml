@@ -4,6 +4,7 @@ gui:
   sidePanelWidth: 0.2
   border: 'single'
   mainPanelSplitMode: 'vertical'
+  useHunkModeInStagingView: false
 
 git:
   paging:
