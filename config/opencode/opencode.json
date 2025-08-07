@@ -1,6 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["README.md"],
+  "permission": {
+    "bash": "ask",
+    "edit": "ask"
+  },
   "mcp": {
     "calendar": {
       "type": "local",
