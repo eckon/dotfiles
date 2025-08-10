@@ -3,7 +3,7 @@
   "instructions": ["README.md"],
   "permission": {
     "bash": "ask",
-    "edit": "ask"
+    "edit": "allow"
   },
   "mcp": {
     "calendar": {
