@@ -28,14 +28,6 @@ setup: packages symlinks
 [group('check')]
 check: lua-check markdown-check scripts-check
 
-# RUN ONCE on initial setup: some formatters need specific dependencies
-[group('setup')]
-dependency-npx:
-  npm i -D @johnnymorganz/stylua-bin
-  npm i -D prettier prettier-plugin-sh
-  npm i -D markdownlint-cli
-
-
 [group('lua')]
 [group('check')]
 lua-check: lua-format lua-lint

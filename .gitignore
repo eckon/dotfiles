@@ -2,7 +2,6 @@ scripts/*.cfg
 
 Brewfile.lock.json
 
-package.json
 package-lock.json
 node_modules
 

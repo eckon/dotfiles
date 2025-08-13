@@ -23,7 +23,8 @@ Installation of everything in my configuration:
 - run `just setup`
   - _or manually execute the `setup` step, see [justfile](./justfile)_
   - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
-  - should handle the different OSes
+  - should handle the different OS's
+  - for local formatting/development also run `npm install`
 
 ## System Structure
 
