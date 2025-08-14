@@ -1,7 +1,7 @@
 import { Plugin } from "@opencode-ai/plugin";
 
 // to use just open the url; leaking topic as nothing critical will be sent
-const url = "https://ntfy.sh/eckon_uDoe1CGbV7uRc89e";
+const url = "https://ntfy.sh/eckon_OGfEX1Zm2ocC6QYU";
 
 export const NotificationPlugin: Plugin = async ({ $ }) => {
   const notify = async (message: string) =>

@@ -62,7 +62,7 @@ local function open_daily_note(date_string)
       "  - [ ] `Knowledge-Share` tag and taking Hendrik tasks",
       "  - [ ] `Monitoring` tag and Improving Monitoring",
       "- [ ] check-out",
-      "- [ ] delete these tasks and dont commit them",
+      "- [ ] delete these tasks and do not commit them",
       "",
       "## work",
       "",
