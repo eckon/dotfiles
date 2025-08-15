@@ -1,18 +1,26 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["README.md"],
-  "permission": {
-    "bash": "ask",
-    "edit": "allow"
+  "agent": {
+    "ask": {
+      "mode": "primary",
+      "permission": {
+        "bash": "ask",
+        "edit": "ask",
+        "webfetch": "ask"
+      }
+    }
   },
   "mcp": {
-    "calendar": {
+    "browser": {
       "type": "local",
-      "command": ["npx", "@cocal/google-calendar-mcp"],
-      "enabled": true,
-      "environment": {
-        "GOOGLE_OAUTH_CREDENTIALS": "/home/eckon/.config/google-calendar-mcp/client_secret.json"
-      }
+      "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
+      "enabled": true
+    },
+    "coding-docs": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
     },
     "pinecone": {
       "type": "local",
@@ -20,6 +28,14 @@
       "enabled": true,
       "environment": {
         "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
+      }
+    },
+    "calendar": {
+      "type": "local",
+      "command": ["npx", "@cocal/google-calendar-mcp"],
+      "enabled": true,
+      "environment": {
+        "GOOGLE_OAUTH_CREDENTIALS": "/home/eckon/.config/google-calendar-mcp/client_secret.json"
       }
     }
   }
