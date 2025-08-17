@@ -3,29 +3,30 @@ tap "jesseduffield/lazygit"
 tap "sst/tap"
 
 brew "bash"
-brew "bat"
+brew "bat" # cat enhancement
 brew "cmake"
 brew "curl"
-brew "fd"
+brew "fd" # find replacement
 brew "fish"
-brew "fnm"
+brew "fnm" # node version manager
 brew "fzf"
 brew "gettext"
 brew "git"
-brew "git-delta"
+brew "git-delta" # git diff enhancement
 brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazygit/lazygit"
 brew "jq"
-brew "just"
+brew "just" # task runner
 brew "k9s"
 brew "kubectl"
-brew "ninja"
-brew "ripgrep"
-brew "selene"
+brew "ninja" # build system
+brew "ripgrep" # grep replacement
+brew "selene" # lua linter
 brew "shellcheck"
 brew "sst/tap/opencode"
 brew "starship"
 brew "tldr"
 brew "tmux"
+brew "uv" # python package manager
 brew "zellij"
 brew "zoxide"
