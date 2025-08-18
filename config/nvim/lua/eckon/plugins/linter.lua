@@ -9,6 +9,7 @@ local M = {
       javascriptreact = { "eslint_d" },
       lua = { "selene" },
       markdown = { "markdownlint" },
+      python = { "ruff" },
       typescript = { "eslint_d" },
       typescriptreact = { "eslint_d" },
     }

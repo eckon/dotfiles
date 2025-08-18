@@ -38,15 +38,15 @@ M.config = function()
   -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
   -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
   vim.lsp.enable({
+    "pyright",
     "cssls",
-    "emmet_ls",
+    "emmet_ls", -- html
     "html",
     "jsonls",
     "lua_ls",
     "marksman",
-    "pyright",
     "tailwindcss",
-    "taplo",
+    "taplo", -- toml
     "terraformls",
     "vimls",
     "yamlls",
