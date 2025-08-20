@@ -34,9 +34,16 @@ alias vi   "vim -u NONE"
 alias vim  "nvim"
 
 # not as safe as `sudoedit` but I rarely need it, to should be fine
-abbr --add sudo-vim   "sudo -Es nvim"
+abbr --add sudo-vim "sudo -Es nvim"
+
+# quickly delete locally installed packages
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
+
+# mistyped vim commands in the terminal
+abbr --add :wa "exit"
+abbr --add :wq "exit"
+abbr --add :q  "exit"
 
 abbr --add j  "tmux-jump"
 abbr --add js "tmux-jumpstart"
