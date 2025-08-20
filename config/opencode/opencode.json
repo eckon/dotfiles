@@ -17,6 +17,15 @@
       "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
       "enabled": true
     },
+    "browser-headless": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@agent-infra/mcp-server-browser@latest",
+        "--headless"
+      ],
+      "enabled": true
+    },
     "coding-docs": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
