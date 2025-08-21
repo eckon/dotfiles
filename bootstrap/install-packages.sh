@@ -6,10 +6,12 @@
 
 PACKAGE_ROOT="$(pwd)/bootstrap/packages"
 
-sudo apt update
-sudo apt upgrade -y
-cat "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
-sudo apt autoremove -y
+if command -v "apt" &> /dev/null; then
+  sudo apt update
+  sudo apt upgrade -y
+  cat "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
+  sudo apt autoremove -y
+fi
 
 if ! command -v "brew" &> /dev/null; then
   NONINTERACTIVE=1 /bin/bash -c \

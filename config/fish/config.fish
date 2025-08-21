@@ -40,11 +40,6 @@ abbr --add sudo-vim "sudo -Es nvim"
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 
-# mistyped vim commands in the terminal
-abbr --add :wa "exit"
-abbr --add :wq "exit"
-abbr --add :q  "exit"
-
 abbr --add j  "tmux-jump"
 abbr --add js "tmux-jumpstart"
 
