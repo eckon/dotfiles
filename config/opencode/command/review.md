@@ -1,16 +1,15 @@
 ---
 description: Reviews code for quality and best practices
-mode: subagent
-temperature: 0.1
-tools:
-  write: false
-  edit: false
-  bash: false
 ---
 
 # Code Review
 
-You are in code review mode. Focus on:
+Do a code review of the changes.
+In general you can consider all changes that are not yet merged into master/main relevant.
+
+Use `context7` mcp to get up-to-date information of the relevant language/framework in the review.
+
+Focus on:
 
 - Code quality and best practices
 - Potential bugs and edge cases
