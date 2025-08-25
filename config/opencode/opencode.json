@@ -39,6 +39,17 @@
         "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
       }
     },
+    "whatsapp": {
+      "type": "local",
+      "command": [
+        "/home/linuxbrew/.linuxbrew/bin/uv",
+        "--directory",
+        "/home/eckon/Development/personal/whatsapp-mcp/whatsapp-mcp-server",
+        "run",
+        "main.py"
+      ],
+      "enabled": true
+    },
     "calendar": {
       "type": "local",
       "command": ["npx", "@cocal/google-calendar-mcp"],
