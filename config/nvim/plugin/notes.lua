@@ -49,7 +49,7 @@ local function open_daily_note(date_string)
       "- [ ] look into [[todo]]",
       "- [ ] check-in",
       "- [ ] reserve desk for today and following days",
-      "- [ ] reserve rook for today and following days",
+      "- [ ] reserve room for today and following days",
       "- [ ] check food",
       "- [ ] check emails",
       "- [ ] check jira",
