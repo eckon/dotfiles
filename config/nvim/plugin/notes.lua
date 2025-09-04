@@ -66,11 +66,11 @@ local function open_daily_note(date_string)
       "",
       "## work",
       "",
-      "- [ ] move previous work tasks here",
+      "- [ ] move previous work tasks here and delete this task",
       "",
       "## private",
       "",
-      "- [ ] move previous private tasks here",
+      "- [ ] move previous private tasks here and delete this task",
     })
   end
 
