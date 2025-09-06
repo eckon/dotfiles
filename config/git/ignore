@@ -4,3 +4,5 @@
 .supermaven/
 
 # vim:filetype=gitignore
+
+**/.claude/settings.local.json
