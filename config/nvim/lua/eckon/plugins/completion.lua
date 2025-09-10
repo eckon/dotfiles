@@ -3,7 +3,7 @@ local completion_options = {
   blink = 1,
 }
 
-local used_completion = completion_options.cmp
+local used_completion = completion_options.blink
 
 return {
   {
@@ -102,6 +102,7 @@ return {
       require("blink.cmp").setup({
         completion = {
           list = { selection = { auto_insert = true, preselect = false } },
+          documentation = { auto_show = true },
         },
         keymap = { preset = "enter" },
         sources = {
