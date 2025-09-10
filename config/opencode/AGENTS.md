@@ -14,8 +14,8 @@ NOTE: the API token is stored in the `DEEPGRAM_API_KEY` environment variable
 
 **NEVER EXPOSE THE API KEY**
 
-1. Insert the relevant audio file into the --data-binary argument, therefore replace the <audio-file> placeholder
-2. Update the audio format to the one you want to transcribe, therefore replace the <audio-format> placeholder
+1. Insert the relevant audio file into the --data-binary argument, therefore replace the `<audio-file>` placeholder
+2. Update the audio format to the one you want to transcribe, therefore replace the `<audio-format>` placeholder
 3. Insert the language, if not further specified, always ask the user for it
 
 ```bash
