@@ -3,10 +3,15 @@ import { Plugin } from "@opencode-ai/plugin";
 // to use just open the url; leaking topic as nothing critical will be sent
 const url = "https://ntfy.sh/eckon_OGfEX1Zm2ocC6QYU";
 
+const disabled = true;
 const minSeconds = 0;
 let lastSessionUpdate = new Date();
 
 export const NotificationPlugin: Plugin = async ({ $ }) => {
+  if (disabled) {
+    return {};
+  }
+
   const elapsedTimeSeconds = (): number => {
     const diff = new Date().getTime() - lastSessionUpdate.getTime();
     return Math.floor(diff / 1000);
