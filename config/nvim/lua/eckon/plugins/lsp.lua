@@ -77,6 +77,14 @@ autocmd("lspattach", {
     nmap("gri", function()
       require("snacks").picker.lsp_implementations()
     end, "Go to implementations")
+
+    nmap("gs", function()
+      require("snacks").picker.lsp_symbols()
+    end, "Go to buffer symbols")
+
+    nmap("gS", function()
+      require("snacks").picker.lsp_workspace_symbols()
+    end, "Go to workspace symbols")
   end,
   group = augroup,
 })
