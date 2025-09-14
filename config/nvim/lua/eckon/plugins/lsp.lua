@@ -6,21 +6,12 @@ local M = {
   "neovim/nvim-lspconfig",
   dependencies = {
     { "mason-org/mason.nvim", build = ":MasonUpdate", lazy = false },
-    { "folke/lazydev.nvim", ft = { "lua" } },
-    { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
-    { "pmizio/typescript-tools.nvim", dependencies = "nvim-lua/plenary.nvim" },
     -- used in the `/lsp` folder
     { "b0o/schemastore.nvim" },
   },
 }
 
 M.config = function()
-  require("lazydev").setup()
-
-  require("typescript-tools").setup({
-    settings = { tsserver_file_preferences = { includeInlayParameterNameHints = "all" } },
-  })
-
   require("mason").setup()
 
   -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
@@ -30,9 +21,7 @@ M.config = function()
   })
 
   -- NOTE: manual installation is needed
-  -- edge cases therefore removed:
-  -- - ts_ls         -> typescript-tools - handles all of it  -> **DO NOT INSTALL**
-  -- - rust_analyzer -> rustaceanvim     - handles only setup -> **DO INSTALL**
+  -- NOTE: some other languages specific lsps might be configured with custom tool under `lsp_*`
   -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
   vim.lsp.enable({
     "pyright",
@@ -40,7 +29,6 @@ M.config = function()
     "emmet_ls", -- html
     "html",
     "jsonls",
-    "lua_ls",
     "marksman",
     "tailwindcss",
     "taplo", -- toml
