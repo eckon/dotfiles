@@ -24,5 +24,5 @@ curl -X POST \
   -H 'content-type: audio/<audio-format>' \
   --data-binary "@<audio-file>" \
   "https://api.deepgram.com/v1/listen?model=nova-2&smart_format=true&language=<language>" \
-| jq -r '.results.channels[0].alternatives[0].transcript'
+  | jq -r '.results.channels[0].alternatives[0].transcript'
 ```
