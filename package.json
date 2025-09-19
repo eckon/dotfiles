@@ -3,6 +3,7 @@
   "type": "module",
   "homepage": "https://github.com/eckon/dotfiles#readme",
   "devDependencies": {
+    "@deepgram/sdk": "*",
     "@eslint/js": "*",
     "@johnnymorganz/stylua-bin": "*",
     "@opencode-ai/plugin": "*",

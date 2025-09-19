@@ -1,27 +1,9 @@
 import { tool } from '@opencode-ai/plugin';
 import { readFileSync, existsSync } from 'fs';
 import { extname } from 'path';
+import { DeepgramResponse, SyncPrerecordedResponse } from '@deepgram/sdk';
 
 // NOTE: use custom script `run-opencode-custom-tool.ts` to debug setup
-
-interface DeepgramResult {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  metadata?: any;
-  results?: {
-    channels?: [
-      {
-        detected_language?: string;
-        language_confidence?: number;
-        alternatives?: [
-          {
-            transcript?: string;
-            confidence?: number;
-          },
-        ];
-      },
-    ];
-  };
-}
 
 const getApiToken = (): string => {
   const apiKey = process.env.DEEPGRAM_API_KEY;
@@ -72,17 +54,22 @@ export const transcription = tool({
         );
       }
 
-      const result: DeepgramResult = await response.json();
-      const output = result?.results?.channels?.[0]?.alternatives?.[0];
+      const deepgramResponse: DeepgramResponse<SyncPrerecordedResponse> = {
+        result: await response.json(),
+        error: null,
+      };
 
-      const transcript = output?.transcript;
+      const output =
+        deepgramResponse.result.results.channels[0].alternatives[0];
+
+      const transcript = output.transcript;
       if (!transcript) {
         throw new Error(
           'No transcription found in the response. The provided language might be incorrect.',
         );
       }
 
-      const confidence = output?.confidence ?? 0;
+      const confidence = output.confidence ?? 0;
       if (confidence < 0.95) {
         throw new Error(
           `Confidence (${confidence}) is lower than 95% - therefore it will be ignored. The provided language might be incorrect.`,
@@ -127,16 +114,20 @@ export const languageDetection = tool({
         );
       }
 
-      const result: DeepgramResult = await response.json();
+      const deepgramResponse: DeepgramResponse<SyncPrerecordedResponse> = {
+        result: await response.json(),
+        error: null,
+      };
+
       const detectedLanguage =
-        result?.results?.channels?.[0]?.detected_language;
+        deepgramResponse.result.results.channels[0].detected_language;
 
       if (!detectedLanguage) {
         throw new Error('No language detected in the response.');
       }
 
       const confidence =
-        result?.results?.channels?.[0]?.language_confidence ?? 0;
+        deepgramResponse.result.results.channels[0].language_confidence ?? 0;
       if (confidence < 0.75) {
         throw new Error(
           `Confidence (${confidence}) is lower than 75% - therefore it will be ignored.`,
