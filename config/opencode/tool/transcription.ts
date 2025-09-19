@@ -1,12 +1,15 @@
 import { tool } from '@opencode-ai/plugin';
 import { readFileSync } from 'fs';
 
+// NOTE: use custom script `run-opencode-custom-tool.ts` to debug setup
 export default tool({
   description: 'Transcribe an audio file and get its contents',
   args: {
     language: tool.schema
       .string()
-      .describe('Language code like "en" or "de"')
+      .describe(
+        'Language code (e.g., "en" for English, "de" for German, "pt" for Portuguese)',
+      )
       .default('en'),
     audioFilePath: tool.schema
       .string()
