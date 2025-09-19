@@ -6,6 +6,7 @@
     "@eslint/js": "*",
     "@johnnymorganz/stylua-bin": "*",
     "@opencode-ai/plugin": "*",
+    "@types/node": "*",
     "eslint": "*",
     "globals": "*",
     "jiti": "*",
