@@ -1,11 +1,11 @@
 #!/usr/bin/env tsx
 
-import * as audioTools from '../config/opencode/tool/audio';
+import * as audioTools from '../config/opencode/tool/audio-file';
 
 // NOTE: run script via `npx tsx <script> <tool-name> [...arguments]
 enum Tool {
-  AudioTranscription = 'audio-transcription',
-  AudioLanguageDetection = 'audio-language-detection',
+  AudioTranscription = 'transcription',
+  AudioLanguageDetection = 'language-detection',
 }
 
 async function runTranscription(audioFilePath: string, language: string) {
