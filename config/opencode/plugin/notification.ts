@@ -1,7 +1,7 @@
-import { Plugin } from "@opencode-ai/plugin";
+import { Plugin } from '@opencode-ai/plugin';
 
 // to use just open the url; leaking topic as nothing critical will be sent
-const url = "https://ntfy.sh/eckon_OGfEX1Zm2ocC6QYU";
+const url = 'https://ntfy.sh/eckon_OGfEX1Zm2ocC6QYU';
 
 const disabled = true;
 const minSeconds = 0;
@@ -44,17 +44,17 @@ export const NotificationPlugin: Plugin = async ({ $ }) => {
     event: async ({ event }) => {
       switch (event.type) {
         // notify user, when AI is waiting for input to enable leaving it in the background
-        case "session.idle":
+        case 'session.idle':
           await notify(`(${elapsedTime()}) AI is done, waiting for new input`);
           break;
         // notify user, when AI is waiting for permission to enable leaving it in the background
-        case "permission.updated":
+        case 'permission.updated':
           await notify(
             `(${elapsedTime()}) AI is requesting permission "${event.properties.type}" > "${event.properties.metadata.command}"`,
           );
           break;
         // get time of the last interaction with the session
-        case "session.updated":
+        case 'session.updated':
           lastSessionUpdate = new Date();
           break;
       }

@@ -66,8 +66,10 @@ scripts-check: scripts-format scripts-lint
 [group('format')]
 scripts-format:
   npx prettier --write --cache --log-level warn '**/*.sh'
+  npx prettier --write --cache '**/*.ts'
 
 [group('scripts')]
 [group('lint')]
 scripts-lint:
   shellcheck -S warning **/*.sh
+  npx eslint --fix
