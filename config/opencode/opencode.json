@@ -39,6 +39,11 @@
         "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
       }
     },
+    "rider": {
+      "type": "remote",
+      "url": "http://localhost:64342/sse",
+      "enabled": false
+    },
     "calendar": {
       "type": "local",
       "command": ["npx", "@cocal/google-calendar-mcp"],
