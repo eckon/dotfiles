@@ -4,6 +4,7 @@ import { extname } from 'path';
 import { DeepgramResponse, SyncPrerecordedResponse } from '@deepgram/sdk';
 
 // NOTE: use custom script `run-opencode-custom-tool.ts` to debug setup
+// NOTE: for this tool to work we need to have the `DEEPGRAM_API_KEY` set in the env
 
 const getApiToken = (): string => {
   const apiKey = process.env.DEEPGRAM_API_KEY;
