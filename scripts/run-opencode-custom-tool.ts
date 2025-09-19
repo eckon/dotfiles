@@ -1,23 +1,32 @@
 #!/usr/bin/env tsx
 
-import transcriptionTool from '../config/opencode/tool/transcription';
+import * as audioTools from '../config/opencode/tool/audio';
 
 // NOTE: run script via `npx tsx <script> <tool-name> [...arguments]
 enum Tool {
-  Transcription = 'transcription',
+  AudioTranscription = 'audio-transcription',
+  AudioLanguageDetection = 'audio-language-detection',
 }
 
-async function transcription(
-  audioFilePath: string,
-  audioFormat: string,
-  language: string,
-) {
-  console.log(`Running ${Tool.Transcription} tool`);
+async function runTranscription(audioFilePath: string, language: string) {
+  console.log(`Running ${Tool.AudioTranscription} tool`);
   console.log('Provided Arguments:');
-  console.log({ audioFilePath, language, audioFormat });
+  console.log({ audioFilePath, language });
 
-  return await transcriptionTool.execute(
-    { audioFilePath, language, audioFormat },
+  return await audioTools.transcription.execute(
+    { audioFilePath, language },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    {} as any,
+  );
+}
+
+async function runLanguageDetection(audioFilePath: string) {
+  console.log(`Running ${Tool.AudioLanguageDetection} tool`);
+  console.log('Provided Arguments:');
+  console.log({ audioFilePath });
+
+  return await audioTools.languageDetection.execute(
+    { audioFilePath },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     {} as any,
   );
@@ -30,8 +39,13 @@ async function main() {
   const toolName = args[0];
 
   switch (toolName) {
-    case Tool.Transcription: {
-      const result = await transcription(args[1], args[2], args[3]);
+    case Tool.AudioTranscription: {
+      const result = await runTranscription(args[1], args[2]);
+      console.log(result);
+      break;
+    }
+    case Tool.AudioLanguageDetection: {
+      const result = await runLanguageDetection(args[1]);
       console.log(result);
       break;
     }
