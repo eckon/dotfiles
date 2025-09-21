@@ -6,6 +6,7 @@ and _**configurations**_ of different parts.
 Bigger parts have their own README and can be found here:
 
 - [Neovim](./config/nvim/README.md)
+- [OpenCode](./config/opencode/README.md)
 - [Scripts](./scripts/README.md)
 - [Bootstrap](./bootstrap/README.md)
 - [Visual Studio Code](./config/vscode/README.md)

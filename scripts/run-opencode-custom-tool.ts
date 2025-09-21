@@ -3,6 +3,8 @@
 import * as audioTools from '../config/opencode/tool/audio-file';
 
 // NOTE: run script via `npx tsx <script> <tool-name> [...arguments]
+// NOTE: allows for debugging of `opencode/tool/<tool>` scripts
+
 enum Tool {
   AudioTranscription = 'transcription',
   AudioLanguageDetection = 'language-detection',
