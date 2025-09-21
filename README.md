@@ -1,51 +1,84 @@
 # Collection of my dotfiles and scripts
 
-This repository includes all of my public _**scripts**_
-and _**configurations**_ of different parts.
+This repository contains my public **scripts** and **configurations** for various development tools and environments.
 
-Bigger parts have their own README and can be found here:
+## Quick Start
 
-- [Neovim](./config/nvim/README.md)
-- [OpenCode](./config/opencode/README.md)
-- [Scripts](./scripts/README.md)
-- [Bootstrap](./bootstrap/README.md)
-- [Visual Studio Code](./config/vscode/README.md)
-- [Visual Studio](./config/visual-studio/README.md)
-- [Jetbrains Tools](./config/jetbrains/README.md)
-- [Gists](https://gist.github.com/eckon)
+```bash
+git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
+cd ~/Development/dotfiles
+just setup
+```
 
-## Install
+## Documentation
 
-Installation of everything in my configuration:
+Each major component has its own README:
 
-- pre-requirements
-  - `git` to clone this repository
-  - _`just` (optional) to execute different scripts_
-- run `just setup`
-  - _or manually execute the `setup` step, see [justfile](./justfile)_
-  - this will install the different parts for a quick setup (terminal, tools, symlinks, configs, etc.)
-  - should handle the different OS's
-  - for local formatting/development also run `npm install`
+- [Neovim](./config/nvim/README.md) - Vim configuration and plugins
+- [OpenCode](./config/opencode/README.md) - AI assistant tools and extensions
+- [Scripts](./scripts/README.md) - Custom shell scripts and utilities
+- [Bootstrap](./bootstrap/README.md) - Setup and installation scripts
+- [Visual Studio Code](./config/vscode/README.md) - VSCode settings and keybindings
+- [Visual Studio](./config/visual-studio/README.md) - Visual Studio configuration
+- [Jetbrains Tools](./config/jetbrains/README.md) - IntelliJ IDEA and related IDEs
+- [Gists](https://gist.github.com/eckon) - Additional code snippets
 
-## System Structure
+## Installation
 
-- `~` and `~/.config/`
-  - includes the "real" configurations
-  - will symlink to the this project
-- `~/Development/dotfiles/`
-  - has this project inside, acts as a central configuration place
-- `~/Development/personal/`
-  - has my personal projects
-- `~/Development/work/`
-  - has work related projects
-  - use a `.config/git/work` file to handle work related git configurations
-    - these should not be versioned, and therefore need to be added manually
+### Prerequisites
 
-## Used software
+- `git` - To clone this repository
+- `just` (optional) - To execute setup scripts
 
-Used software can be found here:
+### Setup
 
-- [packages](./bootstrap/packages/) which mostly includes
-  - [Brewfile](./bootstrap/packages/Brewfile)
-  - [apt-packages.txt](./bootstrap/packages/apt-packages.txt)
-  - and other specific scripts
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
+   cd ~/Development/dotfiles
+   ```
+
+2. **Run the setup:**
+
+   ```bash
+   just setup
+   ```
+
+   Alternatively, manually execute the setup steps (see [`justfile`](./justfile))
+
+3. **For development:**
+
+   ```bash
+   npm install # For local formatting, linting and more
+   ```
+
+The setup script will:
+
+- Install terminal tools and applications
+- Create symlinks to configuration files
+- Set up development environment
+- Handle different operating systems automatically
+
+## Directory Structure
+
+```text
+~/
+├── .config/                   # Real configuration files (symlinked)
+├── Development/
+│   ├── dotfiles/              # This repository (central config)
+│   ├── personal/              # Personal projects
+│   └── work/                  # Work-related projects
+```
+
+### Configuration Management
+
+- **Configuration files** are symlinked from this repository to `~/.config/`
+- **Work-specific git config** should be placed in `~/.config/git/work` (not versioned)
+
+## Used Software
+
+See the [packages directory](./bootstrap/packages/) for the complete list.
+
+- **[Brewfile](./bootstrap/packages/Brewfile)**
+- **[apt-packages.txt](./bootstrap/packages/apt-packages.txt)**

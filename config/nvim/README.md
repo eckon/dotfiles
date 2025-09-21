@@ -1,42 +1,44 @@
-# Neovim / Vim
+# Neovim Configuration
 
-My ever changing setup for neovim as a development editor.
+My development-focused Neovim setup that follows the Unix philosophy of "Do One Thing and Do It Well".
 
-It focuses (mostly) on the linux philosophy "Do One Thing and Do It Well",
-meaning parts that some people have in their editor might not be present here.
+## Philosophy
 
-A Terminal Multiplexer (Tmux/Zellij) is being used as an easy way to run multiple vim instances and
-having the freedom of using emulators everywhere.
-This also extends to things like git, scripts, commands or other external tools which could be done in vim.
+Uses external tools (terminal multiplexers, git, scripts) instead of editor plugins where possible.
+The configuration is structured as a Lua project with full LSP support for navigation and development.
 
-The configuration is managed as a basic lua project, meaning that navigation and extension can be done
-programmatically and should be somewhat easy with jump to definition, autocompletion and other lsp features.
+## Structure
 
-Lua formatting is handled via [stylua](https://github.com/JohnnyMorganz/StyLua) and
-type annotations can be done via [sumneko](https://github.com/LuaLS/lua-language-server/wiki/Annotations)
-see [wiki](https://luals.github.io/wiki/annotations/) for more information.
+- **[`init.lua`](./init.lua)** - Entry point that bootstraps the plugin manager
+- **`lua/eckon/plugins/`** - Plugin configurations
+- **`after/ftplugin/`** - Filetype-specific configurations
+- **`plugin/`** - General Vim configurations
+- **`lsp/`** - Language server configurations
+- **`lua/eckon/`** - Custom utilities
 
-[init.lua](./init.lua) is the entry point and has multiple parts,
-it will install a plugin manager which then handles/installs/updates the plugins located in `lua/eckon/plugins`.
-Vim will load other parts itself, like `after/ftplugin`, `plugin`, `lsp` and `plugin` so these include configurations.
-Last part are some helper scripts which can be found in `lua/eckon`.
+## Installation
 
-## Install
+After running the main setup script:
 
-- after the `setup script` was run we should have
-  - nightly [neovim](https://github.com/neovim/neovim)
-- the first startup will automatically install different things
-  - plugin manager
-  - plugins
-  - treesitters
-- for the initial start, this means it will take some time until everything is installed
-  - just wait until it looks fine
-  - early closing and restarting should be fine and fix itself over time
-- use `:Mason` to install (based on the setup in the lsp/linter/formatter config files)
-  - lsps
-  - linters
-  - formatters
-- run `:checkhealth` to see if something is missing
+1. **First launch** - Neovim will automatically install:
+   - Plugin manager and plugins
+   - Treesitter parsers
+2. **Install LSP tools**:
+
+   ```vim
+   :Mason
+   ```
+
+3. **Verify setup**:
+
+   ```vim
+   :checkhealth
+   ```
+
+## Development
+
+- **Formatting**: [stylua](https://github.com/JohnnyMorganz/StyLua) for Lua code
+- **Type annotations**: [LuaLS](https://luals.github.io/wiki/annotations/) for better development
 
 ## References
 
