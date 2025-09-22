@@ -1,0 +1,9 @@
+views:
+  v1/pods:
+    sortColumn: AGE:asc
+    columns:
+      - AGE|R
+      - NAME|L
+      - OWNER:.metadata.ownerReferences[*].kind
+      - TEAM:.metadata.labels.apollo\.team
+      - PF|W # only show in wide mode
