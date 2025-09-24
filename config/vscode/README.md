@@ -11,29 +11,29 @@ Some of these might be doable with other configurations like vim plugin
 
 - [vscodevim mappings](https://github.com/VSCodeVim/Vim/#-vscodevim-tricks)
 - [vscode-mappings and namings](https://code.visualstudio.com/docs/getstarted/keybindings#_rich-languages-editing)
+  - generally checkout `Keyboard Shortcuts` in `vscode` for a view that can be filtered
 
 ## Setup
 
 ### Plugins
 
-- Generally these are some of the plugins I use mostly:
-  - theme
-    - qufiwefefwoyn.kanagawa
-  - ai
-    - GitHub.copilot
-      - also the other experimental features
-  - vim
-    - vscodevim.vim
-      - > [!NOTE]
-        > additional setting for WSL -> vim plugin is installed on local machine -> configure vimrc path
-        > in local settings, set the vimrc path into the wsl, this is not versioned so needs to be done manually
-        > example: `das`
-    - _asvetliakov.vscode-neovim_
-  - spelling
-    - streetsidesoftware.code-spell-checker
-      - for the general spell check in code
-    - streetsidesoftware.code-spell-checker-german
-      - to add german spelling as well (setting is already set in config)
+Generally these are some of the plugins I use mostly:
+
+- theme
+  - `qufiwefefwoyn.kanagawa`
+- ai
+  - `GitHub.copilot`
+- vim
+  - `vscodevim.vim`
+    - > [!NOTE]
+      > When installed in `wsl` there are two settings location, one in `wsl` and one in `windows`
+      > Some vim settings like keybindings are configured in Windows and therefore need
+      > to be copy&pasted manually into `windows` (as there is no symlink)
+      > check via `vscode` and "settings" to get the location of each
+  - _`asvetliakov.vscode-neovim`_
+    - an alternative but not used (because of previous vim tool)
+- formatter (for some languages a formatter is recommended)
+  - `esbenp.prettier-vscode` for js/ts
 
 #### Vim plugins
 

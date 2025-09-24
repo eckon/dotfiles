@@ -1,4 +1,5 @@
 {
+  "--- NOTE ---": "for infos see the `vscode/README.md` file in my dotfiles",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": true,
@@ -16,8 +17,6 @@
   "vim.leader": "<space>",
   "vim.shell": "bash",
   "vim.visualstar": true,
-  // NOTE: vim settings seem to be now in user settings, which is not usable here
-  // if in wsl, this means we need to paste it into user settings from windows
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-l>"],
@@ -31,7 +30,22 @@
       "before": ["g", "r", "r"],
       "commands": ["editor.action.referenceSearch.trigger"]
     },
-    // jump commands
+    {
+      "before": ["g", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["g", "r", "a"],
+      "commands": ["editor.action.sourceAction"]
+    },
+    {
+      "before": ["g", "q"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["g", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
     {
       "before": ["[", "c"],
       "commands": ["workbench.action.editor.previousChange"]
@@ -48,10 +62,8 @@
       "before": ["]", "d"],
       "commands": ["editor.action.marker.next"]
     }
-    // add formatting `gq` and codeactions `gra` `grn` if not already set by plugin
   ],
   "vim.visualModeKeyBindings": [
-    // to repeat indent
     {
       "before": [">"],
       "commands": ["editor.action.indentLines"]
@@ -76,7 +88,5 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.language": "en,de-DE",
-  "github.copilot.editor.enableAutoCompletions": true
+  }
 }
