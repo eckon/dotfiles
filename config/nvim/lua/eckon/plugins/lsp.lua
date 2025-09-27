@@ -8,11 +8,14 @@ local M = {
     { "mason-org/mason.nvim", build = ":MasonUpdate", lazy = false },
     -- used in the `/lsp` folder
     { "b0o/schemastore.nvim" },
+    -- show visual updates in rename action (similar to other vim-replacements)
+    "smjonas/inc-rename.nvim",
   },
 }
 
 M.config = function()
   require("mason").setup()
+  require("inc_rename").setup()
 
   -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
   vim.lsp.config("*", {
@@ -45,8 +48,12 @@ autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
   callback = function(args)
     local bind_map = require("eckon.utils").bind_map
-    local nmap = function(lhs, rhs, desc)
-      bind_map("n")(lhs, rhs, { desc = "LSP: " .. desc, buffer = args.buf })
+    local nmap = function(lhs, rhs, desc, expr)
+      bind_map("n")(lhs, rhs, {
+        desc = "LSP: " .. desc,
+        buffer = args.buf,
+        expr = expr,
+      })
     end
 
     -- `K` is default to hover in neovim, for more see `lsp-defaults`
@@ -62,6 +69,10 @@ autocmd("lspattach", {
     nmap("gri", function()
       require("snacks").picker.lsp_implementations()
     end, "Go to implementations")
+
+    nmap("grn", function()
+      return ":IncRename " .. vim.fn.expand("<cword>")
+    end, 'Rename via "inc_rename"', true)
 
     nmap("gs", function()
       require("snacks").picker.lsp_symbols()
