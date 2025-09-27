@@ -39,6 +39,11 @@
         "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
       }
     },
+    "neovim": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-neovim-server"],
+      "enabled": false
+    },
     "rider": {
       "type": "remote",
       "url": "http://localhost:64342/sse",
