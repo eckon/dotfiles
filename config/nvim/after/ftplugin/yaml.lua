@@ -1,9 +1,9 @@
-local bind_map = require("eckon.utils").bind_map
+local bind_map = require("eckon.helper.utils").bind_map
 
 ---Function to de/encode base64 content
 ---@param mode 'encode' | 'decode'
 local function base64Convert(mode)
-  local positions = require("eckon.utils").get_visual_selection()
+  local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
 
   -- only handle single lines
@@ -30,7 +30,7 @@ local function base64Convert(mode)
 
   -- keep cursor on the first selection
   vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_start.column })
-  require("eckon.utils").exit_visual_mode()
+  require("eckon.helper.utils").exit_visual_mode()
 end
 
 bind_map("v")("E", function()

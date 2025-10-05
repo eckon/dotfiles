@@ -15,10 +15,10 @@ vim.cmd([[
   \<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 ]])
 
-local bind_map = require("eckon.utils").bind_map
+local bind_map = require("eckon.helper.utils").bind_map
 
 bind_map("v")("L", function()
-  local positions = require("eckon.utils").get_visual_selection()
+  local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
 
   -- lines allows multiple but links do not really help on multiple lines, so only allow one line
@@ -39,13 +39,13 @@ bind_map("v")("L", function()
 
   -- keep cursor on the first selection
   vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_start.column })
-  require("eckon.utils").exit_visual_mode()
+  require("eckon.helper.utils").exit_visual_mode()
 end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
 
 bind_map({ "n", "v", "i" })("<C-s>", function()
-  local positions = require("eckon.utils").get_visual_selection()
+  local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start_0.row, positions.visual_end.row, false)
-  local is_visual_mode = require("eckon.utils").is_visual_mode()
+  local is_visual_mode = require("eckon.helper.utils").is_visual_mode()
 
   local is_dirty = false
   local cursor_shift = -1
@@ -96,7 +96,7 @@ bind_map({ "n", "v", "i" })("<C-s>", function()
 end, { desc = "Create/Switch bullet-point/checkbox state", buffer = true, silent = true })
 
 bind_map({ "n", "v", "i" })("<A-s>", function()
-  local positions = require("eckon.utils").get_visual_selection()
+  local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start_0.row, positions.visual_end.row, false)
 
   local is_dirty = false

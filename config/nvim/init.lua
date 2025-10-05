@@ -1,25 +1,13 @@
--- needs to be set before lazy is loaded
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+local require_dir = require("eckon.helper.utils").require_dir
 
--- package/plugins management
-local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- Enforce options as first, as these settings could be needed (leader key)
+require("eckon.core.options")
+require("eckon.core.keymaps")
+require("eckon.core.autocmds")
+require("eckon.core.commands")
 
----@diagnostic disable-next-line: undefined-field
-if not (vim.uv or vim.loop).fs_stat(lazy_path) then
-  local lazy_repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--branch=stable",
-    lazy_repo,
-    lazy_path,
-  })
-end
+require("eckon.notes")
 
-vim.opt.rtp:prepend(lazy_path)
-
-require("lazy").setup("eckon.plugins", {
-  change_detection = { notify = false },
+require_dir("eckon.plugin", {
+  -- ignore = { "lsp", "completion" }, -- Uncomment to disable specific plugins for debugging
 })

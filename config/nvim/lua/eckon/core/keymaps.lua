@@ -1,4 +1,4 @@
-local bind_map = require("eckon.utils").bind_map
+local bind_map = require("eckon.helper.utils").bind_map
 local nmap = bind_map("n")
 -- xmap is used for visual mode mappings as it excludes operator pending mode
 local xmap = bind_map("x")
@@ -21,7 +21,7 @@ xmap("?", "<Esc>?\\%V")
 
 -- keep cursor position while joining single lines
 nmap("J", function()
-  local restore_cursor = require("eckon.utils").save_cursor_position()
+  local restore_cursor = require("eckon.helper.utils").save_cursor_position()
   vim.api.nvim_command("normal! " .. vim.v.count + 1 .. "J")
   restore_cursor()
 end, { desc = "Join lines without moving cursor" })
@@ -53,5 +53,5 @@ nmap("j", enhance_jk("j"), { expr = true, desc = "Jump to next line and append t
 
 -- open custom command menu (do not use <Tab> to not overwrite <CTRL-I> - maybe useable in the future)
 nmap("<Leader><Leader>", function()
-  require("eckon.custom-command").custom_command.open_select()
+  require("eckon.helper.custom-command").custom_command.open_select()
 end, { desc = "Select and run predefined custom command" })

@@ -77,7 +77,7 @@ local function open_daily_note(date_string)
   vim.cmd("e " .. file_path)
 end
 
-local cc = require("eckon.custom-command").custom_command
+local cc = require("eckon.helper.custom-command").custom_command
 
 cc.add("Daily Note", {
   desc = "Open todays daily note",

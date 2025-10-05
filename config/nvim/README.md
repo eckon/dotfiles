@@ -9,24 +9,25 @@ The configuration is structured as a Lua project with full LSP support for navig
 
 ## Structure
 
-- **[`init.lua`](./init.lua)** - Entry point that bootstraps the plugin manager
-- **`lua/eckon/plugins/`** - Plugin configurations
+- **[`init.lua`](./init.lua)** - Entry point that sets leader keys and loads core config
+- **`lua/eckon/`** - Custom utilities and main initialization
+- **`lua/eckon/core/`** - Core Neovim configuration
+- **`lua/eckon/plugin/`** - Plugin configurations using `vim.pack.add()`
 - **`after/ftplugin/`** - Filetype-specific configurations
-- **`plugin/`** - General Vim configurations
 - **`lsp/`** - Language server configurations
-- **`lua/eckon/`** - Custom utilities
 
 ## Installation
 
 After running the main setup script:
 
-1. **First launch** - Neovim will automatically install:
-   - Plugin manager and plugins
-   - Treesitter parsers
-2. **Install LSP tools**:
+1. **First launch** - Neovim will prompt to install plugins via `vim.pack.add()`
+   - Confirm installation for each plugin
+   - Treesitter parsers will be installed automatically on entering different files
+2. **Install LSP/Formatter/linter tools**:
 
    ```vim
    :Mason
+   :MasonInstall <names>
    ```
 
 3. **Verify setup**:
@@ -34,6 +35,14 @@ After running the main setup script:
    ```vim
    :checkhealth
    ```
+
+## Plugin Management
+
+This configuration uses Neovim's built-in package management with custom commands:
+
+- Access via `<Leader><Leader>` (space space) to open the custom command menu
+- **Update packages**: Run custom command "Update packages" to update all plugins
+- **Delete package**: Run custom command "Delete package" to remove installed plugins
 
 ## Development
 

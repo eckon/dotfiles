@@ -1,5 +1,8 @@
 local set = vim.opt
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 set.shell = "bash"
 set.undofile = true
 set.swapfile = false

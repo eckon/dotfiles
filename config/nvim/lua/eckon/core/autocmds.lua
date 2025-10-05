@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = require("eckon.utils").augroup("autocmds")
+local augroup = require("eckon.helper.utils").augroup("autocmds")
 
 autocmd("TextYankPost", {
   desc = "Highlight yanked area",
