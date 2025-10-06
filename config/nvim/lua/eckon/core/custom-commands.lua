@@ -95,7 +95,6 @@ cc.add("Delete package", {
     }, function(choice)
       if choice then
         vim.pack.del({ choice.name })
-        vim.notify("Deleted package: " .. choice.name, vim.log.levels.INFO)
       end
     end)
   end,

@@ -17,6 +17,7 @@ vim.cmd([[
 
 local bind_map = require("eckon.helper.utils").bind_map
 
+-- Might want to look into: https://github.com/bngarren/checkmate.nvim for things to copy
 bind_map("v")("L", function()
   local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
