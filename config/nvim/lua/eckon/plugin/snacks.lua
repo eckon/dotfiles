@@ -1,8 +1,5 @@
 local cc = require("eckon.helper.custom-command").custom_command
 
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = require("eckon.helper.utils").augroup("snacks")
-
 vim.pack.add({
   "https://github.com/folke/snacks.nvim",
   -- sub dependency
@@ -140,27 +137,4 @@ cc.add("Git Log", {
 cc.add("Show Notifications", {
   desc = "Open all previous `vim.notify` messages",
   callback = "lua Snacks.notifier.show_history()",
-})
-
-autocmd("User", {
-  pattern = "MiniFilesActionRename",
-  callback = function(event)
-    require("snacks.rename").on_rename_file(event.data.from, event.data.to)
-  end,
-  group = augroup,
-})
-
-local prev = { new_name = "", old_name = "" }
-autocmd("User", {
-  pattern = "NvimTreeSetup",
-  callback = function()
-    local events = require("nvim-tree.api").events
-    events.subscribe(events.Event.NodeRenamed, function(data)
-      if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
-        data = data
-        require("snacks.rename").on_rename_file(data.old_name, data.new_name)
-      end
-    end)
-  end,
-  group = augroup,
 })
