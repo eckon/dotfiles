@@ -27,3 +27,9 @@
 - Use descriptive names for script files
 - Place reusable functions in utils.lua
 - Follow existing file structure patterns
+
+## Neovim
+
+- when changing something in my neovim setup, always try opening it to see if it still runs
+- if the changes are easily tested by calling them, do so
+  - then the user does not need to manually test it each time
