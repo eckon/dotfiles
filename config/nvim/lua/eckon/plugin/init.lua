@@ -1,11 +1,4 @@
--- completion needs to be before lsp, as lsp depends on it
-require("eckon.plugin.completion")
 require("eckon.plugin.lsp")
-
-require("eckon.plugin.lsp_lua")
-require("eckon.plugin.lsp_rust")
-require("eckon.plugin.lsp_typescript")
-
 require("eckon.plugin.formatter")
 require("eckon.plugin.linter")
 require("eckon.plugin.lualine")

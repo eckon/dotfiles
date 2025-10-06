@@ -1,17 +1,17 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.helper.utils").augroup("lsp")
 
-vim.pack.add({
-  "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/mason-org/mason.nvim",
-  -- used in the `/lsp` folder
-  "https://github.com/b0o/schemastore.nvim",
-  -- show visual updates in rename action (similar to other vim-replacements)
-  "https://github.com/smjonas/inc-rename.nvim",
-})
+require("eckon.plugin.lsp.completion")
 
-require("mason").setup()
-require("inc_rename").setup({})
+require("eckon.plugin.lsp.lspconfig")
+require("eckon.plugin.lsp.mason")
+require("eckon.plugin.lsp.schemastore")
+require("eckon.plugin.lsp.inc_rename")
+
+-- Languages with special plugins or setups
+require("eckon.plugin.lsp.lua")
+require("eckon.plugin.lsp.rust")
+require("eckon.plugin.lsp.typescript")
 
 -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
 vim.lsp.config("*", {
