@@ -2,4 +2,4 @@
 require("eckon.core.options")
 require("eckon.core.keymaps")
 require("eckon.core.autocmds")
-require("eckon.core.commands")
+require("eckon.core.custom-commands")

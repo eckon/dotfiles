@@ -1,17 +1,16 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.helper.utils").augroup("lsp")
 
-require("eckon.plugin.lsp.completion")
-
-require("eckon.plugin.lsp.lspconfig")
+require("eckon.plugin.lsp.nvim-lspconfig")
+require("eckon.plugin.lsp.blink")
 require("eckon.plugin.lsp.mason")
 require("eckon.plugin.lsp.schemastore")
-require("eckon.plugin.lsp.inc_rename")
+require("eckon.plugin.lsp.inc-rename")
 
 -- Languages with special plugins or setups
-require("eckon.plugin.lsp.lua")
-require("eckon.plugin.lsp.rust")
-require("eckon.plugin.lsp.typescript")
+require("eckon.plugin.lsp.lazydev")
+require("eckon.plugin.lsp.rustaceanvim")
+require("eckon.plugin.lsp.typescript-tools")
 
 -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
 vim.lsp.config("*", {
