@@ -2,14 +2,6 @@
 
 This repository contains my public **scripts** and **configurations** for various development tools and environments.
 
-## Quick Start
-
-```bash
-git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
-cd ~/Development/dotfiles
-just setup
-```
-
 ## Documentation
 
 Each major component has its own README:
@@ -25,33 +17,13 @@ Each major component has its own README:
 
 ## Installation
 
-### Prerequisites
+```bash
+git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
+cd ~/Development/dotfiles
+./bootstrap/install-packages.sh && ./bootstrap/symlink.sh
+```
 
-- `git` - To clone this repository
-- `just` (optional) - To execute setup scripts
-
-### Setup
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
-   cd ~/Development/dotfiles
-   ```
-
-2. **Run the setup:**
-
-   ```bash
-   just setup
-   ```
-
-   Alternatively, manually execute the setup steps (see [`justfile`](./justfile))
-
-3. **For development:**
-
-   ```bash
-   npm install # For local formatting, linting and more
-   ```
+_Additionally (optionally) run `npm install` for local formatting, linting and more_
 
 The setup script will:
 
@@ -59,6 +31,11 @@ The setup script will:
 - Create symlinks to configuration files
 - Set up development environment
 - Handle different operating systems automatically
+  - Only personally used ones are tested/maintained
+
+### Post-Installation
+
+`just` cli command is available and can be used for many other scripts (including the setup scripts)
 
 ## Directory Structure
 

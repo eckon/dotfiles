@@ -9,10 +9,8 @@ The configuration is structured as a Lua project with full LSP support for navig
 
 ## Structure
 
-- **[`init.lua`](./init.lua)** - Entry point that sets leader keys and loads core config
-- **`lua/eckon/`** - Custom utilities and main initialization
-- **`lua/eckon/core/`** - Core Neovim configuration
-- **`lua/eckon/plugin/`** - Plugin configurations using `vim.pack.add()`
+- **[`init.lua`](./init.lua)** - Entry point that loads my other configurations/plugins
+- **`lua/eckon/*`** - My different lua helper, plugins and configurations
 - **`after/ftplugin/`** - Filetype-specific configurations
 - **`lsp/`** - Language server configurations
 
