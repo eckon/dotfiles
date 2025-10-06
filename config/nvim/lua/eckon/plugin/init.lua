@@ -1,3 +1,5 @@
+require("eckon.plugin.kanagawa")
+
 require("eckon.plugin.lsp")
 require("eckon.plugin.formatter")
 require("eckon.plugin.linter")
@@ -11,6 +13,8 @@ else
   require("eckon.plugin.nvim-tree")
 end
 
-require("eckon.plugin.others")
+require("eckon.plugin.nvim-surround")
+require("eckon.plugin.markdown")
+require("eckon.plugin.quicker")
 require("eckon.plugin.snacks")
 require("eckon.plugin.treesitter")

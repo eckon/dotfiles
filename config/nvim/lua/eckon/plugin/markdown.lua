@@ -1,15 +1,6 @@
-vim.pack.add({
-  "https://github.com/kylechui/nvim-surround",
-  "https://github.com/stevearc/quicker.nvim",
-  "https://github.com/MeanderingProgrammer/markdown.nvim",
-  "https://github.com/rebelot/kanagawa.nvim",
-})
+vim.pack.add({ "https://github.com/MeanderingProgrammer/markdown.nvim" })
 
-require("nvim-surround").setup()
-
-require("quicker").setup()
-
-local custom_config = {
+require("render-markdown").setup({
   heading = { backgrounds = { "DiffChange" } },
   checkbox = {
     unchecked = { highlight = "DiagnosticOk" },
@@ -20,8 +11,4 @@ local custom_config = {
     },
   },
   bullet = { highlight = "DiagnosticHint" },
-}
-
-require("render-markdown").setup(custom_config)
-
-vim.cmd("colorscheme kanagawa")
+})
