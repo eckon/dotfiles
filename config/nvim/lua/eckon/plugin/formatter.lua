@@ -1,6 +1,7 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 require("conform").setup({
+  -- NOTE: manual installation is needed
   formatters_by_ft = {
     ["_"] = { "trim_whitespace" },
     javascript = { "prettierd", "eslint_d" },
@@ -15,10 +16,14 @@ require("conform").setup({
   },
 })
 
-require("eckon.helper.utils").bind_map("n")("gq", function()
+local nmap = require("eckon.helper.utils").bind_map("n")
+
+-- `gq` with `formatexpr` is making some problems so for now I`ll overwrite it with whole format formatting
+nmap("gq", function()
   require("conform").format({ lsp_fallback = true, async = true })
 end, { desc = "Conform: Format whole buffer" })
 
-require("eckon.helper.utils").bind_map("n")("gQ", function()
+-- overwrite ex-mode `gQ` with conform
+nmap("gQ", function()
   require("conform").format({ lsp_fallback = true, async = true })
 end, { desc = "Conform: Format whole buffer" })

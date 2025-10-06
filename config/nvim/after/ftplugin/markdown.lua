@@ -42,6 +42,7 @@ bind_map("v")("L", function()
   require("eckon.helper.utils").exit_visual_mode()
 end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
 
+-- might be replaced with plugin
 bind_map({ "n", "v", "i" })("<C-s>", function()
   local positions = require("eckon.helper.utils").get_visual_selection()
   local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start_0.row, positions.visual_end.row, false)

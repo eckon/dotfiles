@@ -70,8 +70,9 @@
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "rustaceanvim": {
-      "rev": "96a4f5e",
-      "src": "https://github.com/mrcjkb/rustaceanvim"
+      "rev": "1250440",
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
       "rev": "8e17e50",

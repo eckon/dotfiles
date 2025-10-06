@@ -1,5 +1,6 @@
 vim.pack.add({ "https://github.com/mfussenegger/nvim-lint" })
 
+-- NOTE: manual installation is needed
 require("lint").linters_by_ft = {
   javascript = { "eslint_d" },
   javascriptreact = { "eslint_d" },
