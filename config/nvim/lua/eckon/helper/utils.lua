@@ -1,28 +1,5 @@
 local M = {}
 
----Dynamically require all Lua files in a directory
----@param dir string Directory path relative to lua/ (e.g., "eckon.plugin")
----@param opts? table Options: { ignore = { "file1", "file2" } }
-M.require_dir = function(dir, opts)
-  opts = opts or {}
-  local ignore = opts.ignore or {}
-  local ignore_map = {}
-  for _, v in ipairs(ignore) do
-    ignore_map[v] = true
-  end
-
-  local path = vim.fn.stdpath("config") .. "/lua/" .. dir:gsub("%.", "/")
-  local files = vim.fn.glob(path .. "/*.lua", false, true)
-
-  for _, file in ipairs(files) do
-    local module_name = vim.fn.fnamemodify(file, ":t:r")
-    if module_name ~= "init" and not ignore_map[module_name] then
-      local module_path = dir .. "." .. module_name
-      require(module_path)
-    end
-  end
-end
-
 ---Create augroup with my unique prefix
 ---@param name string
 ---@param options? table

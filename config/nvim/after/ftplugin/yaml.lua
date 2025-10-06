@@ -1,5 +1,3 @@
-local bind_map = require("eckon.helper.utils").bind_map
-
 ---Function to de/encode base64 content
 ---@param mode 'encode' | 'decode'
 local function base64Convert(mode)
@@ -33,10 +31,12 @@ local function base64Convert(mode)
   require("eckon.helper.utils").exit_visual_mode()
 end
 
-bind_map("v")("E", function()
+local vmap = require("eckon.helper.utils").bind_map("v")
+
+vmap("E", function()
   base64Convert("encode")
 end, { desc = "Take visual selection and encode it with base64", buffer = true, silent = true })
 
-bind_map("v")("D", function()
+vmap("D", function()
   base64Convert("decode")
 end, { desc = "Take visual selection and decode it with base64", buffer = true, silent = true })
