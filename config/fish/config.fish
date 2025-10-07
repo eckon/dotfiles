@@ -30,11 +30,10 @@ fish_vi_key_bindings
 alias clip "xclip -sel clip"
 alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
+
+# NOTE: use `sudoedit` for opening vim in sudo mode
 alias vi   "vim -u NONE"
 alias vim  "nvim"
-
-# not as safe as `sudoedit` but I rarely need it, to should be fine
-abbr --add sudo-vim "sudo -Es nvim"
 
 # quickly delete locally installed packages
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
