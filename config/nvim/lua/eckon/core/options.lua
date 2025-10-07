@@ -41,16 +41,28 @@ set.cursorline = true
 set.colorcolumn = { "80", "120", "121" }
 
 set.list = true
-set.listchars = { nbsp = "¬", extends = "»", precedes = "«", lead = " ", trail = "·", space = " ", tab = "▸ " }
-set.fillchars = { fold = " " }
+set.listchars = {
+  nbsp = "¬",
+  extends = "»",
+  precedes = "«",
+  lead = " ",
+  trail = "·",
+  space = " ",
+  tab = "▸ ",
+}
 
 set.scrolloff = 5
 set.sidescrolloff = 5
 set.wrap = false
 set.winborder = "single"
 
+-- basic lsp based folding, improved via `snacks.statuscolumn`
 set.foldenable = false
 set.foldlevel = 99
+set.foldmethod = "expr"
+set.foldexpr = "v:lua.vim.lsp.foldexpr()"
+set.foldtext = ""
+set.fillchars = { fold = " ", foldsep = " ", foldinner = " " }
 
 set.diffopt:append("linematch:60")
 
@@ -61,9 +73,6 @@ if vim.fn.executable("rg") == 1 then
   set.grepprg = "rg --smart-case --vimgrep --no-heading --glob=!.git --hidden --regexp"
   set.grepformat:prepend("%f:%l:%c:%m")
 end
-
-set.foldmethod = "expr"
-set.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 vim.diagnostic.config({
   virtual_lines = false,
