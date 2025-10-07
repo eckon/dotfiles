@@ -1,5 +1,7 @@
 # Agents
 
+The most important rule of all: **If you dont know something, say so.**
+
 ## Tool calling
 
 - when requesting programming language features, examples, improvements or help
