@@ -30,7 +30,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "markdown.nvim": {
-      "rev": "7e6af36",
+      "rev": "ea3678d",
       "src": "https://github.com/MeanderingProgrammer/markdown.nvim"
     },
     "mason.nvim": {
@@ -38,7 +38,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "61a5d44",
+      "rev": "9a2798a",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {

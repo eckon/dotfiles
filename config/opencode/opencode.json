@@ -17,15 +17,6 @@
       "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
       "enabled": true
     },
-    "browser-headless": {
-      "type": "local",
-      "command": [
-        "npx",
-        "@agent-infra/mcp-server-browser@latest",
-        "--headless"
-      ],
-      "enabled": true
-    },
     "coding-docs": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
@@ -39,20 +30,10 @@
         "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
       }
     },
-    "neovim": {
-      "type": "local",
-      "command": ["npx", "-y", "mcp-neovim-server"],
-      "enabled": false
-    },
-    "rider": {
-      "type": "remote",
-      "url": "http://localhost:64342/sse",
-      "enabled": false
-    },
     "calendar": {
       "type": "local",
       "command": ["npx", "@cocal/google-calendar-mcp"],
-      "enabled": true,
+      "enabled": false,
       "environment": {
         "GOOGLE_OAUTH_CREDENTIALS": "/home/eckon/.config/google-calendar-mcp/client_secret.json"
       }
