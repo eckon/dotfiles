@@ -10,7 +10,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fyler.nvim": {
-      "rev": "c83a180",
+      "rev": "12066db",
       "src": "https://github.com/A7Lavinraj/fyler.nvim"
     },
     "inc-rename.nvim": {
@@ -53,6 +53,10 @@
       "rev": "75de178",
       "src": "https://github.com/kylechui/nvim-surround"
     },
+    "nvim-tree.lua": {
+      "rev": "87d096a",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    },
     "nvim-treesitter": {
       "rev": "42fc28ba",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -75,7 +79,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "8e17e50",
+      "rev": "f3d6d9a",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -8,6 +8,7 @@ require("blink.cmp").setup({
     list = { selection = { auto_insert = true, preselect = false } },
     documentation = { auto_show = true },
   },
+  signature = { enabled = true },
   keymap = { preset = "enter" },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
