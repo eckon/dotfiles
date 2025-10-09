@@ -5,6 +5,6 @@ require("nvim-treesitter.configs").setup({
   -- install all to also have the parser inside fenced code blocks etc.
   ensure_installed = "all",
   -- has problems installing, as its unused -> ignore
-  ignore_install = { "ipkg" },
+  ignore_install = { "ipkg", "norg" },
   highlight = { enable = true },
 })
