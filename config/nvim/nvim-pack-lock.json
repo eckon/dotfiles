@@ -13,10 +13,6 @@
       "rev": "fbcb4fa",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "fyler.nvim": {
-      "rev": "12066db",
-      "src": "https://github.com/A7Lavinraj/fyler.nvim"
-    },
     "kanagawa.nvim": {
       "rev": "27f1e11",
       "src": "https://github.com/rebelot/kanagawa.nvim"
