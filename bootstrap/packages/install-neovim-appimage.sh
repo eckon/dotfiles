@@ -25,6 +25,9 @@ cp "/tmp/neovim/nvim.appimage" "$NVIM_PATH"
 
 # setup neovim to be used in `sudoedit`
 if command -v nvim > /dev/null 2>&1; then
-  sudo update-alternatives --install /usr/bin/editor editor "$(command -v nvim)" 110
-  sudo update-alternatives --set editor "$(command -v nvim)"
+  # only trigger this, if we already have sudo permissions (via general install packages)
+  if sudo -n true > /dev/null 2>&1; then
+    sudo update-alternatives --install /usr/bin/editor editor "$(command -v nvim)" 110
+    sudo update-alternatives --set editor "$(command -v nvim)"
+  fi
 fi
