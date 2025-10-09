@@ -80,7 +80,6 @@ autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    ---@diagnostic disable-next-line: param-type-mismatch
     vim.notify(vim.lsp.status(), "info", {
       id = "lsp_progress",
       title = "LSP Progress",
@@ -93,7 +92,6 @@ autocmd("LspProgress", {
   end,
   group = augroup,
 })
-
 
 cc.add("Toggle inlay hints", {
   desc = "Enable and disable inlay hints",
