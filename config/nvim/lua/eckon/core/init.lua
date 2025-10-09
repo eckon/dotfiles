@@ -1,6 +1,6 @@
 -- options should be first to have leader set (some plugins otherwise do not get the correct leader key)
 require("eckon.core.options")
-require("eckon.core.keymaps")
 require("eckon.core.autocmds")
-require("eckon.core.custom-commands")
+require("eckon.core.commands")
+require("eckon.core.keymaps")
 require("eckon.core.notes")

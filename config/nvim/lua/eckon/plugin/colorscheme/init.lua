@@ -1,7 +1,7 @@
 local cc = require("eckon.helper.custom-command").custom_command
 
-require("eckon.plugin.colorscheme.kanagawa")
 require("eckon.plugin.colorscheme.catppuccin")
+require("eckon.plugin.colorscheme.kanagawa")
 
 vim.cmd.colorscheme("catppuccin")
 

@@ -47,7 +47,7 @@ cc.add("Update packages", {
 })
 
 cc.add("Delete package", {
-  desc = "Delete an installed package",
+  desc = "Delete/Uninstall installed package",
   callback = function()
     local packages = vim.pack.get()
     local package_list = {}
