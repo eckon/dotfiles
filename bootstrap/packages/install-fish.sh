@@ -12,4 +12,5 @@ FISH_PATH=$(which fish)
 grep -qxF "$FISH_PATH" "$SHELLS_PATH" \
   || (echo "$FISH_PATH" | sudo tee -a "$SHELLS_PATH")
 
+# NOTE: do not forget that the computer might need to restart to see this take effect
 chsh -s "$FISH_PATH"

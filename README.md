@@ -20,7 +20,9 @@ Each major component has its own README:
 ```bash
 git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
 cd ~/Development/dotfiles
-./bootstrap/install-packages.sh && ./bootstrap/symlink.sh
+sudo -v
+./bootstrap/install-packages.sh
+./bootstrap/symlink.sh
 ```
 
 _Additionally (optionally) run `npm install` for local formatting, linting and more_
@@ -59,3 +61,4 @@ See the [packages directory](./bootstrap/packages/) for the complete list.
 
 - **[Brewfile](./bootstrap/packages/Brewfile)**
 - **[apt-packages.txt](./bootstrap/packages/apt-packages.txt)**
+- **[dnf-packages.txt](./bootstrap/packages/dnf-packages.txt)**

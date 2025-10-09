@@ -13,6 +13,13 @@ if command -v "apt" &> /dev/null; then
   sudo apt autoremove -y
 fi
 
+if command -v "dnf" &> /dev/null; then
+  sudo dnf check-update
+  sudo dnf upgrade -y
+  cat "$PACKAGE_ROOT/dnf-packages.txt" | xargs sudo dnf install -y
+  sudo dnf autoremove -y
+fi
+
 if ! command -v "brew" &> /dev/null; then
   NONINTERACTIVE=1 /bin/bash -c \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
