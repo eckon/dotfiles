@@ -113,20 +113,28 @@ end, "Resume")
 
 cc.add("Pickers", {
   desc = "Show all available picker",
-  callback = "lua Snacks.picker.pick()",
+  callback = function()
+    require("snacks").picker.pick()
+  end,
 })
 
 cc.add("Browser", {
   desc = "Open buffer in browser",
-  callback = "lua Snacks.gitbrowse()",
+  callback = function()
+    require("snacks").gitbrowse()
+  end,
 })
 
 cc.add("Git Log", {
   desc = "Open Git log/blame",
-  callback = "lua Snacks.git.blame_line()",
+  callback = function()
+    require("snacks").git.blame_line()
+  end,
 })
 
 cc.add("Show Notifications", {
   desc = "Open all previous `vim.notify` messages",
-  callback = "lua Snacks.notifier.show_history()",
+  callback = function()
+    require("snacks").notifier.show_history()
+  end,
 })
