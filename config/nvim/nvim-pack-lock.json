@@ -17,10 +17,6 @@
       "rev": "12066db",
       "src": "https://github.com/A7Lavinraj/fyler.nvim"
     },
-    "inc-rename.nvim": {
-      "rev": "7c79416",
-      "src": "https://github.com/smjonas/inc-rename.nvim"
-    },
     "kanagawa.nvim": {
       "rev": "27f1e11",
       "src": "https://github.com/rebelot/kanagawa.nvim"

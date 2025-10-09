@@ -5,7 +5,6 @@ require("eckon.plugin.lsp.nvim-lspconfig")
 require("eckon.plugin.lsp.blink")
 require("eckon.plugin.lsp.mason")
 require("eckon.plugin.lsp.schemastore")
-require("eckon.plugin.lsp.inc-rename")
 
 -- Languages with special plugins or setups
 require("eckon.plugin.lsp.lazydev")
@@ -42,11 +41,10 @@ autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
   callback = function(args)
     local bind_map = require("eckon.helper.utils").bind_map
-    local nmap = function(lhs, rhs, desc, expr)
+    local nmap = function(lhs, rhs, desc)
       bind_map("n")(lhs, rhs, {
         desc = "LSP: " .. desc,
         buffer = args.buf,
-        expr = expr,
       })
     end
 
@@ -63,10 +61,6 @@ autocmd("lspattach", {
     nmap("gri", function()
       require("snacks").picker.lsp_implementations()
     end, "Go to implementations")
-
-    nmap("grn", function()
-      return ":IncRename " .. vim.fn.expand("<cword>")
-    end, 'Rename via "inc_rename"', true)
 
     nmap("gs", function()
       require("snacks").picker.lsp_symbols()
