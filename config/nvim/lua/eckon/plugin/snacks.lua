@@ -2,9 +2,10 @@ local cc = require("eckon.helper.custom-command").custom_command
 
 vim.pack.add({
   "https://github.com/folke/snacks.nvim",
-  -- sub dependency
-  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-mini/mini.nvim",
 })
+
+require("mini.icons").setup()
 
 require("snacks").setup({
   -- way of ignoring many plugins on big files, see bigfiles filetype

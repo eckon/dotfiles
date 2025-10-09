@@ -1,7 +1,10 @@
 vim.pack.add({
   "https://github.com/nvim-lualine/lualine.nvim",
-  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-mini/mini.nvim",
 })
+
+require("mini.icons").setup()
+require("mini.icons").mock_nvim_web_devicons()
 
 require("lualine").setup({
   options = {

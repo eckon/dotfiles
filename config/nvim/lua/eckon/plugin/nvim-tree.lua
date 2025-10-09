@@ -1,7 +1,10 @@
 vim.pack.add({
   "https://github.com/nvim-tree/nvim-tree.lua",
-  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-mini/mini.nvim",
 })
+
+require("mini.icons").setup()
+require("mini.icons").mock_nvim_web_devicons()
 
 require("nvim-tree").setup({
   actions = { open_file = { quit_on_open = true } },

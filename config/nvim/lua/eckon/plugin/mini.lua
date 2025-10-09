@@ -1,5 +1,8 @@
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 
+-- icon-set, most likely triggered via other parts that depend on it
+require("mini.icons").setup()
+
 -- buffer based file explorer
 require("mini.files").setup({
   mappings = {
@@ -12,6 +15,11 @@ require("mini.files").setup({
   windows = { preview = true, width_preview = 50 },
 })
 
+local nmap = require("eckon.helper.utils").bind_map("n")
+nmap("<Leader>fe", function()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0))
+end, { desc = "Mini: Open File Explorer" })
+
 -- mainly for git diff information
 require("mini.diff").setup({
   view = { style = "sign" },
@@ -22,8 +30,3 @@ require("mini.diff").setup({
 require("mini.indentscope").setup({
   draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
 })
-
-local nmap = require("eckon.helper.utils").bind_map("n")
-nmap("<Leader>fe", function()
-  require("mini.files").open(vim.api.nvim_buf_get_name(0))
-end, { desc = "Mini: Open File Explorer" })
