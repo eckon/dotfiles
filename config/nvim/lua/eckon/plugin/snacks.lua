@@ -23,7 +23,7 @@ require("snacks").setup({
   -- pretty toast like notifications
   notifier = { enabled = true },
 
-  -- enhanced statusline
+  -- enhanced statuscolumn (merge relative/current-line, handle folds, handle git changes, etc.)
   statuscolumn = { enabled = true },
 
   -- enhanced vim.ui.input
@@ -50,14 +50,6 @@ require("snacks").setup({
     notification = { wo = { wrap = true } },
     ---@diagnostic disable-next-line: missing-fields
     ["notification.history"] = { width = 0.9, height = 0.9 },
-    -- make vim.ui.input handle like any other buffer (esc to normal mode, esc again to close)
-    ---@diagnostic disable-next-line: missing-fields
-    input = {
-      keys = {
-        i_esc = { "<esc>", "stopinsert", mode = "i" },
-        n_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "n" },
-      },
-    },
   },
 })
 
