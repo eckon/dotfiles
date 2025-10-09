@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.helper.utils").augroup("lsp")
+local cc = require("eckon.helper.custom-command").custom_command
 
 require("eckon.plugin.lsp.nvim-lspconfig")
 require("eckon.plugin.lsp.blink")
@@ -91,4 +92,16 @@ autocmd("LspProgress", {
     })
   end,
   group = augroup,
+})
+
+
+cc.add("Toggle inlay hints", {
+  desc = "Enable and disable inlay hints",
+  callback = function()
+    if vim.lsp.inlay_hint.is_enabled() then
+      vim.lsp.inlay_hint.enable(false)
+    else
+      vim.lsp.inlay_hint.enable(true)
+    end
+  end,
 })

@@ -39,17 +39,6 @@ cc.add("Toggle virtual line diagnostics", {
   end,
 })
 
-cc.add("Toggle inlay hints", {
-  desc = "Enable and disable inlay hints",
-  callback = function()
-    if vim.lsp.inlay_hint.is_enabled() then
-      vim.lsp.inlay_hint.enable(false)
-    else
-      vim.lsp.inlay_hint.enable(true)
-    end
-  end,
-})
-
 cc.add("Update packages", {
   desc = "Update packages to the latest version",
   callback = function()
