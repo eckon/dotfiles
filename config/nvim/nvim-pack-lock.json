@@ -5,8 +5,12 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": ">=0.0.0"
     },
+    "catppuccin": {
+      "rev": "af58927",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "conform.nvim": {
-      "rev": "9d859cb",
+      "rev": "fbcb4fa",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fyler.nvim": {
@@ -22,16 +26,12 @@
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "lazydev.nvim": {
-      "rev": "258d2a5",
+      "rev": "e28ce52",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
       "rev": "b8c2315",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "markdown.nvim": {
-      "rev": "ea3678d",
-      "src": "https://github.com/MeanderingProgrammer/markdown.nvim"
     },
     "mason.nvim": {
       "rev": "ad7146a",
@@ -54,7 +54,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "87d096a",
+      "rev": "e397756",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -79,11 +79,11 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "f3d6d9a",
+      "rev": "7d0a0b9",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "bfe8c26",
+      "rev": "dae80fb",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {

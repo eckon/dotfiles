@@ -1,4 +1,6 @@
-require("eckon.plugin.kanagawa")
+-- NOTE: try out different colorscheme
+-- require("eckon.plugin.kanagawa")
+require("eckon.plugin.catppuccin")
 
 require("eckon.plugin.lsp")
 require("eckon.plugin.conform")
@@ -6,14 +8,10 @@ require("eckon.plugin.nvim-lint")
 require("eckon.plugin.lualine")
 require("eckon.plugin.mini")
 
-local use_fyler = true
-if use_fyler then
-  require("eckon.plugin.fyler")
-else
-  require("eckon.plugin.nvim-tree")
-end
+-- NOTE: try out different file tree
+require("eckon.plugin.fyler")
+-- require("eckon.plugin.nvim-tree")
 
-require("eckon.plugin.markdown")
 require("eckon.plugin.nvim-surround")
 require("eckon.plugin.nvim-treesitter")
 require("eckon.plugin.quicker")
