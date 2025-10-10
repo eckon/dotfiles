@@ -7,6 +7,7 @@ require("conform").setup({
     javascript = { "prettierd", "eslint_d" },
     javascriptreact = { "prettierd", "eslint_d" },
     json = { "prettierd" },
+    jsonc = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
