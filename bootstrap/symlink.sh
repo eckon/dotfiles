@@ -21,6 +21,7 @@ CONFIG_PATHS=(
   ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
+  ["config/hypr"]=".config/hypr"
   ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
   ["config/zellij/config.kdl"]=".config/zellij/config.kdl"

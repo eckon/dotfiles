@@ -1,6 +1,8 @@
 # Agents
 
-The most important rule of all: **If you dont know something, say so.**
+## Self-reflection
+
+When giving a final response always provide a confidence score (0-100%).
 
 ## Tool calling
 
