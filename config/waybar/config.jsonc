@@ -1,10 +1,9 @@
 {
-  "reload_style_on_change": true,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-left": ["clock"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": ["cpu", "memory", "battery", "hyprland/language"],
   "hyprland/workspaces": {
-    "format": "{name}: {icon}",
+    "format": "{icon}",
     "format-icons": {
       "active": "",
       "default": "",

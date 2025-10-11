@@ -4,6 +4,7 @@ require("conform").setup({
   -- NOTE: manual installation is needed
   formatters_by_ft = {
     ["_"] = { "trim_whitespace" },
+    css = { "prettierd" },
     javascript = { "prettierd", "eslint_d" },
     javascriptreact = { "prettierd", "eslint_d" },
     json = { "prettierd" },
