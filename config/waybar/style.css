@@ -1,0 +1,8 @@
+/* this might live at other locations, based on installation/distro etc. */
+@import url('/etc/xdg/waybar/style.css');
+
+/* highlight active workspace */
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: grey;
+}

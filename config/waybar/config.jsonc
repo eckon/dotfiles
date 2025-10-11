@@ -3,7 +3,7 @@
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["cpu", "memory", "battery", "hyprland/language"],
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "format-icons": {
       "active": "",
       "default": "",
