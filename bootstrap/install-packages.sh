@@ -6,6 +6,24 @@
 
 PACKAGE_ROOT="$(pwd)/bootstrap/packages"
 
+if command -v "yay" &> /dev/null; then
+  # update all
+  yay -Syu
+
+  while read -r pkg; do
+    if ! pacman -Qi "$pkg" &> /dev/null; then
+      # do installation interactively to prevent installing incorrect packages
+      yay "$pkg" < /dev/tty
+    else
+      echo "Skipped (already installed): $pkg"
+    fi
+  done < "$PACKAGE_ROOT/yay-packages.txt"
+
+  # cleanup
+  yay -Yc
+  yay -Sc
+fi
+
 if command -v "apt" &> /dev/null; then
   sudo apt update
   sudo apt upgrade -y
@@ -20,16 +38,12 @@ if command -v "dnf" &> /dev/null; then
   sudo dnf autoremove -y
 fi
 
-if ! command -v "brew" &> /dev/null; then
-  NONINTERACTIVE=1 /bin/bash -c \
-    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if command -v "brew" &> /dev/null; then
+  brew update
+  brew upgrade
+  brew bundle --file "$PACKAGE_ROOT/Brewfile"
+  brew cleanup
 fi
-
-brew update
-brew upgrade
-brew bundle --file "$PACKAGE_ROOT/Brewfile"
-brew cleanup
 
 if [ -f /proc/version ]; then
   # wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
@@ -49,8 +63,14 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     fi
     ;;
 
+  *'arch'*)
+    echo "[!] Install for Arch"
+    "$PACKAGE_ROOT/install-neovim-appimage.sh"
+    "$PACKAGE_ROOT/install-font.sh"
+    ;;
+
   *'linux'*)
-    echo "[!] Install for Linux"
+    echo "[!] Install for general Linux"
     "$PACKAGE_ROOT/install-fish.sh"
     "$PACKAGE_ROOT/install-neovim-appimage.sh"
     "$PACKAGE_ROOT/install-font.sh"

@@ -67,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "ee246c6",
+      "rev": "155d573",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
