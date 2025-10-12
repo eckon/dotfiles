@@ -1,9 +1,18 @@
 {
-  "modules-left": ["clock"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["cpu", "memory", "battery", "hyprland/language"],
+  "height": 28,
+  "spacing": 8,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "battery",
+    "hyprland/language",
+  ],
   "hyprland/workspaces": {
     "format": "{name}",
+    "all-outputs": true,
     "format-icons": {
       "active": "",
       "default": "",
