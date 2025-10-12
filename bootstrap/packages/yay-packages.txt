@@ -1,7 +1,10 @@
 1password
 bat
 discord
+dolphin
+dunst
 fd
+firefox
 fish
 fnm
 fzf
@@ -9,6 +12,7 @@ git
 git-delta
 hyprland
 hyprlock
+hyprpolkitagent
 jq
 just
 k9s
@@ -17,6 +21,7 @@ kubectl
 lazydocker
 lazygit
 opencode
+pipewire
 rofi
 selene
 shellcheck
@@ -27,5 +32,7 @@ tmux
 ttf-firacode-nerd
 uv
 waybar
+wireplumber
 wl-clipboard
+xdg-desktop-portal-hyprland
 zoxide
