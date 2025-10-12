@@ -1,3 +1,4 @@
+// icons from: https://www.nerdfonts.com/cheat-sheet
 {
   "height": 28,
   "spacing": 8,
@@ -7,6 +8,7 @@
     "cpu",
     "memory",
     "disk",
+    "network",
     "battery",
     "hyprland/language",
   ],
@@ -38,5 +40,10 @@
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""],
+  },
+  "network": {
+    "format-icons": ["󰖪", "󱚵", "󰖩"],
+    "interval": 2,
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}",
   },
 }
