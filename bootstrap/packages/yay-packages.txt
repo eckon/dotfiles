@@ -8,6 +8,7 @@ fzf
 git
 git-delta
 hyprland
+hyprlock
 jq
 just
 k9s
