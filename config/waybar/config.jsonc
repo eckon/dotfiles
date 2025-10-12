@@ -5,13 +5,23 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
+    "network",
     "cpu",
     "memory",
     "disk",
-    "network",
     "battery",
+    "wireplumber",
     "hyprland/language",
   ],
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    // note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status)
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": ["", "", ""],
+    "scroll-step": 1,
+  },
   "hyprland/workspaces": {
     "format": "{name}",
     "all-outputs": true,
@@ -24,22 +34,24 @@
     "format-alt": "{:%Y-%m-%d}",
   },
   "cpu": {
-    "format": "{usage}% ",
+    "format": "{usage}% CPU",
+    "interval": 5,
   },
   "memory": {
-    "format": "{}% ",
+    "format": "{}% RAM",
+    "interval": 5,
+  },
+  "disc": {
+    "format": "{}%",
   },
   "battery": {
     "states": {
       "warning": 30,
       "critical": 15,
     },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
+    "format": "{capacity}% BAT",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""],
   },
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
