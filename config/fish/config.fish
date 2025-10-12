@@ -14,11 +14,17 @@ type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf
 
 
 # -------------------- Configurations --------------------
-set -Ux EDITOR              "nvim"
-set -Ux VISUAL              "nvim"
-set -Ux MANPAGER            "nvim +Man!"
+# export in environment
+set -x EDITOR              "nvim"
+set -x VISUAL              "nvim"
+set -x MANPAGER            "nvim +Man!"
+set -x LANG                "en_US.UTF-8"
+set -x LC_TIME             "en_US.UTF-8"
+
+# export in session
 set -Ux LESS                "--mouse --wheel-lines=5 -r"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
+
 set fish_greeting
 
 # NOTE: use fish_config to set colors etc.
