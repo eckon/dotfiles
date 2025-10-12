@@ -24,4 +24,6 @@ tldr
 tmux
 ttf-firacode-nerd
 uv
+walker
+waybar
 zoxide
