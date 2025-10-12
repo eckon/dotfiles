@@ -33,6 +33,7 @@ fish_vi_key_bindings
 
 
 # -------------------- Alias/Abbreviations --------------------
+# on wayland: wl-copy/wl-paste
 alias clip "xclip -sel clip"
 alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
