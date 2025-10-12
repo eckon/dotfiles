@@ -21,7 +21,6 @@ if command -v "yay" &> /dev/null; then
 
   # cleanup
   yay -Yc
-  yay -Sc
 fi
 
 if command -v "apt" &> /dev/null; then
