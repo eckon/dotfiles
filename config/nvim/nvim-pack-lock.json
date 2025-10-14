@@ -30,7 +30,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "1858276",
+      "rev": "89eecd8",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -67,11 +67,11 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "155d573",
+      "rev": "caad543",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "38fbb94",
+      "rev": "454ba02",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {

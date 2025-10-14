@@ -1,11 +1,10 @@
-1password
 bat
-discord
 dolphin
 dunst
 fd
 firefox
 fish
+flameshot
 fnm
 fzf
 git
