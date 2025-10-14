@@ -1,4 +1,5 @@
 bat
+docker
 dolphin
 dunst
 fd
