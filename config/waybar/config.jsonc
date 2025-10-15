@@ -1,6 +1,6 @@
 // icons from: https://www.nerdfonts.com/cheat-sheet
 {
-  "height": 28,
+  "height": 30,
   "spacing": 8,
   "modules-left": ["clock", "hyprland/workspaces"],
   "modules-center": ["wlr/taskbar", "tray"],
@@ -16,8 +16,11 @@
   ],
 
   "battery": {
-    "states": { "warning": 30, "critical": 15 },
-    "format": "{capacity}% BAT",
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "bat {capacity}%",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
   },
@@ -27,35 +30,36 @@
   },
 
   "cpu": {
-    "format": "{usage}% CPU",
+    "format": "cpu {usage}%",
     "interval": 5,
   },
 
-  "disc": {
-    "format": "{}%",
+  "disk": {
+    "format": "dsk {percentage_used}%",
   },
 
   "hyprland/workspaces": {
     "format": "{name}",
     "all-outputs": true,
-    "format-icons": { "active": "", "default": "" },
   },
 
   "memory": {
-    "format": "{}% RAM",
+    "format": "ram {}%",
     "interval": 5,
   },
 
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
-    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}",
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
   },
 
   "wireplumber": {
     "format": "{volume}% {icon}",
     "format-muted": "",
-    /* note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status) */ "on-click": "pavucontrol",
+    /* note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status) */
+    "on-click": "pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "format-icons": ["", "", ""],
     "scroll-step": 1,

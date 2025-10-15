@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "kanagawa.nvim": {
-      "rev": "27f1e11",
+      "rev": "aef7f5c",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "lazydev.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "b8c2315",
+      "rev": "e533fac",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason.nvim": {
