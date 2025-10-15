@@ -2,8 +2,8 @@
 {
   "height": 28,
   "spacing": 8,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-left": ["clock", "hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
   "modules-right": [
     "network",
     "cpu",
@@ -13,49 +13,37 @@
     "wireplumber",
     "hyprland/language",
   ],
-  "wireplumber": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
-    // note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status)
-    "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "format-icons": ["", "", ""],
-    "scroll-step": 1,
-  },
-  "hyprland/workspaces": {
-    "format": "{name}",
-    "all-outputs": true,
-    "format-icons": {
-      "active": "",
-      "default": "",
-    },
-  },
-  "clock": {
-    "format-alt": "{:%Y-%m-%d}",
-  },
-  "cpu": {
-    "format": "{usage}% CPU",
-    "interval": 5,
-  },
-  "memory": {
-    "format": "{}% RAM",
-    "interval": 5,
-  },
-  "disc": {
-    "format": "{}%",
-  },
   "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15,
-    },
+    "states": { "warning": 30, "critical": 15 },
     "format": "{capacity}% BAT",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
   },
+  "clock": { "format-alt": "{:%Y-%m-%d}" },
+  "cpu": { "format": "{usage}% CPU", "interval": 5 },
+  "disc": { "format": "{}%" },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": true,
+    "format-icons": { "active": "", "default": "" },
+  },
+  "memory": { "format": "{}% RAM", "interval": 5 },
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
     "format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}",
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    /* note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status) */ "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": ["", "", ""],
+    "scroll-step": 1,
+  },
+  "wlr/taskbar": {
+    "icon-theme": "Numix-Circle",
+    "on-click": "activate",
+    "on-click-middle": "close",
   },
 }
