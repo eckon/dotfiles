@@ -3,7 +3,7 @@
   "height": 28,
   "spacing": 8,
   "modules-left": ["clock", "hyprland/workspaces"],
-  "modules-center": ["wlr/taskbar"],
+  "modules-center": ["wlr/taskbar", "tray"],
   "modules-right": [
     "network",
     "cpu",
@@ -12,27 +12,46 @@
     "battery",
     "wireplumber",
     "hyprland/language",
+    "group/power",
   ],
+
   "battery": {
     "states": { "warning": 30, "critical": 15 },
     "format": "{capacity}% BAT",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
   },
-  "clock": { "format-alt": "{:%Y-%m-%d}" },
-  "cpu": { "format": "{usage}% CPU", "interval": 5 },
-  "disc": { "format": "{}%" },
+
+  "clock": {
+    "format-alt": "{:%Y-%m-%d}",
+  },
+
+  "cpu": {
+    "format": "{usage}% CPU",
+    "interval": 5,
+  },
+
+  "disc": {
+    "format": "{}%",
+  },
+
   "hyprland/workspaces": {
     "format": "{name}",
     "all-outputs": true,
     "format-icons": { "active": "", "default": "" },
   },
-  "memory": { "format": "{}% RAM", "interval": 5 },
+
+  "memory": {
+    "format": "{}% RAM",
+    "interval": 5,
+  },
+
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
     "format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}",
   },
+
   "wireplumber": {
     "format": "{volume}% {icon}",
     "format-muted": "",
@@ -41,9 +60,53 @@
     "format-icons": ["", "", ""],
     "scroll-step": 1,
   },
+
   "wlr/taskbar": {
-    "icon-theme": "Numix-Circle",
     "on-click": "activate",
     "on-click-middle": "close",
+  },
+
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/power-off",
+      "custom/power-lock",
+      "custom/power-sleep",
+      "custom/power-reboot",
+    ],
+    "drawer": {
+      "default": {
+        "open-on-click": true,
+      },
+    },
+  },
+
+  "custom/power-toggle": {
+    "format": "⏻",
+    "tooltip-format": "Power options",
+  },
+
+  "custom/power-lock": {
+    "format": "",
+    "on-click": "hyprlock",
+    "tooltip-format": "Lock",
+  },
+
+  "custom/power-sleep": {
+    "format": "",
+    "on-click": "systemctl suspend",
+    "tooltip-format": "Sleep",
+  },
+
+  "custom/power-reboot": {
+    "format": "",
+    "on-click": "systemctl reboot",
+    "tooltip-format": "Reboot",
+  },
+
+  "custom/power-off": {
+    "format": "",
+    "on-click": "systemctl poweroff",
+    "tooltip-format": "Power Off",
   },
 }

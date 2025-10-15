@@ -6,3 +6,19 @@
 #workspaces button.active {
   background-color: grey;
 }
+
+#custom-power-off {
+  margin-right: 15px;
+}
+
+#custom-power-lock {
+  margin-right: 15px;
+}
+
+#custom-power-sleep {
+  margin-right: 15px;
+}
+
+#custom-power-reboot {
+  margin-right: 15px;
+}
