@@ -22,7 +22,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "e533fac",
+      "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason.nvim": {
@@ -67,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "caad543",
+      "rev": "667eaa5",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -7,6 +7,11 @@
   background-color: grey;
 }
 
+#workspaces button {
+  padding: 5px 15px;
+}
+
+/* add padding to have power buttons aligned */
 #custom-power-off {
   margin-right: 15px;
 }
