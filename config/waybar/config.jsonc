@@ -3,17 +3,27 @@
   "reload_style_on_change": true,
   "height": 30,
   "spacing": 8,
-  "modules-left": ["clock", "hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["wlr/taskbar", "tray"],
   "modules-right": [
     "network",
+    "custom/divider",
     "cpu",
+    "custom/divider",
     "memory",
+    "custom/divider",
     "disk",
-    "battery",
+    "custom/divider",
+    // NOTE: for now my system does not show battery, when its needed check how to format it with the divider nicely
+    // "battery",
+    // "custom/divider",
     "wireplumber",
+    "custom/divider",
     "hyprland/language",
+    "custom/divider",
     "group/power",
+    "custom/divider",
+    "clock",
   ],
 
   "battery": {
@@ -27,7 +37,7 @@
   },
 
   "clock": {
-    "format": "<b>{:%Y-%m-%d | %H:%M}</b>",
+    "format": "{:%Y-%m-%d | %H:%M}",
     "tooltip": false,
   },
 
@@ -119,5 +129,12 @@
     "format": "",
     "on-click": "systemctl poweroff",
     "tooltip-format": "Power Off",
+  },
+
+  // Add a really basic and minimalistic divider
+  "custom/divider": {
+    "exec": "echo '::'",
+    "interval": 0,
+    "format": "{}",
   },
 }

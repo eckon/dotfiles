@@ -10,6 +10,7 @@ fnm
 fzf
 git
 git-delta
+htop
 hyprland
 hyprlock
 hyprpaper
