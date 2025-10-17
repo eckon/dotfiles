@@ -98,7 +98,7 @@
 
   "custom/power-lock": {
     "format": "",
-    "on-click": "hyprlock",
+    "on-click": "loginctl lock-session",
     "tooltip-format": "Lock",
   },
 
