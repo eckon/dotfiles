@@ -4,11 +4,59 @@
 /* highlight active workspace */
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: grey;
+  background-color: rgba(46, 46, 46, 0.5);
+  color: white;
+}
+
+#clock {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+}
+
+#network {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#cpu {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#memory {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#disk {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#battery {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#wireplumber {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
+}
+
+#language {
+  background-color: rgba(46, 46, 46, 0);
+  color: white;
+  padding: 3;
 }
 
 #workspaces button {
-  padding: 5px 15px;
+  padding: 3px 15px;
 }
 
 /* add padding to have power buttons aligned */
