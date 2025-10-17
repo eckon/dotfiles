@@ -20,7 +20,8 @@ if command -v "yay" &> /dev/null; then
   done < "$PACKAGE_ROOT/yay-packages.txt"
 
   # cleanup
-  yay -Yc
+  yay -Yc --noconfirm
+  yay -Sc --noconfirm
 fi
 
 if command -v "apt" &> /dev/null; then

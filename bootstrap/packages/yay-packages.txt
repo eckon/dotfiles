@@ -12,6 +12,7 @@ git
 git-delta
 hyprland
 hyprlock
+hyprpaper
 hyprpolkitagent
 jq
 just
@@ -20,6 +21,7 @@ kitty
 kubectl
 lazydocker
 lazygit
+localsend
 opencode
 pipewire
 rofi
