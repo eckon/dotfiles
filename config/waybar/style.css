@@ -33,12 +33,6 @@ button:hover {
   box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  color: #ffffff;
-}
-
 #workspaces button:hover {
   background: rgba(0, 0, 0, 0.2);
 }
@@ -100,6 +94,16 @@ label:focus {
 }
 
 #temperature.critical {
+  background-color: #eb4d4b;
+}
+
+/* HACK to align the tray and normal icons somewhat evenly spaced, guessing as the others are considered buttons and have padding */
+#tray {
+  padding-left: 5px;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
 }
 

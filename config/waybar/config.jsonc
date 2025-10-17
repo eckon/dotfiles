@@ -4,7 +4,7 @@
   "height": 30,
   "spacing": 8,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["wlr/taskbar", "tray"],
+  "modules-center": ["wlr/taskbar", "custom/divider", "tray"],
   "modules-right": [
     "network",
     "custom/divider",
