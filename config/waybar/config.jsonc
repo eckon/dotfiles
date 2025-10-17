@@ -23,7 +23,9 @@
     "custom/divider",
     "group/power",
     "custom/divider",
-    "clock",
+    "clock#date",
+    "custom/divider",
+    "clock#time",
   ],
 
   "battery": {
@@ -36,8 +38,13 @@
     "format-plugged": "{capacity}% ",
   },
 
-  "clock": {
-    "format": "{:%Y-%m-%d | %H:%M}",
+  // Split clock into two parts to also use a divider between them (and use different styling)
+  "clock#time": {
+    "format": "{:%H:%M}",
+    "tooltip": false,
+  },
+  "clock#date": {
+    "format": "{:%Y-%m-%d}",
     "tooltip": false,
   },
 

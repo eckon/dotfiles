@@ -103,7 +103,7 @@ label:focus {
   background-color: #eb4d4b;
 }
 
-#clock {
+#clock.time {
   padding-right: 15px;
 }
 
