@@ -81,7 +81,8 @@
     "modules": [
       "custom/power-off",
       "custom/power-lock",
-      "custom/power-sleep",
+      // NOTE: ignore sleep for now as this results in a kernel error on resume
+      // "custom/power-sleep",
       "custom/power-reboot",
     ],
     "drawer": {
@@ -104,7 +105,7 @@
 
   "custom/power-sleep": {
     "format": "",
-    "on-click": "systemctl suspend",
+    "on-click": "loginctl lock-session && systemctl suspend",
     "tooltip-format": "Sleep",
   },
 
