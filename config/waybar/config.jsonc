@@ -19,8 +19,9 @@
     // "custom/divider",
     "wireplumber",
     "custom/divider",
-    "hyprland/language",
-    "custom/divider",
+    // NOTE: not that useful yet and takes too much space, so ignore for now
+    // "hyprland/language",
+    // "custom/divider",
     "group/power",
     "custom/divider",
     "clock#date",
@@ -64,6 +65,7 @@
 
   "memory": {
     "format": "ram {}%",
+    "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB used",
     "interval": 5,
   },
 
@@ -71,7 +73,9 @@
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
     "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
+    "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
+    "format-disconnected": "disconnected",
+    "format-disabled": "disabled",
   },
 
   "wireplumber": {
