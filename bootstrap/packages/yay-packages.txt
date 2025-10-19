@@ -22,8 +22,8 @@ kitty
 kubectl
 lazydocker
 lazygit
-localsend
-opencode
+localsend-bin
+opencode-bin
 pipewire
 rofi
 selene
