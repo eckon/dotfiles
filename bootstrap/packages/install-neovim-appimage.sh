@@ -27,7 +27,10 @@ cp "/tmp/neovim/nvim.appimage" "$NVIM_PATH"
 if command -v nvim > /dev/null 2>&1; then
   # only trigger this, if we already have sudo permissions (via general install packages)
   if sudo -n true > /dev/null 2>&1; then
-    sudo update-alternatives --install /usr/bin/editor editor "$(command -v nvim)" 110
-    sudo update-alternatives --set editor "$(command -v nvim)"
+    # handle os/envs where I do not have this command (later on I should handle other commands as well)
+    if command -v update-alternatives > /dev/null 2>&1; then
+      sudo update-alternatives --install /usr/bin/editor editor "$(command -v nvim)" 110
+      sudo update-alternatives --set editor "$(command -v nvim)"
+    fi
   fi
 fi

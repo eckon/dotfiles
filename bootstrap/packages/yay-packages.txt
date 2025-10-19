@@ -38,4 +38,5 @@ waybar
 wireplumber
 wl-clipboard
 xdg-desktop-portal-hyprland
+xorg-xhost
 zoxide
