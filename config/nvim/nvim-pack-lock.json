@@ -71,7 +71,7 @@
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "baedaf4",
+      "rev": "d6e34b1",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {

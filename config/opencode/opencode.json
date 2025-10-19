@@ -21,22 +21,6 @@
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
       "enabled": true
-    },
-    "pinecone": {
-      "type": "local",
-      "command": ["npx", "-y", "@pinecone-database/mcp"],
-      "enabled": true,
-      "environment": {
-        "PINECONE_API_KEY": "{file:/home/eckon/.config/pinecone/pinecone_api_key.txt}"
-      }
-    },
-    "calendar": {
-      "type": "local",
-      "command": ["npx", "@cocal/google-calendar-mcp"],
-      "enabled": false,
-      "environment": {
-        "GOOGLE_OAUTH_CREDENTIALS": "/home/eckon/.config/google-calendar-mcp/client_secret.json"
-      }
     }
   }
 }
