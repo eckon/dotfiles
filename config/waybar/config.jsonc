@@ -75,12 +75,11 @@
   },
 
   "wireplumber": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "vol {volume}%",
+    "format-muted": "muted",
     /* note that the audio is a bit buggy and the setting based on application works well enough (but not shown in status) */
     "on-click": "pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "format-icons": ["", "", ""],
     "scroll-step": 1,
   },
 
@@ -95,12 +94,13 @@
 
   "group/power": {
     "orientation": "horizontal",
+    // hover will expand, making the last module the one under the cursor -> last modules should be least "critical" ones
     "modules": [
       "custom/power-off",
-      "custom/power-lock",
+      "custom/power-reboot",
       // NOTE: ignore sleep for now as this results in a kernel error on resume
       // "custom/power-sleep",
-      "custom/power-reboot",
+      "custom/power-lock",
     ],
     "drawer": {
       "default": {
