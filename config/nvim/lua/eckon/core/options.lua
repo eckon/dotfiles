@@ -3,6 +3,8 @@ local set = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- allow project based vim setups to be run (need to manually trust them)
+set.exrc = true
 set.shell = "bash"
 set.undofile = true
 set.swapfile = false

@@ -46,7 +46,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "e397756",
+      "rev": "64e2192",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -67,11 +67,11 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "e71cc06",
+      "rev": "960a5cf",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "d6e34b1",
+      "rev": "903bf3f",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
