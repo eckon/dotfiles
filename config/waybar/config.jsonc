@@ -61,6 +61,8 @@
   "hyprland/workspaces": {
     "format": "{name}",
     "all-outputs": true,
+    "show-special": true,
+    "special-visible-only": true,
   },
 
   "memory": {
