@@ -75,6 +75,9 @@ cc.add("Delete package", {
       return a.name < b.name
     end)
 
+    -- add option of deleting all packages (mainly to install "frozen" packages
+    table.insert(package_list, 1, { name = "ALL" })
+
     vim.ui.select(package_list, {
       prompt = "Select package to delete:",
       format_item = function(item)
@@ -83,6 +86,21 @@ cc.add("Delete package", {
       end,
     }, function(choice)
       if choice then
+        if choice.name == "ALL" then
+          local ret = vim.fn.confirm("This will delete all packages, are you sure?", "&Yes\n&No", 2)
+          -- 1 = Yes, 2 = No
+          if ret == 1 then
+            local del_packages = {}
+            for _, pkg in ipairs(packages) do
+              table.insert(del_packages, pkg.spec.name)
+            end
+
+            vim.pack.del(del_packages)
+          end
+
+          return
+        end
+
         vim.pack.del({ choice.name })
       end
     end)
