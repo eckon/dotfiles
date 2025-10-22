@@ -10,7 +10,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "fbcb4fa",
+      "rev": "235dd79",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "kanagawa.nvim": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "14145d3",
+      "rev": "cf32454",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -38,11 +38,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ac98db2",
+      "rev": "e5c61b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "75de178",
+      "rev": "0cadeb0",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "475fb69",
+      "rev": "f27b8b3",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
