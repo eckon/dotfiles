@@ -63,6 +63,15 @@ autocmd("lspattach", {
       require("snacks").picker.lsp_implementations()
     end, "Go to implementations")
 
+    nmap("grt", function()
+      require("snacks").picker.lsp_type_definitions()
+    end, "Go to type definition")
+
+    -- set by default neovim, aligned with closest function in snacks
+    nmap("gO", function()
+      require("snacks").picker.lsp_symbols()
+    end, "Go to document symbol")
+
     nmap("gs", function()
       require("snacks").picker.lsp_symbols()
     end, "Go to buffer symbols")
