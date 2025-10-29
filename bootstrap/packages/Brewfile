@@ -12,6 +12,7 @@ brew "fnm" # node version manager
 brew "fzf"
 brew "gettext"
 brew "git"
+brew "git-crypt"
 brew "git-delta" # git diff enhancement
 brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazygit/lazygit"
