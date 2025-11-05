@@ -20,9 +20,9 @@ commands=(
 # Use fzf to create a searchable menu (no height limit since we're in a popup)
 selected=$(
   printf "%s\n" "${commands[@]}" \
-    | awk -F'|' '{ printf "%-30s %s\n", $1, $2 }' \
+    | awk -F'|' '{ printf "%-30s | %s\n", $1, $2 }' \
     | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
-    | awk '{ print $NF }'
+    | awk -F '|' '{ print $NF }'
 )
 
 # Exit if nothing was selected
