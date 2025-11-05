@@ -62,3 +62,4 @@ See the [packages directory](./bootstrap/packages/) for the complete list.
 - **[Brewfile](./bootstrap/packages/Brewfile)**
 - **[apt-packages.txt](./bootstrap/packages/apt-packages.txt)**
 - **[dnf-packages.txt](./bootstrap/packages/dnf-packages.txt)**
+- **[yay-packages.txt](./bootstrap/packages/yay-packages.txt)**
