@@ -15,8 +15,9 @@ type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf
 
 # -------------------- Configurations --------------------
 # export in environment
-set -x EDITOR              "nvim"
-set -x VISUAL              "nvim"
+set -x EDITOR              (command -v "nvim")
+set -x SUDO_EDITOR         (command -v "nvim")
+set -x VISUAL              (command -v "nvim")
 set -x MANPAGER            "nvim +Man!"
 set -x LANG                "en_US.UTF-8"
 set -x LC_TIME             "en_US.UTF-8"
