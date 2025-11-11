@@ -30,6 +30,7 @@ pipewire
 rofi
 selene
 shellcheck
+speech-dispatcher
 starship
 timeshift
 tldr
