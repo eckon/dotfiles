@@ -1,6 +1,5 @@
 require("eckon.plugin.colorscheme")
 require("eckon.plugin.conform")
-require("eckon.plugin.flash")
 require("eckon.plugin.lsp")
 require("eckon.plugin.lualine")
 require("eckon.plugin.mini")

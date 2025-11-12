@@ -13,10 +13,6 @@
       "rev": "cde4da5",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "flash.nvim": {
-      "rev": "fcea7ff",
-      "src": "https://github.com/folke/flash.nvim"
-    },
     "kanagawa.nvim": {
       "rev": "aef7f5c",
       "src": "https://github.com/rebelot/kanagawa.nvim"
@@ -34,15 +30,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "890f6a3",
+      "rev": "f43357b",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "8b349e8",
+      "rev": "2536f1b",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "a89bfcf",
+      "rev": "b34fbdf",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -71,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "976b31e",
+      "rev": "229e7ec",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
@@ -79,7 +75,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
-      "rev": "db26c05",
+      "rev": "675fe41",
       "src": "https://github.com/pmizio/typescript-tools.nvim"
     }
   }
