@@ -7,20 +7,20 @@
       "permission": {
         "bash": "ask",
         "edit": "ask",
-        "webfetch": "ask"
-      }
-    }
+        "webfetch": "ask",
+      },
+    },
   },
   "mcp": {
     "browser": {
       "type": "local",
       "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
-      "enabled": true
+      "enabled": true,
     },
     "coding-docs": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": true
-    }
-  }
+      "enabled": true,
+    },
+  },
 }

@@ -6,7 +6,7 @@
       "version": ">=0.0.0"
     },
     "catppuccin": {
-      "rev": "234fc04",
+      "rev": "da33755d00e09bff2473978910168ff9ea5dc453",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -38,11 +38,11 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "2536f1b",
+      "rev": "baf7c91c2b868b12446df511d4cdddc98e9bf66e",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "95fe3c1",
+      "rev": "c6f05c0900144f027a8a0332566878e398d457b5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
