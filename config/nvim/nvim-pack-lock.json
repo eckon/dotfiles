@@ -6,11 +6,11 @@
       "version": ">=0.0.0"
     },
     "catppuccin": {
-      "rev": "da33755d00e09bff2473978910168ff9ea5dc453",
+      "rev": "da33755",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "cde4da5",
+      "rev": "1bf8b5b",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "flash.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "dce9bc4",
+      "rev": "6e885e4",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "baf7c91c2b868b12446df511d4cdddc98e9bf66e",
+      "rev": "a0718ad",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "c6f05c0900144f027a8a0332566878e398d457b5",
+      "rev": "e0fae25",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "1eda256",
+      "rev": "3fb91e1",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -71,15 +71,15 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "eed1834",
+      "rev": "1d0932e",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "3c5c23b",
+      "rev": "fe7cfe9",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
-      "rev": "675fe41",
+      "rev": "c2f5910",
       "src": "https://github.com/pmizio/typescript-tools.nvim"
     }
   }
