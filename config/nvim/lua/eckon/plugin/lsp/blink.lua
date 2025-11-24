@@ -13,4 +13,6 @@ require("blink.cmp").setup({
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
   },
+  -- disable warning but still use rust if available (quickfix for bd network, as it fails to download)
+  fuzzy = { implementation = "prefer_rust" },
 })

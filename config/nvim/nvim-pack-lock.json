@@ -10,7 +10,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "1bf8b5b",
+      "rev": "6208aef",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "flash.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "3946f01",
+      "rev": "47f91c4",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "6e885e4",
+      "rev": "72b0194",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "a0718ad",
+      "rev": "d111879",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "e0fae25",
+      "rev": "30a2b19",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -71,7 +71,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "1d0932e",
+      "rev": "aa25399",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
