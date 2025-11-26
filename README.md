@@ -37,7 +37,13 @@ The setup script will:
 
 ### Post-Installation
 
-`just` cli command is available and can be used for many other scripts (including the setup scripts)
+`mise` cli command is available and can be used for many other scripts (including the setup scripts):
+
+```bash
+mise tasks     # List all available tasks
+mise run setup # Run full setup
+mise run check # Format and lint all code
+```
 
 ## Directory Structure
 

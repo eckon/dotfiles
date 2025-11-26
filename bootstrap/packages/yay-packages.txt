@@ -17,7 +17,6 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 jq
-just
 k9s
 kitty
 kubectl

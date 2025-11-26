@@ -16,7 +16,6 @@ brew "git-delta" # git diff enhancement
 brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazygit/lazygit"
 brew "jq"
-brew "just" # task runner
 brew "k9s"
 brew "kubectl"
 brew "mise" # dev tool version manager, task runner, env manager

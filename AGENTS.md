@@ -15,7 +15,7 @@
 ## Workflow
 
 - IMPORTANT: After making ANY code changes, I must ALWAYS:
-  - Run `just check` to format, lint and check the code
+  - Run `mise run check` to format, lint and check the code
   - Ask me if the changes should be committed
   - Create a commit with a descriptive message
     - Do not include that the code was done by an AI

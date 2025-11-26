@@ -1,0 +1,64 @@
+[tools]
+node = "latest"
+
+
+# Special
+[tasks.setup]
+description = "Setup whole configuration"
+depends = ["packages", "symlinks"]
+
+[tasks.check]
+description = "Run all formatters and linters over the whole repo"
+depends = [
+  "scripts:format", "scripts:lint",
+  "lua:format", "lua:lint",
+  "markdown:format", "markdown:lint",
+]
+
+[tasks.neovim]
+description = "Force reinstall of latest neovim nightly release"
+confirm = "This will overwrite neovim, are you sure?"
+run = "./bootstrap/packages/install-neovim-appimage.sh --force"
+
+
+# Setup tasks
+[tasks.symlinks]
+description = "Symlink all given configurations"
+run = "./bootstrap/symlink.sh"
+
+[tasks.packages]
+description = "Install/update all packages"
+run = ["sudo -v", "./bootstrap/install-packages.sh"]
+
+
+# Lua tasks
+[tasks."lua:format"]
+description = "Format Lua files with stylua"
+run = "npx @johnnymorganz/stylua-bin --glob '*.lua' ./config/nvim"
+
+[tasks."lua:lint"]
+description = "Lint Lua files with selene"
+run = "selene config/nvim"
+
+
+# Markdown tasks
+[tasks."markdown:format"]
+description = "Format Markdown files with prettier"
+run = "npx prettier --write --cache --log-level warn '**/*.md'"
+
+[tasks."markdown:lint"]
+description = "Lint Markdown files with markdownlint"
+run = "npx markdownlint-cli '**/*.md' -f --ignore-path '.gitignore'"
+
+
+# Scripts tasks
+[tasks."scripts:format"]
+description = "Format shell and TypeScript scripts"
+run = [
+  "npx prettier --write --cache --log-level warn '**/*.sh'",
+  "npx prettier --write --cache '**/*.ts'",
+]
+
+[tasks."scripts:lint"]
+description = "Lint shell and TypeScript scripts"
+run = ["shellcheck -S warning **/*.sh", "npx eslint --fix"]
