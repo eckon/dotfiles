@@ -14,4 +14,3 @@ watchman
 wget
 xclip
 yad
-zsh

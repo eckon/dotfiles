@@ -7,10 +7,8 @@
 
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
-  ["config/alacritty.yml"]=".config/alacritty.yml"
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/git"]=".config/git"
-  ["config/helix/config.toml"]=".config/helix/config.toml"
   ["config/hypr"]=".config/hypr"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
   ["config/k9s"]=".config/k9s"
@@ -27,7 +25,6 @@ CONFIG_PATHS=(
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
   ["config/waybar"]=".config/waybar"
   ["config/zellij/config.kdl"]=".config/zellij/config.kdl"
-  ["config/zshrc"]=".zshrc"
 )
 
 if [ -f "/proc/version" ] && cat "/proc/version" | grep --ignore-case "wsl" -q; then
