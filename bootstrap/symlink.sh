@@ -17,6 +17,7 @@ CONFIG_PATHS=(
   ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
+  ["config/mise"]=".config/mise"
   ["config/nvim"]=".config/nvim"
   ["config/opencode"]=".config/opencode"
   ["config/ripgreprc"]=".config/ripgreprc"

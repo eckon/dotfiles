@@ -2,14 +2,14 @@
 test -d /opt/homebrew;      and eval "$(/opt/homebrew/bin/brew shellenv)"
 test -d /home/linuxbrew;    and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-test -d ~/.local/share/fnm; and fish_add_path ~/.local/share/fnm
 test -d ~/.local/bin;       and fish_add_path ~/.local/bin
+# note: mise might replace this as well
 test -d ~/.cargo/bin;       and fish_add_path ~/.cargo/bin
 
 type --query starship;      and starship init fish | source; or echo "[!] No starship"
-type --query fnm;           and fnm env            | source; or echo "[!] No fnm"
 type --query zoxide;        and zoxide init fish   | source; or echo "[!] No zoxide"
 type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf"
+type --query mise;          and mise activate fish | source; or echo "[!] No mise"
 
 
 

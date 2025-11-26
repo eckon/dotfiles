@@ -8,7 +8,6 @@ fd
 firefox
 fish
 flameshot
-fnm
 fzf
 git
 git-delta
@@ -25,6 +24,7 @@ kubectl
 lazydocker
 lazygit
 localsend-bin
+mise
 nvtop
 opencode-bin
 pipewire
@@ -37,6 +37,7 @@ timeshift
 tldr
 tmux
 ttf-firacode-nerd
+usage
 uv
 waybar
 wireplumber

@@ -8,7 +8,6 @@ brew "cmake"
 brew "curl"
 brew "fd" # find replacement
 brew "fish"
-brew "fnm" # node version manager
 brew "fzf"
 brew "gettext"
 brew "git"
@@ -20,6 +19,7 @@ brew "jq"
 brew "just" # task runner
 brew "k9s"
 brew "kubectl"
+brew "mise" # dev tool version manager, task runner, env manager
 brew "ninja" # build system
 brew "ripgrep" # grep replacement
 brew "selene" # lua linter
