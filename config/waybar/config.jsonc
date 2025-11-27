@@ -78,6 +78,7 @@
     "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
     "format-disconnected": "disconnected",
     "format-disabled": "disabled",
+    "on-click": "systemctl restart NetworkManager",
   },
 
   "wireplumber": {
