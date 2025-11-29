@@ -23,7 +23,7 @@ set -x LANG                "en_US.UTF-8"
 set -x LC_TIME             "en_US.UTF-8"
 
 # export in session
-set -Ux LESS                "--mouse --wheel-lines=5 -r"
+set -Ux LESS                "--mouse --wheel-lines=5 -R -i"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 
 set fish_greeting
@@ -40,8 +40,8 @@ alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
 
 # NOTE: use `sudoedit` for opening vim in sudo mode
-alias vi   "vim -u NONE"
-alias vim  "nvim"
+alias vi  "vim -u NONE"
+alias vim "nvim"
 
 # quickly delete locally installed packages
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"

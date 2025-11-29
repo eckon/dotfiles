@@ -17,9 +17,9 @@
 	wdiff = diff --word-diff --color-words --no-index
 	# char diff
 	cdiff = diff --color-words=. --no-index
-	# find commit by content of commits (without and with changes)
-	find  = "!f() { git log --no-merges -S\"$*\"; }; f"
-	ffind = "!f() { git log -c --no-merges -S\"$*\"; }; f"
+	# find commit by case insensitive content of commits (without and with body)
+	find  = "!f() { git log    --no-merges -i -S\"$*\"; }; f"
+	ffind = "!f() { git log -c --no-merges -i -S\"$*\"; }; f"
 	# create commit without changes (to start with a defined commit message)
 	empty = commit --allow-empty
 
