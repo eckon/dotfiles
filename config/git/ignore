@@ -1,8 +1,8 @@
 ### global gitignore
+# what is ignored in here, will be ignored in any git repo
 
-# supermaven (ai editor tool) creates a config folder per project -> ignore it
 .supermaven/
+**/.claude/settings.local.json
+mise.local.toml
 
 # vim:filetype=gitignore
-
-**/.claude/settings.local.json
