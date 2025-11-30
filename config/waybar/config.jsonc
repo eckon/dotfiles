@@ -74,7 +74,7 @@
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
-    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes} {icon} {signalStrength}%",
     "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
     "format-disconnected": "disconnected",
     "format-disabled": "disabled",
