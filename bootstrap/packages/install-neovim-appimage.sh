@@ -1,46 +1,52 @@
 #!/usr/bin/env bash
 
-LOCAL_BIN_PATH="$HOME/.local/bin"
-NVIM_PATH="$LOCAL_BIN_PATH/nvim"
 FORCE_FLAG=false
-
-mkdir -p "$LOCAL_BIN_PATH"
-mkdir -p "/tmp/neovim"
-
 if [[ "$1" == "--force" ]]; then
   FORCE_FLAG=true
 fi
 
 if command -v "nvim" &> /dev/null && [[ "$FORCE_FLAG" == false ]]; then
+  echo "[!] \"nvim\" exists, ignoring installation"
   exit
 fi
 
-echo "[+] Install \"nvim\""
+# create unique temporary directory that will be cleaned up by
+# cleanup trap for exit, interrupt (Ctrl-C), and termination
+TMP_DIR=$(mktemp -d)
+cleanup() {
+  rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT INT TERM
 
-curl -L -o "/tmp/neovim/nvim.appimage" \
+echo "[+] Download and Install \"nvim\""
+curl -L -o "$TMP_DIR/nvim.appimage" \
   "https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage"
 
-# Verify download was successful
-if [[ ! -f "/tmp/neovim/nvim.appimage" ]]; then
-  echo "[-] Failed to download neovim appimage"
+echo "[+] Verify \"nvim\" download"
+if [[ ! -f "$TMP_DIR/nvim.appimage" ]]; then
+  echo "[!] Failed to download neovim appimage"
   exit 1
 fi
 
-chmod +x "/tmp/neovim/nvim.appimage"
-
-# Test that the appimage works before replacing existing installation
-if ! "/tmp/neovim/nvim.appimage" --version &> /dev/null; then
-  echo "[-] Downloaded neovim appimage is not working"
+echo "[+] Test \"nvim\" appimage"
+chmod +x "$TMP_DIR/nvim.appimage"
+if ! "$TMP_DIR/nvim.appimage" --version &> /dev/null; then
+  echo "[!] Downloaded neovim appimage is not working"
   exit 1
 fi
 
-# Only move old neovim after successful download and verification as a backup
+LOCAL_BIN_PATH="$HOME/.local/bin"
+NVIM_PATH="$LOCAL_BIN_PATH/nvim"
+
+mkdir -p "$LOCAL_BIN_PATH"
+
 if [[ "$FORCE_FLAG" == true ]] && [[ -f "$NVIM_PATH" ]]; then
   echo "[!] Move old neovim installation"
   mv "$NVIM_PATH" "$NVIM_PATH.old"
 fi
 
-cp "/tmp/neovim/nvim.appimage" "$NVIM_PATH"
+echo "[!] Move \"nvim\" into PATH"
+cp "$TMP_DIR/nvim.appimage" "$NVIM_PATH"
 
 # setup neovim to be used in `sudoedit`
 if command -v nvim > /dev/null 2>&1; then
