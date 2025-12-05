@@ -1,9 +1,12 @@
+# ignore configs that could include secrets etc. for custom scripts
 scripts/*.cfg
 
-Brewfile.lock.json
-
+# ignore basic js/ts/npm/node parts
 package-lock.json
 node_modules
 
-# do not store edge-cases like work related values
+# ignore work specific git configs like work email etc.
 config/git/work
+
+# ignore specific computer settings that should not be shared
+config/hypr/hyprland/custom.conf
