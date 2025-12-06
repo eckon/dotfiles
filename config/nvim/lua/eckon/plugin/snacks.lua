@@ -21,13 +21,10 @@ require("snacks").setup({
     end,
   },
 
-  -- pretty toast like notifications
-  notifier = { enabled = true },
-
   -- enhanced statuscolumn (merge relative/current-line, handle folds, handle git changes, etc.)
   statuscolumn = { enabled = true },
 
-  -- enhanced vim.ui.input
+  -- enhanced vim.ui.input (mainly for rename action etc. to use vim motion in there)
   input = { enabled = true },
 
   -- enhanced vim.ui.select and be used as a picker for many things
@@ -47,27 +44,8 @@ require("snacks").setup({
   styles = {
     ---@diagnostic disable-next-line: missing-fields
     blame_line = { width = 0.9, height = 0.9 },
-    ---@diagnostic disable-next-line: missing-fields
-    notification = { wo = { wrap = true } },
-    ---@diagnostic disable-next-line: missing-fields
-    ["notification.history"] = { width = 0.9, height = 0.9 },
   },
 })
-
----@diagnostic disable-next-line: duplicate-set-field
-vim.print = function(...)
-  require("snacks").debug.inspect(...)
-end
-
----@diagnostic disable-next-line: duplicate-set-field
-vim.ui.input = function(...)
-  require("snacks").input.input(...)
-end
-
----@diagnostic disable-next-line: duplicate-set-field
-vim.ui.select = function(...)
-  require("snacks").picker.select(...)
-end
 
 -- snacks.picker
 local bind_map = require("eckon.helper.utils").bind_map
@@ -130,12 +108,5 @@ cc.add("Git Log", {
   desc = "Open Git log/blame",
   callback = function()
     require("snacks").git.blame_line()
-  end,
-})
-
-cc.add("Show Notifications", {
-  desc = "Open all previous `vim.notify` messages",
-  callback = function()
-    require("snacks").notifier.show_history()
   end,
 })

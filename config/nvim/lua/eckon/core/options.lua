@@ -81,3 +81,7 @@ vim.diagnostic.config({
   -- open float on default jump bindings ([d and ]d)
   jump = { float = true },
 })
+
+-- TODO: experimental feature, update accordingly to breaking changes etc.
+-- this will most likely be a basic feature toggle or enabled by default
+require("vim._extui").enable({ enable = true })

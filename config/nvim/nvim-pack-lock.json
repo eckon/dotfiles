@@ -34,7 +34,7 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "5122c0c00a65cf6ce434b16b6a7587b62b6af00d",
+      "rev": "ebe535956106c60405b02220246e135910f6853d",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
@@ -67,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "8767cf2695eacfcf0ac93797cd657e5979836ef7",
+      "rev": "21645280ad06fce01ef109e82d76302dcbe62756",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -83,21 +83,17 @@ autocmd("lspattach", {
   group = augroup,
 })
 
--- taken from: https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
 autocmd("LspProgress", {
   desc = "Show LSP progress independent on notifier",
-  ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    vim.notify(vim.lsp.status(), "info", {
-      id = "lsp_progress",
-      title = "LSP Progress",
-      opts = function(notif)
-        notif.icon = ev.data.params.value.kind == "end" and " "
-          ---@diagnostic disable-next-line: undefined-field
-          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-      end,
-    })
+    local kind = ev.data.params.value.kind
+    if kind == "end" then
+      -- cleanup the message at the end instead of showing anything else
+      vim.notify("")
+      return
+    end
+
+    vim.notify(vim.lsp.status())
   end,
   group = augroup,
 })

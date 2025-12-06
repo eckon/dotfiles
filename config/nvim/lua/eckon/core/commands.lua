@@ -23,7 +23,7 @@ cc.add("Copy File Path", {
 
     vim.fn.setreg("+", path)
     ---@diagnostic disable-next-line: param-type-mismatch
-    vim.notify('Copied filepath to clipboard: "' .. path .. '"', "info", { title = "Copied filepath" })
+    vim.notify('Copied filepath to clipboard: "' .. path .. '"')
   end,
 })
 
