@@ -40,3 +40,14 @@ autocmd("BufWritePre", {
   end,
   group = augroup,
 })
+
+autocmd("TextYankPost", {
+  desc = "Yank-ring: store yanked text in registers 1-9",
+  callback = function()
+    if vim.v.event.operator == "y" then
+      for i = 9, 1, -1 do -- Shift all numbered registers.
+        vim.fn.setreg(tostring(i), vim.fn.getreg(tostring(i - 1)))
+      end
+    end
+  end,
+})
