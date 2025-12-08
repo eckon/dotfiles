@@ -1,9 +1,11 @@
 # ignore configs that could include secrets etc. for custom scripts
 scripts/*.cfg
 
-# ignore basic js/ts/npm/node parts
+# ignore lock or generated files that are not needed for my personal configs
+# as these are always used on `latest`
 package-lock.json
 node_modules
+Brewfile.lock.json
 
 # ignore work specific git configs like work email etc.
 config/git/work
