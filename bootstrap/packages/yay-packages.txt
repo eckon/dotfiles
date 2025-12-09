@@ -4,6 +4,7 @@ chromium
 docker
 dolphin
 dunst
+dust
 fd
 firefox
 fish
