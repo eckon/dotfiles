@@ -57,11 +57,15 @@
   "network": {
     "format-icons": ["󰖪", "󱚵", "󰖩"],
     "interval": 2,
-    "format": " {bandwidthUpBytes}  {bandwidthDownBytes} {icon} {signalStrength}%",
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
     "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
     "format-disconnected": "disconnected",
     "format-disabled": "disabled",
     "on-click": "systemctl restart NetworkManager",
+    "states": {
+      "good": 75,
+      "ok": 50,
+    },
   },
 
   "cpu": {

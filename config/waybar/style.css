@@ -132,3 +132,19 @@ label:focus {
   margin-left: 10px;
   margin-right: 12px;
 }
+
+/* Indicate network quality with different colors, base on worse as higher=better */
+/* red on anything that's wore than ok */
+#network {
+  color: #ff0000;
+}
+
+/* yellow on only ok connection */
+#network.ok {
+  color: #ffff00;
+}
+
+/* reset to white when good connection */
+#network.good {
+  color: inherit;
+}
