@@ -1,4 +1,5 @@
 // icons from: https://www.nerdfonts.com/cheat-sheet
+// NOTE: currently `return-type` json only supports predefined variables, so custom ones can not be set yet
 {
   "reload_style_on_change": true,
   "height": 30,
@@ -11,6 +12,10 @@
     "cpu",
     "custom/divider",
     "memory",
+    "custom/divider",
+    "custom/gpu",
+    "custom/divider",
+    "custom/vram",
     "custom/divider",
     "disk",
     "custom/divider",
@@ -49,9 +54,41 @@
     "tooltip": false,
   },
 
+  "network": {
+    "format-icons": ["󰖪", "󱚵", "󰖩"],
+    "interval": 2,
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes} {icon} {signalStrength}%",
+    "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
+    "format-disconnected": "disconnected",
+    "format-disabled": "disabled",
+    "on-click": "systemctl restart NetworkManager",
+  },
+
   "cpu": {
     "format": "cpu {usage}%",
-    "interval": 5,
+    "interval": 2,
+  },
+
+  "memory": {
+    "format": "ram {}%",
+    "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB used",
+    "interval": 2,
+  },
+
+  "custom/gpu": {
+    "exec": "bash -c 'gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent); temp=$(cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input); temp_c=$((temp / 1000)); power=$(cat /sys/class/drm/card1/device/hwmon/hwmon*/power1_average 2>/dev/null || echo 0); power_w=$((power / 1000000)); fan=$(cat /sys/class/drm/card1/device/hwmon/hwmon*/fan1_input 2>/dev/null || echo 0); echo \"{\\\"percentage\\\": $gpu, \\\"alt\\\": \\\"Temp: ${temp_c}°C\rPower: ${power_w}W\rFan: ${fan}RPM\\\"}\"'",
+    "return-type": "json",
+    "format": "gpu {percentage}%",
+    "tooltip-format": "{alt}",
+    "interval": 2,
+  },
+
+  "custom/vram": {
+    "exec": "bash -c 'used=$(cat /sys/class/drm/card1/device/mem_info_vram_used); max=$(cat /sys/class/drm/card1/device/mem_info_vram_total); perc=$((used * 100 / max)); used_gib=$(awk -v u=$used \"BEGIN {printf \\\"%.1f\\\", u/1024/1024/1024}\"); max_gib=$(awk -v m=$max \"BEGIN {printf \\\"%.1f\\\", m/1024/1024/1024}\"); echo \"{\\\"percentage\\\": $perc, \\\"alt\\\": \\\"${used_gib}GiB / ${max_gib}GiB used\\\"}\"'",
+    "return-type": "json",
+    "format": "vram {percentage}%",
+    "tooltip-format": "{alt}",
+    "interval": 2,
   },
 
   "disk": {
@@ -63,22 +100,6 @@
     "all-outputs": true,
     "show-special": true,
     "special-visible-only": true,
-  },
-
-  "memory": {
-    "format": "ram {}%",
-    "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB used",
-    "interval": 5,
-  },
-
-  "network": {
-    "format-icons": ["󰖪", "󱚵", "󰖩"],
-    "interval": 2,
-    "format": " {bandwidthUpBytes}  {bandwidthDownBytes} {icon} {signalStrength}%",
-    "tooltip-format": "{essid} ({ifname}):  {bandwidthUpBytes}  {bandwidthDownBytes}  {icon} {signalStrength}%",
-    "format-disconnected": "disconnected",
-    "format-disabled": "disabled",
-    "on-click": "systemctl restart NetworkManager",
   },
 
   "wireplumber": {
