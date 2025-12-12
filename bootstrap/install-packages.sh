@@ -80,8 +80,9 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
   *'darwin'*)
     echo "[!] Install for Mac"
     "$PACKAGE_ROOT/install-fish.sh"
-    # prebuilt packages on mac are a bit finicky, for now I just use the stable neovim version
-    brew install "neovim"
+    echo "[!] Manually install neovim into ~/.local/bin"
+    echo "[!] Manually install kitty"
+    echo "[!] Manually install fonts"
     ;;
 
   *)

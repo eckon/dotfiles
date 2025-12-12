@@ -30,15 +30,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "6f11e41a137590e4a5f13624a2a9a845686e719f",
+      "rev": "c889667a9d73b106bd303a043eb37a91da4a41a2",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "ebe535956106c60405b02220246e135910f6853d",
+      "rev": "897f7771c1ca4b11659dfe372d9376acd9fe3097",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69",
+      "rev": "7af6f57d517d8cc68f249e0d27364c188a097812",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -67,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "3941c524f88fd4b7696bc574d7acde0313ef5bf5",
+      "rev": "a025c78b147affef1aabb8aa360c92be2e0377a0",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
