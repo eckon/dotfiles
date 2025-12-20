@@ -11,11 +11,13 @@
       },
     },
   },
+  // depending on the mcp implementation, it will add a lot of context to each session, because of this some
+  // mcps might be disabled here per default. these can be enabled in opencode itself via their ui
   "mcp": {
     "browser": {
       "type": "local",
       "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
-      "enabled": true,
+      "enabled": false,
     },
     "coding-docs": {
       "type": "local",
