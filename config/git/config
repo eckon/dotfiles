@@ -32,12 +32,18 @@
 [commit]
 	verbose = true
 
+[mergetool "vscode_mergetool"]
+	cmd = code --wait $MERGED
+
 [merge]
-	tool = vscode
+	tool          = vscode_mergetool
 	conflictstyle = diff3
 
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
+[difftool "nvim_difftool"]
+	cmd = "nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\""
+
+[diff]
+	tool = nvim_difftool
 
 [pull]
 	rebase = true
@@ -55,7 +61,7 @@
 	sort = version:refname
 
 [maintenance]
-	auto = false
+	auto     = false
 	strategy = incremental
 
 [includeIf "gitdir:~/Development/work/"]

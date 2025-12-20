@@ -39,6 +39,14 @@ cc.add("Toggle virtual line diagnostics", {
   end,
 })
 
+cc.add("Compare files/folder with difftool", {
+  desc = "Enable and run difftool",
+  callback = function()
+    vim.cmd("packadd nvim.difftool")
+    vim.fn.feedkeys(":DiffTool ", "n")
+  end,
+})
+
 cc.add("Update packages", {
   desc = "Update packages to the latest version",
   callback = function()
