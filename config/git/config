@@ -1,85 +1,85 @@
 [user]
-	email = niklas.meyer95@hotmail.de
-	name  = eckon
+  email = niklas.meyer95@hotmail.de
+  name  = eckon
 
 [core]
-	pager = delta
+  pager = delta
 
 [delta]
-	navigate     = true
-	line-numbers = true
-	side-by-side = true
-	paging       = always
+  navigate     = true
+  line-numbers = true
+  side-by-side = true
+  paging       = always
 
 [alias]
-	tree  = log --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I' --format=format:'%C(yellow)%>|(20)%h%C(reset)  %C(blue)%ad%C(reset) %C(dim green)(%ar)%>|(60)%C(reset)  %C(dim red)%<(16,trunc)%an%C(reset)  %C(dim green)%d%C(reset) %C(white)%>|(1)%s%C(reset)' --all
+  tree  = log --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I' --format=format:'%C(yellow)%>|(20)%h%C(reset)  %C(blue)%ad%C(reset) %C(dim green)(%ar)%>|(60)%C(reset)  %C(dim red)%<(16,trunc)%an%C(reset)  %C(dim green)%d%C(reset) %C(white)%>|(1)%s%C(reset)' --all
 
-	# word diff
-	wdiff = diff --word-diff --color-words --no-index
+  # word diff
+  wdiff = diff --word-diff --color-words --no-index
 
-	# char diff
-	cdiff = diff --color-words=. --no-index
+  # char diff
+  cdiff = diff --color-words=. --no-index
 
-	# find commit by case insensitive content of commits (without and with body)
-	find  = "!f() { git log    --no-merges -i -S\"$*\"; }; f"
-	ffind = "!f() { git log -c --no-merges -i -S\"$*\"; }; f"
+  # find commit by case insensitive content of commits (without and with body)
+  find  = "!f() { git log    --no-merges -i -S\"$*\"; }; f"
+  ffind = "!f() { git log -c --no-merges -i -S\"$*\"; }; f"
 
-	# create commit without changes (to start with a defined commit message)
-	empty = commit --allow-empty
+  # create commit without changes (to start with a defined commit message)
+  empty = commit --allow-empty
 
   # ai generated commit message
   aic = "!f() { \
-		git diff --cached --quiet && echo 'No staged changes' && exit 1; \
+    git diff --cached --quiet && echo 'No staged changes' && exit 1; \
     git diff --cached | \
     opencode \
       --model "anthropic/claude-sonnet-4-5" \
       run 'Write a concise, conventional git commit message. Only return the message as I want to use your output as the commit message, so any explaination or formatting will be negatively reflected. Consider it for the following diff:' \
       > /tmp/AI_COMMIT_MSG && \
-		git commit -e -F /tmp/AI_COMMIT_MSG; \
-	}; f"
+    git commit -e -F /tmp/AI_COMMIT_MSG; \
+  }; f"
 
 [rerere]
-	enable = true
+  enable = true
 
 [log]
-	abbrevCommit = true
+  abbrevCommit = true
 
 [commit]
-	verbose = true
+  verbose = true
 
 [mergetool "vscode_mergetool"]
-	cmd = code --wait $MERGED
+  cmd = code --wait $MERGED
 
 [merge]
-	tool          = vscode_mergetool
-	conflictstyle = diff3
+  tool          = vscode_mergetool
+  conflictstyle = diff3
 
 [difftool "nvim_difftool"]
-	cmd = "nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\""
+  cmd = "nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\""
 
 [diff]
-	tool = nvim_difftool
+  tool = nvim_difftool
 
 [pull]
-	rebase = true
+  rebase = true
 
 [rebase]
-	autoStash = true
+  autoStash = true
 
 [fetch]
-	prune = true
+  prune = true
 
 [branch]
-	sort = -committerdate
+  sort = -committerdate
 
 [tag]
-	sort = version:refname
+  sort = version:refname
 
 [maintenance]
-	auto     = false
-	strategy = incremental
+  auto     = false
+  strategy = incremental
 
 [includeIf "gitdir:~/Development/work/"]
-	path = ~/.config/git/work
+  path = ~/.config/git/work
 
 # vim:filetype=gitconfig
