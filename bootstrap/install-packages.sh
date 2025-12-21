@@ -4,7 +4,8 @@
 # script to install all packages depending on the OS
 ####################################################
 
-PACKAGE_ROOT="$(pwd)/bootstrap/packages"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PACKAGE_ROOT="$SCRIPT_DIR/packages"
 
 if command -v "yay" &> /dev/null; then
   # update all

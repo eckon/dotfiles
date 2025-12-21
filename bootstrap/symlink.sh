@@ -2,8 +2,10 @@
 
 ##################################################################
 # script to symlink all my local configurations and scripts
-# relies on being executed in the correct context (root dotfiles)
 ##################################################################
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_ROOT="$(dirname "$SCRIPT_DIR")"
 
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
@@ -51,7 +53,7 @@ echo "----------------------"
 
 for config_path in "${!CONFIG_PATHS[@]}"; do
   target_path=${CONFIG_PATHS[$config_path]}
-  from_path="$(pwd)/$config_path"
+  from_path="$DOTFILES_ROOT/$config_path"
   to_path="$HOME/$target_path"
 
   if ! test -e "$from_path"; then
@@ -78,7 +80,7 @@ echo "----------------------"
 
 for path in "${!SCRIPT_PATHS[@]}"; do
   scriptName=${SCRIPT_PATHS[$path]}
-  from_path="$(pwd)/scripts/$path"
+  from_path="$DOTFILES_ROOT/scripts/$path"
   to_path="$HOME/.local/bin/$scriptName"
 
   if ! test -e "$from_path"; then

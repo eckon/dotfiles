@@ -15,7 +15,8 @@
 #####################################################################
 
 # get url (GITLAB_PROJECTS_URL) and access token (GITLAB_ACCESS_TOKEN) from a config file
-variablePath="${BASH_SOURCE%/*}/variables.cfg"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+variablePath="$SCRIPT_DIR/variables.cfg"
 if test -f "$variablePath"; then
   # shellcheck source=variables.cfg
   source "$variablePath"
