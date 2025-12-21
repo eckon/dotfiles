@@ -26,7 +26,7 @@ done
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 variablePath="$SCRIPT_DIR/variables.cfg"
 if test -f "$variablePath"; then
-  # shellcheck source=variables.cfg
+  # shellcheck source=/dev/null
   source "$variablePath"
   header="PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN"
   url=$GITLAB_PROJECTS_URL

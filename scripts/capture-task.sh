@@ -44,7 +44,7 @@ read -p "Continue?" -n 1 -r
 # replace new lines with \n for the api
 description=$(echo "$description" | awk '{printf "%s\\n", $0}')
 # escape characers like "
-description=$(echo "$description" | sed 's/"/\\"/g')
+description="${description//\"/\\\"}"
 
 # create new task
 curl "https://api.todoist.com/rest/v1/tasks" \

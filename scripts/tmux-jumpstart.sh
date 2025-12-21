@@ -43,7 +43,7 @@ for index in "${!PREDEFINED_SESSIONS[@]}"; do
   option_string="${PREDEFINED_SESSIONS[$index]}\n$option_string"
 done
 
-selected=$(printf "$option_string" | fzf --height 10% --reverse)
+selected=$(printf '%s' "$option_string" | fzf --height 10% --reverse)
 
 if [[ "$selected" == "backend" ]]; then
   session="backend"

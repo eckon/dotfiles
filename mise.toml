@@ -61,4 +61,4 @@ run = [
 
 [tasks."scripts:lint"]
 description = "Lint shell and TypeScript scripts"
-run = ["shellcheck -S warning **/*.sh", "npx eslint --fix"]
+run = ["shellcheck **/*.sh", "npx eslint --fix"]
