@@ -11,33 +11,6 @@
   side-by-side = true
   paging       = always
 
-[alias]
-  tree  = log --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I' --format=format:'%C(yellow)%>|(20)%h%C(reset)  %C(blue)%ad%C(reset) %C(dim green)(%ar)%>|(60)%C(reset)  %C(dim red)%<(16,trunc)%an%C(reset)  %C(dim green)%d%C(reset) %C(white)%>|(1)%s%C(reset)' --all
-
-  # word diff
-  wdiff = diff --word-diff --color-words --no-index
-
-  # char diff
-  cdiff = diff --color-words=. --no-index
-
-  # find commit by case insensitive content of commits (without and with body)
-  find  = "!f() { git log    --no-merges -i -S\"$*\"; }; f"
-  ffind = "!f() { git log -c --no-merges -i -S\"$*\"; }; f"
-
-  # create commit without changes (to start with a defined commit message)
-  empty = commit --allow-empty
-
-  # ai generated commit message
-  aic = "!f() { \
-    git diff --cached --quiet && echo 'No staged changes' && exit 1; \
-    git diff --cached | \
-    opencode \
-      --model "anthropic/claude-sonnet-4-5" \
-      run 'Write a concise, conventional git commit message. Only return the message as I want to use your output as the commit message, so any explaination or formatting will be negatively reflected. Consider it for the following diff:' \
-      > /tmp/AI_COMMIT_MSG && \
-    git commit -e -F /tmp/AI_COMMIT_MSG; \
-  }; f"
-
 [rerere]
   enable = true
 
@@ -78,6 +51,9 @@
 [maintenance]
   auto     = false
   strategy = incremental
+
+[include]
+  path = ~/.config/git/alias
 
 [includeIf "gitdir:~/Development/work/"]
   path = ~/.config/git/work
