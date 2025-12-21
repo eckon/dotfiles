@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! (command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Font")); then
-  exit
+  exit 0
 fi
 
 echo "[+] Install \"Patched FiraCode\" via \"Nerdfonts\""

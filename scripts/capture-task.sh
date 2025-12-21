@@ -23,12 +23,13 @@ captureFileTemplate="# Quickly add task
 > "
 echo "$captureFileTemplate" > "$captureFile"
 
-# let the user add their notes/todos/etc
-nvim +"$titleLine" "$captureFile"
-
 # parse the needed lines
 titleLine=7
 contentStartLine=8
+
+# let the user add their notes/todos/etc
+nvim +"$titleLine" "$captureFile"
+
 title=$(awk -vline="$titleLine" 'NR==line' "$captureFile" | cut -c 3-)
 description=$(awk -vline="$contentStartLine" 'NR>=line' "$captureFile")
 

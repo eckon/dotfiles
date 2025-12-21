@@ -58,7 +58,7 @@ for config_path in "${!CONFIG_PATHS[@]}"; do
 
   if ! test -e "$from_path"; then
     echo "[!] Path \"$from_path\" does not exist -> exit script"
-    exit
+    exit 1
   fi
 
   parent_dir=$(dirname "$to_path")
@@ -85,7 +85,7 @@ for path in "${!SCRIPT_PATHS[@]}"; do
 
   if ! test -e "$from_path"; then
     echo "[!] Path \"$from_path\" does not exist -> exit script"
-    exit
+    exit 1
   fi
 
   parent_dir=$(dirname "$to_path")

@@ -7,7 +7,7 @@ fi
 
 if command -v "nvim" &> /dev/null && [[ "$FORCE_FLAG" == false ]]; then
   echo "[!] \"nvim\" exists, ignoring installation"
-  exit
+  exit 0
 fi
 
 # create unique temporary directory that will be cleaned up by

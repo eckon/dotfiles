@@ -6,12 +6,20 @@
 # needed plugins: fzf, zoxide, tmux
 #################################################################
 
+# check dependencies
+for cmd in fzf zoxide tmux; do
+  if ! command -v "$cmd" &> /dev/null; then
+    echo "Error: $cmd is required but not installed"
+    exit 1
+  fi
+done
+
 get_session_indentifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
   if [[ -z "$path" ]]; then
-    exit
+    exit 1
   fi
 
   # replace characters that tmux session names do not allow
@@ -20,7 +28,7 @@ get_session_indentifier() {
 
 if [[ "$#" -ge 1 ]]; then
   echo "No arguments allowed"
-  exit
+  exit 1
 fi
 
 # pool of selectable sessions that can be created
@@ -55,7 +63,7 @@ if [[ "$selected" == "backend" ]]; then
     tmux send-key -t "$session":1 "docker compose up" C-m
   fi
 
-  exit
+  exit 0
 fi
 
 if [[ "$selected" == "frontend" ]]; then
@@ -89,7 +97,8 @@ if [[ "$selected" == "frontend" ]]; then
     tmux select-pane -L -t "$session":1
   fi
 
-  exit
+  exit 0
 fi
 
 echo "Case \"$selected\" has no dedicated implementation and therefore was not created"
+exit 1

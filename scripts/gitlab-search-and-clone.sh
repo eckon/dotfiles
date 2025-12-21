@@ -14,6 +14,14 @@
 #     - GITLAB_ACCESS_TOKEN is the access key from gitlab
 #####################################################################
 
+# check dependencies
+for cmd in fzf jq curl git; do
+  if ! command -v "$cmd" &> /dev/null; then
+    echo "Error: $cmd is required but not installed"
+    exit 1
+  fi
+done
+
 # get url (GITLAB_PROJECTS_URL) and access token (GITLAB_ACCESS_TOKEN) from a config file
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 variablePath="$SCRIPT_DIR/variables.cfg"

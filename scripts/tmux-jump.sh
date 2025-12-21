@@ -7,12 +7,20 @@
 # needed plugins: fzf, zoxide, tmux
 #########################################################################
 
+# check dependencies
+for cmd in zoxide tmux fzf; do
+  if ! command -v "$cmd" &> /dev/null; then
+    echo "Error: $cmd is required but not installed"
+    exit 1
+  fi
+done
+
 get_session_indentifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
   if [[ -z "$path" ]]; then
-    exit
+    exit 1
   fi
 
   # replace characters that tmux session names do not allow

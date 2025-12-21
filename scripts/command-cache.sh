@@ -14,8 +14,8 @@ cacheFolder=~/.cache/command-cache
 currentTime=$(date +"%s")
 
 # if run first time, create cache folder
-if ! test -d $cacheFolder; then
-  mkdir -p $cacheFolder
+if ! test -d "$cacheFolder"; then
+  mkdir -p "$cacheFolder"
 fi
 
 # iterate cache folder and delete files that are too old

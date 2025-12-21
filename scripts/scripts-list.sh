@@ -6,6 +6,12 @@
 # these can be searched, filtered and executed through fzf
 #############################################################
 
+# check dependencies
+if ! command -v fzf &> /dev/null; then
+  echo "Error: fzf is required but not installed"
+  exit 1
+fi
+
 SCRIPTS_PATHS=("$HOME/Development/dotfiles/scripts")
 
 script_list=""

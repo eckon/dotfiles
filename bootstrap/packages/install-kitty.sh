@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 if command -v "kitty" &> /dev/null; then
-  exit
+  exit 0
 fi
 
 echo "[+] Install \"kitty\""
 
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
-ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$LOCAL_BIN_PATH"
+ln -sfn "$HOME/.local/kitty.app/bin/kitty" "$HOME/.local/bin"
 
 mkdir -p "$HOME/.local/share/applications"
 cp "$HOME/.local/kitty.app/share/applications/kitty.desktop" "$HOME/.local/share/applications"

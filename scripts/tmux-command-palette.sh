@@ -8,6 +8,12 @@
 # Dependencies: fzf
 #########################################################################
 
+# check dependencies
+if ! command -v fzf &> /dev/null; then
+  echo "Error: fzf is required but not installed"
+  exit 1
+fi
+
 # Define commands with their descriptions and actions
 # Format: "Description|Command to execute"
 commands=(

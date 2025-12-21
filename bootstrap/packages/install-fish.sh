@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if echo "$SHELL" | grep -qF "fish"; then
-  exit
+  exit 0
 fi
 
 echo "[+] Add fish as default shell"

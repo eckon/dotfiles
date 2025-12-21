@@ -29,7 +29,7 @@ if test -d "$copy_root"; then
 fi
 
 pushd "$repo_root" > /dev/null || exit
-printf "Copy from \n\"$(pwd)\" to\n\"%s\"\n" "$copy_root"
+printf "Copy from \n\"%s\" to\n\"%s\"\n" "$(pwd)" "$copy_root"
 
 # to distinguish between enter, space, esc etc (otherwise all would be the same)
 IFS=""
