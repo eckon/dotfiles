@@ -11,3 +11,10 @@ git:
     - pager: 'delta --dark --paging=never'
 
 notARepository: 'skip'
+
+customCommands:
+  - key: 'C'
+    context: 'files'
+    description: 'Generate commit message via AI'
+    command: 'git aic'
+    output: terminal

@@ -10,7 +10,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "a7c61e7dd94170f9dd84f5b5546b874f98c7d5bd",
+      "rev": "5f5152fae39a57e3a04cbce09fb21e10c49c9d95",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "kanagawa.nvim": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "8cdffc6d334731ce3703b6d870a5a34fd878208a",
+      "rev": "6e42d823ce0a5a76180c473c119c7677738a09d1",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
