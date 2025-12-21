@@ -13,8 +13,18 @@ git:
 notARepository: 'skip'
 
 customCommands:
-  - key: 'C'
-    context: 'files'
-    description: 'Generate commit message via AI'
-    command: 'git aic'
-    output: terminal
+  - key: X
+    description: 'Custom commands'
+    commandMenu:
+      - key: 'c'
+        context: 'files'
+        description: 'Generate commit message via AI'
+        command: 'git ai-commit'
+        output: 'terminal'
+        loadingText: 'please wait'
+
+      - key: 'r'
+        context: 'files'
+        description: 'Rewrite last commit message via AI'
+        command: 'git ai-rewrite'
+        output: 'terminal'

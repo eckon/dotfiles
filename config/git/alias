@@ -15,14 +15,30 @@
   empty = commit --allow-empty
 
   # ai generated commit message
-  aic = "!f() { \
-    git diff --cached --quiet && echo 'No staged changes' && exit 1; \
-    git diff --cached | \
+  ai-commit = "!f() { \
+    if git diff --cached --quiet; then \
+      git diff --quiet && echo 'No changes to commit' && exit 1; \
+      echo 'No staged changes, staging all modified files...'; \
+      git add -A; \
+    fi; \
+    \
+    RECENT_COMMITS=$(git log -5 --pretty=format:'- %s' 2>/dev/null || echo 'No commit history'); \
+    echo 'Generating commit message, this can take a bit...'; \
+    git diff --cached | head -n 500 | \
     opencode \
       --model "anthropic/claude-sonnet-4-5" \
-      run 'Write a concise, conventional git commit message. Only return the message as I want to use your output as the commit message, so any explaination or formatting will be negatively reflected. Consider it for the following diff:' \
+      run "\
+        Analyze the recent commit message patterns and write a commit message that matches the style and format.\
+        Only return the commit message itself with no explanation or formatting.\
+        Recent commits: $RECENT_COMMITS. Diff:\
+      " \
       > /tmp/AI_COMMIT_MSG && \
-    git commit -e -F /tmp/AI_COMMIT_MSG; \
+    \
+    echo '' >> /tmp/AI_COMMIT_MSG && \
+    echo '# Delete all lines above to abort AI commit' >> /tmp/AI_COMMIT_MSG && \
+    \
+    git commit --edit --file=/tmp/AI_COMMIT_MSG; \
+    rm /tmp/AI_COMMIT_MSG; \
   }; f"
 
 # vim:filetype=gitconfig
