@@ -8,6 +8,13 @@ require("blink.cmp").setup({
     list = { selection = { auto_insert = true, preselect = false } },
     documentation = { auto_show = true },
   },
+  cmdline = {
+    keymap = {
+      -- also let tab be used to accept selection (to be similar to other editors)
+      ["<Tab>"] = { "show", "accept" },
+    },
+    completion = { menu = { auto_show = true } },
+  },
   signature = { enabled = true },
   keymap = { preset = "enter" },
   sources = {
