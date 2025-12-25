@@ -8,6 +8,7 @@ customCommands:
     - name: bash
       attach: true
       command: 'docker exec -it {{ .Container.ID }} bash'
+
     - name: postgres
       attach: true
       command: 'docker exec -it {{ .Container.ID }} sh -c "psql -U postgres"'
