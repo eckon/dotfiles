@@ -1,5 +1,3 @@
-local cc = require("eckon.helper.custom-command").custom_command
-
 vim.pack.add({
   "https://github.com/folke/snacks.nvim",
   "https://github.com/nvim-mini/mini.nvim",
@@ -89,6 +87,9 @@ end, "Resume")
 nmap("<Leader>fr", function()
   require("snacks").picker.resume()
 end, "Resume")
+
+-- custom commands
+local cc = require("eckon.helper.custom-command").custom_command
 
 cc.add("Pickers", {
   desc = "Show all available picker",

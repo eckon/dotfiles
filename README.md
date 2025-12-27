@@ -2,6 +2,11 @@
 
 This repository contains my public **scripts** and **configurations** for various development tools and environments.
 
+Hosted:
+
+- [github](https://github.com/eckon/dotfiles)
+- [codeberg](https://codeberg.org/eckon/dotfiles)
+
 ## Documentation
 
 Each major component has its own README:

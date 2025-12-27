@@ -50,7 +50,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "6e42d823ce0a5a76180c473c119c7677738a09d1",
+      "rev": "36fcb4a4238928f0b627e1ab84ade0acc1facc2c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -67,7 +67,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "5ed01fc84e587e0883e7d04122684d768eb76bbc",
+      "rev": "60f1b3d1bde39396cdfb1362dd207970ec57e731",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
