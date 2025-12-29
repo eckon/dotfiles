@@ -9,7 +9,7 @@ type --query zoxide;     and zoxide init fish   | source; or echo "[!] No zoxide
 type --query fzf;        and fzf --fish         | source; or echo "[!] No fzf"
 
 if type --query mise
-    mise activate fish | source
+    mise activate fish   | source
     mise completion fish | source
 else
     echo "[!] No mise"
@@ -38,8 +38,12 @@ fish_vi_key_bindings
 
 
 # -------------------- Alias/Abbreviations --------------------
-# on wayland: wl-copy/wl-paste
-alias clip "xclip -sel clip"
+if test "$XDG_SESSION_TYPE" = "wayland"
+  alias clip "wl-copy"
+else
+  alias clip "xclip -sel clip"
+end
+
 alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
 alias ssh  "TERM=xterm-256color command ssh"
 
