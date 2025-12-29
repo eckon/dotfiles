@@ -3,8 +3,6 @@ test -d /opt/homebrew;      and eval "$(/opt/homebrew/bin/brew shellenv)"
 test -d /home/linuxbrew;    and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 test -d ~/.local/bin;       and fish_add_path ~/.local/bin
-# note: mise might replace this as well
-test -d ~/.cargo/bin;       and fish_add_path ~/.cargo/bin
 
 type --query starship;      and starship init fish | source; or echo "[!] No starship"
 type --query zoxide;        and zoxide init fish   | source; or echo "[!] No zoxide"

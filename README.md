@@ -18,7 +18,6 @@ Each major component has its own README:
 - [Visual Studio Code](./config/vscode/README.md) - VSCode settings and keybindings
 - [Visual Studio](./config/visual-studio/README.md) - Visual Studio configuration
 - [Jetbrains Tools](./config/jetbrains/README.md) - IntelliJ IDEA and related IDEs
-- [Gists](https://gist.github.com/eckon) - Additional code snippets
 
 ## Installation
 
