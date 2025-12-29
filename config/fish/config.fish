@@ -1,13 +1,19 @@
 # -------------------- Sources --------------------
-test -d /opt/homebrew;      and eval "$(/opt/homebrew/bin/brew shellenv)"
-test -d /home/linuxbrew;    and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -d /opt/homebrew;   and eval "$(/opt/homebrew/bin/brew shellenv)"
+test -d /home/linuxbrew; and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-test -d ~/.local/bin;       and fish_add_path ~/.local/bin
+test -d ~/.local/bin;    and fish_add_path ~/.local/bin
 
-type --query starship;      and starship init fish | source; or echo "[!] No starship"
-type --query zoxide;        and zoxide init fish   | source; or echo "[!] No zoxide"
-type --query fzf;           and fzf --fish         | source; or echo "[!] No fzf"
-type --query mise;          and mise activate fish | source; or echo "[!] No mise"
+type --query starship;   and starship init fish | source; or echo "[!] No starship"
+type --query zoxide;     and zoxide init fish   | source; or echo "[!] No zoxide"
+type --query fzf;        and fzf --fish         | source; or echo "[!] No fzf"
+
+if type --query mise
+    mise activate fish | source
+    mise completion fish | source
+else
+    echo "[!] No mise"
+end
 
 
 
