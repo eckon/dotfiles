@@ -27,6 +27,7 @@ brew "sst/tap/opencode"
 brew "starship"
 brew "tldr"
 brew "tmux"
+brew "tree-sitter-cli"
 brew "uv" # python package manager
 brew "zellij"
 brew "zoxide"

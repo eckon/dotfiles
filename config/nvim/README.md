@@ -21,7 +21,9 @@ After running the main setup script:
 
 1. **First launch** - Neovim will prompt to install plugins via `vim.pack.add()`
    - Confirm installation for each plugin
-   - Treesitter parsers are being installed, this will block neovim for a bit
+   - Some Treesitter parsers will be installed, this will block neovim for a bit
+     - New filetypes will be installed when required
+     - All need the `tree-sitter-cli` to work
 
 2. **Install LSP/Formatter/linter tools**:
 

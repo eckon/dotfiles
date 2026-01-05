@@ -1,3 +1,4 @@
+-- NOTE: this plugin needs the `tree-sitter-cli` to exist in the environment
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
 
 -- NOTE: this plugin runs the setup call with default values on adding, so no need to do anything here
