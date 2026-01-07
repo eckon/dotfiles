@@ -2,9 +2,15 @@
 
 Custom extensions and configurations for my AI assistant.
 
+## Setup
+
+For custom hooks, that need packages, I need to install them here.
+
+Meaning `bun install` needs to be run in this directory.
+
 ## Tools
 
-The AI can access these tools automatically similar to mcp.
+The AI can access these tools automatically similar to MCP.
 
 ### Audio File Processing
 

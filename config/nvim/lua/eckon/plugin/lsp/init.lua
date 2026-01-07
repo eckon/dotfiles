@@ -11,6 +11,7 @@ require("eckon.plugin.lsp.schemastore")
 require("eckon.plugin.lsp.lazydev")
 require("eckon.plugin.lsp.rustaceanvim")
 require("eckon.plugin.lsp.typescript-tools")
+require("eckon.plugin.lsp.easy-dotnet")
 
 -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
 vim.lsp.config("*", {
