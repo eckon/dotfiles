@@ -3,6 +3,23 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
 })
 
+---Check if current working directory or any subdirectory is a .NET repository
+---@return boolean
+local function is_dotnet_repo()
+  local root = vim.fn.getcwd()
+
+  -- Search for .sln or .csproj files recursively in all subdirectories
+  local sln_files = vim.fn.glob(root .. "/**/*.sln", false, true)
+  local csproj_files = vim.fn.glob(root .. "/**/*.csproj", false, true)
+
+  return #sln_files > 0 or #csproj_files > 0
+end
+
+-- Only setup easy-dotnet if in a .NET repository
+if not is_dotnet_repo() then
+  return
+end
+
 -- NOTE: needs `dotnet tool install -g EasyDotnet` and in path
 --       so when switching dotnet version, i might need to reinstall it
 local dotnet = require("easy-dotnet")
@@ -15,7 +32,6 @@ dotnet.setup({
 
 local cc = require("eckon.helper.custom-command").custom_command
 
--- TODO: can we add it only in dotnet repos (the is_dotnet, method does in the plugin always returns true)
 cc.add("Dotnet", {
   desc = "Open Easy Dotnet picker",
   callback = "Dotnet",
