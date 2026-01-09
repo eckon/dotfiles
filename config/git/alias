@@ -26,7 +26,7 @@
     echo 'Generating commit message, this can take a bit...'; \
     git diff --cached | head -n 500 | \
     opencode \
-      --model "anthropic/claude-sonnet-4-5" \
+      --model "github-copilot/claude-sonnet-4.5" \
       run "\
         Analyze the recent commit message patterns and write a commit message that matches the style and format.\
         Only return the commit message itself with no explanation or formatting.\
@@ -51,7 +51,7 @@
     echo 'Generating new commit message, this can take a bit...'; \
     git show HEAD | head -n 500 | \
     opencode \
-      --model "anthropic/claude-sonnet-4-5" \
+      --model "github-copilot/claude-sonnet-4.5" \
       run "\
         Analyze the recent commit message patterns and write a commit message that matches the style and format.\
         Only return the commit message itself with no explanation or formatting.\
