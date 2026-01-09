@@ -9,10 +9,13 @@ depends = ["packages", "symlinks"]
 
 [tasks.check]
 description = "Run all formatters and linters over the whole repo"
-depends = [
-  "scripts:format", "scripts:lint",
-  "lua:format", "lua:lint",
-  "markdown:format", "markdown:lint",
+run = [
+  { task = "scripts:format" },
+  { task = "scripts:lint" },
+  { task = "lua:format" },
+  { task = "lua:lint" },
+  { task = "markdown:format" },
+  { task = "markdown:lint" },
 ]
 
 [tasks.neovim]
