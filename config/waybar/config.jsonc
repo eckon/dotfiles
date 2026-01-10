@@ -172,5 +172,6 @@
     "exec": "echo '::'",
     "interval": 0,
     "format": "{}",
+    "tooltip": false,
   },
 }
