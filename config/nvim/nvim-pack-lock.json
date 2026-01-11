@@ -50,7 +50,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "b8b44b6a2494d086a9177251a119f9daec6cace8",
+      "rev": "a0db8bf7d6488b1dcd9cb5b0dfd6684a1e14f769",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
