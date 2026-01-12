@@ -3,16 +3,23 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
 })
 
----Check if current working directory or any subdirectory is a .NET repository
+---Check if current directory is a .NET repository
+---Requires being inside a git repository
 ---@return boolean
 local function is_dotnet_repo()
-  local root = vim.fn.getcwd()
+  -- Must be in a git repository
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel 2>/dev/null")[1]
+  if not git_root or git_root == "" then
+    return false
+  end
 
-  -- Search for .sln or .csproj files recursively in all subdirectories
-  local sln_files = vim.fn.glob(root .. "/**/*.sln", false, true)
-  local csproj_files = vim.fn.glob(root .. "/**/*.csproj", false, true)
+  -- Check for .sln files in git root
+  local sln_files = vim.fn.glob(git_root .. "/*.sln", false, true)
+  if #sln_files > 0 then
+    return true
+  end
 
-  return #sln_files > 0 or #csproj_files > 0
+  return false
 end
 
 -- Only setup easy-dotnet if in a .NET repository
