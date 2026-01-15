@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 ####################################################
 # script to install all packages depending on the OS
 ####################################################
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGE_ROOT="$SCRIPT_DIR/packages"
+
+# helper function to filter out comments and empty lines from package files
+filter_packages() {
+  grep -v '^#' "$1" | grep -v '^$' || true
+}
 
 if command -v "yay" &> /dev/null; then
   # update all
@@ -18,7 +25,7 @@ if command -v "yay" &> /dev/null; then
     else
       echo "Skipped (already installed): $pkg"
     fi
-  done < "$PACKAGE_ROOT/yay-packages.txt"
+  done < <(filter_packages "$PACKAGE_ROOT/yay-packages.txt")
 
   # cleanup
   yay -Yc --noconfirm
@@ -28,14 +35,14 @@ fi
 if command -v "apt" &> /dev/null; then
   sudo apt update
   sudo apt upgrade -y
-  cat "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
+  filter_packages "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
   sudo apt autoremove -y
 fi
 
 if command -v "dnf" &> /dev/null; then
   sudo dnf check-update
   sudo dnf upgrade -y
-  cat "$PACKAGE_ROOT/dnf-packages.txt" | xargs sudo dnf install -y
+  filter_packages "$PACKAGE_ROOT/dnf-packages.txt" | xargs sudo dnf install -y
   sudo dnf autoremove -y
 fi
 
