@@ -4,6 +4,7 @@ require("conform").setup({
   -- NOTE: manual installation is needed
   formatters_by_ft = {
     ["_"] = { "trim_whitespace" },
+    cs = { "easy_dotnet" }, -- NOTE: this is bare-bones, also manually run `dotnet format`
     css = { "prettierd" },
     javascript = { "prettierd", "eslint_d" },
     javascriptreact = { "prettierd", "eslint_d" },
