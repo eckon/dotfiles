@@ -9,23 +9,26 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGE_ROOT="$SCRIPT_DIR/packages"
 
-# helper function to filter out comments and empty lines from package files
-filter_packages() {
-  grep -v '^#' "$1" | grep -v '^$' || true
+# helper function to parse YAML package files and extract package names
+parse_packages() {
+  local file="$1"
+
+  if [[ "$file" != *.yaml ]]; then
+    echo "Error: parse_packages only accepts .yaml files, got: $file" >&2
+    return 1
+  fi
+
+  # parse YAML: extract values from lists, ignore comments and keys
+  grep -E '^\s*-\s+' "$file" | sed -E 's/^\s*-\s+([^ #]+).*/\1/' || true
 }
 
 if command -v "yay" &> /dev/null; then
-  # update all
+  # update all installed packages first
   yay -Syu
 
-  while read -r pkg; do
-    if ! pacman -Qi "$pkg" &> /dev/null; then
-      # do installation interactively to prevent installing incorrect packages
-      yay "$pkg" < /dev/tty
-    else
-      echo "Skipped (already installed): $pkg"
-    fi
-  done < <(filter_packages "$PACKAGE_ROOT/yay-packages.txt")
+  # install only new packages from the list (skip already installed ones silently)
+  # shellcheck disable=SC2046
+  yay -S --needed $(parse_packages "$PACKAGE_ROOT/yay-packages.yaml")
 
   # cleanup
   yay -Yc --noconfirm
@@ -35,14 +38,14 @@ fi
 if command -v "apt" &> /dev/null; then
   sudo apt update
   sudo apt upgrade -y
-  filter_packages "$PACKAGE_ROOT/apt-packages.txt" | xargs sudo apt install -y
+  parse_packages "$PACKAGE_ROOT/apt-packages.yaml" | xargs sudo apt install -y
   sudo apt autoremove -y
 fi
 
 if command -v "dnf" &> /dev/null; then
   sudo dnf check-update
   sudo dnf upgrade -y
-  filter_packages "$PACKAGE_ROOT/dnf-packages.txt" | xargs sudo dnf install -y
+  parse_packages "$PACKAGE_ROOT/dnf-packages.yaml" | xargs sudo dnf install -y
   sudo dnf autoremove -y
 fi
 

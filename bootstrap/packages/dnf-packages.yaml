@@ -1,0 +1,5 @@
+# Fedora (dnf) packages
+
+# Build tools
+build:
+  - gcc

@@ -1,0 +1,68 @@
+# Arch Linux (yay) packages
+# Organized by category for better maintainability
+
+# Terminal utilities and CLI tools
+terminal:
+  - bat # cat enhancement with syntax highlighting
+  - btop # system monitor
+  - dust # du replacement with better visualization
+  - fd # find replacement, faster and easier to use
+  - fzf # fuzzy finder
+  - htop # system monitor
+  - tldr # simplified man pages
+  - tree-sitter-cli # parsing tool for syntax highlighting
+  - usage # monitor command usage
+  - zoxide # smarter cd command
+
+# Version control and development tools
+development:
+  - git
+  - git-delta # git diff enhancement
+  - lazygit # TUI for git
+  - mise # dev tool version manager, task runner, env manager
+  - selene # lua linter
+  - shellcheck # shell script linter
+  - uv # python package manager
+
+# Container and Kubernetes tools
+containers:
+  - docker
+  - k9s # kubernetes TUI
+  - kubectl
+  - lazydocker # TUI for docker
+
+# Desktop environment (Hyprland)
+desktop:
+  - chromium
+  - dolphin # file manager
+  - dunst # notification daemon
+  - firefox
+  - flameshot # screenshot tool
+  - hyprland # wayland compositor
+  - hyprlock # screen lock
+  - hyprpaper # wallpaper manager
+  - hyprpolkitagent # polkit agent
+  - kitty # terminal emulator
+  - rofi # application launcher
+  - waybar # status bar
+  - xdg-desktop-portal-hyprland
+
+# System utilities
+system:
+  - pipewire # audio server
+  - speech-dispatcher
+  - timeshift # system backup
+  - tmux # terminal multiplexer
+  - wireplumber # pipewire session manager
+  - wl-clipboard # wayland clipboard utilities
+  - xorg-xhost # X11 access control
+
+# Additional tools
+tools:
+  - fish # friendly interactive shell
+  - jq # json processor
+  - localsend-bin # local file sharing
+  - nvtop # nvidia GPU monitor
+  - opencode-bin # AI coding assistant
+  - starship # shell prompt
+  - ttf-firacode-nerd # nerd font with icon support
