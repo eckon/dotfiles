@@ -14,6 +14,9 @@
   # create commit without changes (to start with a defined commit message)
   empty = commit --allow-empty
 
+  # create branch with task ID and empty conventional commit
+  task = "!f() { git switch -c \"$1_task\" && git commit --allow-empty -m \"chore($1): add description\"; }; f"
+
   # ai generated commit message
   ai-commit = "!f() { \
     if git diff --cached --quiet; then \

@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "2454ab05ef6d732caaf1c71d97577034feae7ee9",
+      "rev": "90fa033b438a330671506899574071afea9eb4e5",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -34,7 +34,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "4f53281c51ad9384ef790178b9643740fa763979",
+      "rev": "c163117900c17d4abf30bc09452a261c8536060c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "e75c007f2747050c2c620dc862c77b8f242551a8",
+      "rev": "ec034813775d7e2974c7551c8c34499a828963f8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -71,7 +71,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "fb7b9034285a5658c746faa12eff8c1c9d9b11b1",
+      "rev": "a0375eb6f7f944723162ef41c200ac6b364f53ac",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
