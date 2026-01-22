@@ -1,6 +1,6 @@
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
-tap "sst/tap"
+tap "anomalyco/tap"
 
 brew "bash"
 brew "bat" # cat enhancement
@@ -23,7 +23,7 @@ brew "ninja" # build system
 brew "ripgrep" # grep replacement
 brew "selene" # lua linter
 brew "shellcheck"
-brew "sst/tap/opencode"
+brew "anomalyco/tap/opencode"
 brew "starship"
 brew "tldr"
 brew "tmux"
