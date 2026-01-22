@@ -16,15 +16,21 @@ treesitter.install({
 -- enforce an update on startup to never be outdated
 treesitter.update()
 
+-- filetypes where treesitter should not be started
+local excluded_filetypes = {
+  "csv", -- normal highlight is way better (show cases different columns)
+}
+
 -- installation and starting of treesitter does not happen automatically anymore, so handle it by filetype
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Start and install treesitter on filetypes that exist",
   callback = function(args)
     local filetype = vim.treesitter.language.get_lang(args.match) or args.match
     local ts_exists = vim.list_contains(treesitter.get_available(), filetype)
+    local is_excluded = vim.list_contains(excluded_filetypes, args.match)
 
     -- check if the current filetype has a treesitter parser and if so install and start it
-    if ts_exists then
+    if ts_exists and not is_excluded then
       local max_wait_time = 1000 * 10 -- 10 sec
       treesitter.install(filetype):wait(max_wait_time)
 
