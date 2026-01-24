@@ -50,11 +50,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "869fc957edd43962c4cc7d70f0dca087056534c8",
+      "rev": "5757bcf0447d22d8f78826bc5c59b28da2824c3b",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "ec034813775d7e2974c7551c8c34499a828963f8",
+      "rev": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -71,7 +71,7 @@
       "version": "6.0.0 - 7.0.0"
     },
     "schemastore.nvim": {
-      "rev": "a0375eb6f7f944723162ef41c200ac6b364f53ac",
+      "rev": "083602d8fedd7230bd6f0b164b7c4f9d1ff3a9c3",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

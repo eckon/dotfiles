@@ -24,11 +24,11 @@ parse_packages() {
 
 if command -v "yay" &> /dev/null; then
   # update all installed packages first
-  yay -Syu
+  yay -Syu --noconfirm
 
   # install only new packages from the list (skip already installed ones silently)
   # shellcheck disable=SC2046
-  yay -S --needed $(parse_packages "$PACKAGE_ROOT/yay-packages.yaml")
+  yay -S --noconfirm --needed $(parse_packages "$PACKAGE_ROOT/yay-packages.yaml")
 
   # cleanup
   yay -Yc --noconfirm
