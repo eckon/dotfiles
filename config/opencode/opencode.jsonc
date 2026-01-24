@@ -1,24 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["README.md"],
-  "agent": {
-    "ask": {
-      "mode": "primary",
-      "permission": {
-        "bash": "ask",
-        "edit": "ask",
-        "webfetch": "ask",
-      },
+  "instructions": ["README.md", "AGENTS.md"],
+  "permission": {
+    "*": "allow",
+    "bash": "ask",
+    "edit": "ask",
+    "webfetch": "ask",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
     },
   },
-  // depending on the mcp implementation, it will add a lot of context to each session, because of this some
-  // mcps might be disabled here per default. these can be enabled in opencode itself via their ui
   "mcp": {
-    "browser": {
-      "type": "local",
-      "command": ["npx", "@agent-infra/mcp-server-browser@latest"],
-      "enabled": false,
-    },
     "coding-docs": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
