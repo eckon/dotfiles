@@ -2,15 +2,19 @@
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["README.md", "AGENTS.md"],
   "permission": {
-    "*": "allow",
-    "bash": "ask",
-    "edit": "ask",
-    "webfetch": "ask",
-    "read": {
-      "*": "allow",
-      "*.env": "deny",
-      "*.env.*": "deny",
-      "*.env.example": "allow",
+    "bash": {
+      "*": "ask",
+      // Deny commands that have dedicated tools
+      "grep *": "deny",
+      "find *": "deny",
+      "cat *": "deny",
+      "head *": "deny",
+      "tail *": "deny",
+      // Allow safe read-only commands
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "ls*": "allow",
     },
   },
   "mcp": {
