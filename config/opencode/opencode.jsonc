@@ -11,6 +11,8 @@
       "cat *": "deny",
       "head *": "deny",
       "tail *": "deny",
+      "curl *": "deny",
+      "wget *": "deny",
 
       // Allow safe read-only commands
       "git status *": "allow",
@@ -18,6 +20,7 @@
       "git diff *": "allow",
       "git log *": "allow",
       "ls *": "allow",
+      "wc *": "allow",
     },
   },
   "mcp": {

@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "b19413d",
+      "rev": "bc54f81b6d92f91dac06c77c3ffccec5291e98cd",
       "src": "https://github.com/saghen/blink.cmp",
       "version": ">=0.0.0"
     },
@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "4d289ffb7a3d208737b0c7f8df812e4032c6be3c",
+      "rev": "dbac1f9d4c026556b11bba48272145b02d239498",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -34,7 +34,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "9b935c218ddba02e5dc75c94f90143bce1f7c646",
+      "rev": "f28cd08c8be826355d64080400fab1764c9693dd",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "3f58aeca0c6ece8a9fb8782ea3fcb6024f285be3",
+      "rev": "59cd07d8df2fefde32556268b8d52606a32152a1",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "rustaceanvim": {
-      "rev": "3ace64feb1ce3cf3c63e6297e1378a82fe548618",
+      "rev": "88575b98bb9937fb9983ddec5e532b67e75ce677",
       "src": "https://github.com/mrcjkb/rustaceanvim",
       "version": "7.0.0 - 8.0.0"
     },
