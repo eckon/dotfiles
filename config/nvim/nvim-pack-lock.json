@@ -66,12 +66,12 @@
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "rustaceanvim": {
-      "rev": "88575b98bb9937fb9983ddec5e532b67e75ce677",
+      "rev": "3ace64feb1ce3cf3c63e6297e1378a82fe548618",
       "src": "https://github.com/mrcjkb/rustaceanvim",
-      "version": "6.0.0 - 7.0.0"
+      "version": "7.0.0 - 8.0.0"
     },
     "schemastore.nvim": {
-      "rev": "9b6a3ab14cecc7da9f3aa4fa0ae2a7390748aca5",
+      "rev": "6217ff926e951401ac32f572da04e93e8cd6129d",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
