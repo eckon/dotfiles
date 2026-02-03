@@ -4,17 +4,20 @@
   "permission": {
     "bash": {
       "*": "ask",
+
       // Deny commands that have dedicated tools
       "grep *": "deny",
       "find *": "deny",
       "cat *": "deny",
       "head *": "deny",
       "tail *": "deny",
+
       // Allow safe read-only commands
-      "git status*": "allow",
-      "git diff*": "allow",
-      "git log*": "allow",
-      "ls*": "allow",
+      "git status *": "allow",
+      "git show *": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "ls *": "allow",
     },
   },
   "mcp": {
