@@ -84,4 +84,6 @@ vim.diagnostic.config({
 
 -- TODO: experimental feature, update accordingly to breaking changes etc.
 -- this will most likely be a basic feature toggle or enabled by default
-require("vim._extui").enable({ enable = true })
+-- TODO: future should allow overwrite of messages, to not spam them, wait until we see how to do so
+--       seems to be possible as internal tools like package update, already do that
+require("vim._extui").enable({ enable = true, msg = { target = "msg" } })
