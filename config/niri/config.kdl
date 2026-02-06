@@ -1,0 +1,159 @@
+// ────────────── Startup Applications ──────────────
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+spawn-sh-at-startup "qs -c noctalia-shell"
+spawn-at-startup "Telegram"
+spawn-at-startup "discord"
+
+// -------------- General --------------
+prefer-no-csd
+screenshot-path null
+
+environment {
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORM "wayland"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  XDG_SESSION_TYPE "wayland"
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORMTHEME "gtk3"
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+hotkey-overlay { skip-at-startup; }
+
+// ────────────── Keybindings ──────────────
+binds {
+  Mod+O repeat=false { toggle-overview; }
+
+  // TODO: fix flameshot or find new screenshot tool with annotations
+  Print { screenshot; }
+
+  // ─── Applications ───
+  Mod+Return /* terminal       */ { spawn "kitty"; }
+  Mod+Space  /* app launcher   */ { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+  Mod+B      /* browser        */ { spawn "firefox"; }
+  Mod+Escape /* lock screen    */ { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+  Mod+E      /* files explorer */ { spawn "nautilus"; }
+  Mod+A      /* ai             */ { spawn-sh "chromium --new-window --app=https://gemini.google.com/app"; }
+
+  // ─── Window Movement and Focus ───
+  Mod+Q { close-window; }
+
+  Mod+H { focus-column-left; }
+  Mod+L { focus-column-right; }
+  Mod+K { focus-workspace-up; }
+  Mod+J { focus-workspace-down; }
+
+  Mod+Left  { focus-monitor-left; }
+  Mod+Right { focus-monitor-right; }
+  Mod+Up    { focus-monitor-up; }
+  Mod+Down  { focus-monitor-down; }
+
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+K { move-column-to-workspace-up; }
+  Mod+Shift+J { move-column-to-workspace-down; }
+
+  // ─── Workspace Switching ───
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+  Mod+Shift+6 { move-column-to-workspace 6; }
+  Mod+Shift+7 { move-column-to-workspace 7; }
+  Mod+Shift+8 { move-column-to-workspace 8; }
+  Mod+Shift+9 { move-column-to-workspace 9; }
+
+  // ─── Window Modes ───
+  Mod+F { fullscreen-window; }
+  Mod+T { toggle-window-floating; }
+  Mod+S { switch-preset-column-width; }
+
+  // ─── Emergency Escape Key ───
+  // Use this when a fullscreen app blocks your keybinds.
+  // It disables any active keyboard shortcut inhibitor, restoring control.
+  Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // ─── Media Controls ───
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
+  XF86AudioNext        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
+  XF86AudioPrev        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+  XF86AudioPlay        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+  XF86AudioPause       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+
+  // ─── Brightness Controls ───
+  XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+}
+
+// ────────────── Input Configuration ──────────────
+input {
+  keyboard {
+    xkb { layout "us"; }
+    numlock
+  }
+
+  touchpad {
+    tap
+    natural-scroll
+  }
+
+  focus-follows-mouse
+}
+
+layout {
+  gaps 10
+  center-focused-column "never" // Don’t auto-center focused column
+
+  background-color "transparent" // <- needed for noctalia-shell to set wallpaper
+
+  default-column-width { proportion 0.5; }
+
+  preset-column-widths {
+    proportion 0.5
+    proportion 0.75
+    proportion 1.0
+  }
+
+  focus-ring {
+    on
+    width 2
+  }
+
+  border { off; }
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+// ────────────── Output Configuration ──────────────
+// run `niri msg outputs` to get the correct names etc.
+output "DP-3" {
+  mode "2560x1440@144"
+  position x=0 y=0
+  focus-at-startup
+}
+
+output "DP-2" {
+  mode "1920x1080@60"
+  position x=2560 y=175
+}

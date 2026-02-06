@@ -18,6 +18,7 @@ CONFIG_PATHS=(
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/mise"]=".config/mise"
+  ["config/niri"]=".config/niri"
   ["config/nvim"]=".config/nvim"
   ["config/opencode"]=".config/opencode"
   ["config/ripgreprc"]=".config/ripgreprc"
