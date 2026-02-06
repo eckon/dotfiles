@@ -1,0 +1,17 @@
+# Niri-specific packages
+
+# Niri core
+wayland_compositor:
+  - niri # scrollable-tiling wayland compositor
+  - xdg-desktop-portal-gnome # or xdg-desktop-portal-wlr depending on preference
+
+# Desktop utilities for Niri
+utilities:
+  - dunst # notification daemon
+  - fuzzel # application launcher (wayland-native alternative to rofi)
+  - grim # screenshot tool (wayland)
+  - slurp # screen area selection for screenshots
+  - swayidle # idle management
+  - swaylock # screen lock
+  - waybar # status bar
+  - wlsunset # screen color temperature adjustment

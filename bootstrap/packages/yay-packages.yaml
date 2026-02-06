@@ -31,21 +31,12 @@ containers:
   - kubectl
   - lazydocker # TUI for docker
 
-# Desktop environment (Hyprland)
+# Desktop applications (shared across all WMs)
 desktop:
   - chromium
   - dolphin # file manager
-  - dunst # notification daemon
   - firefox
-  - flameshot # screenshot tool
-  - hyprland # wayland compositor
-  - hyprlock # screen lock
-  - hyprpaper # wallpaper manager
-  - hyprpolkitagent # polkit agent
   - kitty # terminal emulator
-  - rofi # application launcher
-  - waybar # status bar
-  - xdg-desktop-portal-hyprland
 
 # System utilities
 system:
