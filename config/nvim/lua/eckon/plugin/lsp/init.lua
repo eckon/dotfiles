@@ -95,7 +95,7 @@ autocmd("LspProgress", {
     end
 
     -- NOTE: this might be changed in the future to not spam and replace the previous message
-    --       not sure how yet, guess with neovim making extui/ui2 non experimental it will be easier
+    --       not sure how yet, guess with neovim making ui2 non experimental it will be easier/clearer
     vim.notify(vim.lsp.status())
   end,
   group = augroup,

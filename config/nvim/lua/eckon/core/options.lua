@@ -86,4 +86,4 @@ vim.diagnostic.config({
 -- this will most likely be a basic feature toggle or enabled by default
 -- TODO: future should allow overwrite of messages, to not spam them, wait until we see how to do so
 --       seems to be possible as internal tools like package update, already do that
-require("vim._extui").enable({ enable = true, msg = { target = "msg" } })
+require("vim._core.ui2").enable({ enable = true, msg = { target = "msg" } })
