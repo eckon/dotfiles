@@ -22,7 +22,7 @@ Each major component has its own README:
 ## Installation
 
 ```bash
-git clone https://github.com/eckon/dotfiles.git ~/Development/dotfiles
+git clone git@github.com:eckon/dotfiles.git ~/Development/dotfiles
 cd ~/Development/dotfiles
 sudo -v
 ./bootstrap/install-packages.sh
