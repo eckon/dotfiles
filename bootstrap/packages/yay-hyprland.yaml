@@ -8,6 +8,20 @@ wayland_compositor:
   - hyprpolkitagent # polkit agent
   - xdg-desktop-portal-hyprland
 
+terminal:
+  - tldr # simplified man pages
+
+desktop:
+  - dolphin # file manager
+
+# System utilities
+system:
+  - pipewire # audio server
+  - speech-dispatcher
+  - timeshift # system backup
+  - wireplumber # pipewire session manager
+  - xorg-xhost # X11 access control
+
 # Desktop utilities for Hyprland
 utilities:
   - dunst # notification daemon

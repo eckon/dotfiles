@@ -22,6 +22,7 @@ parse_packages() {
   grep -E '^\s*-\s+' "$file" | sed -E 's/^\s*-\s+([^ #]+).*/\1/' || true
 }
 
+# NOTE: there might be platform/window-manager specific packages, these need to be run manually
 if command -v "yay" &> /dev/null; then
   # update all installed packages first
   yay -Syu --noconfirm
@@ -29,11 +30,6 @@ if command -v "yay" &> /dev/null; then
   # install base packages
   # shellcheck disable=SC2046
   yay -S --noconfirm --needed $(parse_packages "$PACKAGE_ROOT/yay-packages.yaml")
-
-  echo ""
-  echo "[!] For window manager specific packages, run one of:"
-  printf "    yay -S --needed \$(grep -E '^\\s*-\\s+' %s/yay-hyprland.yaml | sed -E 's/^\\s*-\\s+([^ #]+).*/\\1/')\n" "$PACKAGE_ROOT"
-  printf "    yay -S --needed \$(grep -E '^\\s*-\\s+' %s/yay-niri.yaml | sed -E 's/^\\s*-\\s+([^ #]+).*/\\1/')\n" "$PACKAGE_ROOT"
 
   # cleanup
   yay -Yc --noconfirm

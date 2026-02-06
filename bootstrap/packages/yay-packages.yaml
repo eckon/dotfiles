@@ -6,10 +6,9 @@ terminal:
   - bat # cat enhancement with syntax highlighting
   - btop # system monitor
   - dust # du replacement with better visualization
+  - eza # pretty ls
   - fd # find replacement, faster and easier to use
   - fzf # fuzzy finder
-  - htop # system monitor
-  - tldr # simplified man pages
   - tree-sitter-cli # parsing tool for syntax highlighting
   - usage # monitor command usage
   - zoxide # smarter cd command
@@ -34,19 +33,13 @@ containers:
 # Desktop applications (shared across all WMs)
 desktop:
   - chromium
-  - dolphin # file manager
   - firefox
   - kitty # terminal emulator
 
 # System utilities
 system:
-  - pipewire # audio server
-  - speech-dispatcher
-  - timeshift # system backup
   - tmux # terminal multiplexer
-  - wireplumber # pipewire session manager
   - wl-clipboard # wayland clipboard utilities
-  - xorg-xhost # X11 access control
 
 # Additional tools
 tools:
