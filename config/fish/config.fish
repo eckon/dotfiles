@@ -44,8 +44,8 @@ else
   alias clip "xclip -sel clip"
 end
 
-alias ll   "LC_COLLATE=C ls -alFh --color=auto --group-directories-first"
-alias ssh  "TERM=xterm-256color command ssh"
+alias ll  "eza -lah --color=always --group-directories-first --icons --git --total-size"
+alias ssh "TERM=xterm-256color command ssh"
 
 # NOTE: use `sudoedit` for opening vim in sudo mode
 alias vi  "vim -u NONE"
