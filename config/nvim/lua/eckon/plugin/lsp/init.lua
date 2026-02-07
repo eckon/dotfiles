@@ -89,14 +89,25 @@ autocmd("LspProgress", {
   callback = function(ev)
     local kind = ev.data.params.value.kind
     if kind == "end" then
-      -- cleanup the message at the end instead of showing anything else
-      vim.notify("")
+      -- overwrite message with a success message to finish progress
+      vim.api.nvim_echo({ { "Done" } }, false, {
+        kind = "progress",
+        status = "success",
+        title = "LspProgress",
+        id = "LspProgress",
+      })
       return
     end
 
-    -- NOTE: this might be changed in the future to not spam and replace the previous message
-    --       not sure how yet, guess with neovim making ui2 non experimental it will be easier/clearer
-    vim.notify(vim.lsp.status())
+    -- use nvim_echo to allow overwriting and passing the percentage of previous messages via `id` and `percent`
+    local percentage, description = vim.lsp.status():match("(%d+)%%:%s*(.*)")
+    vim.api.nvim_echo({ { description } }, false, {
+      kind = "progress",
+      status = "running",
+      percent = tonumber(percentage),
+      title = "LspProgress",
+      id = "LspProgress",
+    })
   end,
   group = augroup,
 })
