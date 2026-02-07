@@ -118,6 +118,11 @@ input {
   focus-follows-mouse
 }
 
+gestures {
+  // do not open overview, when going into the corners with the mouse
+  hot-corners { off; }
+}
+
 layout {
   gaps 10
   center-focused-column "never" // Don’t auto-center focused column
