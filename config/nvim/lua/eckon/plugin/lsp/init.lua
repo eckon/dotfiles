@@ -101,6 +101,18 @@ autocmd("LspProgress", {
 
     -- use nvim_echo to allow overwriting and passing the percentage of previous messages via `id` and `percent`
     local percentage, description = vim.lsp.status():match("(%d+)%%:%s*(.*)")
+
+    -- some lsps might not return anything, to not break the messages, and just show status update message
+    if description == nil then
+      vim.api.nvim_echo({ { "Processing" } }, false, {
+        kind = "progress",
+        status = "running",
+        title = "LspProgress",
+        id = "LspProgress",
+      })
+      return
+    end
+
     vim.api.nvim_echo({ { description } }, false, {
       kind = "progress",
       status = "running",

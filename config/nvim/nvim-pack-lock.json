@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "346722fced6ba9bb39382f34d31cea772cf4288e",
+      "rev": "ba188b3743908fcdb1695bce6314bbcbb429bb13",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
