@@ -47,15 +47,20 @@ binds {
   Mod+K { focus-workspace-up; }
   Mod+J { focus-workspace-down; }
 
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+K { move-column-to-workspace-up; }
+  Mod+Shift+J { move-column-to-workspace-down; }
+
   Mod+Left  { focus-monitor-left; }
   Mod+Right { focus-monitor-right; }
   Mod+Up    { focus-monitor-up; }
   Mod+Down  { focus-monitor-down; }
 
-  Mod+Shift+H { move-column-left; }
-  Mod+Shift+L { move-column-right; }
-  Mod+Shift+K { move-column-to-workspace-up; }
-  Mod+Shift+J { move-column-to-workspace-down; }
+  Mod+Shift+Left  { move-column-to-monitor-left; }
+  Mod+Shift+Right { move-column-to-monitor-right; }
+  Mod+Shift+Up    { move-column-to-monitor-up; }
+  Mod+Shift+Down  { move-column-to-monitor-down; }
 
   // ─── Workspace Switching ───
   Mod+1 { focus-workspace 1; }
