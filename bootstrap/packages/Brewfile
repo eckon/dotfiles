@@ -2,10 +2,12 @@ tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "anomalyco/tap"
 
+brew "anomalyco/tap/opencode"
 brew "bash"
 brew "bat" # cat enhancement
 brew "cmake"
 brew "curl"
+brew "eza" # ls alternative
 brew "fd" # find replacement
 brew "fish"
 brew "fzf"
@@ -23,7 +25,6 @@ brew "ninja" # build system
 brew "ripgrep" # grep replacement
 brew "selene" # lua linter
 brew "shellcheck"
-brew "anomalyco/tap/opencode"
 brew "starship"
 brew "tldr"
 brew "tmux"
