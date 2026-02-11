@@ -5,7 +5,7 @@ node = "latest"
 # Special
 [tasks.setup]
 description = "Setup whole configuration"
-depends = ["packages", "symlinks"]
+depends = ["packages:update", "packages:install", "symlinks"]
 
 [tasks.check]
 description = "Run all formatters and linters over the whole repo"
@@ -30,8 +30,33 @@ description = "Symlink all given configurations"
 run = "./bootstrap/symlink.sh"
 
 [tasks.packages]
-description = "Install/update all packages"
+description = "Update all packages"
+run = ["sudo -v", "./bootstrap/update-packages.sh"]
+
+[tasks."packages:update"]
+description = "Update all packages"
+alias = "update"
+run = ["sudo -v", "./bootstrap/update-packages.sh"]
+
+[tasks."packages:install"]
+description = "Install OS-specific packages"
 run = ["sudo -v", "./bootstrap/install-packages.sh"]
+
+[tasks."packages:install-yay"]
+description = "Install yay packages"
+run = "./bootstrap/packages/install-packages-yay.sh"
+
+[tasks."packages:install-apt"]
+description = "Install apt packages"
+run = "./bootstrap/packages/install-packages-apt.sh"
+
+[tasks."packages:install-dnf"]
+description = "Install dnf packages"
+run = "./bootstrap/packages/install-packages-dnf.sh"
+
+[tasks."packages:install-brew"]
+description = "Install brew packages"
+run = "./bootstrap/packages/install-packages-brew.sh"
 
 
 # Lua tasks

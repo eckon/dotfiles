@@ -27,26 +27,20 @@ cd ~/Development/dotfiles
 sudo -v
 ./bootstrap/install-packages.sh
 ./bootstrap/symlink.sh
+# and the specific installation of the setup (see ./bootstrap/packages/install-packages-*)
 ```
 
 _Additionally (optionally) run `npm install` for local formatting, linting and more_
-
-The setup script will:
-
-- Install terminal tools and applications
-- Create symlinks to configuration files
-- Set up development environment
-- Handle different operating systems automatically
-  - Only personally used ones are tested/maintained
 
 ### Post-Installation
 
 `mise` cli command is available and can be used for many other scripts (including the setup scripts):
 
 ```bash
-mise tasks     # List all available tasks
-mise run setup # Run full setup
-mise run check # Format and lint all code
+mise tasks                       # List all available tasks
+mise run setup                   # Run full setup (update + install + symlinks)
+mise run packages:update         # Update all packages
+mise run check                   # Format and lint all code
 ```
 
 ## Directory Structure
@@ -69,7 +63,7 @@ mise run check # Format and lint all code
 
 See the [packages directory](./bootstrap/packages/) for the complete list.
 
-- **[Brewfile](./bootstrap/packages/Brewfile)**
-- **[apt-packages.txt](./bootstrap/packages/apt-packages.txt)**
-- **[dnf-packages.txt](./bootstrap/packages/dnf-packages.txt)**
-- **[yay-packages.txt](./bootstrap/packages/yay-packages.txt)**
+- **[install-packages-yay.sh](./bootstrap/packages/install-packages-yay.sh)** - Arch Linux packages
+- **[install-packages-apt.sh](./bootstrap/packages/install-packages-apt.sh)** - Debian/Ubuntu packages
+- **[install-packages-dnf.sh](./bootstrap/packages/install-packages-dnf.sh)** - Fedora packages
+- **[install-packages-brew.sh](./bootstrap/packages/install-packages-brew.sh)** - macOS packages

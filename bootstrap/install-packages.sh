@@ -3,59 +3,19 @@
 set -euo pipefail
 
 ####################################################
-# script to install all packages depending on the OS
+# script to install OS-specific packages
 ####################################################
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGE_ROOT="$SCRIPT_DIR/packages"
 
-# helper function to parse YAML package files and extract package names
-parse_packages() {
-  local file="$1"
-
-  if [[ "$file" != *.yaml ]]; then
-    echo "Error: parse_packages only accepts .yaml files, got: $file" >&2
-    return 1
-  fi
-
-  # parse YAML: extract values from lists, ignore comments and keys
-  grep -E '^\s*-\s+' "$file" | sed -E 's/^\s*-\s+([^ #]+).*/\1/' || true
-}
-
-# NOTE: there might be platform/window-manager specific packages, these need to be run manually
-if command -v "yay" &> /dev/null; then
-  # update all installed packages first
-  yay -Syu --noconfirm
-
-  # install base packages
-  # shellcheck disable=SC2046
-  yay -S --noconfirm --needed $(parse_packages "$PACKAGE_ROOT/yay-packages.yaml")
-
-  # cleanup
-  yay -Yc --noconfirm
-  yay -Sc --noconfirm
-fi
-
-if command -v "apt" &> /dev/null; then
-  sudo apt update
-  sudo apt upgrade -y
-  parse_packages "$PACKAGE_ROOT/apt-packages.yaml" | xargs sudo apt install -y
-  sudo apt autoremove -y
-fi
-
-if command -v "dnf" &> /dev/null; then
-  sudo dnf check-update
-  sudo dnf upgrade -y
-  parse_packages "$PACKAGE_ROOT/dnf-packages.yaml" | xargs sudo dnf install -y
-  sudo dnf autoremove -y
-fi
-
-if command -v "brew" &> /dev/null; then
-  brew update
-  brew upgrade
-  brew bundle --file "$PACKAGE_ROOT/Brewfile"
-  brew cleanup
-fi
+echo "[!] This script installs OS-specific packages (neovim, fish, fonts, etc.)"
+echo "[!] For package manager packages, run one of:"
+echo "    - mise run packages:install-yay   (Arch Linux)"
+echo "    - mise run packages:install-apt   (Debian/Ubuntu)"
+echo "    - mise run packages:install-dnf   (Fedora)"
+echo "    - mise run packages:install-brew  (macOS)"
+echo ""
 
 if [ -f /proc/version ]; then
   # wsl installation has `wsl` and `linux` in the output, but only `wsl` will be matched
