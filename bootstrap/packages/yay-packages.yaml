@@ -40,6 +40,7 @@ desktop:
 system:
   - tmux # terminal multiplexer
   - wl-clipboard # wayland clipboard utilities
+  - grim # as a dependency for screenshot tools like flameshot
 
 # Additional tools
 tools:
@@ -50,3 +51,4 @@ tools:
   - opencode-bin # AI coding assistant
   - starship # shell prompt
   - ttf-firacode-nerd # nerd font with icon support
+  - flameshot # screenshot tool

@@ -52,6 +52,9 @@ binds {
   Mod+Shift+K { move-column-to-workspace-up; }
   Mod+Shift+J { move-column-to-workspace-down; }
 
+  Mod+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+  Mod+WheelScrollUp   cooldown-ms=150 { focus-column-left; }
+
   Mod+Left  { focus-monitor-left; }
   Mod+Right { focus-monitor-right; }
   Mod+Up    { focus-monitor-up; }

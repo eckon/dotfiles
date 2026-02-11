@@ -11,9 +11,6 @@ wayland_compositor:
 terminal:
   - tldr # simplified man pages
 
-desktop:
-  - dolphin # file manager
-
 # System utilities
 system:
   - pipewire # audio server
@@ -25,6 +22,5 @@ system:
 # Desktop utilities for Hyprland
 utilities:
   - dunst # notification daemon
-  - flameshot # screenshot tool
   - rofi # application launcher
   - waybar # status bar
