@@ -37,10 +37,10 @@ _Additionally (optionally) run `npm install` for local formatting, linting and m
 `mise` cli command is available and can be used for many other scripts (including the setup scripts):
 
 ```bash
-mise tasks                       # List all available tasks
-mise run setup                   # Run full setup (update + install + symlinks)
-mise run packages:update         # Update all packages
-mise run check                   # Format and lint all code
+mise tasks               # List all available tasks
+mise run setup           # Run full setup (update + install + symlinks)
+mise run packages:update # Update all packages
+mise run check           # Format and lint all code
 ```
 
 ## Directory Structure
