@@ -6,7 +6,7 @@
       "version": ">=0.0.0"
     },
     "catppuccin": {
-      "rev": "beaf41a30c26fd7d6c386d383155cbd65dd554cd",
+      "rev": "0a5de4da015a175f416d6ef1eda84661623e0500",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "4211e4a398988588c2948c692e25195bacc1d5d3",
+      "rev": "227bd283df69f5b2d42269e5fe20977d7d88d538",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "e5a9a3830f9c37211df4c82cac45bf728b95739d",
+      "rev": "4ca988557786c9a4e41d5e5b6e31b4c9d7379f53",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "bcd1a44edbea8cd473af7e7582d3f7ffc60d8e81",
+      "rev": "a3d17105a79fc12055c2a0d732665d9c2b1c2dc3",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "66fd02ad1c7ea31616d3ca678fa04e6d0b360824",
+      "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -50,11 +50,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "037d89e60fb01a6c11a48a19540253b8c72a3c32",
+      "rev": "fa3c45875f9b1f56ace57711c6f2ac22484ed956",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "9f2dad22ef8bb14fd1e0a3aa8859cdc88170668b",
+      "rev": "ca35dc5184327f9e19b70932190a256235acecb1",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -71,7 +71,7 @@
       "version": "7.0.0 - 8.0.0"
     },
     "schemastore.nvim": {
-      "rev": "b850ab25279ba04ada90e8b696ef5d0624af103d",
+      "rev": "55ca969ceed5209d62cbf4c20cef023ff188b6c5",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
