@@ -1,3 +1,7 @@
+# NOTE: to handle setup/computer specific tools etc. that should not be shared globally
+#       add it to any part thats a root dir for the relevant config
+#       as an example the home folder or a specific 'work' dir thats root to all setups
+#       use `mise.toml` instead of the `local` version, as the root will not be versioned either way
+
 [tools]
 node = "latest"
-dotnet = "latest"
