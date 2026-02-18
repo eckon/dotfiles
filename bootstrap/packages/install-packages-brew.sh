@@ -12,6 +12,7 @@ brew install \
   bat $(: "cat enhancement") \
   cmake \
   curl \
+  dust $(: "du replacement with better visualization") \
   eza $(: "ls alternative") \
   fd $(: "find replacement") \
   fish \
