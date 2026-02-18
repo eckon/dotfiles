@@ -10,7 +10,7 @@ The configuration is structured as a Lua project with full LSP support for navig
 ## Structure
 
 - **[`init.lua`](./init.lua)** - Entry point that loads my other configurations/plugins
-- **`lua/eckon/*`** - My different lua helper, plugins and configurations
+- **`lua/eckon/*`** - My different Lua helpers, plugins and configurations
   - **`init.lua`** - Is the index and will handle sub configuration parts
 - **`after/ftplugin/`** - Filetype-specific configurations
 - **`lsp/`** - Language server configurations

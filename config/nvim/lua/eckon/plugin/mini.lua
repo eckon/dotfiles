@@ -6,7 +6,7 @@ require("mini.icons").setup()
 -- buffer based file explorer
 require("mini.files").setup({
   mappings = {
-    -- default `q` -> use esc to allow for macros recoding via ´q´
+    -- default `q` -> use esc to allow for macros recording via ´q´
     close = "<ESC>",
     -- use `L` and `H` via `go_x_plus` default mapping instead (makes moving in the buffer easier)
     go_in = "",

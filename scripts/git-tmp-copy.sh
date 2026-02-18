@@ -10,7 +10,7 @@
 # NOTE: possible improvement
 # one possibility would be to copy everything except for ignored files,
 # and these will be symlinked instead form the main one (resulting in less resources)
-# then git worktrees might be a good soltuion as they only copy committed files
+# then git worktrees might be a good solution as they only copy committed files
 
 if ! git rev-parse --is-inside-work-tree &> /dev/null; then
   echo "Script needs to be called inside of git repository"

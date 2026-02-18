@@ -30,7 +30,7 @@ find "$cacheFolder" -type f | while IFS= read -r cacheFile; do
   fi
 done
 
-# generate a has for better file names
+# generate a hash for better file names
 # md5sum returns the file as secound argument, only return the hash
 commandHash=$(echo "$@" | md5sum | cut -d ' ' -f 1)
 cacheFile="$cacheFolder/$commandHash"

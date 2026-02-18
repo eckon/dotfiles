@@ -25,7 +25,7 @@ which then can be handled automatically:
 Some of these might be doable with other configurations like vim plugin
 
 - `Find anything` -> `SHIFT SHIFT`
-- `Command Pallet` -> `CTRL-SHIFT-A`
+- `Command Palette` -> `CTRL-SHIFT-A`
 
 ## Setup to export
 
@@ -33,9 +33,9 @@ I do not want to export all things,
 so the following should only be exported and saved here:
 
 - `installed.txt`
-  - shows all installed plugins
+  - Shows all installed plugins
 - `options/`
-  - most are default, expect for
+  - Most are default, except for
     (which are not included in the export as far as I can see)
     - enable prettier for better js formatting
   - vim settings should be done via `~/.config/ideavim/ideavimrc`

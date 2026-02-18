@@ -13,13 +13,13 @@ some more important things like which extensions should be installed.
 Some of these might be doable with other configurations like vim plugin
 
 - `Open File` -> `CTRL-T`
-- `Command Pallet` -> `CTRL-Q`
+- `Command Palette` -> `CTRL-Q`
 - `Commenting` -> `CTRL-K CTRL-/`
 - `Quick Action` -> `CTRL-.`
 
 ## Manual configuration
 
-Instead of using the gigantic export or an account, ill use a basic list here to
+Instead of using the gigantic export or an account, I'll use a basic list here to
 note down which extensions and which options are important to me:
 
 - set dark theme

@@ -5,7 +5,7 @@
 Some of these might be doable with other configurations like vim plugin
 
 - `Open file` -> `CTRL-P`
-- `Command Pallet` -> `CTRL-SHIFT-P`
+- `Command Palette` -> `CTRL-SHIFT-P`
 
 ## Useful links
 

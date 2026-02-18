@@ -1,5 +1,5 @@
 {
-  "--- NOTE ---": "for infos see the `vscode/README.md` file in my dotfiles",
+  "--- NOTE ---": "for info see the `vscode/README.md` file in my dotfiles",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": true,

@@ -15,7 +15,7 @@ for cmd in zoxide tmux fzf; do
   fi
 done
 
-get_session_indentifier() {
+get_session_identifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
@@ -29,7 +29,7 @@ get_session_indentifier() {
 
 # always init notes session
 path=$(zoxide query "notes")
-session=$(get_session_indentifier "$path")
+session=$(get_session_identifier "$path")
 if ! (tmux has-session -t "$session" 2> /dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
@@ -40,7 +40,7 @@ fi
 
 # always init dotfiles session
 path=$(zoxide query "dotfiles")
-session=$(get_session_indentifier "$path")
+session=$(get_session_identifier "$path")
 if ! (tmux has-session -t "$session" 2> /dev/null); then
   echo "Create \"$session\" session"
   tmux new-session -s "$session" -d -c "$path"
@@ -52,7 +52,7 @@ fi
 if [[ "$#" -le 0 ]]; then
   # start interactive selection when no arguments are given
   path=$(zoxide query --interactive) || exit
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
     echo "Create \"$session\" session"
     tmux new-session -s "$session" -d -c "$path"
@@ -60,7 +60,7 @@ if [[ "$#" -le 0 ]]; then
 else
   # otherwise query path of given match
   path=$(zoxide query "$@") || exit
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
     echo "Create \"$session\" session"
     tmux new-session -s "$session" -d -c "$path"

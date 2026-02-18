@@ -14,7 +14,7 @@ for cmd in zoxide zellij; do
   fi
 done
 
-get_session_indentifier() {
+get_session_identifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
@@ -39,7 +39,7 @@ create_session() {
 
 check_and_start() {
   path="$1"
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
 
   if ! (zellij list-sessions --short | grep --quiet "$session"); then
     create_session "$session" "$path"

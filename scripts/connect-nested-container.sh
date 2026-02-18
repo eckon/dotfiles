@@ -25,7 +25,7 @@ serviceInfo=$(
 host=$(
   echo "$serviceInfo" | awk -F '.' '{print $1}'
 )
-# secound part after " " is needed (bighost-dev.1.abcdef12345)
+# second part after " " is needed (bighost-dev.1.abcdef12345)
 container=$(
   echo "$serviceInfo" | awk '{print $2}'
 )

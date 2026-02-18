@@ -37,7 +37,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
 
   *'arch'*)
     echo "[!] Install for Arch"
-    # NOTE: there is a nightly neovim aur package, but i dont use it to handle it myself willingly
+    # NOTE: there is a nightly neovim aur package, but I don't use it to handle it myself willingly
     "$PACKAGE_ROOT/install-neovim-appimage.sh"
     ;;
 

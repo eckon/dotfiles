@@ -21,7 +21,7 @@ require("conform").setup({
 
 local nmap = require("eckon.helper.utils").bind_map("n")
 
--- `gq` with `formatexpr` is making some problems so for now I`ll overwrite it with whole format formatting
+-- `gq` with `formatexpr` is making some problems so for now I'll overwrite it with whole format formatting
 nmap("gq", function()
   require("conform").format({ lsp_fallback = true, async = true })
 end, { desc = "Conform: Format whole buffer" })

@@ -14,7 +14,7 @@ for cmd in fzf zoxide tmux; do
   fi
 done
 
-get_session_indentifier() {
+get_session_identifier() {
   # map path to session identifier
   path="$1"
   directory=$(basename "$path")
@@ -54,7 +54,7 @@ if [[ "$selected" == "backend" ]]; then
   tmux send-key -t "$session":1 "rider" C-m
 
   path=$(zoxide query "idss")
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
     echo "Create \"$session\" session"
     tmux new-session -s "$session" -d -c "$path"
@@ -68,7 +68,7 @@ fi
 
 if [[ "$selected" == "frontend" ]]; then
   path=$(zoxide query "orchestrator")
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
     echo "Create \"$session\" session"
     tmux new-session -s "$session" -d -c "$path"
@@ -83,7 +83,7 @@ if [[ "$selected" == "frontend" ]]; then
   fi
 
   path=$(zoxide query "core-applets")
-  session=$(get_session_indentifier "$path")
+  session=$(get_session_identifier "$path")
   if ! (tmux has-session -t "$session" 2> /dev/null); then
     echo "Create \"$session\" session"
     tmux new-session -s "$session" -d -c "$path"
