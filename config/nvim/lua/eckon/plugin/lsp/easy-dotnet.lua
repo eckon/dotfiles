@@ -34,6 +34,33 @@ local dotnet = require("easy-dotnet")
 dotnet.setup({
   test_runner = {
     viewmode = "split",
+    mappings = {
+      -- References from defaults:
+      -- run a test (in buffer or testrunner): `<leader>r`  (`t` for all in buffer or `R` for all as a whole)
+      -- jump to file from testrunner:         `g`
+      expand = { lhs = "<CR>", desc = "expand" },
+      peek_stacktrace = { lhs = "?", desc = "peek stacktrace of failed test" },
+    },
+  },
+  notifications = {
+    -- use the new ui2 and do not keep printing progression messages, only one for start and one for end (which gets overwritten)
+    handler = function(start_event)
+      -- multiple processes get started, so only overwrite the message, that relates to each other
+      local message_number = tostring(math.random(1000))
+      vim.api.nvim_echo(
+        { { start_event.job.name } },
+        false,
+        { id = message_number, kind = "progress", status = "running", title = "Dotnet" }
+      )
+
+      return function(finish_event)
+        vim.api.nvim_echo(
+          { { finish_event.result.msg } },
+          false,
+          { id = message_number, kind = "progress", status = "success", title = "Dotnet" }
+        )
+      end
+    end,
   },
 })
 

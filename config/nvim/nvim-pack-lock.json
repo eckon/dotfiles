@@ -10,11 +10,11 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
+      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "e940967e37224a5da0cd14b0df1ba917bc16a24d",
+      "rev": "57f19e1d1c1a62930eb2ba5c730e4f1ddb0a942c",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -34,27 +34,27 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "dbb073bd2ed4a7bb35daafc7989567f0ff1426ee",
+      "rev": "577d2dcb558efce1518c45a76345e01bf346c8e8",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
-      "rev": "486474c2ace8d78d28995074dbdbe29011bc63d0",
+      "rev": "606b823a57b027502a9ae00978ebf4f5d5158098",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
+      "rev": "ab5139c99df944479e5a26495a37840fcbb1d512",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "1098d7b3c34adcfa7feb3289ee434529abd4afd1",
+      "rev": "5553dd1fbb3559abb176a8227a12e8f1cab07e93",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "e11ce83ed9a00f065bf676ae4e6c261c766989ba",
+      "rev": "ae16aab5fd1792b97758622b9fb53408ec804fd8",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "fcd51bbe9245aa9b79a3930ed9ac42e16e1cf33f",
+      "rev": "67d0fd3e0a2a985a4c66461dfd7ab94e499dee38",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "quicker.nvim": {
-      "rev": "fc041830fa7cf093786b0d5990d99cf3c7b0c129",
+      "rev": "2d3f3276eab9352c7b212821c218aca986929f62",
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "rustaceanvim": {
@@ -71,7 +71,7 @@
       "version": "7.0.0 - 8.0.0"
     },
     "schemastore.nvim": {
-      "rev": "187cd24e8714221679ab8ea3ea02da80e05e8513",
+      "rev": "75b5210976cf6e5666ae566418f4f81cab26019e",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
