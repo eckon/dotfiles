@@ -9,15 +9,43 @@ plugins:
     background: false
     args:
       - -c
-      - "kubectl logs $NAME -f --tail=100 -n $NAMESPACE --context  $CONTEXT | jq -CSR '. as $line | try (fromjson) catch $line'"
-  persist-all-logs:
-    shortCut: Ctrl-T
-    description: Persist all logs to `/tmp/logs-dump`
-    confirm: false
+      - |
+        set -eu
+        kubectl -n "$NAMESPACE" logs "$NAME" \
+          -f --tail=100 \
+          --context  $CONTEXT \
+          | jq -CSR '. as $line | try (fromjson) catch $line'
+
+  vim-logs-pods:
+    shortCut: Ctrl-V
+    description: Open in vim
     scopes:
-      - pod
+      - pods
     command: sh
     background: false
     args:
       - -c
-      - "kubectl logs $NAME -n $NAMESPACE --context  $CONTEXT > /tmp/logs-dump"
+      - |
+        set -eu
+        kubectl -n "$NAMESPACE" logs "$NAME" \
+          --all-containers=true \
+          --prefix=true \
+          --timestamps=true \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified'
+
+  vim-logs-containers:
+    shortCut: Ctrl-V
+    description: Open in vim
+    scopes:
+      - containers
+    command: sh
+    background: false
+    args:
+      - -c
+      - |
+        set -eu
+        kubectl -n "$NAMESPACE" logs "$POD" -c "$NAME" \
+          --timestamps=true \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified'
