@@ -1,7 +1,7 @@
 {
   "Callout": {
     "prefix": ["callout"],
-    "body": "> [!${1|NOTE,INFO,WARNING,IMPORTANT,QUESTION|}]\n> ${0}",
+    "body": "> [!${1|NOTE,TIP,WARNING,IMPORTANT,CAUTION|}]\n> ${0}",
     "description": "Insert general callout with selectable type"
   },
 
@@ -15,17 +15,5 @@
     "prefix": "codeblock",
     "body": ["```${1:language}", "$0", "```"],
     "description": "Insert fenced code block"
-  },
-
-  "Tableflip": {
-    "prefix": "tableflip",
-    "body": "(╯°□°)╯︵ ┻━┻",
-    "description": "Tableflip emoticon"
-  },
-
-  "Shrug": {
-    "prefix": "shrug",
-    "body": "¯\\_(ツ)_/¯",
-    "description": "Shrug emoticon"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "Tableflip": {
+    "prefix": "tableflip",
+    "body": "(╯°□°)╯︵ ┻━┻",
+    "description": "Tableflip emoticon"
+  },
+
+  "Shrug": {
+    "prefix": "shrug",
+    "body": "¯\\_(ツ)_/¯",
+    "description": "Shrug emoticon"
+  }
+}
