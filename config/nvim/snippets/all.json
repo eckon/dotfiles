@@ -9,5 +9,17 @@
     "prefix": "shrug",
     "body": "¯\\_(ツ)_/¯",
     "description": "Shrug emoticon"
+  },
+
+  "Insert Date": {
+    "prefix": "date",
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+    "description": "Insert current date (YYYY-MM-DD)"
+  },
+
+  "Insert UUID": {
+    "prefix": "uuid",
+    "body": "$UUID",
+    "description": "Insert a random UUID"
   }
 }
