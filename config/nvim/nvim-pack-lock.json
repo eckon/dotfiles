@@ -34,7 +34,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "59f09943573c5348ca6c88393fa09ce3b66a7818",
+      "rev": "439cdcd6992bc9012efd7d8ed7a7b7a0f1fac32a",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "f37ebac81164e1445c499cdd6de86e6d8e5d57e4",
+      "rev": "3d385d3346e4883d60dc37cf642bd47bed78a46e",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -71,7 +71,7 @@
       "version": "7.0.0 - 8.0.0"
     },
     "schemastore.nvim": {
-      "rev": "cf2b276dc88696b35d55ea4bd55dfaf7d608c9a2",
+      "rev": "66e53f3316515ac8548b47826f8d273955aa7af1",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
