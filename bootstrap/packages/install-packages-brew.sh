@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if ! command -v brew &>/dev/null; then
+  echo "brew is not installed, visit https://brew.sh for installation instructions"
+  exit 1
+fi
+
 brew tap jesseduffield/lazydocker
 brew tap jesseduffield/lazygit
 brew tap anomalyco/tap

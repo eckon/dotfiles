@@ -24,10 +24,14 @@ Each major component has its own README:
 ```bash
 git clone git@github.com:eckon/dotfiles.git ~/Development/dotfiles
 cd ~/Development/dotfiles
+./bootstrap/symlink.sh
+
+# first specific setups for each platform need to be installed (brew, etc.)
+# see ./bootstrap/packages/install-packages-*
+
+# then install general applications etc.
 sudo -v
 ./bootstrap/install-packages.sh
-./bootstrap/symlink.sh
-# and the specific installation of the setup (see ./bootstrap/packages/install-packages-*)
 ```
 
 _Additionally (optionally) run `npm install` for local formatting, linting and more_

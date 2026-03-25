@@ -42,7 +42,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "841c6d4139aedb8a3f2baf30cef5327371385b93",
+      "rev": "5b3c9cf20fc78e44ba019739e2750aaffe383497",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
