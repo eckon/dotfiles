@@ -13,6 +13,8 @@ mkdir -p "$HOME/.local/share/applications"
 cp "$HOME/.local/kitty.app/share/applications/kitty.desktop" "$HOME/.local/share/applications"
 cp "$HOME/.local/kitty.app/share/applications/kitty-open.desktop" "$HOME/.local/share/applications"
 
+# NOTE: if there are problems with starting kitty and fish, add it to the exec part
+# Exec=.../kitty -e .../fish --login
 sed -i \
   "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" \
   "$HOME/.local/share/applications/kitty.desktop"

@@ -22,6 +22,7 @@ end
 set -x EDITOR              (command -v "nvim")
 set -x SUDO_EDITOR         (command -v "nvim")
 set -x VISUAL              (command -v "nvim")
+set -x SHELL               (command -v "fish")
 set -x MANPAGER            "nvim +Man!"
 set -x LANG                "en_US.UTF-8"
 set -x LC_TIME             "en_US.UTF-8"
