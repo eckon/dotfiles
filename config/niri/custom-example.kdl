@@ -1,0 +1,27 @@
+// custom settings that are relevant for each computer, but should not be versioned
+// this is an example that should be copied and aligned to `custom.kdl`
+
+input {
+  keyboard {
+    xkb {
+      layout "de";
+      // layout "us";
+    }
+  }
+}
+
+// ────────────── Output Configuration ──────────────
+// run `niri msg outputs` to get the correct names etc.
+// or use the qs noctalia view to see the names
+output "DP-1" {
+  position x=0 y=0
+}
+
+output "DP-2" {
+  focus-at-startup
+  position x=3840 y=0
+}
+
+output "DP-3" {
+  position x=1920 y=0
+}

@@ -30,3 +30,12 @@ if command -v "brew" &> /dev/null; then
   brew upgrade
   brew cleanup
 fi
+
+if command -v "flatpak" &> /dev/null; then
+  flatpak update -y
+  flatpak uninstall --unused -y
+fi
+
+if command -v "snap" &> /dev/null; then
+  sudo snap refresh
+fi

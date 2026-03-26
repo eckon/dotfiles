@@ -1,21 +1,13 @@
+// --------------------------------------------------------------------------------------------------
+// --- computer specific settings can be found on the bottom of this settings, to allow overwrite ---
+// --------------------------------------------------------------------------------------------------
+
 // ────────────── Startup Applications ──────────────
-spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
 spawn-sh-at-startup "qs -c noctalia-shell"
-spawn-at-startup "Telegram"
-spawn-at-startup "discord"
 
 // -------------- General --------------
 prefer-no-csd
 screenshot-path null
-
-environment {
-  ELECTRON_OZONE_PLATFORM_HINT "auto"
-  QT_QPA_PLATFORM "wayland"
-  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  XDG_SESSION_TYPE "wayland"
-  XDG_CURRENT_DESKTOP "niri"
-  QT_QPA_PLATFORMTHEME "gtk3"
-}
 
 debug {
   // Allows notification actions and window activation from Noctalia.
@@ -34,10 +26,10 @@ binds {
   // ─── Applications ───
   Mod+Return /* terminal       */ { spawn "kitty"; }
   Mod+Space  /* app launcher   */ { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-  Mod+B      /* browser        */ { spawn "firefox"; }
+  Mod+B      /* browser        */ { spawn "google-chrome-stable"; }
   Mod+Escape /* lock screen    */ { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
   Mod+E      /* files explorer */ { spawn "nautilus"; }
-  Mod+A      /* ai             */ { spawn-sh "chromium --new-window --app=https://gemini.google.com/app"; }
+  Mod+A      /* ai             */ { spawn-sh "google-chrome-stable --new-window --app=https://app.langdock.com/chat"; }
 
   // ─── Window Movement and Focus ───
   Mod+Q { close-window; }
@@ -91,11 +83,6 @@ binds {
   Mod+T { toggle-window-floating; }
   Mod+S { switch-preset-column-width; }
 
-  // ─── Emergency Escape Key ───
-  // Use this when a fullscreen app blocks your keybinds.
-  // It disables any active keyboard shortcut inhibitor, restoring control.
-  Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
   // ─── Media Controls ───
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
@@ -114,8 +101,10 @@ binds {
 // ────────────── Input Configuration ──────────────
 input {
   keyboard {
-    xkb { layout "us"; }
     numlock
+    xkb {
+      layout "us";
+    }
   }
 
   touchpad {
@@ -158,15 +147,8 @@ layer-rule {
   place-within-backdrop true
 }
 
-// ────────────── Output Configuration ──────────────
-// run `niri msg outputs` to get the correct names etc.
-output "DP-3" {
-  mode "2560x1440@144"
-  position x=0 y=0
-  focus-at-startup
-}
-
-output "DP-2" {
-  mode "1920x1080@60"
-  position x=2560 y=175
-}
+// NOTE: create a `custom.kdl` in `niri` to setup computer specific settings that should not be versioned
+// this could include settings like monitor, workspace, etc.
+// for examples see `./niri/custom-exmple.kdl`
+// NOTE: config put at the bottom to overwrite all other settings
+include optional=true "custom.kdl"
