@@ -20,7 +20,6 @@ if command -v "apt" &> /dev/null; then
 fi
 
 if command -v "dnf" &> /dev/null; then
-  sudo dnf check-update
   sudo dnf upgrade -y
   sudo dnf autoremove -y
 fi
