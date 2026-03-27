@@ -103,7 +103,7 @@ input {
   keyboard {
     numlock
     xkb {
-      layout "us";
+        layout "us";
     }
   }
 
@@ -151,4 +151,4 @@ layer-rule {
 // this could include settings like monitor, workspace, etc.
 // for examples see `./niri/custom-exmple.kdl`
 // NOTE: config put at the bottom to overwrite all other settings
-include optional=true "custom.kdl"
+include "custom.kdl"

@@ -52,7 +52,8 @@ if not is_dotnet_repo() or is_git_operation() then
   return
 end
 
--- NOTE: needs `dotnet tool install -g EasyDotnet` and in path
+-- NOTE: needs `dotnet tool install -g EasyDotnet`
+--       and in path `ln -s ~/.dotnet/tools/dotnet-easydotnet ~/.local/bin/dotnet-easydotnet`
 --       so when switching dotnet version, i might need to reinstall it
 local dotnet = require("easy-dotnet")
 

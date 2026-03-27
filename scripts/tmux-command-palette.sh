@@ -21,6 +21,7 @@ commands=(
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
   "Jump to Project|tmux-jump"
+  "Open rider|rider ."
 )
 
 # Use fzf to create a searchable menu (no height limit since we're in a popup)
