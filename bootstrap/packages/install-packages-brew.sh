@@ -35,6 +35,7 @@ brew install \
   ninja $(: "build system") \
   ripgrep $(: "grep replacement") \
   selene $(: "lua linter") \
+  sesh $(: "tmux session manager, replacement for my tmux-jump script") \
   shellcheck \
   starship \
   tldr \

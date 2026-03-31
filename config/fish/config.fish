@@ -58,8 +58,8 @@ alias vim "nvim"
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 
-abbr --add j  "tmux-jump"
-abbr --add js "tmux-jumpstart"
+# quickly jump or create tmux sessiosn (previously via custom `tmux-jump` script)
+abbr --add j "sesh connect (sesh list --hide-attached | fzf)"
 
 abbr --add --command git R \
      --set-cursor "rebase --interactive HEAD~%"

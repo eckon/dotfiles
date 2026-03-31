@@ -30,6 +30,7 @@ yay -S --noconfirm --needed \
   nvtop $(: "nvidia GPU monitor") \
   opencode-bin $(: "AI coding assistant") \
   selene $(: "lua linter") \
+  sesh-bin $(: "tmux session manager, replacement for my tmux-jump script") \
   shellcheck $(: "shell script linter") \
   starship $(: "shell prompt") \
   tealdeer $(: "simplified man pages, its tldr") \

@@ -20,7 +20,6 @@ commands=(
   "AI Assistant|opencode"
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
-  "Jump to Project|tmux-jump"
   "Open rider|rider ."
 )
 

@@ -4,6 +4,8 @@
 # script to quickly and easily create and jump between tmux sessions and
 # start different edge cases based on folder name
 #
+# NOTE: tools like `sesh` use the same idea, so might move to it instead
+#
 # needed plugins: fzf, zoxide, tmux
 #########################################################################
 
