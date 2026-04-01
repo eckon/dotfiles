@@ -73,18 +73,19 @@ dotnet.setup({
     handler = function(start_event)
       -- multiple processes get started, so only overwrite the message, that relates to each other
       local message_number = tostring(math.random(1000))
-      vim.api.nvim_echo(
-        { { start_event.job.name } },
-        false,
-        { id = message_number, kind = "progress", status = "running", title = "Dotnet" }
-      )
+      local progress = {
+        kind = "progress",
+        status = "running",
+        title = "Dotnet",
+        id = message_number,
+        source = "Dotnet",
+      }
+
+      vim.api.nvim_echo({ { start_event.job.name } }, false, progress)
 
       return function(finish_event)
-        vim.api.nvim_echo(
-          { { finish_event.result.msg } },
-          false,
-          { id = message_number, kind = "progress", status = "success", title = "Dotnet" }
-        )
+        progress.status = "success"
+        vim.api.nvim_echo({ { finish_event.result.msg } }, false, progress)
       end
     end,
   },

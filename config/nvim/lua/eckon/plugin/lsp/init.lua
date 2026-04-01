@@ -87,15 +87,19 @@ autocmd("lspattach", {
 autocmd("LspProgress", {
   desc = "Show LSP progress independent on notifier",
   callback = function(ev)
+    local progress = {
+      kind = "progress",
+      status = "running",
+      title = "LspProgress",
+      id = "LspProgress",
+      source = "Lsp",
+    }
+
     local kind = ev.data.params.value.kind
     if kind == "end" then
       -- overwrite message with a success message to finish progress
-      vim.api.nvim_echo({ { "Done" } }, false, {
-        kind = "progress",
-        status = "success",
-        title = "LspProgress",
-        id = "LspProgress",
-      })
+      progress.status = "success"
+      vim.api.nvim_echo({ { "Done" } }, false, progress)
       return
     end
 
@@ -104,22 +108,12 @@ autocmd("LspProgress", {
 
     -- some lsps might not return anything, to not break the messages, and just show status update message
     if description == nil then
-      vim.api.nvim_echo({ { "Processing" } }, false, {
-        kind = "progress",
-        status = "running",
-        title = "LspProgress",
-        id = "LspProgress",
-      })
+      vim.api.nvim_echo({ { "Processing" } }, false, progress)
       return
     end
 
-    vim.api.nvim_echo({ { description } }, false, {
-      kind = "progress",
-      status = "running",
-      percent = tonumber(percentage),
-      title = "LspProgress",
-      id = "LspProgress",
-    })
+    progress.percent = tonumber(percentage)
+    vim.api.nvim_echo({ { description } }, false, progress)
   end,
   group = augroup,
 })
