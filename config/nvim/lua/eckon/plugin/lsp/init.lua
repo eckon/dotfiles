@@ -39,6 +39,9 @@ vim.lsp.enable({
 -- enable inlay hints by default in all buffers with lsp and this feature
 vim.lsp.inlay_hint.enable(true)
 
+-- configure css (and other) color highlights to be an inline box instead of a background (default)
+vim.lsp.document_color.enable(true, {}, { style = "virtual" })
+
 autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
   callback = function(args)
