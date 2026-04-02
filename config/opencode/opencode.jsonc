@@ -19,6 +19,7 @@
       "git show *": "allow",
       "git diff *": "allow",
       "git log *": "allow",
+      "git remote show origin": "allow",
       "ls *": "allow",
       "wc *": "allow",
     },

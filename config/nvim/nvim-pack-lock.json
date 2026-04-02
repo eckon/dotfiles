@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
-      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
+      "rev": "60cf331ed7ecb19617c32bf61eb0da78c4c7bb05",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "3c659274bcedca8f3d2a19560aa2b08fa7e8d748",
+      "rev": "ddea46fa38a5c2c674cdca9cefd9f93e94024fb5",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -50,11 +50,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "02ccbcd4af9a7fa159251f721d763c0d16f91703",
+      "rev": "31503ad5d869fca61461d82a9126f62480ecb0ab",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "c82bf96f0a773d85304feeb695e1e23b2207ac35",
+      "rev": "6878ae017d691a0df1c49d8a091c88a33e4c2d50",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
