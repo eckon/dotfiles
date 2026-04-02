@@ -114,3 +114,8 @@ cc.add("Delete package", {
     end)
   end,
 })
+
+cc.add("Open buffer in nvim terminal", {
+  desc = "Parse escape sequences colors",
+  callback = "call nvim_open_term(0, #{})",
+})

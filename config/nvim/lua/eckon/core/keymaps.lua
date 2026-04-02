@@ -55,3 +55,6 @@ nmap("j", enhance_jk("j"), { expr = true, desc = "Jump to next line and append t
 nmap("<Leader><Leader>", function()
   require("eckon.helper.custom-command").custom_command.open_select()
 end, { desc = "Select and run predefined custom command" })
+
+-- allow `esc` also in terminal mode to be not confused and stuck
+bind_map("t")("<ESC>", "<C-\\><C-n>")
