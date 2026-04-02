@@ -14,6 +14,7 @@ yay -S --noconfirm --needed \
   fish $(: "friendly interactive shell") \
   flameshot $(: "screenshot tool") \
   fzf $(: "fuzzy finder") \
+  ghostty $(: "terminal emulator") \
   git \
   git-delta $(: "git diff enhancement") \
   grim $(: "as a dependency for screenshot tools like flameshot") \

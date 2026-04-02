@@ -1,0 +1,14 @@
+# NOTE: use command pallet via `CTRL+SHIFT+P`
+# apply changes via `CTRL+SHIFT+,`
+font-family = FiraCode Nerd Font
+
+# list via: `ghostty +list-themes`
+theme = Tomorrow Night Bright
+
+# dont show "are you sure" when closing ghostty (even if something is running)
+confirm-close-surface = false
+
+# use all space, otherwise there will be empty space under the tmux status line
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true

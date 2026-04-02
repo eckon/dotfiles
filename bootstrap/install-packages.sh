@@ -46,6 +46,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     "$PACKAGE_ROOT/install-fish.sh"
     "$PACKAGE_ROOT/install-neovim-appimage.sh"
     "$PACKAGE_ROOT/install-font.sh"
+    # NOTE: might want to setup ghostty install script here as well
     "$PACKAGE_ROOT/install-kitty.sh"
     ;;
 
@@ -53,7 +54,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     echo "[!] Install for Mac"
     "$PACKAGE_ROOT/install-fish.sh"
     echo "[!] Manually install neovim into ~/.local/bin"
-    echo "[!] Manually install kitty"
+    echo "[!] Manually install kitty or ghostty"
     echo "[!] Manually install fonts"
     ;;
 

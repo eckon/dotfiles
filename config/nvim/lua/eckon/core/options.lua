@@ -84,6 +84,7 @@ vim.diagnostic.config({
 
 -- TODO: experimental feature, update accordingly to breaking changes etc.
 -- this will most likely be a basic feature toggle or enabled by default
+-- NOTE: to open messages use `:messages` or use `g<` also works for other pagers (like `:map` etc)
 -- TODO: future should allow overwrite of messages, to not spam them, wait until we see how to do so
 --       seems to be possible as internal tools like package update, already do that
 require("vim._core.ui2").enable({ enable = true, msg = { target = "msg" } })

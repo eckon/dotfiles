@@ -10,6 +10,7 @@ DOTFILES_ROOT="$(dirname "$SCRIPT_DIR")"
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
   ["config/fish/config.fish"]=".config/fish/config.fish"
+  ["config/ghostty"]=".config/ghostty"
   ["config/git"]=".config/git"
   ["config/hypr"]=".config/hypr"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
