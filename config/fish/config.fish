@@ -48,7 +48,6 @@ end
 alias ll  "eza -lah --color=always --group-directories-first --icons --git"
 # NOTE: total size will make this command really slow, but sometimes I might want to use it
 alias LL  "eza -lah --color=always --group-directories-first --icons --git --total-size"
-alias ssh "TERM=xterm-256color command ssh"
 
 # NOTE: use `sudoedit` for opening vim in sudo mode
 alias vi  "vim -u NONE"
