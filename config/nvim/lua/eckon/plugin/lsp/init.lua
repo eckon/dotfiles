@@ -39,8 +39,15 @@ vim.lsp.enable({
 -- enable inlay hints by default in all buffers with lsp and this feature
 vim.lsp.inlay_hint.enable(true)
 
+-- enable multi update/highlight, e.g. html tags highlight closing and updating it (emmet might also do it without this)
+vim.lsp.linked_editing_range.enable(true)
+
 -- configure css (and other) color highlights to be an inline box instead of a background (default)
 vim.lsp.document_color.enable(true, {}, { style = "virtual" })
+
+-- NOTE: other things to consider, which might not be active by default
+-- - code lense
+-- - inline completion
 
 autocmd("lspattach", {
   desc = "Add lsp specific key maps for current buffer",
