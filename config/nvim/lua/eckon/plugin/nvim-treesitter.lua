@@ -39,3 +39,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   group = require("eckon.helper.utils").augroup("treesitter"),
 })
+
+-- add keybindings for easier dynamic selections
+local bind_map = require("eckon.helper.utils").bind_map
+local vmap = function(lhs, rhs, desc)
+  bind_map("x")(lhs, rhs, {
+    desc = "Treesitter: " .. desc,
+    remap = true
+  })
+end
+
+vmap("<CR>", "an", "Increase selection")
+vmap("<BS>", "in", "Decrease selection")
