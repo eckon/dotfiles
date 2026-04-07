@@ -12,3 +12,6 @@ confirm-close-surface = false
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
+
+# remove window title bar etc.
+window-decoration = none
