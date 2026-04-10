@@ -45,7 +45,7 @@ local bind_map = require("eckon.helper.utils").bind_map
 local vmap = function(lhs, rhs, desc)
   bind_map("x")(lhs, rhs, {
     desc = "Treesitter: " .. desc,
-    remap = true
+    remap = true,
   })
 end
 
