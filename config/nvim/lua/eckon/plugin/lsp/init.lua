@@ -29,7 +29,7 @@ vim.lsp.enable({
   "html",
   "jsonls",
   "marksman",
-  "tailwindcss",
+  -- "tailwindcss", -- ignored until its used again
   "taplo",
   "terraformls",
   "vimls",
