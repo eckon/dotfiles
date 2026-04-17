@@ -12,14 +12,6 @@
 - Keep code organized with clear section comments in config files
 - Place imports at the top of files, grouped by external/internal
 
-## Workflow
-
-- IMPORTANT: After making ANY code changes, I must ALWAYS:
-  - Run `mise run check` to format, lint and check the code
-  - Ask me if the changes should be committed
-  - Create a commit with a descriptive message
-    - Do not include that the code was done by an AI
-
 ## Code Organization
 
 - Group related configurations in config/ directory
@@ -27,6 +19,17 @@
 - Use descriptive names for script files
 - Place reusable functions in utils.lua
 - Follow existing file structure patterns
+
+## Configuration File Management
+
+- IMPORTANT: Always edit configuration files in this repository
+- Configuration files from this repo are symlinked to `~/.config/`
+- DO NOT edit files in `~/.config/` directly - they are symlinks unless they do not exist in this repo
+- Always use the source files in this repo
+- Examples:
+  - Edit `this-repo/config/nvim/init.lua` (NOT `~/.config/nvim/init.lua`)
+  - Edit `this-repo/config/git/config` (NOT `~/.config/git/config`)
+  - Edit `this-repo/config/opencode/config.json` (NOT `~/.config/opencode/config.json`)
 
 ## Neovim
 
