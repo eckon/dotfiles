@@ -31,5 +31,17 @@
       "command": ["npx", "-y", "@upstash/context7-mcp"],
       "enabled": true,
     },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--auto-connect",
+        "--no-usage-statistics",
+        "--no-performance-crux",
+      ],
+      "enabled": false,
+    },
   },
 }

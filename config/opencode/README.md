@@ -33,3 +33,19 @@ The AI can access these tools automatically similar to MCP.
 
 - **Transcription**: Converts audio to text with confidence scoring
 - **Language Detection**: Identifies audio language with confidence scoring
+
+## Browser integration
+
+Handling we browser is still a highly fluctuating topic, there are mcps, ai browsers, cli tools and more.
+Here I want to quickly write some notes down for future reference
+
+- skills -> browser cli
+  - a basic setup that uses a cli tool to call browser actions
+  - needs to install the cli tool
+  - normally starts a new browser, so AI needs to emulate actions to get to wanted states (see bug x)
+- mcp -> chrome dev tools
+  - a more involved setup where chrome exposes a mcp server that can be used
+  - chrome instance needs to start server, go to `chrome://inspect/#remote-debugging` and activate
+  - then this sessions should be able to be run, if the devtool with `auto-connect` is started
+    - `npx chrome-devtools-mcp --auto-connect`
+  - allows attaching of open browser, so AI can be a pairing partner while working on the frontend
