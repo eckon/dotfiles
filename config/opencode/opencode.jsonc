@@ -6,21 +6,22 @@
       "*": "ask",
 
       // Deny commands that have dedicated tools
-      "grep *": "deny",
-      "find *": "deny",
       "cat *": "deny",
+      "curl *": "deny",
+      "find *": "deny",
+      "grep *": "deny",
       "head *": "deny",
       "tail *": "deny",
-      "curl *": "deny",
       "wget *": "deny",
 
       // Allow safe read-only commands
-      "git status *": "allow",
-      "git show *": "allow",
       "git diff *": "allow",
       "git log *": "allow",
       "git remote show origin": "allow",
+      "git show *": "allow",
+      "git status *": "allow",
       "ls *": "allow",
+      "pwd": "allow",
       "wc *": "allow",
     },
   },
