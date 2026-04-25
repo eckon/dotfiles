@@ -58,3 +58,7 @@ end, { desc = "Select and run predefined custom command" })
 
 -- allow `esc` also in terminal mode to be not confused and stuck
 bind_map("t")("<ESC>", "<C-\\><C-n>")
+
+-- add tree-sitter keybindings for easier dynamic selections
+xmap("<CR>", "an", { desc = "Increase selection", remap = true })
+xmap("<BS>", "in", { desc = "Decrease selection", remap = true })
