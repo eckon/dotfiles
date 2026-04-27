@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "easy-dotnet.nvim": {
-      "rev": "a06e45a820ad8bab271b98e19f46da53d2f2097f",
+      "rev": "578756779b3707eec728fb2180f6d149d6a08bce",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "kanagawa.nvim": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "21db1fd40cbcbf1524ae154ab8f394fdf085749a",
+      "rev": "01b503f395cfb81053cc6b4826fe8f06d54b76f6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {

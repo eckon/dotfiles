@@ -6,7 +6,10 @@ require("eckon.plugin.mini")
 require("eckon.plugin.nvim-lint")
 require("eckon.plugin.nvim-surround")
 require("eckon.plugin.nvim-tree")
+require("eckon.plugin.nvim-treesitter")
 require("eckon.plugin.quicker")
 require("eckon.plugin.snacks")
-require("eckon.plugin.tree-sitter-manager")
+-- NOTE: disabled for now until it works 1:1 like the nvim-treesitter
+-- things like gitlab yaml or react files did not correctly highlight
+-- require("eckon.plugin.tree-sitter-manager")
 require("eckon.plugin.undotree")
