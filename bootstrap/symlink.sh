@@ -9,6 +9,7 @@ DOTFILES_ROOT="$(dirname "$SCRIPT_DIR")"
 
 declare -A CONFIG_PATHS
 CONFIG_PATHS=(
+  ["config/agents"]=".agents"
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/ghostty"]=".config/ghostty"
   ["config/git"]=".config/git"

@@ -43,6 +43,7 @@ Here I want to quickly write some notes down for future reference
   - a basic setup that uses a cli tool to call browser actions
   - needs to install the cli tool
   - normally starts a new browser, so AI needs to emulate actions to get to wanted states (see bug x)
+  - NOTE: the skills are setup globally in the `agents` folder to be coding agent independent
 - mcp -> chrome dev tools
   - a more involved setup where chrome exposes a mcp server that can be used
   - chrome instance needs to start server, go to `chrome://inspect/#remote-debugging` and activate
