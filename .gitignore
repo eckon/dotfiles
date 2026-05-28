@@ -11,6 +11,6 @@ Brewfile.lock.json
 config/git/work
 
 # ignore specific computer settings that should not be shared
-config/hypr/hyprland/custom.conf
+config/hypr/hyprland/custom.lua
 config/niri/custom.kdl
 config/ghostty/themes

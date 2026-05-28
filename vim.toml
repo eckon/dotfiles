@@ -1,2 +1,7 @@
 [vim]
+# for neovim configuration in lua, tell vim to ignore the "undefined" `vim` variable
+any = true
+
+[hl]
+# for hyprland configuration in lua, tell vim to ignore the "undefined" `hl` variable
 any = true
