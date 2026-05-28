@@ -1,5 +1,6 @@
 require("eckon.plugin.colorscheme")
 require("eckon.plugin.conform")
+require("eckon.plugin.firenvim")
 require("eckon.plugin.lsp")
 require("eckon.plugin.lualine")
 require("eckon.plugin.mini")

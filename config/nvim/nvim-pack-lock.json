@@ -17,6 +17,10 @@
       "rev": "e466cc59958c78c7c3a67f35cfe4797d04b8da33",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
+    "firenvim": {
+      "rev": "af775c4a1cef5a1e833ae5c6d81afe229ceb639e",
+      "src": "https://github.com/glacambre/firenvim"
+    },
     "kanagawa.nvim": {
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
