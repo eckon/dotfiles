@@ -30,12 +30,16 @@ hl.config({
 
     resize_on_border = true,
   },
+})
 
+hl.config({
   decoration = {
     rounding = 5,
     rounding_power = 2,
   },
+})
 
+hl.config({
   input = {
     follow_mouse = true,
     kb_layout = "us",
@@ -44,10 +48,11 @@ hl.config({
   },
 })
 
-hl.curve( "rubber", { type = "spring", mass = 0.6, stiffness = 50, dampening = 10 } )
-hl.animation({ leaf = "global", enabled = true, speed = 1, spring = "rubber" })
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
 
--- from default config: https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+---------------------------------------------------------------------------------------------------------------------
+-- following parts are taking from default config: https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+---------------------------------------------------------------------------------------------------------------------
 hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
   name = "suppress-maximize-events",
