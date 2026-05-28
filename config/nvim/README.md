@@ -40,11 +40,10 @@ After running the main setup script:
 
 ## Plugin Management
 
-This configuration uses Neovim's built-in package management with custom commands:
+This configuration uses Neovim's built-in package management:
 
-- Access via `<Leader><Leader>` (space space) to open the custom command menu
-- **Update packages**: Run custom command "Update packages" to update all plugins
-- **Delete package**: Run custom command "Delete package" to remove installed plugins
+- **Update packages**: `packupdate`
+- **Delete package**: `packdel`
 
 ## Development
 
