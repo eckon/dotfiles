@@ -40,10 +40,11 @@ After running the main setup script:
 
 ## Plugin Management
 
-This configuration uses Neovim's built-in package management:
+This configuration uses Neovim's built-in package management, for more info see [here](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack):
 
-- **Update packages**: `packupdate`
-- **Delete package**: `packdel`
+- **Update packages**: `:packupdate!` use the `!` to enforce update, otherwise need to manually trigger in view
+- **Delete package**: `:packdel <name>` note that in `packupdate` via `code action we can also delete packages
+
 
 ## Development
 
