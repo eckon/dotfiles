@@ -6,7 +6,6 @@ scripts/*.cfg
 package-lock.json
 node_modules
 Brewfile.lock.json
-bun.lock
 
 # ignore work specific git configs like work email etc.
 config/git/work

@@ -125,12 +125,20 @@ export default function (pi: ExtensionAPI) {
             return;
           }
 
-          if (matchesKey(data, Key.up) || matchesKey(data, 'k')) {
+          if (
+            matchesKey(data, Key.up) ||
+            matchesKey(data, 'k') ||
+            matchesKey(data, Key.ctrl('p'))
+          ) {
             optionIndex = Math.max(0, optionIndex - 1);
             refresh();
             return;
           }
-          if (matchesKey(data, Key.down) || matchesKey(data, 'j')) {
+          if (
+            matchesKey(data, Key.down) ||
+            matchesKey(data, 'j') ||
+            matchesKey(data, Key.ctrl('n'))
+          ) {
             optionIndex = Math.min(allLabels.length - 1, optionIndex + 1);
             refresh();
             return;
@@ -150,7 +158,7 @@ export default function (pi: ExtensionAPI) {
             return;
           }
 
-          if (matchesKey(data, Key.escape)) {
+          if (matchesKey(data, Key.escape) || matchesKey(data, Key.ctrl('c'))) {
             done(null);
           }
         }
@@ -194,7 +202,7 @@ export default function (pi: ExtensionAPI) {
             add(
               theme.fg(
                 'dim',
-                ' ↑↓/j/k navigate • Enter to select • Esc to cancel',
+                ' ↑↓/j/k/C-n/C-p navigate • Enter to select • Esc/C-c to cancel',
               ),
             );
           }

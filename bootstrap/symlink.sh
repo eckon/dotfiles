@@ -25,6 +25,7 @@ CONFIG_PATHS=(
   ["config/opencode"]=".config/opencode"
   ["config/pi/AGENTS.md"]=".pi/agent/AGENTS.md"
   ["config/pi/extensions"]=".pi/agent/extensions"
+  ["config/pi/keybindings.json"]=".pi/agent/keybindings.json"
   ["config/ripgreprc"]=".config/ripgreprc"
   ["config/starship.toml"]=".config/starship.toml"
   ["config/tmux"]=".config/tmux"
