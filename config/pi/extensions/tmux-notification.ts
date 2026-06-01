@@ -35,17 +35,4 @@ export default function (pi: ExtensionAPI) {
       // Silently ignore tmux errors
     }
   });
-
-  pi.on("tool_execution_end", async (event) => {
-    if (event.isError) {
-      try {
-        execSync(`tmux rename-window -t ${tmuxPaneId} "AI ❌"`);
-        execSync(
-          `tmux display-message -t ${tmuxPaneId} -d 5000 "pi: Error occurred!"`,
-        );
-      } catch {
-        // Silently ignore tmux errors
-      }
-    }
-  });
 }
