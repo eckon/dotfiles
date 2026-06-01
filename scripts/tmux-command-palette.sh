@@ -17,7 +17,8 @@ fi
 # Define commands with their descriptions and actions
 # Format: "Description|Command to execute"
 commands=(
-  "AI Assistant|opencode"
+  "AI Assistant (pi)|pi"
+  "AI Assistant (opencode)|opencode"
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
   "Open rider|rider ."
