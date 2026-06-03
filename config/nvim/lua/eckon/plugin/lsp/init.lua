@@ -9,8 +9,6 @@ require("eckon.plugin.lsp.schemastore")
 
 -- Languages with special plugins or setups
 require("eckon.plugin.lsp.lazydev")
-require("eckon.plugin.lsp.rustaceanvim")
-require("eckon.plugin.lsp.typescript-tools")
 require("eckon.plugin.lsp.easy-dotnet")
 
 -- NOTE: this is just the default, other parts might overwrite it again (e.g. root_markers)
@@ -20,18 +18,18 @@ vim.lsp.config("*", {
 })
 
 -- NOTE: manual installation is needed
--- NOTE: some other languages specific lsps might be configured with custom tool under `lsp_*`
+-- NOTE: some other languages specific lsps might be configured with custom tool
 -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
 vim.lsp.enable({
-  "pyright",
   "cssls",
   "emmet_ls",
   "html",
   "jsonls",
   "marksman",
-  -- "tailwindcss", -- ignored until its used again
+  "pyright",
   "taplo",
   "terraformls",
+  "ts_ls",
   "vimls",
   "yamlls",
 })

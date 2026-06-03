@@ -69,11 +69,6 @@
       "rev": "4a6883cb13fe097a20a046eb55f6dffd239276e3",
       "src": "https://github.com/stevearc/quicker.nvim"
     },
-    "rustaceanvim": {
-      "rev": "3ace64feb1ce3cf3c63e6297e1378a82fe548618",
-      "src": "https://github.com/mrcjkb/rustaceanvim",
-      "version": "7.0.0 - 8.0.0"
-    },
     "schemastore.nvim": {
       "rev": "19936230448bfb3dfd4314070e8bc499ceb55928",
       "src": "https://github.com/b0o/schemastore.nvim"
@@ -81,10 +76,6 @@
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
-    },
-    "typescript-tools.nvim": {
-      "rev": "c2f5910074103705661e9651aa841e0d7eea9932",
-      "src": "https://github.com/pmizio/typescript-tools.nvim"
     }
   }
 }
