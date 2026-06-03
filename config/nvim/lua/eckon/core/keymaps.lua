@@ -30,6 +30,10 @@ end, { desc = "Join lines without moving cursor" })
 nmap("<C-u>", "<C-u>zz")
 nmap("<C-d>", "<C-d>zz")
 
+-- easier line navigation (replaces screen-top/bottom jumps)
+bind_map({ "n", "v", "o" })("H", "^", { desc = "Jump to start of line" })
+bind_map({ "n", "v", "o" })("L", "$", { desc = "Jump to end of line" })
+
 -- align deleting to pasting, as `v_P` is the same as  `"_dp` so should be `D` as well
 xmap("D", '"_d', { desc = "Delete without overwriting register" })
 xmap("<Leader>y", '"+y', { desc = "Copy into system clipboard" })
