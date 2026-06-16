@@ -41,5 +41,6 @@ yay -S --noconfirm --needed \
   usage $(: "monitor command usage") \
   uv $(: "python package manager") \
   wl-clipboard $(: "wayland clipboard utilities") \
-  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal $(: "dependency for things like flameshot") \
+  xdg-desktop-portal-hyprland $(: "dependency for things like flameshot") \
   zoxide $(: "smarter cd command")

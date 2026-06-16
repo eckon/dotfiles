@@ -50,6 +50,14 @@ hl.config({
 
 hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
 
+-- put flameshot window selection over the screen instead of as a new window
+-- see: https://flameshot.org/docs/guide/wayland-help/#multi-display-issue
+hl.window_rule({
+  name = "flameshot-multi-display-fix",
+  match = { class = "flameshot" },
+  float = true,
+})
+
 ---------------------------------------------------------------------------------------------------------------------
 -- following parts are taking from default config: https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
 ---------------------------------------------------------------------------------------------------------------------
