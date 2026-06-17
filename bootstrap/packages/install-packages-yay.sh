@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if ! command -v yay &> /dev/null; then
+  echo "yay is not installed"
+  exit 1
+fi
+
 yay -S --noconfirm --needed \
   bat $(: "cat enhancement with syntax highlighting") \
   btop $(: "system monitor") \

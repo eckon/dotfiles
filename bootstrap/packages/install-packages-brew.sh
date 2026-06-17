@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if ! command -v brew &> /dev/null; then
-  echo "brew is not installed, visit https://brew.sh for installation instructions"
+  echo "brew is not installed"
   exit 1
 fi
 
