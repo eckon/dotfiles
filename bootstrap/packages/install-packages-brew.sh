@@ -7,12 +7,7 @@ if ! command -v brew &> /dev/null; then
   exit 1
 fi
 
-brew tap jesseduffield/lazydocker
-brew tap jesseduffield/lazygit
-brew tap anomalyco/tap
-
 brew install \
-  anomalyco/tap/opencode \
   bash \
   bat $(: "cat enhancement") \
   cmake \
@@ -26,13 +21,15 @@ brew install \
   git \
   git-crypt \
   git-delta $(: "git diff enhancement") \
-  jesseduffield/lazydocker/lazydocker \
-  jesseduffield/lazygit/lazygit \
   jq \
   k9s \
   kubectl \
+  lazydocker \
+  lazygit \
   mise $(: "dev tool version manager, task runner, env manager") \
   ninja $(: "build system") \
+  opencode \
+  pi-coding-agent \
   ripgrep $(: "grep replacement") \
   selene $(: "lua linter") \
   sesh $(: "tmux session manager, replacement for my tmux-jump script") \
