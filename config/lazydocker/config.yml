@@ -11,4 +11,4 @@ customCommands:
 
     - name: postgres
       attach: true
-      command: 'docker exec -it {{ .Container.ID }} sh -c "psql -U postgres"'
+      command: 'docker exec -it -e PGUSER=postgres {{ .Container.ID }} sh -c "psql -c \"\\conninfo\" ; echo ; psql -c \"\\dt\" ; echo ; psql"'
