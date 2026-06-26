@@ -1,7 +1,6 @@
 ### global gitignore
 # what is ignored in here, will be ignored in any git repo
 
-.supermaven/
 **/.claude/settings.local.json
 mise.local.toml
 
