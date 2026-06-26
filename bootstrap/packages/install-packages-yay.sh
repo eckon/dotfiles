@@ -34,7 +34,8 @@ yay -S --noconfirm --needed \
   localsend-bin $(: "local file sharing") \
   mise $(: "dev tool version manager, task runner, env manager") \
   nvtop $(: "nvidia GPU monitor") \
-  opencode-bin $(: "AI coding assistant") \
+  opencode-bin $(: "AI coding agent") \
+  pi-coding-agent $(: "AI coding agent") \
   selene $(: "lua linter") \
   sesh-bin $(: "tmux session manager, replacement for my tmux-jump script") \
   shellcheck $(: "shell script linter") \
