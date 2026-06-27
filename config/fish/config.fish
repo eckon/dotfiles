@@ -57,8 +57,11 @@ alias vim "nvim"
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 
-# quickly jump or create tmux sessiosn (previously via custom `tmux-jump` script)
-abbr --add j "sesh connect (sesh list --hide-attached | fzf)"
+# # quickly jump or create tmux sessiosn (previously via custom `tmux-jump` script)
+# abbr --add j "sesh connect (sesh list --hide-attached | fzf)"
+# TMP: enforce user to use "herdr" for now to see if this has an alternative to tmux
+#      if it is, then this abbr should be removed and herdr should be used as is
+abbr --add j "herdr"
 
 abbr --add --command git R \
      --set-cursor "rebase --interactive HEAD~%"
