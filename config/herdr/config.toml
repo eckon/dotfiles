@@ -1,0 +1,59 @@
+# leave on `true` for first setup (installation of plugins) or manually trigger in ui
+onboarding = false
+
+[theme]
+name = "kanagawa"
+
+[keys]
+prefix = "ctrl+a"
+
+help = "prefix+?"
+detach = "prefix+d"
+reload_config = "prefix+shift+r"
+edit_scrollback = "prefix+e"
+
+goto = "prefix+s"
+toggle_sidebar = "prefix+b"
+
+new_workspace = "prefix+n"
+close_workspace = "prefix+shift+n"
+
+new_tab = "prefix+c"
+close_tab = "prefix+shift+C"
+switch_tab = "prefix+1..9"
+rename_tab = "prefix+,"
+
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+last_pane = "prefix+L"
+close_pane = "prefix+x"
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+zoom = "prefix+z"
+resize_mode = "prefix+r"
+
+# Navigate-mode movement. These local shortcuts win while navigate mode is open.
+workspace_picker = "prefix+w"
+# They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
+navigate_workspace_up = "K"
+navigate_workspace_down = "J"
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+[ui]
+mouse_capture = true
+redraw_on_focus_gained = true
+confirm_close = true
+prompt_new_tab_name = true
+
+pane_borders = true
+pane_gaps = false
+
+show_agent_labels_on_pane_borders = true
+
+[ui.sound]
+enabled = false

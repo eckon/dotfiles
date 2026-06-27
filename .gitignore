@@ -14,3 +14,6 @@ config/git/work
 config/hypr/hyprland/custom.lua
 config/niri/custom.kdl
 config/ghostty/themes
+
+# ignore generated herdr plugins
+config/**/herdr-agent-state*

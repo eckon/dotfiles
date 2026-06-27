@@ -13,6 +13,7 @@ CONFIG_PATHS=(
   ["config/fish/config.fish"]=".config/fish/config.fish"
   ["config/ghostty"]=".config/ghostty"
   ["config/git"]=".config/git"
+  ["config/herdr/config.toml"]=".config/herdr/config.toml"
   ["config/hypr"]=".config/hypr"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
   ["config/k9s"]=".config/k9s"
