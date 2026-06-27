@@ -55,5 +55,8 @@ pane_gaps = false
 
 show_agent_labels_on_pane_borders = true
 
+# allow underlying app to handle right click instead - e.g. copy vim etc.
+right_click_passthrough_modifier = "ctrl"
+
 [ui.sound]
 enabled = false
