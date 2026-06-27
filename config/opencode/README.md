@@ -12,12 +12,6 @@ Meaning `bun install` needs to be run in this directory.
 
 Custom plugins that extend OpenCode functionality.
 
-### Tmux Notification
-
-**Location:** `plugins/tmux-notification.ts`
-
-Renames tmux window and sends notifications based on OpenCode's status.
-
 ## Tools
 
 The AI can access these tools automatically similar to MCP.
