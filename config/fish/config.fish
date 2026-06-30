@@ -15,6 +15,13 @@ else
     echo "[!] No mise"
 end
 
+# load other configurations
+# this was not moved into `conf.d`, `functions` etc.
+# as these are often filled by other tools resulting in versioning annoyances
+for f in ~/.config/fish/custom/*.fish
+    test -f $f; and source $f
+end
+
 
 
 # -------------------- Configurations --------------------
@@ -75,28 +82,5 @@ abbr --add retry \
 abbr --add compare \
      --set-cursor \
      --position anywhere "git wdiff (cat % | sort | psub) (cat second.txt | sort | psub)"
-
-# expansion of !!
-function last_history_item; echo $history[1]; end
-abbr --add !! --position anywhere --function last_history_item
-
-
-
-# -------------------- Special --------------------
-# add vim-mode indicator
-function fish_mode_prompt
-  switch $fish_bind_mode
-  case default
-    set_color --bold blue
-    echo 'N '
-  case insert
-    set_color --bold green
-    echo 'I '
-  case '*'
-    set_color --bold red
-    echo '* '
-  end
-  set_color normal
-end
 
 # vim:filetype=fish

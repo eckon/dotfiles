@@ -11,6 +11,7 @@ declare -A CONFIG_PATHS
 CONFIG_PATHS=(
   ["config/agents"]=".agents"
   ["config/fish/config.fish"]=".config/fish/config.fish"
+  ["config/fish/custom"]=".config/fish/custom"
   ["config/ghostty"]=".config/ghostty"
   ["config/git"]=".config/git"
   ["config/herdr/config.toml"]=".config/herdr/config.toml"
