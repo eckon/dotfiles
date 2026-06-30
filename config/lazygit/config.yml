@@ -6,9 +6,6 @@ gui:
   mainPanelSplitMode: 'vertical'
   useHunkModeInStagingView: false
 
-# with new workflow I do not want to quickly close lazygit, therefore confirm quit
-confirmOnQuit: true
-
 git:
   pagers:
     - pager: 'delta --dark --paging=never'
