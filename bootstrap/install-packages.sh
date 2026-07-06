@@ -46,8 +46,7 @@ case "$(echo "$CURRENT_OS" | tr "[:upper:]" "[:lower:]")" in
     "$PACKAGE_ROOT/install-fish.sh"
     "$PACKAGE_ROOT/install-neovim-appimage.sh"
     "$PACKAGE_ROOT/install-font.sh"
-    # NOTE: might want to setup ghostty install script here as well
-    "$PACKAGE_ROOT/install-kitty.sh"
+    echo "[!] Manually install kitty or ghostty"
     ;;
 
   *'darwin'*)
