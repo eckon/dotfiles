@@ -26,6 +26,7 @@ commands=(
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
   "Open rider|rider ."
+  "Todos|tuxedo"
 )
 
 # If a command is passed as an argument, find and run it directly

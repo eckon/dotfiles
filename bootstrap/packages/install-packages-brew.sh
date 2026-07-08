@@ -38,6 +38,7 @@ brew install \
   tldr \
   tmux \
   tree-sitter-cli \
+  tuxedo $(: "todo.txt cli client") \
   uv $(: "python package manager") \
   zellij \
   zoxide
