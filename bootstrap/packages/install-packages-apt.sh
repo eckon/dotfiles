@@ -13,4 +13,5 @@ sudo apt install -y \
   curl \
   file \
   git \
-  procps
+  procps \
+  wl-clipboard

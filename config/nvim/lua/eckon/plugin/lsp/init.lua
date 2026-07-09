@@ -17,7 +17,7 @@ vim.lsp.config("*", {
   root_markers = { ".git" },
 })
 
--- NOTE: manual installation is needed
+-- NOTE: manual installation is needed (lua lsp as well!)
 -- NOTE: some other languages specific lsps might be configured with custom tool
 -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
 vim.lsp.enable({
