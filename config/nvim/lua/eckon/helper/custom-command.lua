@@ -13,6 +13,11 @@ M.custom_command = {
     custom_command_list[name] = opts
   end,
 
+  ---Clears all previously added custom commands
+  clear = function()
+    custom_command_list = {}
+  end,
+
   ---Get all custom command names
   ---@return string[]
   keys = function()
