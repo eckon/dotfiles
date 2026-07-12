@@ -1,6 +1,6 @@
--- set correct files to use correct filetypes
 vim.filetype.add({
   filename = {
+    -- use todotxt for these files
     ["todo.txt"] = "todotxt",
     ["done.txt"] = "todotxt",
   },
