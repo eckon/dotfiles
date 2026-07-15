@@ -13,11 +13,6 @@ vim.opt_local.shiftwidth = 2
 
 vim.b.miniindentscope_disable = true
 
-vim.cmd([[
-  iabbrev <buffer> D <C-R>=system('date "+%Y-%m-%d" -d ""')[:-2]
-  \<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-]])
-
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = require("eckon.helper.utils").augroup("markdown")
 
