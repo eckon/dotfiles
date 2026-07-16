@@ -12,6 +12,7 @@ require("conform").setup({
     jsonc = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint" },
+    markoff = { "prettierd", "markdownlint" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     typescript = { "prettierd", "eslint_d" },
     typescriptreact = { "prettierd", "eslint_d" },
