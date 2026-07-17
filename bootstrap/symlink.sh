@@ -48,11 +48,9 @@ fi
 
 declare -A SCRIPT_PATHS
 SCRIPT_PATHS=(
-  ["git-tmp-copy.sh"]="git-tmp-copy"
   ["tmux-command-palette.sh"]="tmux-command-palette"
   ["tmux-jump.sh"]="tmux-jump"
-  ["tmux-jumpstart.sh"]="tmux-jumpstart"
-  ["zellij-jump.sh"]="zellij-jump"
+  ["todo.sh"]="todo"
 )
 
 echo ""

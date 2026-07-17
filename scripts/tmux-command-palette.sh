@@ -26,7 +26,7 @@ commands=(
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
   "Open rider|rider ."
-  "Todos|tuxedo"
+  "Todos|todo"
 )
 
 # If a command is passed as an argument, find and run it directly
@@ -38,8 +38,8 @@ else
     printf "%s\n" "${commands[@]}" \
       | awk -F'|' '{ printf "%-30s | %s\n", $1, $2 }' \
       | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
-      | awk -F '|' '{ print $NF }' \
-      | xargs
+      | awk -F'|' '{ print $2 }' \
+      | sed 's/^[[:space:]]*//'
   )
 fi
 
