@@ -23,6 +23,8 @@
       "ls *": "allow",
       "pwd": "allow",
       "wc *": "allow",
+      "hunk *": "allow",
+      "hunk skill *": "allow",
     },
   },
   "mcp": {
