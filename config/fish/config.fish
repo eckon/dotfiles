@@ -38,9 +38,6 @@ set -x LC_TIME             "en_US.UTF-8"
 set -Ux LESS                "--mouse --wheel-lines=5 -R -i"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 
-# handle todo.txt files (mainly for tuxedo)
-set -x TODO_DIR "$HOME/Documents/notes/todo"
-
 # disable fish greeting on startup
 set fish_greeting
 
