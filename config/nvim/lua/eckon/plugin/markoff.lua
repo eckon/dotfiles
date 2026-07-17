@@ -6,6 +6,7 @@ local cc = require("eckon.helper.custom-command").custom_command
 
 require("markoff").setup({
   todo_file = vim.fn.expand("~/Documents/notes/todo.md"),
+  quit_on_last_buffer = true,
 
   on_attach = function(buf, api)
     local nmap = require("eckon.helper.utils").bind_map("n", { buffer = buf })
@@ -15,17 +16,18 @@ require("markoff").setup({
     nmap("tp", api.set_priority, { desc = "Markoff: set priority" })
     nmap("tc", api.set_context, { desc = "Markoff: set context" })
     nmap("tn", api.new_entry, { desc = "Markoff: new entry" })
+    nmap("<C-o>", api.open_list_last, { desc = "Markoff: open last" })
   end,
 })
 
 local markoff = require("markoff")
 
-cc.add("Markoff Agenda", {
+cc.add("Markoff List", {
   desc = "Show all open TODOs in a picker",
-  callback = markoff.agenda,
+  callback = markoff.open_list,
 })
 
-cc.add("Markoff Agenda Context", {
+cc.add("Markoff List Context", {
   desc = "Show open TODOs filtered by a selected context",
-  callback = markoff.agenda_context,
+  callback = markoff.open_list_ask_context,
 })
