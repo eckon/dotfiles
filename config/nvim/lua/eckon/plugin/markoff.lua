@@ -8,6 +8,7 @@ local markoff = require("markoff")
 
 markoff.setup({
   todo_file = vim.fn.expand("~/Documents/notes/todo.md"),
+  picker = { quit_on_last_buffer = true },
 
   on_attach = function(buf, api)
     local nmap = require("eckon.helper.utils").bind_map("n", { buffer = buf })
