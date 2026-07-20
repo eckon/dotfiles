@@ -32,7 +32,8 @@ plugins:
           --prefix=true \
           --timestamps=true \
           | ${EDITOR:-vim} - \
-            -c 'setlocal nomodified'
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
 
   vim-logs-containers:
     shortCut: Ctrl-V
@@ -48,4 +49,5 @@ plugins:
         kubectl -n "$NAMESPACE" logs "$POD" -c "$NAME" \
           --timestamps=true \
           | ${EDITOR:-vim} - \
-            -c 'setlocal nomodified'
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
