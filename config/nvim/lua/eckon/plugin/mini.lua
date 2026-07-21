@@ -30,3 +30,7 @@ require("mini.diff").setup({
 require("mini.indentscope").setup({
   draw = { animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }) },
 })
+
+-- basic status line (use mini.git for branch indicator)
+require("mini.statusline").setup()
+require("mini.git").setup()
