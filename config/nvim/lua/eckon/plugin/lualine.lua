@@ -9,7 +9,6 @@ require("mini.icons").mock_nvim_web_devicons()
 require("lualine").setup({
   options = {
     component_separators = {},
-    globalstatus = true,
     section_separators = {},
   },
   sections = {
