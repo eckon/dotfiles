@@ -8,14 +8,12 @@ local markoff = require("markoff")
 
 markoff.setup({
   todo_file = vim.fn.expand("~/Documents/notes/todo.md"),
+  archive_file = vim.fn.expand("~/Documents/notes/archive.md"),
+
   picker = { quit_on_last_buffer = true },
 
   on_attach = function(buf, api)
     local nmap = require("eckon.helper.utils").bind_map("n", { buffer = buf })
-
-    nmap("D", api.mark_done, { desc = "Markoff: mark done" })
-    nmap("X", api.mark_cancelled, { desc = "Markoff: mark cancelled" })
-    nmap("N", api.new_entry, { desc = "Markoff: new entry" })
     nmap("<C-o>", api.open_list_last, { desc = "Markoff: open last" })
   end,
 })
