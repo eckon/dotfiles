@@ -6,6 +6,13 @@ local function format_dotnet_json_logs()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local out = {}
 
+  -- splits str on \n and pushes each part into out
+  local function push_lines(str)
+    for part in tostring(str):gmatch("([^\n]*)\n?") do
+      table.insert(out, part)
+    end
+  end
+
   for _, line in ipairs(lines) do
     local start_pos = line:find('{"', 1, true)
     if start_pos then
@@ -19,14 +26,13 @@ local function format_dotnet_json_logs()
         local message = obj.Message or ""
         local exception = obj.Exception or "no exception"
 
+        -- header line is always single-line, safe to insert directly
         table.insert(out, string.format("%s [%s] %s", timestamp, level, category))
-        table.insert(out, message)
+
+        -- message and exception may contain \n  →  split them
+        push_lines(message)
         table.insert(out, "")
-        for ex_line in tostring(exception):gmatch("([^\n]*)\n?") do
-          if ex_line ~= "" then
-            table.insert(out, ex_line)
-          end
-        end
+        push_lines(exception)
         table.insert(out, "")
       end
     end
