@@ -29,6 +29,10 @@ run = "./bootstrap/packages/install-neovim-appimage.sh --force"
 description = "Symlink all given configurations"
 run = "./bootstrap/symlink.sh"
 
+[tasks."symlinks:check"]
+description = "Show what symlinking would change, without touching the disk"
+run = "./bootstrap/symlink.sh --dry-run"
+
 [tasks.packages]
 description = "Update all packages"
 run = ["sudo -v", "./bootstrap/update-packages.sh"]

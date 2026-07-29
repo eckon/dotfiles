@@ -2,7 +2,11 @@
 
 ##################################################################
 # script to symlink all my local configurations and scripts
+#
+# usage: ./symlink.sh [--dry-run]
 ##################################################################
+
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -37,7 +41,7 @@ CONFIG_PATHS=(
   ["config/zellij/config.kdl"]=".config/zellij/config.kdl"
 )
 
-if [ -f "/proc/version" ] && cat "/proc/version" | grep --ignore-case "wsl" -q; then
+if [ -f "/proc/version" ] && grep --ignore-case --quiet "wsl" "/proc/version"; then
   # vscode in wsl will create an additional config file, link it
   # some settings can not be linked like this and need to be put into user file (check vscode for info)
   CONFIG_PATHS+=(
@@ -53,56 +57,50 @@ SCRIPT_PATHS=(
   ["todo.sh"]="todo"
 )
 
-echo ""
-echo "Symlink configurations"
-echo "----------------------"
+DRY_RUN="false"
+if [ "${1:-}" = "--dry-run" ]; then
+  DRY_RUN="true"
+fi
 
-for config_path in "${!CONFIG_PATHS[@]}"; do
-  target_path=${CONFIG_PATHS[$config_path]}
-  from_path="$DOTFILES_ROOT/$config_path"
-  to_path="$HOME/$target_path"
+CONFLICTS=0
+
+link_path() {
+  local label="$1" from_path="$2" to_path="$3"
 
   if ! test -e "$from_path"; then
     echo "[!] Path \"$from_path\" does not exist -> exit script"
     exit 1
   fi
 
-  parent_dir=$(dirname "$to_path")
-  if ! test -d "$parent_dir"; then
-    printf "[+] Create directory: %s\n" "$parent_dir"
-    mkdir -p "$parent_dir"
+  # already pointing at the right place, a stale link is repointed below
+  if [ -L "$to_path" ] && [ "$(readlink "$to_path")" = "$from_path" ]; then
+    return
   fi
 
-  # ignore if already symlinked
-  if [ ! -L "$to_path" ]; then
-    printf "[+] Create Symlink (config): %-20s -> \"%s\"\n" "$(basename "$from_path")" "$to_path"
+  # a real file or directory here belongs to something else, report instead of deleting it
+  if [ -e "$to_path" ] && [ ! -L "$to_path" ]; then
+    printf "[!] Conflict (%s): \"%s\" exists and is not a symlink\n" "$label" "$to_path"
+    CONFLICTS=$((CONFLICTS + 1))
+    return
+  fi
+
+  printf "[+] Create symlink (%s): %-20s -> \"%s\"\n" "$label" "$(basename "$from_path")" "$to_path"
+
+  if [ "$DRY_RUN" = "false" ]; then
+    mkdir -p "$(dirname "$to_path")"
     ln -sfn "$from_path" "$to_path"
   fi
+}
+
+for config_path in "${!CONFIG_PATHS[@]}"; do
+  link_path "config" "$DOTFILES_ROOT/$config_path" "$HOME/${CONFIG_PATHS[$config_path]}"
 done
 
-echo ""
-echo "Symlink custom scripts"
-echo "----------------------"
-
-for path in "${!SCRIPT_PATHS[@]}"; do
-  scriptName=${SCRIPT_PATHS[$path]}
-  from_path="$DOTFILES_ROOT/scripts/$path"
-  to_path="$HOME/.local/bin/$scriptName"
-
-  if ! test -e "$from_path"; then
-    echo "[!] Path \"$from_path\" does not exist -> exit script"
-    exit 1
-  fi
-
-  parent_dir=$(dirname "$to_path")
-  if ! test -d "$parent_dir"; then
-    printf "[+] Create directory: %s\n" "$parent_dir"
-    mkdir -p "$parent_dir"
-  fi
-
-  # ignore if already symlinked
-  if [ ! -L "$to_path" ]; then
-    printf "[+] Create Symlink (script): %-20s -> \"%s\"\n" "$path" "$to_path"
-    ln -sf "$from_path" "$to_path"
-  fi
+for script_path in "${!SCRIPT_PATHS[@]}"; do
+  link_path "script" "$DOTFILES_ROOT/scripts/$script_path" "$HOME/.local/bin/${SCRIPT_PATHS[$script_path]}"
 done
+
+if [ "$CONFLICTS" -gt 0 ]; then
+  echo "[!] Resolve the conflicts above by moving or deleting those paths yourself"
+  exit 1
+fi
