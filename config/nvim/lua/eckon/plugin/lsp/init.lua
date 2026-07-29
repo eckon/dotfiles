@@ -29,7 +29,7 @@ vim.lsp.enable({
   "pyright",
   "taplo",
   "terraformls",
-  "ts_ls",
+  "tsgo", -- using the new typescript7 version based on go - it uses the lsp standard, so more features out of the box
   "vimls",
   "yamlls",
 })
