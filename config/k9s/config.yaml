@@ -1,10 +1,14 @@
 k9s:
   # use `k9s --write` to manually override this and make destructive changes
   readOnly: true
+
   ui:
     logoless: true
+    # NOTE: seems like scrolling in the general view does not move the cursor, only the view itself
+    # meaning that only until the current selected item is about to move out of view, is max mouse scroll distance
     enableMouse: true
     reactive: true
+
   logger:
     showTime: true
     textWrap: true
