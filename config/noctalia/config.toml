@@ -15,3 +15,9 @@ blurred_desktop = true
 
 [weather]
 enabled = false
+
+[osd]
+enabled = false
+
+[shell]
+clipboard_enabled = false
