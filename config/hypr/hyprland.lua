@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function()
   -- start bar and many other configuration options (app launcher, lock screen, etc.)
-  hl.exec_cmd("qs -c noctalia-shell")
+  hl.exec_cmd("noctalia")
 
   -- allow for permission asking of gui applications
   hl.exec_cmd("systemctl --user start hyprpolkitagent")

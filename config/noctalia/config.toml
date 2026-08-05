@@ -1,0 +1,17 @@
+# get the current setup via `noctalia config export`
+
+[theme]
+mode = "dark"
+
+[bar.default]
+position = "top"
+radius = 0
+thickness = 30
+margin_ends = 0
+capsule = true
+
+[lockscreen]
+blurred_desktop = true
+
+[weather]
+enabled = false

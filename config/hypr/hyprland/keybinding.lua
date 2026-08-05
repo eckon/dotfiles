@@ -1,13 +1,13 @@
--- Handling of many actions via quickshell noctalia
+-- Handling of actions via noctalia
 local function ipc_cmd(action)
-  return hl.dsp.exec_cmd("qs -c noctalia-shell ipc call " .. action)
+  return hl.dsp.exec_cmd("noctalia msg " .. action)
 end
 
 -- Open applications/windows
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty"), { desc = "Open terminal" })
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"), { desc = "Open file manager" })
 hl.bind("SUPER + B", hl.dsp.exec_cmd("firefox"), { desc = "Open browser" })
-hl.bind("SUPER + SPACE", ipc_cmd("launcher toggle"), { desc = "Open menu" })
+hl.bind("SUPER + SPACE", ipc_cmd("panel-toggle launcher"), { desc = "Open menu" })
 hl.bind(
   "SUPER + A",
   hl.dsp.exec_cmd("chromium --new-window --app=https://gemini.google.com/app"),
@@ -31,7 +31,7 @@ hl.bind("SUPER + M", hl.dsp.layout("swapwithmaster master"), { desc = "Set curre
 
 -- Delete/Stop/Lock windows
 hl.bind("SUPER + Q", hl.dsp.window.close(), { desc = "Close window" })
-hl.bind("SUPER + ESCAPE", ipc_cmd("lockScreen lock"), { desc = "Lock screen" })
+hl.bind("SUPER + ESCAPE", ipc_cmd("session lock"), { desc = "Lock screen" })
 hl.bind("SUPER + SHIFT + ESCAPE", hl.dsp.exit(), { desc = "Exit hyprland" })
 
 -- Move/Focus windows
@@ -63,16 +63,3 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Screenshot
 hl.bind("PRINT", hl.dsp.exec_cmd("flameshot gui"), { desc = "Take screenshot" })
-
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", ipc_cmd("volume increase"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", ipc_cmd("volume decrease"), { repeating = true })
-hl.bind("XF86AudioMute", ipc_cmd("volume muteOutput"), { repeating = true })
-hl.bind("XF86AudioMicMute", ipc_cmd("volume muteInput"), { repeating = true })
-hl.bind("XF86MonBrightnessUp", ipc_cmd("brightness increase"), { repeating = true })
-hl.bind("XF86MonBrightnessDown", ipc_cmd("brightness decrease"), { repeating = true })
-
-hl.bind("XF86AudioNext", ipc_cmd("media next"), { locked = true })
-hl.bind("XF86AudioPause", ipc_cmd("media playPause"), { locked = true })
-hl.bind("XF86AudioPlay", ipc_cmd("media playPause"), { locked = true })
-hl.bind("XF86AudioPrev", ipc_cmd("media previous"), { locked = true })

@@ -27,6 +27,7 @@ CONFIG_PATHS=(
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/mise"]=".config/mise"
   ["config/niri"]=".config/niri"
+  ["config/noctalia"]=".config/noctalia"
   ["config/nvim"]=".config/nvim"
   ["config/opencode"]=".config/opencode"
   ["config/pi/AGENTS.md"]=".pi/agent/AGENTS.md"
