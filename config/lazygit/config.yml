@@ -7,8 +7,8 @@ gui:
   useHunkModeInStagingView: false
 
 git:
-  pagers:
-    - pager: 'delta --dark --paging=never'
+  diffRenderers:
+    - command: 'delta --dark --paging=never'
 
 notARepository: 'skip'
 
@@ -22,7 +22,6 @@ customCommands:
         command: 'git ai-commit'
         output: 'terminal'
         loadingText: 'please wait'
-
       - key: 'r'
         context: 'files'
         description: 'Rewrite last commit message via AI'
