@@ -16,14 +16,8 @@ customCommands:
   - key: X
     description: 'Custom commands'
     commandMenu:
-      - key: 'c'
+      - key: 'x'
         context: 'files'
-        description: 'Generate commit message via AI'
-        command: 'git ai-commit'
-        output: 'terminal'
-        loadingText: 'please wait'
-      - key: 'r'
-        context: 'files'
-        description: 'Rewrite last commit message via AI'
-        command: 'git ai-rewrite'
+        description: 'Just kept here in case I want to add custom commands in the future'
+        command: 'echo "thats pretty neat"'
         output: 'terminal'
