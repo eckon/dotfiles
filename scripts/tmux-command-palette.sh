@@ -24,6 +24,8 @@ commands=(
   "AI Assistant (claude)|claude"
   "AI Assistant (opencode)|opencode"
   "AI Assistant (pi)|pi"
+  "K9s (readonly)|k9s"
+  "K9s (destructive)|k9s --write"
   "Docker TUI|lazydocker"
   "Git TUI|lazygit"
   "Open rider|rider ."
