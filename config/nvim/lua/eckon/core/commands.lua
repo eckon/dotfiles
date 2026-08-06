@@ -51,3 +51,8 @@ cc.add("Open buffer in nvim terminal", {
   desc = "Parse escape sequences colors",
   callback = "call nvim_open_term(0, #{})",
 })
+
+cc.add("Update neovim packages", {
+  desc = "Run the integrated neovim packages force update",
+  callback = "packupdate!",
+})
