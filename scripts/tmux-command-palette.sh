@@ -18,31 +18,29 @@ if ! command -v fzf &> /dev/null; then
   exit 1
 fi
 
-# Define commands with their descriptions and actions
-# Format: "Description|Command to execute"
+# Commands shown in the palette, listed exactly as they are displayed
+# Format: "Title | Context | Command", the command is everything after the last "|"
 commands=(
-  "AI Assistant (claude)|claude"
-  "AI Assistant (opencode)|opencode"
-  "AI Assistant (pi)|pi"
-  "K9s (readonly)|k9s"
-  "K9s (destructive)|k9s --write"
-  "Docker TUI|lazydocker"
-  "Git TUI|lazygit"
-  "Open rider|rider ."
-  "Todos|todo"
+  "claude     | AI Assistant           | claude"
+  "opencode   | AI Assistant           | opencode"
+  "pi         | AI Assistant           | pi"
+  "K9s        | Kubernetes readonly    | k9s"
+  "K9s        | Kubernetes destructive | k9s --write"
+  "lazydocker | Docker TUI             | lazydocker"
+  "lazygit    | Git TUI                | lazygit"
+  "rider      | Dotnet IDE             | rider ."
+  "Todos                               | todo"
 )
 
-# If a command is passed as an argument, find and run it directly
+# If a command is passed as an argument, run it directly
 if [[ -n "$1" ]]; then
   selected="$1"
 else
   # Use fzf to create a searchable menu (no height limit since we're in a popup)
   selected=$(
     printf "%s\n" "${commands[@]}" \
-      | awk -F'|' '{ printf "%-30s | %s\n", $1, $2 }' \
       | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
-      | awk -F'|' '{ print $2 }' \
-      | sed 's/^[[:space:]]*//'
+      | sed 's/.*|[[:space:]]*//'
   )
 fi
 

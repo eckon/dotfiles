@@ -18,7 +18,10 @@ if command -v "yay" &> /dev/null; then
   sudo rm -rf /var/cache/pacman/pkg/download-*
 
   # only show aur package updates, these need to be handled manually
-  yay -Qu --aur || true
+  echo ""
+  echo "Outdated AUR packages, that need to be manually updated"
+  echo ""
+  yay -Qua --aur || true
 fi
 
 if command -v "apt" &> /dev/null; then
