@@ -32,6 +32,7 @@ set.expandtab = true
 -- UI: hide mode (shown in statusline), reduce completion messages
 set.shortmess:append("c")
 set.showmode = false
+set.laststatus = 3
 
 set.signcolumn = "yes"
 
