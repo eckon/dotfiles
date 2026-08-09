@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
-      "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b",
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "3e47ec3709716177bf28e2d17e35c7ab39db126e",
+      "rev": "629bf6792187e11b4829411c1648f86f28df3963",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "3d3321b560a63ff92a8692401f303a5123336b86",
+      "rev": "c9f9ed6c1892f629ea399f4ee7905f2686fa13f2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "schemastore.nvim": {
-      "rev": "a652fcc01bf03946ab94b815be8c80ee157cbe1a",
+      "rev": "427b0ff24377a6cdd18aa822a984a5adf156c3fa",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

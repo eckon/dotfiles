@@ -55,7 +55,6 @@ declare -A SCRIPT_PATHS
 SCRIPT_PATHS=(
   ["tmux-command-palette.sh"]="tmux-command-palette"
   ["tmux-jump.sh"]="tmux-jump"
-  ["todo.sh"]="todo"
 )
 
 DRY_RUN="false"

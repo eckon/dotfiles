@@ -29,7 +29,6 @@ commands=(
   "lazydocker | Docker TUI             | lazydocker"
   "lazygit    | Git TUI                | lazygit"
   "rider      | Dotnet IDE             | rider ."
-  "Todos                               | todo"
 )
 
 # If a command is passed as an argument, run it directly
