@@ -13,11 +13,89 @@ git:
 notARepository: 'skip'
 
 customCommands:
-  - key: X
+  - key: 'X'
     description: 'Custom commands'
     commandMenu:
-      - key: 'x'
-        context: 'files'
-        description: 'Just kept here in case I want to add custom commands in the future'
-        command: 'echo "thats pretty neat"'
-        output: 'terminal'
+      - key: 'n'
+        context: 'global'
+        description: 'Start Jira branch'
+        loadingText: 'Creating branch and empty commit...'
+
+        prompts:
+          - type: 'input'
+            key: 'Issue'
+            title: 'Jira ticket / scope:'
+
+          - type: 'menu'
+            key: 'Type'
+            title: 'Commit type:'
+            options:
+              - name: 'feat'
+                description: 'New functionality'
+                value: 'feat'
+                key: 'F'
+
+              - name: 'fix'
+                description: 'Bug fix'
+                value: 'fix'
+                key: 'f'
+
+              - name: 'chore'
+                description: 'Maintenance or housekeeping'
+                value: 'chore'
+                key: 'c'
+
+              - name: 'refactor'
+                description: 'Code change without behavior change'
+                value: 'refactor'
+                key: 'r'
+
+              - name: 'test'
+                description: 'Adding or changing tests'
+                value: 'test'
+                key: 't'
+
+              - name: 'docs'
+                description: 'Documentation changes'
+                value: 'docs'
+                key: 'd'
+
+              - name: 'build'
+                description: 'Build system or dependency changes'
+                value: 'build'
+                key: 'b'
+
+              - name: 'ci'
+                description: 'Continuous integration changes'
+                value: 'ci'
+                key: 'C'
+
+              - name: 'style'
+                description: 'Style changes'
+                value: style'
+                key: 's'
+
+          - type: 'input'
+            key: 'Description'
+            title: 'Description:'
+
+          - type: 'confirm'
+            title: 'Create branch and empty commit?'
+            body: |-
+              The following will be created:
+
+              Branch:
+              {{ .Form.Issue }}_{{ runCommand (printf "/bin/bash -c 'printf \"%%s\" \"$1\" | tr \"[:upper:]\" \"[:lower:]\" | tr -cs \"[:alnum:]\" \"-\" | sed \"s/^-*//; s/-*$//\"' -- %s" (.Form.Description | quote)) }}
+
+              Empty commit:
+              {{ .Form.Type }}({{ .Form.Issue }}): {{ .Form.Description }}
+
+              Continue?
+
+        command: >-
+          /bin/bash -c 'issue="$1"; type="$2"; description="$3"; slug="$(printf "%s" "$description" | tr "[:upper:]" "[:lower:]" | tr -cs "[:alnum:]" "-" | sed "s/^-*//; s/-*$//")"; branch="${issue}_${slug}"; git switch -c "$branch" && git commit --allow-empty --only -m "${type}(${issue}): ${description}"' --
+          {{ .Form.Issue | quote }}
+          {{ .Form.Type | quote }}
+          {{ .Form.Description | quote }}
+
+        output: log
