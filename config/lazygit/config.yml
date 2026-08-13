@@ -25,54 +25,9 @@ customCommands:
             key: 'Issue'
             title: 'Jira ticket / scope:'
 
-          - type: 'menu'
+          - type: 'input'
             key: 'Type'
             title: 'Commit type:'
-            options:
-              - name: 'feat'
-                description: 'New functionality'
-                value: 'feat'
-                key: 'F'
-
-              - name: 'fix'
-                description: 'Bug fix'
-                value: 'fix'
-                key: 'f'
-
-              - name: 'chore'
-                description: 'Maintenance or housekeeping'
-                value: 'chore'
-                key: 'c'
-
-              - name: 'refactor'
-                description: 'Code change without behavior change'
-                value: 'refactor'
-                key: 'r'
-
-              - name: 'test'
-                description: 'Adding or changing tests'
-                value: 'test'
-                key: 't'
-
-              - name: 'docs'
-                description: 'Documentation changes'
-                value: 'docs'
-                key: 'd'
-
-              - name: 'build'
-                description: 'Build system or dependency changes'
-                value: 'build'
-                key: 'b'
-
-              - name: 'ci'
-                description: 'Continuous integration'
-                value: 'ci'
-                key: 'C'
-
-              - name: 'style'
-                description: 'Style changes'
-                value: 'style'
-                key: 's'
 
           - type: 'input'
             key: 'Description'
@@ -104,71 +59,13 @@ customCommands:
         loadingText: 'Creating commit...'
 
         prompts:
-          - type: 'menu'
+          - type: 'input'
             key: 'Type'
             title: 'Commit type:'
-            options:
-              - name: 'feat'
-                description: 'New functionality'
-                value: 'feat'
-                key: 'F'
-
-              - name: 'fix'
-                description: 'Bug fix'
-                value: 'fix'
-                key: 'f'
-
-              - name: 'chore'
-                description: 'Maintenance or housekeeping'
-                value: 'chore'
-                key: 'c'
-
-              - name: 'refactor'
-                description: 'Code change without behavior change'
-                value: 'refactor'
-                key: 'r'
-
-              - name: 'test'
-                description: 'Adding or changing tests'
-                value: 'test'
-                key: 't'
-
-              - name: 'docs'
-                description: 'Documentation changes'
-                value: 'docs'
-                key: 'd'
-
-              - name: 'build'
-                description: 'Build system or dependency changes'
-                value: 'build'
-                key: 'b'
-
-              - name: 'ci'
-                description: 'Continuous integration'
-                value: 'ci'
-                key: 'C'
-
-              - name: 'style'
-                description: 'Style changes'
-                value: 'style'
-                key: 's'
 
           - type: 'input'
             key: 'Description'
             title: 'Description:'
-
-          - type: 'confirm'
-            title: 'Create commit?'
-            body: |-
-              The following will be created:
-
-              Current branch:
-              {{ .CheckedOutBranch.Name }}
-
-              Commit:
-              {{ .Form.Type }}({{ runCommand (printf "/bin/bash -c 'branch=\"$1\"; printf \"%%s\" \"${branch%%%%_*}\"' -- %s" (.CheckedOutBranch.Name | quote)) }}): {{ .Form.Description }}
-
-              Continue?
 
         command: >-
           /bin/bash -c 'branch="$1"; type="$2"; description="$3"; scope="${branch%%_*}"; git commit --allow-empty -m "${type}(${scope}): ${description}"' --
