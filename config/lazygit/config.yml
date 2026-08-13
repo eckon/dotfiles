@@ -16,8 +16,7 @@ customCommands:
   - key: 'X'
     description: 'Custom commands'
     commandMenu:
-      - key: 'n'
-        context: 'global'
+      - key: 'b'
         description: 'Start Jira branch'
         loadingText: 'Creating branch and empty commit...'
 
@@ -66,13 +65,13 @@ customCommands:
                 key: 'b'
 
               - name: 'ci'
-                description: 'Continuous integration changes'
+                description: 'Continuous integration'
                 value: 'ci'
                 key: 'C'
 
               - name: 'style'
                 description: 'Style changes'
-                value: style'
+                value: 'style'
                 key: 's'
 
           - type: 'input'
@@ -95,6 +94,85 @@ customCommands:
         command: >-
           /bin/bash -c 'issue="$1"; type="$2"; description="$3"; slug="$(printf "%s" "$description" | tr "[:upper:]" "[:lower:]" | tr -cs "[:alnum:]" "-" | sed "s/^-*//; s/-*$//")"; branch="${issue}_${slug}"; git switch -c "$branch" && git commit --allow-empty --only -m "${type}(${issue}): ${description}"' --
           {{ .Form.Issue | quote }}
+          {{ .Form.Type | quote }}
+          {{ .Form.Description | quote }}
+
+        output: log
+
+      - key: 'c'
+        description: 'Add commit to current Jira branch'
+        loadingText: 'Creating commit...'
+
+        prompts:
+          - type: 'menu'
+            key: 'Type'
+            title: 'Commit type:'
+            options:
+              - name: 'feat'
+                description: 'New functionality'
+                value: 'feat'
+                key: 'F'
+
+              - name: 'fix'
+                description: 'Bug fix'
+                value: 'fix'
+                key: 'f'
+
+              - name: 'chore'
+                description: 'Maintenance or housekeeping'
+                value: 'chore'
+                key: 'c'
+
+              - name: 'refactor'
+                description: 'Code change without behavior change'
+                value: 'refactor'
+                key: 'r'
+
+              - name: 'test'
+                description: 'Adding or changing tests'
+                value: 'test'
+                key: 't'
+
+              - name: 'docs'
+                description: 'Documentation changes'
+                value: 'docs'
+                key: 'd'
+
+              - name: 'build'
+                description: 'Build system or dependency changes'
+                value: 'build'
+                key: 'b'
+
+              - name: 'ci'
+                description: 'Continuous integration'
+                value: 'ci'
+                key: 'C'
+
+              - name: 'style'
+                description: 'Style changes'
+                value: 'style'
+                key: 's'
+
+          - type: 'input'
+            key: 'Description'
+            title: 'Description:'
+
+          - type: 'confirm'
+            title: 'Create commit?'
+            body: |-
+              The following will be created:
+
+              Current branch:
+              {{ .CheckedOutBranch.Name }}
+
+              Commit:
+              {{ .Form.Type }}({{ runCommand (printf "/bin/bash -c 'branch=\"$1\"; printf \"%%s\" \"${branch%%%%_*}\"' -- %s" (.CheckedOutBranch.Name | quote)) }}): {{ .Form.Description }}
+
+              Continue?
+
+        command: >-
+          /bin/bash -c 'branch="$1"; type="$2"; description="$3"; scope="${branch%%_*}"; git commit --allow-empty -m "${type}(${scope}): ${description}"' --
+          {{ .CheckedOutBranch.Name | quote }}
           {{ .Form.Type | quote }}
           {{ .Form.Description | quote }}
 
