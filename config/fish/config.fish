@@ -61,6 +61,9 @@ alias LL "eza -lah --color=always --group-directories-first --icons --git --tota
 alias vi  "vim -u NONE"
 alias vim "nvim"
 
+# get my ipv4 address to add to a firewall etc.
+alias my-ip "curl https://api.ipify.org | clip"
+
 # quickly delete locally installed packages
 abbr --add npmplease  "rm -rf node_modules/ && rm -f package-lock.json && npm install"
 abbr --add yarnplease "rm -rf node_modules/ && rm -f yarn.lock && yarn install"
