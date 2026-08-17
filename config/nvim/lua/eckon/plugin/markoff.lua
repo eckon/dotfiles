@@ -9,6 +9,13 @@ local markoff = require("markoff")
 
 markoff.setup({ file = { todo = "~/Documents/notes/todo.md" } })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markoff_picker",
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})
+
 map("n")("m", markoff.toggle)
 
 cc.add("Markoff List", {
