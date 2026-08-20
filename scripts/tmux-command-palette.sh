@@ -22,7 +22,7 @@ fi
 # Format: "Title | Context | Command", the command is everything after the last "|"
 commands=(
   "claude     | AI Assistant           | claude"
-  "opencode   | AI Assistant           | opencode"
+  "opencode   | AI Assistant           | opencode2"
   "pi         | AI Assistant           | pi"
   "K9s        | Kubernetes readonly    | k9s"
   "K9s        | Kubernetes destructive | k9s --write"
