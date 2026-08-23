@@ -75,7 +75,7 @@ set.nrformats:append("blank")
 set.foldenable = false
 set.foldlevel = 99
 set.foldmethod = "expr"
-set.foldexpr = "v:lua.vim.lsp.foldexpr()"
+set.foldexpr = vim.lsp.foldexpr
 set.foldtext = ""
 set.fillchars = { fold = " ", foldsep = " ", foldinner = " " }
 
