@@ -1,46 +1,49 @@
 {
-  // v2 via `bun install -g --trust @opencode-ai/cli@beta`
   "$schema": "https://opencode.ai/config.json",
-  "permissions": [
-    // Default: ask for all shell commands
-    { "action": "shell", "resource": "*", "effect": "ask" },
+  "instructions": ["README.md", "AGENTS.md"],
+  "permission": {
+    "bash": {
+      "*": "ask",
 
-    // Deny commands that have dedicated tools
-    { "action": "shell", "resource": "cat *", "effect": "deny" },
-    { "action": "shell", "resource": "curl *", "effect": "deny" },
-    { "action": "shell", "resource": "find *", "effect": "deny" },
-    { "action": "shell", "resource": "head *", "effect": "deny" },
-    { "action": "shell", "resource": "tail *", "effect": "deny" },
-    { "action": "shell", "resource": "wget *", "effect": "deny" },
+      // Deny commands that have dedicated tools
+      "cat *": "deny",
+      "curl *": "deny",
+      "find *": "deny",
+      "grep *": "deny",
+      "head *": "deny",
+      "tail *": "deny",
+      "wget *": "deny",
 
-    // Allow safe read-only commands
-    { "action": "shell", "resource": "git diff *", "effect": "allow" },
-    { "action": "shell", "resource": "git log *", "effect": "allow" },
-    { "action": "shell", "resource": "git remote show origin", "effect": "allow" },
-    { "action": "shell", "resource": "git show *", "effect": "allow" },
-    { "action": "shell", "resource": "git status *", "effect": "allow" },
-    { "action": "shell", "resource": "ls *", "effect": "allow" },
-    { "action": "shell", "resource": "pwd", "effect": "allow" },
-    { "action": "shell", "resource": "wc *", "effect": "allow" },
-  ],
+      // Allow safe read-only commands
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git remote show origin": "allow",
+      "git show *": "allow",
+      "git status *": "allow",
+      "ls *": "allow",
+      "pwd": "allow",
+      "wc *": "allow",
+      "hunk *": "allow",
+      "hunk skill *": "allow",
+    },
+  },
   "mcp": {
-    "servers": {
-      "coding-docs": {
-        "type": "local",
-        "command": ["npx", "-y", "@upstash/context7-mcp"],
-      },
-      "chrome-devtools": {
-        "type": "local",
-        "command": [
-          "npx",
-          "-y",
-          "chrome-devtools-mcp@latest",
-          "--auto-connect",
-          "--no-usage-statistics",
-          "--no-performance-crux",
-        ],
-        "disabled": true,
-      },
+    "coding-docs": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true,
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--auto-connect",
+        "--no-usage-statistics",
+        "--no-performance-crux",
+      ],
+      "enabled": false,
     },
   },
 }
