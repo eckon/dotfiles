@@ -1,6 +1,6 @@
 # Collection of my dotfiles and scripts
 
-This repository contains my public **scripts** and **configurations** for various development tools and environments.
+My public scripts and configurations for various development tools and environments.
 
 Hosted:
 
@@ -34,11 +34,11 @@ sudo -v
 ./bootstrap/install-packages.sh
 ```
 
-_Additionally (optionally) run `npm install` for local formatting, linting and more_
+_Optionally run `npm install` for local formatting, linting and more_
 
 ### Post-Installation
 
-`mise` cli command is available and can be used for many other scripts (including the setup scripts):
+`mise` is available for running setup scripts and tasks:
 
 ```bash
 mise tasks               # List all available tasks
@@ -58,10 +58,10 @@ mise run check           # Format and lint all code
 │   └── work/                  # Work-related projects
 ```
 
-### Configuration Management
+### Configuration management
 
-- **Configuration files** are symlinked from this repository to `~/.config/`
-- **Work-specific git config** should be placed in `~/.config/git/work` (not versioned)
+- Config files are symlinked from this repository to `~/.config/`
+- Work-specific git config goes in `~/.config/git/work` (not versioned)
 
 ## Used Software
 
