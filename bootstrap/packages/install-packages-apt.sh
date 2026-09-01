@@ -14,4 +14,5 @@ sudo apt install -y \
   file \
   git \
   procps \
+  qalc \
   wl-clipboard
