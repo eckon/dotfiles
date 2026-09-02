@@ -26,8 +26,3 @@ local nmap = require("eckon.helper.utils").bind_map("n")
 nmap("gq", function()
   require("conform").format({ lsp_fallback = true, async = true })
 end, { desc = "Conform: Format whole buffer" })
-
--- overwrite ex-mode `gQ` with conform
-nmap("gQ", function()
-  require("conform").format({ lsp_fallback = true, async = true })
-end, { desc = "Conform: Format whole buffer" })

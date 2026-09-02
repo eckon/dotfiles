@@ -33,4 +33,3 @@ nmap gd  :vsc Edit.GoToDefinition<CR>
 nmap grn        :vsc Refactor.Rename<CR>
 nmap gra        :vsc View.QuickActions<CR>
 nmap gq         :vsc Edit.FormatDocument<CR>
-nmap gQ         :vsc Edit.FormatDocument<CR>
