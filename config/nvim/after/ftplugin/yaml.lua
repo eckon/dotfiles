@@ -58,4 +58,5 @@ local cc = require("eckon.helper.custom-command").custom_command
 cc.add("Yaml: Toggle base64", {
   desc = "Encode/decode the base64 value under the cursor",
   callback = toggle,
+  filetype = "yaml",
 })

@@ -56,4 +56,5 @@ local cc = require("eckon.helper.custom-command").custom_command
 cc.add("Log: Format dotnet json", {
   desc = "Format dotnet json logs",
   callback = format_dotnet_json_logs,
+  filetype = "log",
 })

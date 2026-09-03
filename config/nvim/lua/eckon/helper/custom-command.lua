@@ -1,14 +1,15 @@
 local M = {}
 
 ---Hidden reference for all custom commands and how to execute them
----@type { [string]: { desc: string, callback: string | function } }
+---@type { [string]: { desc: string, callback: string | function, filetype?: string } }
 local custom_command_list = {}
 
 ---Structure to create and execute custom commands
 M.custom_command = {
   ---Add/Overwrite a custom command
+  ---Set a filetype to only offer the command in buffers of that type
   ---@param name string
-  ---@param opts { desc: string, callback: string | function }
+  ---@param opts { desc: string, callback: string | function, filetype?: string }
   add = function(name, opts)
     custom_command_list[name] = opts
   end,
@@ -18,10 +19,16 @@ M.custom_command = {
     custom_command_list = {}
   end,
 
-  ---Get all custom command names
+  ---Get all custom command names that apply to the current buffer
   ---@return string[]
   keys = function()
-    local keys = vim.tbl_keys(custom_command_list)
+    local keys = {}
+    for name, opts in pairs(custom_command_list) do
+      if not opts.filetype or opts.filetype == vim.bo.filetype then
+        table.insert(keys, name)
+      end
+    end
+
     table.sort(keys)
     return keys
   end,

@@ -101,6 +101,7 @@ local cc = require("eckon.helper.custom-command").custom_command
 cc.add("Dotnet", {
   desc = "Open Easy Dotnet picker",
   callback = "Dotnet",
+  filetype = "cs",
 })
 
 cc.add("Dotnet Testrunner", {
@@ -108,4 +109,5 @@ cc.add("Dotnet Testrunner", {
   callback = function()
     dotnet.testrunner()
   end,
+  filetype = "cs",
 })
