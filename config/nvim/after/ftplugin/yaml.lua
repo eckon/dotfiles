@@ -2,33 +2,43 @@
 ---@param mode 'encode' | 'decode'
 local function base64Convert(mode)
   local positions = require("eckon.helper.utils").get_visual_selection()
-  local lines = vim.api.nvim_buf_get_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false)
 
   -- only handle single lines
-  if #lines > 1 then
+  if #positions.text > 1 then
     return
   end
 
-  local content = lines[1]:sub(positions.visual_start.column, positions.visual_end.column)
-  local encoded_content = content
+  local content = positions.text[1]
+  local converted = content
 
   if mode == "encode" then
-    encoded_content = vim.fn.system("echo -n " .. content .. " | base64 -w0"):gsub("\n", "")
+    converted = vim.base64.encode(content)
   end
 
   if mode == "decode" then
-    encoded_content = vim.fn.system("echo -n " .. content .. " | base64 -d -w0"):gsub("\n", "")
+    -- decoding throws on anything that is not valid base64, so just keep the selection as is
+    local ok, decoded = pcall(vim.base64.decode, content)
+    if not ok then
+      return
+    end
+
+    converted = decoded
   end
 
-  lines[1] = lines[1]:sub(1, positions.visual_start.column - 1)
-    .. encoded_content
-    .. lines[1]:sub(positions.visual_end.column + 1)
-
-  vim.api.nvim_buf_set_lines(0, positions.visual_start.row - 1, positions.visual_end.row, false, lines)
+  vim.api.nvim_buf_set_text(
+    0,
+    positions.visual_start.row - 1,
+    positions.visual_start.column - 1,
+    positions.visual_end.row - 1,
+    positions.visual_end.column,
+    { converted }
+  )
 
   -- keep cursor on the first selection
   vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_start.column })
-  require("eckon.helper.utils").exit_visual_mode()
+
+  -- get out of visual mode
+  vim.cmd.normal({ vim.api.nvim_get_mode().mode, bang = true })
 end
 
 local vmap = require("eckon.helper.utils").bind_map("v")

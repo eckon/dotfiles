@@ -2,7 +2,7 @@ local M = {}
 
 ---Create augroup with my unique prefix
 ---@param name string
----@param options? table
+---@param options? vim.api.keyset.create_augroup
 ---@return integer
 M.augroup = function(name, options)
   return vim.api.nvim_create_augroup("eckon_augroup_" .. name, options or {})
@@ -11,97 +11,39 @@ end
 ---Create partial function to store mode and options
 ---Example: To get back a function with preset mode and options
 ---local nmap = bind_map("n")
----@param mode string|table
----@param outer_options? table
+---@param mode string|string[]
+---@param outer_options? vim.keymap.set.Opts
+---@return fun(lhs: string, rhs: string|function, inner_options?: vim.keymap.set.Opts)
 M.bind_map = function(mode, outer_options)
-  ---Function to set a mapping of a given mode and a set of options
-  ---@param lhs string
-  ---@param rhs string|function
-  ---@param inner_options? table
   return function(lhs, rhs, inner_options)
-    local options = vim.tbl_extend("force", outer_options or {}, inner_options or {})
-    vim.keymap.set(mode, lhs, rhs, options)
+    vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", outer_options or {}, inner_options or {}))
   end
 end
 
----Get start and end positions of current visual selection
----@return { visual_start: { row: integer, column: integer }, visual_end: { row: integer, column: integer }, visual_start_0: { row: integer, column: integer } }
+---@class eckon.Position
+---@field row integer
+---@field column integer
+
+---@class eckon.VisualSelection
+---@field visual_start eckon.Position start of the selection
+---@field visual_end eckon.Position end of the selection
+---@field text string[] selected lines
+
+---Get the current visual selection, or the cursor position when not in visual mode
+---Rows and columns are 1-based and both ends are inclusive, so they match `string.sub`
+---@return eckon.VisualSelection
 M.get_visual_selection = function()
-  -- both have the line number in 2nd place and row number in 3rd place
-  local current_cursor = vim.fn.getpos(".") or {}
-  local tail_visual_selection = vim.fn.getpos("v") or {}
+  local from, to = vim.fn.getpos("v"), vim.fn.getpos(".")
 
-  local start_position = current_cursor
-  local end_position = tail_visual_selection
-
-  if start_position[2] > end_position[2] then
-    start_position, end_position = end_position, start_position
-  end
-
-  -- in case both are on the same line
-  if start_position[2] == end_position[2] and start_position[3] > end_position[3] then
-    start_position, end_position = end_position, start_position
-  end
+  -- gives a { start, end } pair per line, already ordered no matter which end the cursor is on
+  local region = vim.fn.getregionpos(from, to)
+  local first, last = region[1][1], region[#region][2]
 
   return {
-    visual_start = {
-      row = start_position[2],
-      column = start_position[3],
-    },
-    -- some functions are zero based, so allow this to be set to not manually adding/subtracting 1
-    visual_start_0 = {
-      row = start_position[2] - 1,
-      column = start_position[3] - 1,
-    },
-    visual_end = {
-      row = end_position[2],
-      column = end_position[3],
-    },
+    visual_start = { row = first[2], column = first[3] },
+    visual_end = { row = last[2], column = last[3] },
+    text = vim.fn.getregion(from, to),
   }
-end
-
----Exit visual mode, if currently in visual mode
-M.exit_visual_mode = function()
-  if M.is_visual_mode() then
-    vim.cmd("normal! " .. vim.fn.mode())
-  end
-end
-
----Check if we are currently in visual mode
----@return boolean
-M.is_visual_mode = function()
-  local ctrl_v = vim.api.nvim_replace_termcodes("<C-v>", true, true, true)
-  local cur_mode = vim.fn.mode()
-
-  return cur_mode == "v" or cur_mode == "V" or cur_mode == ctrl_v
-end
-
----Check if we are currently in insert mode
----@return boolean
-M.is_insert_mode = function()
-  return vim.fn.mode() == "i"
-end
-
----Save and restore the current cursor position
----This is useful for things that move the cursor but the user does want to keep it at the same position
----@return function restore callback to restore the previous cursor position
-M.save_cursor_position = function()
-  local initial_cursor_position = vim.api.nvim_win_get_cursor(0)
-  return function()
-    vim.api.nvim_win_set_cursor(0, initial_cursor_position)
-  end
-end
-
----Returns if we are currently running on wsl
----@return boolean
-M.is_windows_wsl = function()
-  return vim.fn.has("wsl") == 1 and vim.fn.has("linux") == 1
-end
-
----Returns if we are currently running on linux
----@return boolean
-M.is_linux = function()
-  return vim.fn.has("linux") == 1 and vim.fn.has("unix") == 1
 end
 
 return M

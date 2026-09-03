@@ -21,9 +21,9 @@ xmap("?", "<Esc>?\\%V")
 
 -- keep cursor position while joining single lines
 nmap("J", function()
-  local restore_cursor = require("eckon.helper.utils").save_cursor_position()
+  local view = vim.fn.winsaveview()
   vim.api.nvim_command("normal! " .. vim.v.count + 1 .. "J")
-  restore_cursor()
+  vim.fn.winrestview(view)
 end, { desc = "Join lines without moving cursor" })
 
 -- center view after common jump actions
