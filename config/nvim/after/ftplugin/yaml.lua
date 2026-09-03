@@ -1,52 +1,61 @@
----Function to de/encode base64 content
----@param mode 'encode' | 'decode'
-local function base64Convert(mode)
-  local positions = require("eckon.helper.utils").get_visual_selection()
+---Decode base64, but only when the result is plain readable text
+---Short words can be valid base64 by accident, so a successful decode alone is not enough
+---@param value string
+---@return string|nil decoded nil when this does not look like base64 encoded text
+local function decode_base64(value)
+  -- base64 always comes in blocks of 4 characters out of a fixed alphabet
+  if #value == 0 or #value % 4 ~= 0 or not value:find("^[%w+/]+=?=?$") then
+    return nil
+  end
 
-  -- only handle single lines
-  if #positions.text > 1 then
+  local ok, decoded = pcall(vim.base64.decode, value)
+
+  -- allow newlines/tabs, a multiline value is still text we want to decode
+  if not ok or decoded:find("[^\32-\126\n\t]") then
+    return nil
+  end
+
+  return decoded
+end
+
+---Get the value node of the yaml `key: value` pair under the cursor
+---@return TSNode|nil
+local function value_under_cursor()
+  local ok = pcall(function()
+    vim.treesitter.get_parser(0, "yaml"):parse(true)
+  end)
+  if not ok then
+    return nil
+  end
+
+  local node = vim.treesitter.get_node()
+  while node and node:type() ~= "block_mapping_pair" do
+    node = node:parent()
+  end
+
+  local value = node and node:field("value")[1]
+
+  -- only convert single values, a nested block is nothing we can put base64 into
+  return value and value:type() == "flow_node" and value or nil
+end
+
+---Encode/decode the yaml value under the cursor
+local function toggle()
+  local node = value_under_cursor()
+  if not node then
+    vim.notify("Base64: no yaml value under the cursor", vim.log.levels.WARN)
     return
   end
 
-  local content = positions.text[1]
-  local converted = content
+  local value = vim.treesitter.get_node_text(node, 0)
+  local converted = decode_base64(value) or vim.base64.encode(value)
+  local start_row, start_column, end_row, end_column = node:range()
 
-  if mode == "encode" then
-    converted = vim.base64.encode(content)
-  end
-
-  if mode == "decode" then
-    -- decoding throws on anything that is not valid base64, so just keep the selection as is
-    local ok, decoded = pcall(vim.base64.decode, content)
-    if not ok then
-      return
-    end
-
-    converted = decoded
-  end
-
-  vim.api.nvim_buf_set_text(
-    0,
-    positions.visual_start.row - 1,
-    positions.visual_start.column - 1,
-    positions.visual_end.row - 1,
-    positions.visual_end.column,
-    { converted }
-  )
-
-  -- keep cursor on the first selection
-  vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_start.column })
-
-  -- get out of visual mode
-  vim.cmd.normal({ vim.api.nvim_get_mode().mode, bang = true })
+  vim.api.nvim_buf_set_text(0, start_row, start_column, end_row, end_column, vim.split(converted, "\n"))
 end
 
-local vmap = require("eckon.helper.utils").bind_map("v")
-
-vmap("E", function()
-  base64Convert("encode")
-end, { desc = "Take visual selection and encode it with base64", buffer = true, silent = true })
-
-vmap("D", function()
-  base64Convert("decode")
-end, { desc = "Take visual selection and decode it with base64", buffer = true, silent = true })
+local cc = require("eckon.helper.custom-command").custom_command
+cc.add("Yaml: Toggle base64", {
+  desc = "Encode/decode the base64 value under the cursor",
+  callback = toggle,
+})
