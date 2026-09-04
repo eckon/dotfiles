@@ -15,7 +15,6 @@ set.swapfile = false
 set.completeopt = { "menuone", "noinsert", "noselect", "fuzzy" }
 
 -- search: case-insensitive unless uppercase is used
-set.magic = true
 set.lazyredraw = true
 set.ignorecase = true
 set.smartcase = true
@@ -94,7 +93,11 @@ end
 -- LSP diagnostics: show float on jump, no virtual lines
 vim.diagnostic.config({
   virtual_lines = false,
-  jump = { float = true },
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+    end,
+  },
 })
 
 -- TODO: experimental feature, update accordingly to breaking changes etc.

@@ -54,7 +54,7 @@ autocmd("lspattach", {
     local nmap = function(lhs, rhs, desc)
       bind_map("n")(lhs, rhs, {
         desc = "LSP: " .. desc,
-        buffer = args.buf,
+        buf = args.buf,
       })
     end
 

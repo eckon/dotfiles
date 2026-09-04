@@ -3,8 +3,7 @@ local cc = require("eckon.helper.custom-command").custom_command
 cc.add("Pair Programming", {
   desc = "Toggle absolute lines",
   callback = function()
-    ---@diagnostic disable-next-line: undefined-field
-    vim.opt.relativenumber = not vim.opt.relativenumber:get()
+    vim.o.relativenumber = not vim.o.relativenumber
   end,
 })
 

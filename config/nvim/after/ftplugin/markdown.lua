@@ -16,7 +16,7 @@ vim.b.miniindentscope_disable = true
 local utils = require("eckon.helper.utils")
 
 vim.api.nvim_create_autocmd("ModeChanged", {
-  buffer = 0, -- make it only local when its being attached (so only markdown files)
+  buf = 0, -- make it only local when its being attached (so only markdown files)
   callback = function()
     local mode = vim.api.nvim_get_mode().mode
 
@@ -50,4 +50,4 @@ utils.bind_map("v")("L", function()
 
   -- get out of visual mode
   vim.cmd.normal({ vim.api.nvim_get_mode().mode, bang = true })
-end, { desc = "Paste markdown link on visual selection", buffer = true, silent = true })
+end, { desc = "Paste markdown link on visual selection", buf = 0, silent = true })
