@@ -21,10 +21,7 @@ nmap("<Leader>fe", function()
 end, { desc = "Mini: Open File Explorer" })
 
 -- mainly for git diff information
-require("mini.diff").setup({
-  view = { style = "sign" },
-  mappings = { goto_first = "[C", goto_prev = "[c", goto_next = "]c", goto_last = "]C" },
-})
+require("mini.diff").setup({ view = { style = "sign" } })
 
 -- show indent and this also has ii/ai text objects
 require("mini.indentscope").setup({
