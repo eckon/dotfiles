@@ -1,4 +1,6 @@
--- Helper functions to handle different kinds of logs
+local utils = require("eckon.helper.custom-command")
+
+-- quickly fill a buffer with parsed json data from k9s with inlined dotnet stack traces
 
 -- dotnet with json
 -- mostly in the workflow: k9s -> failing pod -> open in vim (log type) -> format via this
@@ -52,8 +54,7 @@ local function format_dotnet_json_logs()
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, out)
 end
 
-local cc = require("eckon.helper.custom-command").custom_command
-cc.add("Log: Format dotnet json", {
+utils.custom_command.add("Log: Format dotnet json", {
   desc = "Format dotnet json logs",
   callback = format_dotnet_json_logs,
   filetype = "log",

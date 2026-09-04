@@ -13,10 +13,9 @@ vim.opt_local.shiftwidth = 2
 
 vim.b.miniindentscope_disable = true
 
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = require("eckon.helper.utils").augroup("markdown", { clear = false })
+local utils = require("eckon.helper.utils")
 
-autocmd("ModeChanged", {
+vim.api.nvim_create_autocmd("ModeChanged", {
   buffer = 0, -- make it only local when its being attached (so only markdown files)
   callback = function()
     local mode = vim.api.nvim_get_mode().mode
@@ -30,14 +29,11 @@ autocmd("ModeChanged", {
     end
   end,
   desc = "Toggle conceal level based on the current mode for easier reading",
-  group = augroup,
+  group = utils.augroup("markdown", { clear = false }),
 })
 
-local bind_map = require("eckon.helper.utils").bind_map
-
--- Might want to look into: https://github.com/bngarren/checkmate.nvim for things to copy
-bind_map("v")("L", function()
-  local positions = require("eckon.helper.utils").get_visual_selection()
+utils.bind_map("v")("L", function()
+  local positions = utils.get_visual_selection()
 
   -- selections allow multiple lines but links do not really help there, so only allow one line
   if #positions.text > 1 then

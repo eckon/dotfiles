@@ -1,3 +1,5 @@
+local utils = require("eckon.helper.custom-command")
+
 ---Decode base64, but only when the result is plain readable text
 ---Short words can be valid base64 by accident, so a successful decode alone is not enough
 ---@param value string
@@ -54,9 +56,7 @@ local function toggle()
   vim.api.nvim_buf_set_text(0, start_row, start_column, end_row, end_column, vim.split(converted, "\n"))
 end
 
-local cc = require("eckon.helper.custom-command").custom_command
-cc.add("Yaml: Toggle base64", {
-  desc = "Encode/decode the base64 value under the cursor",
-  callback = toggle,
-  filetype = "yaml",
-})
+utils.custom_command.add(
+  "Yaml: Toggle base64",
+  { desc = "Encode/decode the base64 value under the cursor", callback = toggle, filetype = "yaml" }
+)
