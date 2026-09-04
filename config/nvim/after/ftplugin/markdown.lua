@@ -33,26 +33,20 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 })
 
 utils.bind_map("v")("L", function()
-  local positions = utils.get_visual_selection()
+  local selection = utils.get_visual_selection()
 
   -- selections allow multiple lines but links do not really help there, so only allow one line
-  if #positions.text > 1 then
+  if #selection.text > 1 then
     return
   end
 
-  local link = "[" .. positions.text[1] .. "](" .. vim.fn.getreg("+") .. ")"
+  local link = "[" .. selection.text[1] .. "](" .. vim.fn.getreg("+") .. ")"
+  local range = selection.range
 
-  vim.api.nvim_buf_set_text(
-    0,
-    positions.visual_start.row - 1,
-    positions.visual_start.column - 1,
-    positions.visual_end.row - 1,
-    positions.visual_end.column,
-    { link }
-  )
+  vim.api.nvim_buf_set_text(0, range.start_row, range.start_col, range.end_row, range.end_col, { link })
 
   -- keep cursor on the first selection
-  vim.api.nvim_win_set_cursor(0, { positions.visual_start.row, positions.visual_start.column })
+  vim.api.nvim_win_set_cursor(0, vim.pos(range.buf, range.start_row, range.start_col):to_cursor())
 
   -- get out of visual mode
   vim.cmd.normal({ vim.api.nvim_get_mode().mode, bang = true })

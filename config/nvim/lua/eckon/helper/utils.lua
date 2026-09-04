@@ -20,17 +20,11 @@ M.bind_map = function(mode, outer_options)
   end
 end
 
----@class eckon.Position
----@field row integer
----@field column integer
-
 ---@class eckon.VisualSelection
----@field visual_start eckon.Position start of the selection
----@field visual_end eckon.Position end of the selection
+---@field range vim.Range 0-based and end-exclusive, same indexing as the buffer api
 ---@field text string[] selected lines
 
 ---Get the current visual selection, or the cursor position when not in visual mode
----Rows and columns are 1-based and both ends are inclusive, so they match `string.sub`
 ---@return eckon.VisualSelection
 M.get_visual_selection = function()
   local from, to = vim.fn.getpos("v"), vim.fn.getpos(".")
@@ -40,8 +34,9 @@ M.get_visual_selection = function()
   local first, last = region[1][1], region[#region][2]
 
   return {
-    visual_start = { row = first[2], column = first[3] },
-    visual_end = { row = last[2], column = last[3] },
+    -- getregionpos is 1-based and end-inclusive, vim.range.mark converts that to its own
+    -- 0-based end-exclusive form, but only while 'selection' is left at the default "inclusive"
+    range = vim.range.mark(0, first[2], first[3] - 1, last[2], last[3] - 1),
     text = vim.fn.getregion(from, to),
   }
 end
