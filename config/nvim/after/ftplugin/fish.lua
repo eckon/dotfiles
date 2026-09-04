@@ -1,1 +1,1 @@
-vim.opt.iskeyword:remove("-")
+vim.opt_local.iskeyword:remove("-")

@@ -1,6 +1,13 @@
 -- TODO: use public repo when available
 -- NOTE: add to runtime for quick local testing/developing
-vim.opt.runtimepath:append(vim.fn.expand("~/Development/personal/markoff.nvim"))
+local markoff_path = vim.fn.expand("~/Development/personal/markoff.nvim")
+
+-- only a local checkout, so skip everything instead of breaking the rest of the plugin setup
+if not vim.uv.fs_stat(markoff_path) then
+  return
+end
+
+vim.opt.runtimepath:append(markoff_path)
 
 local cc = require("eckon.helper.custom-command").custom_command
 local map = require("eckon.helper.utils").bind_map
@@ -14,6 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
+  group = require("eckon.helper.utils").augroup("markoff"),
 })
 
 map("n")("m", markoff.toggle)

@@ -8,15 +8,16 @@ vim.pack.add({
 ---@return boolean
 local function is_dotnet_repo()
   -- Must be in a git repository
-  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel 2>/dev/null")[1]
-  if not git_root or git_root == "" then
+  local git_root = vim.fs.root(0, ".git")
+  if not git_root then
     return false
   end
 
-  -- Check for .sln files in git root
-  local sln_files = vim.fn.glob(git_root .. "/*.sln", false, true)
-  if #sln_files > 0 then
-    return true
+  -- Check for solution or project files in git root
+  for _, pattern in ipairs({ "/*.sln", "/*.slnx", "/*.csproj" }) do
+    if #vim.fn.glob(git_root .. pattern, false, true) > 0 then
+      return true
+    end
   end
 
   return false
