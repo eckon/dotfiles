@@ -8,11 +8,7 @@ hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty"), { desc = "Open terminal" }
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"), { desc = "Open file manager" })
 hl.bind("SUPER + B", hl.dsp.exec_cmd("firefox"), { desc = "Open browser" })
 hl.bind("SUPER + SPACE", ipc_cmd("panel-toggle launcher"), { desc = "Open menu" })
-hl.bind(
-  "SUPER + A",
-  hl.dsp.exec_cmd("chromium --new-window --app=https://gemini.google.com/app"),
-  { desc = "Open AI (Gemini)" }
-)
+hl.bind("SUPER + A", hl.dsp.exec_cmd("chromium --new-window --app=https://claude.ai/new"), { desc = "Open AI" })
 hl.bind(
   "SUPER + SHIFT + A",
   hl.dsp.exec_cmd("chromium --new-window --app=https://chatgpt.com/"),
