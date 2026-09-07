@@ -55,3 +55,8 @@ cc.add("Update neovim packages", {
   desc = "Run the integrated neovim packages force update",
   callback = "packupdate!",
 })
+
+cc.add("Restart", {
+  desc = "Restart neovim",
+  callback = "restart",
+})
