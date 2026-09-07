@@ -43,8 +43,9 @@ end
 
 ---Opens a custom scratch buffer to work on temporary content and passing work back to the caller at the end.
 ---Uses a similar approach to git commit message editor, buffer is used like any other and events used to handle processes.
+---`on_commit` can return `false` to reject the content, the buffer then stays modified
 ---@param content string
----@param opts { filetype?: string, on_commit?: fun(text: string), on_close?: fun() }
+---@param opts { filetype?: string, on_commit: fun(text: string): (boolean), on_close: fun() }
 M.open_scratch = function(content, opts)
   opts = opts or {}
 
@@ -74,24 +75,23 @@ M.open_scratch = function(content, opts)
   })
   vim.wo[win].wrap = false
 
-  if opts.on_commit then
-    vim.api.nvim_create_autocmd("BufWriteCmd", {
-      buffer = buf,
-      callback = function()
-        local text = table.concat(vim.api.nvim_buf_get_lines(buf, 0, -1, false), "\n")
-        opts.on_commit(text)
-        vim.bo[buf].modified = false
-      end,
-    })
-  end
+  vim.api.nvim_create_autocmd("BufWriteCmd", {
+    buf = buf,
+    callback = function()
+      local text = table.concat(vim.api.nvim_buf_get_lines(buf, 0, -1, false), "\n")
 
-  if opts.on_close then
-    vim.api.nvim_create_autocmd("BufWipeout", {
-      buffer = buf,
-      once = true,
-      callback = opts.on_close,
-    })
-  end
+      -- only count as saved when the caller took the content, so a failure stays visible
+      if opts.on_commit(text) ~= false then
+        vim.bo[buf].modified = false
+      end
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("BufWipeout", {
+    buf = buf,
+    once = true,
+    callback = opts.on_close,
+  })
 end
 
 return M
