@@ -54,20 +54,32 @@ local function toggle()
     return
   end
 
-  local start_row, start_column, end_row, end_column = node:range()
   local decoded = vim.base64.decode(value)
   local formatted, is_json = format_json(decoded)
+
   local source_buf = vim.api.nvim_get_current_buf()
+
+  local start_row, start_column, end_row, end_column = node:range()
   local mark_id =
     vim.api.nvim_buf_set_extmark(source_buf, ns, start_row, start_column, { end_row = end_row, end_col = end_column })
 
   require("eckon.helper.utils").open_scratch(formatted, {
     filetype = is_json and "json" or "text",
     on_commit = function(text)
+      if not vim.api.nvim_buf_is_valid(source_buf) then
+        vim.notify("yaml buffer is gone, cannot write the value back", vim.log.levels.ERROR)
+        return
+      end
+
       local mark_start_row, mark_start_col, details =
         unpack(vim.api.nvim_buf_get_extmark_by_id(source_buf, ns, mark_id, { details = true }))
-      local encoded = vim.base64.encode(text)
 
+      if not details then
+        vim.notify("lost track of the yaml value", vim.log.levels.ERROR)
+        return
+      end
+
+      local encoded = vim.base64.encode(text)
       vim.api.nvim_buf_set_text(
         source_buf,
         mark_start_row,
@@ -86,7 +98,9 @@ local function toggle()
       })
     end,
     on_close = function()
-      vim.api.nvim_buf_del_extmark(source_buf, ns, mark_id)
+      if vim.api.nvim_buf_is_valid(source_buf) then
+        vim.api.nvim_buf_del_extmark(source_buf, ns, mark_id)
+      end
     end,
   })
 end
