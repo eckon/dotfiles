@@ -29,7 +29,8 @@ if command -v "apt" &> /dev/null; then
   echo "########## apt ##########"
   echo ""
 
-  sudo apt update
+  # ignore failing updates to allow at least all upgrades that are possible
+  sudo apt update || true
   sudo apt upgrade -y
   sudo apt autoremove -y
 fi
