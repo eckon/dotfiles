@@ -1,9 +1,14 @@
-vim.pack.add({ {
-  src = "https://github.com/saghen/blink.cmp",
-  version = vim.version.range("1.*"),
-} })
+vim.pack.add({
+  "https://github.com/saghen/blink.lib",
+  "https://github.com/saghen/blink.cmp",
+})
 
-require("blink.cmp").setup({
+local cmp = require("blink.cmp")
+
+-- NOTE: `cargo` via `rust` is needed to let this be built
+cmp.build():pwait()
+
+cmp.setup({
   completion = {
     list = { selection = { auto_insert = true, preselect = false } },
     documentation = { auto_show = true },
