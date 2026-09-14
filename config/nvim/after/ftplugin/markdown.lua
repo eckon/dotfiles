@@ -11,20 +11,27 @@ local utils = require("eckon.helper.utils")
 
 utils.bind_map("v")("L", function()
   local selection = utils.get_visual_selection()
+  local range = selection.range
 
   -- selections allow multiple lines but links do not really help there, so only allow one line
   if #selection.text > 1 then
-    return
+    return vim.notify("Markdown link needs a single line selection", vim.log.levels.WARN)
   end
 
-  local link = "[" .. selection.text[1] .. "](" .. vim.fn.getreg("+") .. ")"
-  local range = selection.range
+  local text, url = selection.text[1], vim.trim(vim.fn.getreg("+"))
+  if text == "" or url == "" then
+    return vim.notify("Markdown link needs a selection and a clipboard value", vim.log.levels.WARN)
+  end
 
-  vim.api.nvim_buf_set_text(0, range.start_row, range.start_col, range.end_row, range.end_col, { link })
+  -- allow the inverse workflow: url in the buffer, label in the clipboard
+  if text:find("^%w+://") then
+    text, url = url, text
+  end
 
-  -- keep cursor on the first selection
+  local link = ("[%s](%s)"):format(text, url)
+  vim.api.nvim_buf_set_text(range.buf, range.start_row, range.start_col, range.end_row, range.end_col, { link })
+
+  -- keep cursor on the start of the new link and leave visual mode
   vim.api.nvim_win_set_cursor(0, vim.pos(range.buf, range.start_row, range.start_col):to_cursor())
-
-  -- get out of visual mode
-  vim.cmd.normal({ vim.api.nvim_get_mode().mode, bang = true })
+  vim.cmd.normal({ vim.keycode("<Esc>"), bang = true })
 end, { desc = "Paste markdown link on visual selection", buf = 0, silent = true })
