@@ -29,15 +29,18 @@ end
 M.get_visual_selection = function()
   local from, to = vim.fn.getpos("v"), vim.fn.getpos(".")
 
+  -- both default to charwise, so the current mode has to be passed for line-/blockwise to work
+  local opts = { type = vim.fn.mode() }
+
   -- gives a { start, end } pair per line, already ordered no matter which end the cursor is on
-  local region = vim.fn.getregionpos(from, to)
+  local region = vim.fn.getregionpos(from, to, opts)
   local first, last = region[1][1], region[#region][2]
 
   return {
     -- getregionpos is 1-based and end-inclusive, vim.range.mark converts that to its own
     -- 0-based end-exclusive form, but only while 'selection' is left at the default "inclusive"
     range = vim.range.mark(0, first[2], first[3] - 1, last[2], last[3] - 1),
-    text = vim.fn.getregion(from, to),
+    text = vim.fn.getregion(from, to, opts),
   }
 end
 
