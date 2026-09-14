@@ -33,13 +33,7 @@ cmp.setup({
       "ripgrep",
     },
     providers = {
-      ripgrep = {
-        module = "blink-ripgrep",
-        name = "Ripgrep",
-        ---@module "blink-ripgrep"
-        ---@type blink-ripgrep.Options
-        opts = {},
-      },
+      ripgrep = { module = "blink-ripgrep", name = "Ripgrep" },
     },
   },
   -- disable warning but still use rust if available (quickfix for bd network, as it fails to download)
