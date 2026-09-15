@@ -1,6 +1,6 @@
 vim.opt_local.spell = true
 
-vim.opt_local.colorcolumn = { "120" }
+vim.opt_local.colorcolumn = {}
 vim.opt_local.textwidth = 120
 
 vim.opt_local.tabstop = 2
