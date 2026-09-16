@@ -4,23 +4,17 @@ local function ipc_cmd(action)
 end
 
 -- Open applications/windows
+hl.bind("SUPER + SPACE", ipc_cmd("panel-toggle launcher"), { desc = "Open menu" })
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty"), { desc = "Open terminal" })
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"), { desc = "Open file manager" })
 hl.bind("SUPER + B", hl.dsp.exec_cmd("firefox"), { desc = "Open browser" })
-hl.bind("SUPER + SPACE", ipc_cmd("panel-toggle launcher"), { desc = "Open menu" })
 hl.bind("SUPER + A", hl.dsp.exec_cmd("chromium --new-window --app=https://claude.ai/new"), { desc = "Open AI" })
-hl.bind(
-  "SUPER + SHIFT + A",
-  hl.dsp.exec_cmd("chromium --new-window --app=https://chatgpt.com/"),
-  { desc = "Open AI (ChatGPT)" }
-)
-hl.bind("SUPER + D", hl.dsp.exec_cmd("ghostty -e lazydocker"), { desc = "Open lazydocker" })
 hl.bind("SUPER + SLASH", hl.dsp.exec_cmd("1password"), { desc = "Open password manager" })
 
 -- Update open windows
-hl.bind("SUPER + T", hl.dsp.window.float({ action = "toggle" }), { desc = "Float window" })
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { desc = "Float window" })
+hl.bind("SUPER + P", hl.dsp.window.pin(), { desc = "Pin floating window over workspaces" })
 hl.bind("SUPER + F", hl.dsp.window.fullscreen(), { desc = "Fullscreen window" })
-hl.bind("SUPER + P", hl.dsp.window.pin(), { desc = "Pin window" })
 hl.bind("SUPER + X", hl.dsp.workspace.toggle_special(), { desc = "Toggle special workspace" })
 hl.bind("SUPER + S", hl.dsp.layout("orientationcycle left top"), { desc = "Toggle position of master" })
 hl.bind("SUPER + M", hl.dsp.layout("swapwithmaster master"), { desc = "Set current window master" })
