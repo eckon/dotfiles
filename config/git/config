@@ -25,7 +25,7 @@
 
 [merge]
   tool          = vscode_mergetool
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 
 [difftool "nvim_difftool"]
   cmd = "nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\""
