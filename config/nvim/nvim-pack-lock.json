@@ -1,11 +1,11 @@
 {
   "plugins": {
     "blink-ripgrep.nvim": {
-      "rev": "18e3c196a75877b847a4a685035b25a3c2cb6912",
+      "rev": "0e27566da4f70e61d0c0f2821bb71ae745e71364",
       "src": "https://github.com/mikavilpas/blink-ripgrep.nvim"
     },
     "blink.cmp": {
-      "rev": "473c928d8b9b5b3f638cd085a01899972cf205c6",
+      "rev": "8219b58f1c11a2fb1644d3c7116c509fa8348ec0",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "4389a4f31f854ce066949ea89c72dc71564f5c20",
+      "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -53,7 +53,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "8d814495983e8db87d02d2f1da293f25b2fd1bdc",
+      "rev": "478c69c0fe253caea88de9c5e138bfa77395a59a",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -73,7 +73,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "b73cf982d16ff69e528d2ab269482f11c0825f64",
+      "rev": "76faabd8d091e4316ec8e1e90aa9371210b574b3",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

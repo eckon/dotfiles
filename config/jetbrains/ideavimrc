@@ -54,8 +54,8 @@ map grd <Action>(GotoTypeDeclaration)
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 
-map [c <Action>(VcsShowPrevChangeMarker)
-map ]c <Action>(VcsShowNextChangeMarker)
+map [h <Action>(VcsShowPrevChangeMarker)
+map ]h <Action>(VcsShowNextChangeMarker)
 
 map grn <Action>(RenameElement)
 map gra <Action>(ShowIntentionActions)
