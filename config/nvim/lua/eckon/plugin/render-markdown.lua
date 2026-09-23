@@ -3,6 +3,5 @@ vim.pack.add({
 })
 
 require("render-markdown").setup({
-  -- mainly completion for callouts and checkboxes
-  completions = { lsp = { enabled = true } },
+  heading = { enabled = false },
 })
