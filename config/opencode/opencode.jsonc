@@ -15,6 +15,7 @@
       "wget *": "deny",
 
       // Allow safe read-only commands
+      "echo *": "allow",
       "git diff *": "allow",
       "git log *": "allow",
       "git remote show origin": "allow",
