@@ -1,61 +1,147 @@
-local utils = require("eckon.helper.custom-command")
+-- show dotnet json logs (with stack traces) from k9s in a readable form
+-- workflow: k9s -> failing pod -> open logs in vim -> run this
 
--- quickly fill a buffer with parsed json data from k9s with inlined dotnet stack traces
+---Decode the json part of a line, k9s puts pod name and timestamp in front of it
+---@param line string
+---@return table|nil
+local function decode_line(line)
+  local start_pos = line:find("{", 1, true)
+  if not start_pos then
+    return nil
+  end
 
--- dotnet with json
--- mostly in the workflow: k9s -> failing pod -> open in vim (log type) -> format via this
-local function format_dotnet_json_logs()
-  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-  local out = {}
+  local ok, obj = pcall(vim.json.decode, line:sub(start_pos), { luanil = { object = true } })
+  return ok and type(obj) == "table" and obj or nil
+end
 
-  -- splits str on \n and pushes each part into out
-  local function push_lines(str)
-    for part in tostring(str):gmatch("([^\n]*)\n?") do
-      table.insert(out, part)
+---Get the level of a non json line (datadog tracer output)
+---@param line string
+---@return string level "other" when the format is unknown
+local function native_level(line)
+  -- `[2026-09-30 06:42:17.971 | warning | PId: 1 | TId: 1] message`
+  -- `09/30/26 06:42:17.971 AM [1|1] [info] message`
+  local level = line:match("%[%d+%-%d+%-%d+ [%d:%.]+ | (%w+) |")
+    or line:match("%[%d+|%d+%] %[(%w+)%]")
+  return level and level:lower() or "other"
+end
+
+---@param lines string[]
+---@return string[] out
+---@return integer[] source_lines source line of every output line
+---@return integer json_count
+local function format_lines(lines)
+  local out, source_lines = {}, {}
+  local json_count = 0
+
+  -- current run of non json lines
+  local skip_from, skip_to = nil, nil
+  local skip_levels = {} ---@type table<string, integer>
+
+  local function add(text, source_line)
+    table.insert(out, text)
+    source_lines[#out] = source_line
+  end
+
+  -- message and exception can be multiline
+  local function add_indented(text, indent, source_line)
+    for _, part in ipairs(vim.split(tostring(text), "\r?\n")) do
+      add(indent .. part, source_line)
     end
   end
 
-  for _, line in ipairs(lines) do
-    local start_pos = line:find('{"', 1, true)
-    if start_pos then
-      local json_part = line:sub(start_pos)
+  local function add_skipped()
+    if not skip_from then
+      return
+    end
 
-      local ok, obj = pcall(vim.json.decode, json_part)
-      if ok and obj then
-        local timestamp = obj.Timestamp or "?"
-        local level = obj.LogLevel or "?"
-        local category = obj.Category or "?"
-        local message = obj.Message or ""
-        local exception = obj.Exception or "no exception"
+    local levels = vim.tbl_keys(skip_levels)
+    table.sort(levels, function(a, b)
+      return skip_levels[a] > skip_levels[b]
+    end)
+    local summary = vim.tbl_map(function(level)
+      return ("%d %s"):format(skip_levels[level], level)
+    end, levels)
 
-        -- header line is always single-line, safe to insert directly
-        table.insert(out, string.format("%s [%s] %s", timestamp, level, category))
+    local count = skip_to - skip_from + 1
+    local text = ("~~ %d non-json lines skipped (lines %d-%d): %s ~~"):format(
+      count,
+      skip_from,
+      skip_to,
+      table.concat(summary, ", ")
+    )
+    add(text, skip_from)
+    add("", skip_to)
 
-        -- message and exception may contain \n  →  split them
-        push_lines(message)
-        table.insert(out, "")
-        push_lines(exception)
-        table.insert(out, "")
+    skip_from, skip_to, skip_levels = nil, nil, {}
+  end
+
+  for index, line in ipairs(lines) do
+    local obj = decode_line(line)
+
+    if obj then
+      add_skipped()
+      json_count = json_count + 1
+
+      -- the date is the same for most logs, the time is enough
+      local timestamp = tostring(obj.Timestamp or "?")
+      local time = timestamp:match("T([%d:%.]+)") or timestamp
+      local level = tostring(obj.LogLevel or "?"):upper()
+      add(("%s  %s  %s"):format(time, level, obj.Category or "?"), index)
+
+      add_indented(obj.Message or "", "  ", index)
+      if obj.Exception and obj.Exception ~= "" then
+        add("", index)
+        add_indented(obj.Exception, "    ", index)
       end
+      add("", index)
+    elseif line:match("%S") then
+      skip_from = skip_from or index
+      skip_to = index
+      local level = native_level(line)
+      skip_levels[level] = (skip_levels[level] or 0) + 1
     end
   end
+  add_skipped()
 
-  if #out == 0 then
+  return out, source_lines, json_count
+end
+
+local function format_dotnet_json_logs()
+  local source_buf = vim.api.nvim_get_current_buf()
+  local out, source_lines, json_count = format_lines(vim.api.nvim_buf_get_lines(0, 0, -1, false))
+
+  if json_count == 0 then
     vim.notify("No valid JSON log lines found", vim.log.levels.WARN)
     return
   end
 
-  vim.cmd("new")
-  local buf = vim.api.nvim_get_current_buf()
-  vim.bo[buf].buftype = "nofile"
-  vim.bo[buf].bufhidden = "wipe"
-  vim.bo[buf].swapfile = false
-  vim.bo[buf].filetype = "log"
+  -- scratch buffer in the same window, so <C-o>/<C-i> switch between it and the log
+  -- it is hidden instead of wiped when left, otherwise the jumplist can not get back to it
+  local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, out)
+  vim.bo[buf].modifiable = false
+  vim.bo[buf].filetype = "log"
+
+  vim.cmd("normal! m'")
+  vim.api.nvim_win_set_buf(0, buf)
+  vim.wo[0][0].wrap = true
+
+  vim.keymap.set("n", "<CR>", function()
+    if not vim.api.nvim_buf_is_valid(source_buf) then
+      vim.notify("Original log buffer is gone", vim.log.levels.WARN)
+      return
+    end
+
+    local source_line = source_lines[vim.fn.line(".")] or 1
+    vim.cmd("normal! m'")
+    vim.api.nvim_win_set_buf(0, source_buf)
+    vim.api.nvim_win_set_cursor(0, { source_line, 0 })
+    vim.cmd("normal! zz")
+  end, { buffer = buf, desc = "Jump to the original log line" })
 end
 
-utils.custom_command.add("Log: Format dotnet json", {
-  desc = "Format dotnet json logs",
+require("eckon.helper.custom-command").custom_command.add("Log: Format dotnet json", {
+  desc = "Show dotnet json logs formatted in a scratch buffer",
   callback = format_dotnet_json_logs,
   filetype = "log",
 })
