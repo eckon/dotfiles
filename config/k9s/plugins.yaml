@@ -51,3 +51,83 @@ plugins:
           | ${EDITOR:-vim} - \
             -c 'setlocal nomodified' \
             -c 'setlocal ft=log'
+
+  vim-logs-deployments:
+    shortCut: Ctrl-V
+    description: Open deployment logs in Vim
+    scopes:
+      - deployments
+    command: sh
+    background: false
+    args:
+      - -c
+      - |
+        set -eu
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "deployment/$NAME" \
+          --all-pods=true \
+          --all-containers=true \
+          --prefix=true \
+          --timestamps=true 2>&1 \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
+
+  vim-logs-statefulsets:
+    shortCut: Ctrl-V
+    description: Open StatefulSet logs in Vim
+    scopes:
+      - statefulsets
+    command: sh
+    background: false
+    args:
+      - -c
+      - |
+        set -eu
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "statefulset/$NAME" \
+          --all-pods=true \
+          --all-containers=true \
+          --prefix=true \
+          --timestamps=true 2>&1 \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
+
+  vim-logs-daemonsets:
+    shortCut: Ctrl-V
+    description: Open DaemonSet logs in Vim
+    scopes:
+      - daemonsets
+    command: sh
+    background: false
+    args:
+      - -c
+      - |
+        set -eu
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "daemonset/$NAME" \
+          --all-pods=true \
+          --all-containers=true \
+          --prefix=true \
+          --timestamps=true 2>&1 \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
+
+  vim-logs-jobs:
+    shortCut: Ctrl-V
+    description: Open Job logs in Vim
+    scopes:
+      - jobs
+    command: sh
+    background: false
+    args:
+      - -c
+      - |
+        set -eu
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "job/$NAME" \
+          --all-pods=true \
+          --all-containers=true \
+          --prefix=true \
+          --timestamps=true 2>&1 \
+          | ${EDITOR:-vim} - \
+            -c 'setlocal nomodified' \
+            -c 'setlocal ft=log'
