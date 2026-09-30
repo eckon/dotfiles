@@ -45,7 +45,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "a9bb4d5f4276aa5cddc015faa3ecc5a7b5a26b14",
+      "rev": "3e8d598d3b5f8338a41699c436e5fa11d2666cf0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "728e031f6b11d03d1f0708b7dc4fb0f1d9c8a137",
+      "rev": "e6be2ff65d89df5039cad7a422600757bbf81d02",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -73,7 +73,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "411163b2be396495c76788a016cb1354f1e8acd0",
+      "rev": "90513f613907e00ce9a07cfd9773a3e18d73146e",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -11,14 +11,14 @@ plugins:
       - -c
       - |
         set -eu
-        kubectl -n "$NAMESPACE" logs "$NAME" \
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "$NAME" \
           -f --tail=100 \
           --context  $CONTEXT \
           | jq -CSR '. as $line | try (fromjson) catch $line'
 
   vim-logs-pods:
     shortCut: Ctrl-V
-    description: Open in vim
+    description: Open pod logs in Vim
     scopes:
       - pods
     command: sh
@@ -27,17 +27,17 @@ plugins:
       - -c
       - |
         set -eu
-        kubectl -n "$NAMESPACE" logs "$NAME" \
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "$NAME" \
           --all-containers=true \
           --prefix=true \
-          --timestamps=true \
+          --timestamps=true 2>&1 \
           | ${EDITOR:-vim} - \
             -c 'setlocal nomodified' \
             -c 'setlocal ft=log'
 
   vim-logs-containers:
     shortCut: Ctrl-V
-    description: Open in vim
+    description: Open container logs in Vim
     scopes:
       - containers
     command: sh
@@ -46,8 +46,8 @@ plugins:
       - -c
       - |
         set -eu
-        kubectl -n "$NAMESPACE" logs "$POD" -c "$NAME" \
-          --timestamps=true \
+        kubectl --context "$CONTEXT" -n "$NAMESPACE" logs "$POD" -c "$NAME" \
+          --timestamps=true 2>&1 \
           | ${EDITOR:-vim} - \
             -c 'setlocal nomodified' \
             -c 'setlocal ft=log'
