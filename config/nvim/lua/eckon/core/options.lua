@@ -1,57 +1,55 @@
-local set = vim.opt
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- allow project based vim setups to be run (need to manually trust them)
-set.exrc = true
-set.shell = "bash"
-set.title = true
+vim.opt.exrc = true
+vim.opt.shell = "bash"
+vim.opt.title = true
 
-set.undofile = true
-set.swapfile = false
+vim.opt.undofile = true
+vim.opt.swapfile = false
 
 -- completion menu: show menu, don't auto-insert/select, enable fuzzy matching
-set.completeopt = { "menuone", "noinsert", "noselect", "fuzzy" }
+vim.opt.completeopt = { "menuone", "noinsert", "noselect", "fuzzy" }
 
 -- search: case-insensitive unless uppercase is used
-set.lazyredraw = true
-set.ignorecase = true
-set.smartcase = true
+vim.opt.lazyredraw = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-set.number = true
-set.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-set.shiftwidth = 2
-set.tabstop = 2
-set.softtabstop = 2
-set.smartindent = true
-set.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.smartindent = true
+vim.opt.expandtab = true
 
 -- UI: hide mode (shown in statusline), reduce completion messages
-set.shortmess:append("c")
-set.showmode = false
-set.laststatus = 3
+vim.opt.shortmess:append("c")
+vim.opt.showmode = false
+vim.opt.laststatus = 3
 
-set.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
 
-set.inccommand = "split"
-set.splitbelow = true
-set.splitright = true
+vim.opt.inccommand = "split"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- trigger CursorHold events faster for LSP, autocommands
-set.updatetime = 100
+vim.opt.updatetime = 100
 
 -- command-line completion behavior
-set.wildmode = { "list:longest", "list:full" }
+vim.opt.wildmode = { "list:longest", "list:full" }
 
 -- visual guides: highlight current line, show column limits
-set.cursorline = true
-set.colorcolumn = { "80", "120", "121" }
+vim.opt.cursorline = true
+vim.opt.colorcolumn = { "80", "120", "121" }
 
 -- show invisible characters (tabs, trailing spaces)
-set.list = true
-set.listchars = {
+vim.opt.list = true
+vim.opt.listchars = {
   nbsp = "¬",
   extends = "»",
   precedes = "«",
@@ -62,32 +60,32 @@ set.listchars = {
 }
 
 -- scrolling: keep 5 lines/columns visible, no line wrapping
-set.scrolloff = 5
-set.sidescrolloff = 5
-set.wrap = false
-set.winborder = "single"
+vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 5
+vim.opt.wrap = false
+vim.opt.winborder = "single"
 
 -- treat numbers after whitespace as decimal for increment/decrement
-set.nrformats:append("blank")
+vim.opt.nrformats:append("blank")
 
 -- LSP-based folding: start with all folds open
-set.foldenable = false
-set.foldlevel = 99
-set.foldmethod = "expr"
-set.foldexpr = vim.lsp.foldexpr
-set.foldtext = ""
-set.fillchars = { fold = " ", foldsep = " ", foldinner = " " }
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = vim.lsp.foldexpr
+vim.opt.foldtext = ""
+vim.opt.fillchars = { fold = " ", foldsep = " ", foldinner = " " }
 
 -- better diff algorithm for more accurate highlighting
-set.diffopt:append("linematch:60")
+vim.opt.diffopt:append("linematch:60")
 
-set.spell = true
-set.spelloptions = { "camel", "noplainbuffer" }
+vim.opt.spell = true
+vim.opt.spelloptions = { "camel", "noplainbuffer" }
 
 -- use ripgrep for :grep if available
 if vim.fn.executable("rg") == 1 then
-  set.grepprg = "rg --smart-case --vimgrep --no-heading --glob=!.git --hidden --regexp"
-  set.grepformat:prepend("%f:%l:%c:%m")
+  vim.opt.grepprg = "rg --smart-case --vimgrep --no-heading --glob=!.git --hidden --regexp"
+  vim.opt.grepformat:prepend("%f:%l:%c:%m")
 end
 
 -- LSP diagnostics: show float on jump, no virtual lines
