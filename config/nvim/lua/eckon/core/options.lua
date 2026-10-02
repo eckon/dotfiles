@@ -45,7 +45,7 @@ vim.opt.wildmode = { "list:longest", "list:full" }
 
 -- visual guides: highlight current line, show column limits
 vim.opt.cursorline = true
-vim.opt.colorcolumn = { "80", "120", "121" }
+vim.opt.colorcolumn = { "120" }
 
 -- show invisible characters (tabs, trailing spaces)
 vim.opt.list = true
