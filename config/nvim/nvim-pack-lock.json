@@ -57,7 +57,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "e6be2ff65d89df5039cad7a422600757bbf81d02",
+      "rev": "910fdf6f49e9dee7e7257c7d11a76b040fdfb9de",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -73,7 +73,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "90513f613907e00ce9a07cfd9773a3e18d73146e",
+      "rev": "ec1b50c7fb9638e0a7b35e0182a54343b45f8d0d",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -65,6 +65,10 @@ M.custom_command = {
       end
     end
 
+    -- the picker prompt runs in insert mode, remember where we were to restore it later
+    local win = vim.api.nvim_get_current_win()
+    local cursor = vim.api.nvim_win_get_cursor(win)
+
     vim.ui.select(M.custom_command.keys(), {
       prompt = "Custom Command",
       format_item = function(item)
@@ -83,6 +87,11 @@ M.custom_command = {
     }, function(choice)
       if choice == nil then
         return
+      end
+
+      -- snacks ends insert mode on confirm, which shifts our cursor one to the left -> restore it
+      if vim.api.nvim_win_is_valid(win) then
+        pcall(vim.api.nvim_win_set_cursor, win, cursor)
       end
 
       M.custom_command.execute(choice)
