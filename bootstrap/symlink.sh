@@ -39,6 +39,7 @@ CONFIG_PATHS=(
   ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
   ["config/waybar"]=".config/waybar"
+  ["config/workmux/config.yaml"]=".config/workmux/config.yaml"
   ["config/zellij/config.kdl"]=".config/zellij/config.kdl"
 )
 
