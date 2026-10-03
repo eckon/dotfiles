@@ -61,6 +61,8 @@ alias LL "eza -lah --color=always --group-directories-first --icons --git --tota
 alias vi  "vim -u NONE"
 alias vim "nvim"
 
+alias wm "workmux"
+
 # get my ipv4 address to add to a firewall etc.
 alias my-ip "curl https://api.ipify.org | clip"
 
