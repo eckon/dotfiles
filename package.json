@@ -14,7 +14,7 @@
     "markdownlint-cli": "*",
     "prettier": "*",
     "prettier-plugin-sh": "*",
-    "typescript": "*",
+    "typescript": "^6",
     "typescript-eslint": "*"
   }
 }

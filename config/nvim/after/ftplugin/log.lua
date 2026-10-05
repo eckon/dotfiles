@@ -20,8 +20,7 @@ end
 local function native_level(line)
   -- `[2026-09-30 06:42:17.971 | warning | PId: 1 | TId: 1] message`
   -- `09/30/26 06:42:17.971 AM [1|1] [info] message`
-  local level = line:match("%[%d+%-%d+%-%d+ [%d:%.]+ | (%w+) |")
-    or line:match("%[%d+|%d+%] %[(%w+)%]")
+  local level = line:match("%[%d+%-%d+%-%d+ [%d:%.]+ | (%w+) |") or line:match("%[%d+|%d+%] %[(%w+)%]")
   return level and level:lower() or "other"
 end
 

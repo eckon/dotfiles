@@ -30,7 +30,7 @@ description: Validates snapshot/golden-file test diffs while reviewing a PR.
      to catch obvious mismatches first, then read the individual diffs to pinpoint and confirm
    - group the findings accordingly:
      - **Run-to-run noise** (renumbered placeholder, reordered but same content) - ignore
-     - **Expected new content** (matches the *stated intent*, not just the code's own logic) - confirm values/scope are correct against the requirement
+     - **Expected new content** (matches the _stated intent_, not just the code's own logic) - confirm values/scope are correct against the requirement
      - **Unexplained change** (anything else, including content that matches the code but not the intent) - flag it, this is a regression/logic-error candidate
 4. Cross-check the corresponding test file's assertions/sanity-checks
 5. Spot-check edge cases explicitly
