@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink-ripgrep.nvim": {
-      "rev": "ed56dfc1bfd72aed054ca100b5c137285fdee1ee",
+      "rev": "8a5927e0307416919b8b70aef10be4ac709c89e5",
       "src": "https://github.com/mikavilpas/blink-ripgrep.nvim"
     },
     "blink.cmp": {
