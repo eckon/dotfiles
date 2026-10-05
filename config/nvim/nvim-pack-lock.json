@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "blink-ripgrep.nvim": {
-      "rev": "8a5927e0307416919b8b70aef10be4ac709c89e5",
-      "src": "https://github.com/mikavilpas/blink-ripgrep.nvim"
-    },
     "blink.cmp": {
       "rev": "8219b58f1c11a2fb1644d3c7116c509fa8348ec0",
       "src": "https://github.com/saghen/blink.cmp"
@@ -45,7 +41,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "3e8d598d3b5f8338a41699c436e5fa11d2666cf0",
+      "rev": "5c6eecf8579be3601f9d2abf5301bc0349162d36",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {

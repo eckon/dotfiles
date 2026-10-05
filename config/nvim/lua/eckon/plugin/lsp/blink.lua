@@ -1,7 +1,6 @@
 vim.pack.add({
   "https://github.com/saghen/blink.lib",
   "https://github.com/saghen/blink.cmp",
-  "https://github.com/mikavilpas/blink-ripgrep.nvim",
 })
 
 local cmp = require("blink.cmp")
@@ -30,10 +29,6 @@ cmp.setup({
       -- uses built-in `vim.snippet`, gets it from `nvim/snippets/*` in format of `friendly_snippets`
       "snippets",
       "buffer",
-      "ripgrep",
-    },
-    providers = {
-      ripgrep = { module = "blink-ripgrep", name = "Ripgrep" },
     },
   },
   -- disable warning but still use rust if available (quickfix for bd network, as it fails to download)
