@@ -1,10 +1,13 @@
 ---
 description: Transcribes and summarizes audio content with language detection
 mode: subagent
-tools:
-  write: false
-  edit: false
-  bash: false
+permissions:
+  - action: edit
+    resource: '*'
+    effect: deny
+  - action: shell
+    resource: '*'
+    effect: deny
 ---
 
 # Audio Transcription Specialist
