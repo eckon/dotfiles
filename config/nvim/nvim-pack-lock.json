@@ -33,7 +33,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "65d615e1f78775323bfd4651f694824256e2adc1",
+      "rev": "6f0cd5049f414932ba55a5d6f3282a59d55c71a3",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "5c6eecf8579be3601f9d2abf5301bc0349162d36",
+      "rev": "910f0c4d46aa186641518395bc7e6fffb4d23baf",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -69,7 +69,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "d93ef1e8365950420ea3e706e82caf65dc9ff968",
+      "rev": "83b0f1dc1ef1cc736bb4216654b1d173bcaf4ba6",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
