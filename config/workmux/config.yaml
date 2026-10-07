@@ -1,20 +1,15 @@
 nerdfont: true
 mode: session
 merge_strategy: rebase
-window_prefix: "{project}_"
+window_prefix: '{project}_'
 base_branch: auto
 
 windows:
   - name: editor
     panes:
       - command: vim
-      - split: horizontal
-  - name: agent
-    panes:
-      - command: <agent>
-        focus: true
 
 files:
   copy:
-    - "**/.env"
-    - "**/node_modules"
+    - '**/.env'
+    - '**/node_modules'
