@@ -23,6 +23,7 @@ yay -S --noconfirm --needed \
   ghostty $(: "terminal emulator") \
   git \
   git-delta $(: "git diff enhancement") \
+  difftastic $(: "structural syntax aware diff") \
   grim $(: "as a dependency for screenshot tools like flameshot") \
   hyprland $(: "wayland compositor") \
   hyprpolkitagent $(: "polkit agent") \

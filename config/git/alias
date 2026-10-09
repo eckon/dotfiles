@@ -7,6 +7,10 @@
   # char diff
   cdiff = diff --color-words=. --no-index
 
+  # structural diffs, to see via difftastic (delta stays default)
+  difft = -c diff.external=difft diff
+  logt  = -c diff.external=difft log -p --ext-diff
+
   # find commit by case insensitive content of commits (without and with body)
   find  = "!f() { git log    --no-merges -i -S\"$*\"; }; f"
   ffind = "!f() { git log -c --no-merges -i -S\"$*\"; }; f"

@@ -7,8 +7,13 @@ gui:
   useHunkModeInDiffView: false
 
 git:
+  # cycle with `|` (reverse `\`)
   diffRenderers:
-    - command: 'delta --dark --paging=never'
+    - name: 'delta'
+      command: 'delta --dark --paging=never'
+    - name: 'difftastic'
+      type: 'extDiff'
+      command: 'difft --color=always --background=dark --display=side-by-side-show-both'
 
 notARepository: 'skip'
 

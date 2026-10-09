@@ -22,6 +22,7 @@ brew install \
   git \
   git-crypt \
   git-delta $(: "git diff enhancement") \
+  difftastic $(: "structural syntax aware diff") \
   jq \
   k9s \
   kubectl \
