@@ -68,6 +68,9 @@ vim.opt.winborder = "single"
 -- treat numbers after whitespace as decimal for increment/decrement
 vim.opt.nrformats:append("blank")
 
+-- multicursor: motions of the primary cursor cascade to all cursors (toggle with q=)
+vim.opt.follow = true
+
 -- LSP-based folding: start with all folds open
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
