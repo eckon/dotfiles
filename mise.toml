@@ -33,31 +33,31 @@ description = "Update all packages"
 alias = "update"
 run = ["sudo -v", "./bootstrap/update-packages.sh"]
 
-[tasks."packages:install-yay"]
+[tasks."install:yay"]
 description = "Install yay packages"
 run = "./bootstrap/packages/install-packages-yay.sh"
 
-[tasks."packages:install-apt"]
+[tasks."install:apt"]
 description = "Install apt packages"
 run = "./bootstrap/packages/install-packages-apt.sh"
 
-[tasks."packages:install-dnf"]
+[tasks."install:dnf"]
 description = "Install dnf packages"
 run = "./bootstrap/packages/install-packages-dnf.sh"
 
-[tasks."packages:install-brew"]
+[tasks."install:brew"]
 description = "Install brew packages"
 run = "./bootstrap/packages/install-packages-brew.sh"
 
-[tasks."packages:install-fish"]
+[tasks."install:fish"]
 description = "Set fish as default shell"
 run = "./bootstrap/packages/install-fish.sh"
 
-[tasks."packages:install-font"]
+[tasks."install:font"]
 description = "Install FiraCode Nerd Font (for systems without a font package)"
 run = "./bootstrap/packages/install-font.sh"
 
-[tasks."packages:install-neovim"]
+[tasks."install:neovim"]
 description = "Install neovim nightly appimage, skipped if nvim exists"
 run = ["sudo -v", "./bootstrap/packages/install-neovim-appimage.sh"]
 
