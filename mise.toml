@@ -71,12 +71,12 @@ run = "selene config/nvim"
 
 # Markdown tasks
 [tasks."markdown:format"]
-description = "Format Markdown files with prettier"
-run = "prettier --write --cache --log-level warn '**/*.md'"
+description = "Format Markdown files with rumdl"
+run = "rumdl fmt ."
 
 [tasks."markdown:lint"]
-description = "Lint Markdown files with markdownlint"
-run = "markdownlint '**/*.md' -f --ignore-path '.gitignore'"
+description = "Lint Markdown files with rumdl"
+run = "rumdl check ."
 
 
 # Scripts tasks
