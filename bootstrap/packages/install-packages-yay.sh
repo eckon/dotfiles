@@ -28,7 +28,6 @@ yay -S --noconfirm --needed \
   hyprpolkitagent $(: "polkit agent") \
   jq $(: "json processor") \
   k9s $(: "kubernetes TUI") \
-  kitty $(: "terminal emulator") \
   kubectl \
   lazydocker $(: "TUI for docker") \
   lazygit $(: "TUI for git") \
