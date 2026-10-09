@@ -14,6 +14,7 @@ require("conform").setup({
     markdown = { "prettierd", "markdownlint" },
     markoff = { "prettierd", "markdownlint" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+    sh = { "shfmt" },
     typescript = { "prettierd", "eslint_d" },
     typescriptreact = { "prettierd", "eslint_d" },
     yaml = { "prettierd" },

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! (command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Font")); then
+if ! (command -v "fc-list" &> /dev/null && ! (fc-list | grep -qF "FiraCode Nerd Font") ); then
   exit 0
 fi
 

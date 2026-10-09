@@ -1,13 +1,3 @@
-# NOTE: CLI tools (node, stylua, selene, shellcheck, markdownlint, ...) come from the global
-#       mise config (`config/mise/config.toml`), so this file only holds tasks
-#       `package.json` only holds what has to be local: prettier and eslint (they need their
-#       plugins from `node_modules`) and dependencies of the typescript scripts
-
-[hooks]
-# install the local npm dependencies with `mise install`
-postinstall = "npm install"
-
-
 # Special
 [tasks.setup]
 description = "Setup whole configuration"
@@ -82,7 +72,7 @@ run = "selene config/nvim"
 # Markdown tasks
 [tasks."markdown:format"]
 description = "Format Markdown files with prettier"
-run = "npx prettier --write --cache --log-level warn '**/*.md'"
+run = "prettier --write --cache --log-level warn '**/*.md'"
 
 [tasks."markdown:lint"]
 description = "Lint Markdown files with markdownlint"
@@ -91,12 +81,9 @@ run = "markdownlint '**/*.md' -f --ignore-path '.gitignore'"
 
 # Scripts tasks
 [tasks."scripts:format"]
-description = "Format shell and TypeScript scripts"
-run = [
-  "npx prettier --write --cache --log-level warn '**/*.sh'",
-  "npx prettier --write --cache '**/*.ts'",
-]
+description = "Format shell scripts with shfmt (settings in `.editorconfig`)"
+run = "shfmt --write ."
 
 [tasks."scripts:lint"]
-description = "Lint shell and TypeScript scripts"
-run = ["shellcheck **/*.sh", "npx eslint --fix"]
+description = "Lint shell scripts with shellcheck"
+run = "shellcheck $(shfmt --find .)"

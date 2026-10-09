@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2046 # `$(: "...")` is used as inline comment for packages
 
 set -euo pipefail
 

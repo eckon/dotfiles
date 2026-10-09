@@ -3,7 +3,7 @@
 ## Code Style
 
 - Use 2 spaces for indentation in all files (Lua, YAML, JSON, Shell)
-- Follow prettier formatting for Shell scripts (with prettier-plugin-sh)
+- Follow shfmt formatting for Shell scripts (settings in `.editorconfig`)
 - Follow stylua formatting for Lua files
 - Use snake_case for variable and function names in Lua
 - Keep lines concise and readable, aiming for under 100 characters
