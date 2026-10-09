@@ -36,7 +36,6 @@ yay -S --noconfirm --needed \
   mise $(: "dev tool version manager, task runner, env manager") \
   nvtop $(: "nvidia GPU monitor") \
   opencode-bin $(: "AI coding agent") \
-  pi-coding-agent $(: "AI coding agent") \
   sesh-bin $(: "tmux session manager, replacement for my tmux-jump script") \
   starship $(: "shell prompt") \
   tealdeer $(: "simplified man pages, its tldr") \

@@ -30,7 +30,6 @@ brew install \
   mise $(: "dev tool version manager, task runner, env manager") \
   ninja $(: "build system") \
   opencode \
-  pi-coding-agent \
   raine/workmux/workmux $(: "git worktree tool") \
   ripgrep $(: "grep replacement") \
   sesh $(: "tmux session manager, replacement for my tmux-jump script") \
