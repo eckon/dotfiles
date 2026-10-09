@@ -4,7 +4,6 @@ local cc = require("eckon.helper.custom-command").custom_command
 
 require("eckon.plugin.lsp.nvim-lspconfig")
 require("eckon.plugin.lsp.blink")
-require("eckon.plugin.lsp.mason")
 require("eckon.plugin.lsp.schemastore")
 
 -- Languages with special plugins or setups
@@ -17,12 +16,12 @@ vim.lsp.config("*", {
   root_markers = { ".git" },
 })
 
--- NOTE: manual installation is needed (lua lsp as well!)
+-- NOTE: binaries are installed via mise (`config/mise/config.toml`) and need to be in the path
 -- NOTE: some other languages specific lsps might be configured with custom tool
 -- NOTE: lsp settings are in the `/lsp` folder, they extent (not replace) lspconfig
 vim.lsp.enable({
   "cssls",
-  "emmet_ls",
+  "emmet_language_server",
   "html",
   "jsonls",
   "marksman",

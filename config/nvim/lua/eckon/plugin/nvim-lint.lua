@@ -1,6 +1,6 @@
 vim.pack.add({ "https://github.com/mfussenegger/nvim-lint" })
 
--- NOTE: manual installation is needed
+-- NOTE: tools are installed via mise (`config/mise/config.toml`), `selene` via the package manager
 require("lint").linters_by_ft = {
   javascript = { "eslint_d" },
   javascriptreact = { "eslint_d" },

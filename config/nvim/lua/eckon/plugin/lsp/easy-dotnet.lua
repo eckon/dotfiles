@@ -53,9 +53,8 @@ if not is_dotnet_repo() or is_git_operation() then
   return
 end
 
--- NOTE: needs `dotnet tool install -g EasyDotnet`
---       and in path `ln -s ~/.dotnet/tools/dotnet-easydotnet ~/.local/bin/dotnet-easydotnet`
---       so when switching dotnet version, i might need to reinstall it
+-- NOTE: `dotnet-easydotnet` needs to be in the path, it is installed via mise (`dotnet:EasyDotnet`)
+--       when switching dotnet version, i might need to reinstall it
 -- NOTE: could be that there are errors while starting (bad nuget reference to fetch lsp etc.)
 --       use `dotnet-easydotnet roslyn start --clientProcessId 1`
 --       to see the error, if its because of misconfigured nuget

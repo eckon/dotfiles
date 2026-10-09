@@ -45,7 +45,6 @@ yay -S --noconfirm --needed \
   tree-sitter-cli $(: "parsing tool for syntax highlighting") \
   ttf-firacode-nerd $(: "nerd font with icon support") \
   usage $(: "monitor command usage") \
-  uv $(: "python package manager") \
   wl-clipboard $(: "wayland clipboard utilities") \
   xdg-desktop-portal $(: "dependency for things like flameshot") \
   xdg-desktop-portal-hyprland $(: "dependency for things like flameshot") \

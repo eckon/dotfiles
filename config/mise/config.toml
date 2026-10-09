@@ -4,4 +4,27 @@
 #       use `mise.toml` instead of the `local` version, as the root will not be versioned either way
 
 [tools]
+bun = "latest"
+dotnet = "latest"
 node = "latest"
+uv = "latest"
+
+# language servers
+lua-language-server = "latest"
+marksman = "latest"
+taplo = "latest"
+terraform-ls = "latest"
+"npm:@olrtg/emmet-language-server" = "latest"
+"npm:pyright" = "latest"
+"npm:vim-language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest" # css, html, json
+"npm:yaml-language-server" = "latest"
+"dotnet:EasyDotnet" = "latest"
+
+# formatters and linters
+ruff = "latest"
+stylua = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"npm:eslint_d" = "latest"
+"npm:markdownlint-cli" = "latest"
+"npm:typescript" = "latest" # provides `tsc`

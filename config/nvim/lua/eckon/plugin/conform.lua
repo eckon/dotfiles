@@ -1,7 +1,7 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 require("conform").setup({
-  -- NOTE: manual installation is needed
+  -- NOTE: tools are installed via mise (`config/mise/config.toml`)
   formatters_by_ft = {
     ["_"] = { "trim_whitespace" },
     cs = { "easy_dotnet" }, -- NOTE: this is bare-bones, also manually run `dotnet format`

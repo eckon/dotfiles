@@ -25,12 +25,13 @@ After running the main setup script:
      - New filetypes will be installed when required
      - All need the `tree-sitter-cli` to work
 
-2. **Install LSP/Formatter/linter tools**:
+2. **Install LSP/Formatter/linter tools** via mise (see [`config/mise/config.toml`](../mise/config.toml)):
 
-   ```vim
-   :Mason
-   :MasonInstall <names>
+   ```sh
+   mise install
    ```
+
+   Find new tools with `mise registry | grep <name>` or `mise registry | fzf`, add them with `mise use -g <tool>`.
 
 3. **Verify setup**:
 

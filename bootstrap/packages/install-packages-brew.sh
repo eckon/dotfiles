@@ -39,6 +39,5 @@ brew install \
   tldr \
   tmux \
   tree-sitter-cli \
-  uv $(: "python package manager") \
   zellij \
   zoxide
