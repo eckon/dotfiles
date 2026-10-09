@@ -19,6 +19,9 @@ xmap(">", ">gv")
 xmap("/", "<Esc>/\\%V")
 xmap("?", "<Esc>?\\%V")
 
+-- can be used with count + o + multicursor (visual + Q) to generate text
+nmap("gV", "`[V`]", { desc = "Select last changed text" })
+
 -- keep cursor position while joining single lines
 nmap("J", function()
   local view = vim.fn.winsaveview()
