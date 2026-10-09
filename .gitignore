@@ -1,19 +1,8 @@
 # ignore configs that could include secrets etc. for custom scripts
 scripts/*.cfg
 
-# ignore lock or generated files that are not needed for my personal configs
-# as these are always used on `latest`
-package-lock.json
-node_modules
-Brewfile.lock.json
-
 # ignore work specific git configs like work email etc.
 config/git/work
 
 # ignore specific computer settings that should not be shared
 config/hypr/hyprland/custom.lua
-config/niri/custom.kdl
-config/ghostty/themes
-
-# ignore generated herdr plugins
-config/**/herdr-agent-state*

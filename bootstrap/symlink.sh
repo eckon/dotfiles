@@ -18,15 +18,12 @@ CONFIG_PATHS=(
   ["config/fish/custom"]=".config/fish/custom"
   ["config/ghostty"]=".config/ghostty"
   ["config/git"]=".config/git"
-  ["config/herdr/config.toml"]=".config/herdr/config.toml"
   ["config/hypr"]=".config/hypr"
   ["config/jetbrains/ideavimrc"]=".config/ideavim/ideavimrc"
   ["config/k9s"]=".config/k9s"
-  ["config/kitty/kitty.conf"]=".config/kitty/kitty.conf"
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
   ["config/mise"]=".config/mise"
-  ["config/niri"]=".config/niri"
   ["config/noctalia"]=".config/noctalia"
   ["config/nvim"]=".config/nvim"
   ["config/opencode"]=".config/opencode"
@@ -35,10 +32,8 @@ CONFIG_PATHS=(
   ["config/tmux"]=".config/tmux"
   ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
-  ["config/waybar"]=".config/waybar"
   ["config/work/AGENTS.md"]="Development/work/AGENTS.md"
   ["config/workmux/config.yaml"]=".config/workmux/config.yaml"
-  ["config/zellij/config.kdl"]=".config/zellij/config.kdl"
 )
 
 if [ -f "/proc/version" ] && grep --ignore-case --quiet "wsl" "/proc/version"; then
