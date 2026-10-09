@@ -25,16 +25,9 @@ Each major component has its own README:
 git clone git@github.com:eckon/dotfiles.git ~/Development/dotfiles
 cd ~/Development/dotfiles
 ./bootstrap/symlink.sh
-
-# first specific setups for each platform need to be installed (brew, etc.)
-# see ./bootstrap/packages/install-packages-*
-
-# then install general applications etc.
-sudo -v
-./bootstrap/install-packages.sh
 ```
 
-_Optionally run `npm install` for local formatting, linting and more_
+Then install packages for the current OS, see [Bootstrap](./bootstrap/README.md#install-per-os).
 
 ### Post-Installation
 
@@ -42,7 +35,7 @@ _Optionally run `npm install` for local formatting, linting and more_
 
 ```bash
 mise tasks               # List all available tasks
-mise run setup           # Run full setup (update + install + symlinks)
+mise run symlinks        # Symlink all configurations
 mise run packages:update # Update all packages
 mise run check           # Format and lint all code
 ```

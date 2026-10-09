@@ -50,7 +50,7 @@ if command -v "brew" &> /dev/null; then
   echo ""
 
   brew update
-  brew upgrade -y
+  brew upgrade
   brew cleanup
 fi
 

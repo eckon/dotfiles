@@ -1,8 +1,4 @@
 # Special
-[tasks.setup]
-description = "Setup whole configuration"
-depends = ["packages:update", "packages:install", "symlinks"]
-
 [tasks.check]
 description = "Run all formatters and linters over the whole repo"
 run = [
@@ -32,18 +28,10 @@ run = "./bootstrap/symlink.sh"
 description = "Show what symlinking would change, without touching the disk"
 run = "./bootstrap/symlink.sh --dry-run"
 
-[tasks.packages]
-description = "Update all packages"
-run = ["sudo -v", "./bootstrap/update-packages.sh"]
-
 [tasks."packages:update"]
 description = "Update all packages"
 alias = "update"
 run = ["sudo -v", "./bootstrap/update-packages.sh"]
-
-[tasks."packages:install"]
-description = "Install OS-specific packages"
-run = ["sudo -v", "./bootstrap/install-packages.sh"]
 
 [tasks."packages:install-yay"]
 description = "Install yay packages"
@@ -60,6 +48,18 @@ run = "./bootstrap/packages/install-packages-dnf.sh"
 [tasks."packages:install-brew"]
 description = "Install brew packages"
 run = "./bootstrap/packages/install-packages-brew.sh"
+
+[tasks."packages:install-fish"]
+description = "Set fish as default shell"
+run = "./bootstrap/packages/install-fish.sh"
+
+[tasks."packages:install-font"]
+description = "Install FiraCode Nerd Font (for systems without a font package)"
+run = "./bootstrap/packages/install-font.sh"
+
+[tasks."packages:install-neovim"]
+description = "Install neovim nightly appimage, skipped if nvim exists"
+run = ["sudo -v", "./bootstrap/packages/install-neovim-appimage.sh"]
 
 
 # Lua tasks

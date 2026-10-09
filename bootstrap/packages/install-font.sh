@@ -15,7 +15,6 @@ pushd "$HOME/.nerdfonts" || exit
 
 # afterwards use sparse-checkout to furthermore only pull FiraCode
 git sparse-checkout add "patched-fonts/FiraCode"
-git sparse-checkout init
 ./install.sh FiraCode
 
 popd || exit
