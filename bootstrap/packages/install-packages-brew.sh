@@ -32,9 +32,7 @@ brew install \
   pi-coding-agent \
   raine/workmux/workmux $(: "git worktree tool") \
   ripgrep $(: "grep replacement") \
-  selene $(: "lua linter") \
   sesh $(: "tmux session manager, replacement for my tmux-jump script") \
-  shellcheck \
   starship \
   tldr \
   tmux \

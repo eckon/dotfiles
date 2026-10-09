@@ -54,6 +54,15 @@ if command -v "brew" &> /dev/null; then
   brew cleanup
 fi
 
+if command -v "mise" &> /dev/null; then
+  echo ""
+  echo "########## mise ##########"
+  echo ""
+
+  mise upgrade
+  mise prune --yes
+fi
+
 if command -v "flatpak" &> /dev/null; then
   echo ""
   echo "########## flatpak ##########"

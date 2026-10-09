@@ -23,7 +23,9 @@ terraform-ls = "latest"
 
 # formatters and linters
 ruff = "latest"
+shellcheck = "latest"
 stylua = "latest"
+"aqua:Kampfkarren/selene" = "latest"
 "npm:@fsouza/prettierd" = "latest"
 "npm:eslint_d" = "latest"
 "npm:markdownlint-cli" = "latest"

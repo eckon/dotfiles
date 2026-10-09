@@ -5,13 +5,11 @@
   "devDependencies": {
     "@deepgram/sdk": "*",
     "@eslint/js": "*",
-    "@johnnymorganz/stylua-bin": "*",
     "@opencode-ai/plugin": "*",
     "@types/node": "*",
     "eslint": "*",
     "globals": "*",
     "jiti": "*",
-    "markdownlint-cli": "*",
     "prettier": "*",
     "prettier-plugin-sh": "*",
     "typescript": "^6",
