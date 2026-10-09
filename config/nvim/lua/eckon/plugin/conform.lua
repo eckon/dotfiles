@@ -14,6 +14,7 @@ require("conform").setup({
     markdown = { "rumdl" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     sh = { "shfmt" },
+    toml = { "taplo" },
     typescript = { "prettierd", "eslint_d" },
     typescriptreact = { "prettierd", "eslint_d" },
     yaml = { "prettierd" },

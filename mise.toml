@@ -75,11 +75,11 @@ run = "selene config/nvim"
 # Markdown tasks
 [tasks."markdown:format"]
 description = "Format Markdown files with rumdl"
-run = "rumdl fmt ."
+run = "rumdl fmt --quiet ."
 
 [tasks."markdown:lint"]
 description = "Lint Markdown files with rumdl"
-run = "rumdl check ."
+run = "rumdl check --quiet ."
 
 
 # Config file tasks
@@ -90,6 +90,7 @@ run = "prettier --write --log-level warn '**/*.{json,jsonc}'"
 [tasks."toml:format"]
 description = "Format TOML files with taplo (settings in `.taplo.toml`)"
 run = "taplo fmt"
+env = { RUST_LOG = "warn" } # hide info logs
 
 [tasks."yaml:format"]
 description = "Format YAML files with prettier"

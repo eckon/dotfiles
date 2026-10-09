@@ -7,6 +7,7 @@ require("lint").linters_by_ft = {
   lua = { "selene" },
   markdown = { "rumdl" },
   python = { "ruff" },
+  sh = { "shellcheck" },
   typescript = { "eslint_d" },
   typescriptreact = { "eslint_d" },
 }
