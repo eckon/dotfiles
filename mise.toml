@@ -12,6 +12,9 @@ run = [
   { task = "lua:lint" },
   { task = "markdown:format" },
   { task = "markdown:lint" },
+  { task = "json:format" },
+  { task = "toml:format" },
+  { task = "yaml:format" },
 ]
 
 [tasks.neovim]
@@ -77,6 +80,20 @@ run = "rumdl fmt ."
 [tasks."markdown:lint"]
 description = "Lint Markdown files with rumdl"
 run = "rumdl check ."
+
+
+# Config file tasks
+[tasks."json:format"]
+description = "Format JSON files with prettier"
+run = "prettier --write --log-level warn '**/*.{json,jsonc}'"
+
+[tasks."toml:format"]
+description = "Format TOML files with taplo (settings in `.taplo.toml`)"
+run = "taplo fmt"
+
+[tasks."yaml:format"]
+description = "Format YAML files with prettier"
+run = "prettier --write --log-level warn '**/*.{yaml,yml}'"
 
 
 # Scripts tasks
