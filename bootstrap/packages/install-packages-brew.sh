@@ -37,5 +37,4 @@ brew install \
   tldr \
   tmux \
   tree-sitter-cli \
-  zellij \
   zoxide
