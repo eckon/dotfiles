@@ -11,5 +11,6 @@ windows:
 
 files:
   copy:
+    - '**/.idea' # to keep the global setups like db connections etc.
     - '**/.env'
     - '**/node_modules'
