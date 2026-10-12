@@ -65,3 +65,9 @@ end, { desc = "Select and run predefined custom command" })
 
 -- allow `esc` also in terminal mode to be not confused and stuck
 bind_map("t")("<ESC>", "<C-\\><C-n>")
+
+-- use @@ as the replacement of old "Q" meaning replay the last recorded macro
+nmap("@@", function()
+  local reg = vim.fn.reg_recorded()
+  return reg == "" and "" or ("@" .. reg)
+end, { desc = "Run last macro", expr = true })
