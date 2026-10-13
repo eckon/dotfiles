@@ -61,7 +61,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "a470cbcd112e717a8955efee3929bd59f7473c7b",
+      "rev": "9ec57eeac6e2e14b7b9b9e74dc8b0ca4954a684b",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

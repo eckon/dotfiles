@@ -5,9 +5,8 @@ window_prefix: '{project}_'
 base_branch: auto
 
 windows:
-  - name: editor
-    panes:
-      - command: vim
+  - panes:
+      - focus: true
 
 files:
   copy:
