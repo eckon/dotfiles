@@ -26,6 +26,7 @@ vim.lsp.enable({
   "jsonls",
   "marksman",
   "pyright",
+  "rust_analyzer",
   "taplo",
   "terraformls",
   "tsc",

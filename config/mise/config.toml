@@ -7,6 +7,7 @@
 bun = "latest"
 dotnet = "latest"
 node = "latest"
+rust = { version = "latest", components = "rust-analyzer" }
 uv = "latest"
 
 # language servers

@@ -13,6 +13,7 @@ require("conform").setup({
     lua = { "stylua" },
     markdown = { "rumdl" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+    rust = { "rustfmt" },
     sh = { "shfmt" },
     toml = { "taplo" },
     typescript = { "prettierd", "eslint_d" },
