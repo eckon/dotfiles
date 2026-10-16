@@ -23,6 +23,7 @@ CONFIG_PATHS=(
   ["config/k9s"]=".config/k9s"
   ["config/lazydocker/config.yml"]=".config/lazydocker/config.yml"
   ["config/lazygit/config.yml"]=".config/lazygit/config.yml"
+  ["config/markoff"]=".config/markoff"
   ["config/mise"]=".config/mise"
   ["config/noctalia"]=".config/noctalia"
   ["config/nvim"]=".config/nvim"
