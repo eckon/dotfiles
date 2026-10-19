@@ -1,4 +1,2 @@
+[general]
 dir = "~/Documents/notes/tasks"
-
-[experimental]
-daily = "daily.md"
