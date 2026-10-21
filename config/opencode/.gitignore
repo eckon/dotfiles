@@ -3,5 +3,4 @@ package.json
 bun.lock
 
 # opencode generated parts
-cli.json
 service.json
