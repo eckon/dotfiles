@@ -5,9 +5,6 @@ vim.pack.add({
 
 local cmp = require("blink.cmp")
 
--- NOTE: `cargo` via `rust` is needed to let this be built
-cmp.build():pwait()
-
 cmp.setup({
   completion = {
     list = { selection = { auto_insert = true, preselect = false } },
@@ -34,3 +31,12 @@ cmp.setup({
   -- disable warning but still use rust if available (quickfix for bd network, as it fails to download)
   fuzzy = { implementation = "prefer_rust" },
 })
+
+-- build rust fuzzy matcher (e.g. after update) in background, lua matcher is used until restart
+-- NOTE: `cargo` via `rust` is needed to let this be built
+if not cmp.library_available() then
+  vim.notify("blink.cmp: building fuzzy matcher, restart nvim when done")
+  cmp.build():map(vim.schedule_wrap(function()
+    vim.notify("blink.cmp: build done, restart nvim")
+  end))
+end
