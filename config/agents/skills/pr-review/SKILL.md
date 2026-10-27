@@ -5,7 +5,7 @@ description: Reviews pull/merge request changes by analyzing the local git diff 
 
 # PR/MR Review
 
-Review the current branch's changes against the base branch. It is expected that the base branch is up to date.
+Review the current branch's changes against the base branch. Validate that the relevant branches are up to date.
 
 ## Workflow
 
