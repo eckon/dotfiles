@@ -1,7 +1,8 @@
 ---
 name: unslop
 description: Cut AI tells from any writing. Must always apply.
-origin: https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md
+metadata:
+  origin: https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md
 ---
 
 # Unslop
