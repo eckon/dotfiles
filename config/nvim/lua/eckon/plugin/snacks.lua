@@ -43,6 +43,7 @@ require("snacks").setup({
     ---@diagnostic disable-next-line: missing-fields
     blame_line = { width = 0.9, height = 0.9 },
   },
+  image = { enabled = true },
 })
 
 -- snacks.picker
