@@ -46,7 +46,7 @@ yay -S --noconfirm --needed \
   ttf-firacode-nerd $(: "nerd font with icon support") \
   usage $(: "cli spec tool, used by mise for task args and completions") \
   wl-clipboard $(: "wayland clipboard utilities") \
-  workmux-bin $(: "git worktree tool") \
+  worktrunk-bin $(: "git worktree tool") \
   xdg-desktop-portal $(: "dependency for things like flameshot") \
   xdg-desktop-portal-hyprland $(: "dependency for things like flameshot") \
   zoxide $(: "smarter cd command")

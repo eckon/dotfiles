@@ -34,7 +34,7 @@ CONFIG_PATHS=(
   ["config/vscode/keybindings.json"]=".config/Code/User/keybindings.json"
   ["config/vscode/settings.json"]=".config/Code/User/settings.json"
   ["config/work/AGENTS.md"]="Development/work/AGENTS.md"
-  ["config/workmux/config.yaml"]=".config/workmux/config.yaml"
+  ["config/worktrunk"]=".config/worktrunk"
 )
 
 if [ -f "/proc/version" ] && grep --ignore-case --quiet "wsl" "/proc/version"; then

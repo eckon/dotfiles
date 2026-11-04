@@ -61,8 +61,6 @@ alias LL "eza -lah --color=always --group-directories-first --icons --git --tota
 alias vi  "vim -u NONE"
 alias vim "nvim"
 
-alias wm "workmux"
-
 # get my ipv4 address to add to a firewall etc.
 alias my-ip "curl https://api.ipify.org | clip"
 
@@ -88,5 +86,10 @@ abbr --add retry \
 abbr --add compare \
      --set-cursor \
      --position anywhere "git wdiff (cat % | sort | psub) (cat second.txt | sort | psub)"
+
+# create/switch to a worktree and start a review process (currently via work used ai agent)
+abbr --add review \
+     --set-cursor \
+     --position anywhere "wt switch % && opencode --prompt \"review this PR\""
 
 # vim:filetype=fish

@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "f91645b69f0e856a391ba4bb17fab029cfe1f6a7",
+      "rev": "7b31e1b6497be70f620bbad83a789929248697ac",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mini.nvim": {
-      "rev": "6d5a29e86a7352739506c28e0bc50fe214b5216f",
+      "rev": "a321b535c75ca88ba7fddfd8eb5b583fbda50dd6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lint": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "d8d2fda7aae57030452ce8cd6e770b1eb704514e",
+      "rev": "cc404d425c7752f56b8eaa269107be44d888ea51",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -41,11 +41,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "f632f208c52e942af1db6d3793ccdd4752dd28ac",
+      "rev": "69eb0c34ed3d836d5a0d92d913b77dd73b054f2f",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "0195cd62fa89950f34c0e0d648ea7897ab85d4d3",
+      "rev": "610734c5d3e59761d5f79318d120633374537fa5",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "cc6302a0957806dfc0f2687f1f35ee9652686101",
+      "rev": "4794bb7a4cf66b894f0029c3094b7936a8c0e8fe",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

@@ -23,7 +23,7 @@ fi
 commands=(
   "claude     | AI Assistant           | claude"
   "opencode   | AI Assistant           | opencode"
-  "workmux    | Git worktree           | workmux dashboard --tab worktrees"
+  "worktrunk  | Git worktree           | wt switch"
   "K9s        | Kubernetes readonly    | k9s"
   "K9s        | Kubernetes destructive | k9s --write"
   "lazydocker | Docker TUI             | lazydocker"
