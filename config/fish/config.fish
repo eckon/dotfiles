@@ -54,8 +54,6 @@ else
 end
 
 alias ll "eza -lah --color=always --group-directories-first --icons --git"
-# NOTE: total size will make this command really slow, but sometimes I might want to use it
-alias LL "eza -lah --color=always --group-directories-first --icons --git --total-size"
 
 # NOTE: use `sudoedit` for opening vim in sudo mode
 alias vi  "vim -u NONE"
@@ -78,18 +76,7 @@ abbr --add --command git S \
      --set-cursor \
      --position anywhere "switch % && git pull && git switch - && git rebase -"
 
-abbr --add retry \
-     --set-cursor \
-     --position anywhere "while not %; echo 'Command failed. Retrying...'; sleep 1; end"
-
-# quickly add a diff between two files, uses custom git word diff alias
-abbr --add compare \
-     --set-cursor \
-     --position anywhere "git wdiff (cat % | sort | psub) (cat second.txt | sort | psub)"
-
 # create/switch to a worktree and start a review process (currently via work used ai agent)
 abbr --add review \
      --set-cursor \
      --position anywhere "wt switch % && opencode --prompt \"review this PR\""
-
-# vim:filetype=fish
