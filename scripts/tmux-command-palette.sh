@@ -5,10 +5,6 @@
 # Allows searching and executing predefined commands in a new tmux window
 # Designed to run in a tmux popup
 #
-# Usage:
-#   tmux-command-palette           - open fzf picker
-#   tmux-command-palette <cmd>     - run a specific command directly (e.g. "lazygit")
-#
 # Dependencies: fzf
 #########################################################################
 
@@ -26,17 +22,12 @@ commands=(
   "lazydocker | Docker TUI             | lazydocker"
 )
 
-# If a command is passed as an argument, run it directly
-if [[ -n "$1" ]]; then
-  selected="$1"
-else
-  # Use fzf to create a searchable menu (no height limit since we're in a popup)
-  selected=$(
-    printf "%s\n" "${commands[@]}" \
-      | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
-      | sed 's/.*|[[:space:]]*//'
-  )
-fi
+# Use fzf to create a searchable menu (no height limit since we're in a popup)
+selected=$(
+  printf "%s\n" "${commands[@]}" \
+    | fzf --border --reverse --prompt="Command Palette > " --header="Select a command to run in a new window" \
+    | sed 's/.*|[[:space:]]*//'
+)
 
 # Exit if nothing was selected
 if [[ -z "$selected" ]]; then
