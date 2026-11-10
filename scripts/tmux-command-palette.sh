@@ -23,12 +23,7 @@ fi
 commands=(
   "claude     | AI Assistant           | claude"
   "opencode   | AI Assistant           | opencode"
-  "worktrunk  | Git worktree           | wt switch"
-  "K9s        | Kubernetes readonly    | k9s"
-  "K9s        | Kubernetes destructive | k9s --write"
   "lazydocker | Docker TUI             | lazydocker"
-  "lazygit    | Git TUI                | lazygit"
-  "rider      | Dotnet IDE             | rider ."
 )
 
 # If a command is passed as an argument, run it directly
