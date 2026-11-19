@@ -54,6 +54,10 @@
     { "action": "shell", "resource": "git stash list *", "effect": "allow" },
     { "action": "shell", "resource": "git status *", "effect": "allow" },
     { "action": "shell", "resource": "git tag --list *", "effect": "allow" },
+
+    // Allow task management
+    { "action": "shell", "resource": "markoff", "effect": "allow" },
+    { "action": "shell", "resource": "markoff *", "effect": "allow" },
   ],
   "mcp": {
     "servers": {
