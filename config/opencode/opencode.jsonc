@@ -55,6 +55,9 @@
     { "action": "shell", "resource": "git status *", "effect": "allow" },
     { "action": "shell", "resource": "git tag --list *", "effect": "allow" },
 
+    // Allow open-code-review delegation (used by pr-review skill)
+    { "action": "shell", "resource": "ocr delegate *", "effect": "allow" },
+
     // Allow task management
     { "action": "shell", "resource": "markoff", "effect": "allow" },
     { "action": "shell", "resource": "markoff *", "effect": "allow" },
