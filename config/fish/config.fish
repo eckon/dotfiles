@@ -1,8 +1,29 @@
+# -------------------- General --------------------
+# my local binaries
+test -d ~/.local/bin; and fish_add_path ~/.local/bin
+
+# export in environment
+set -x EDITOR      (command -v "nvim")
+set -x SUDO_EDITOR (command -v "nvim")
+set -x VISUAL      (command -v "nvim")
+set -x SHELL       (command -v "fish")
+set -x MANPAGER    "nvim +Man!"
+set -x LANG        "en_US.UTF-8"
+set -x LC_TIME     "en_US.UTF-8"
+
+# export in session
+set -Ux LESS                "--mouse --wheel-lines=5 -R -i"
+set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
+
+# non interactive sessions should ignore logic that loads long and is irrelevant for it (spawning new tmux sessions for commands etc.)
+if not status is-interactive
+    return
+end
+
+
 # -------------------- Sources --------------------
 test -d /opt/homebrew;   and eval "$(/opt/homebrew/bin/brew shellenv)"
 test -d /home/linuxbrew; and eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-test -d ~/.local/bin;    and fish_add_path ~/.local/bin
 
 type --query starship;   and starship init fish | source; or echo "[!] No starship"
 type --query zoxide;     and zoxide init fish   | source; or echo "[!] No zoxide"
@@ -23,27 +44,12 @@ for f in ~/.config/fish/custom/*.fish
 end
 
 
-
 # -------------------- Configurations --------------------
-# export in environment
-set -x EDITOR              (command -v "nvim")
-set -x SUDO_EDITOR         (command -v "nvim")
-set -x VISUAL              (command -v "nvim")
-set -x SHELL               (command -v "fish")
-set -x MANPAGER            "nvim +Man!"
-set -x LANG                "en_US.UTF-8"
-set -x LC_TIME             "en_US.UTF-8"
-
-# export in session
-set -Ux LESS                "--mouse --wheel-lines=5 -R -i"
-set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
-
 # disable fish greeting on startup
 set fish_greeting
 
 # NOTE: use fish_config to set colors etc.
 fish_vi_key_bindings
-
 
 
 # -------------------- Alias/Abbreviations --------------------
