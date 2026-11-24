@@ -14,11 +14,11 @@ if ! command -v fzf &> /dev/null; then
   exit 1
 fi
 
-# Commands shown in the palette, listed exactly as they are displayed
+# Commands shown in the palette, listed exactly as they are displayed, order of priority/usage
 # Format: "Title | Context | Command", the command is everything after the last "|"
 commands=(
-  "claude     | AI Assistant           | claude"
   "opencode   | AI Assistant           | opencode"
+  "claude     | AI Assistant           | claude"
   "lazydocker | Docker TUI             | lazydocker"
 )
 
