@@ -1,0 +1,26 @@
+[[sources]]
+id = "helloworld_dev"
+description = "HelloWorld data DB (dev, Azure Postgres)"
+type = "postgres"
+host = "apollo-helloworld-data-pgflex-serv-dev.postgres.database.azure.com"
+port = 5432
+database = "helloworld-data-db"
+user = "niklasmeyer@bigdutchman.com"
+password = "${PGPASSWORD}"
+sslmode = "require"
+lazy = true
+query_timeout = 30
+
+[[tools]]
+name = "execute_sql"
+source = "helloworld_dev"
+readonly = true
+max_rows = 1000
+
+[[tools]]
+name = "search_objects"
+source = "helloworld_dev"
+
+[[tools]]
+name = "explain_sql"
+source = "helloworld_dev"

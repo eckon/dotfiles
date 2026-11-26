@@ -69,7 +69,6 @@
         "command": ["npx", "-y", "@upstash/context7-mcp"],
         "disabled": false,
       },
-      // Read-only DB access (APL-45625), token is fetched on start and expires after ~1h, restart then
       "pg-helloworld-dev": {
         "type": "local",
         "command": [
@@ -80,6 +79,15 @@
         "environment": {
           "DATABASE_URI": "postgresql://niklasmeyer%40bigdutchman.com@apollo-helloworld-data-pgflex-serv-dev.postgres.database.azure.com:5432/helloworld-data-db?sslmode=require",
         },
+        "disabled": true,
+      },
+      "dbhub": {
+        "type": "local",
+        "command": [
+          "sh",
+          "-c",
+          "PGPASSWORD=\"$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)\" exec npx -y @bytebase/dbhub@latest --config ~/.config/opencode/dbhub.toml",
+        ],
         "disabled": true,
       },
       "chrome-devtools": {
