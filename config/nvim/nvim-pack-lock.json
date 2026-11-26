@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "6b5bb890a02785ece2dadc1a901fe8b367e6a46d",
+      "rev": "76f4cafc49677a34dc8ad8142b773d78ab4a041e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "5926c7899b2e36cd0f944ef3a933abd68c0fcdb8",
+      "rev": "c01d3d7026af6347b03b05dc5972c072a7ed37af",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
