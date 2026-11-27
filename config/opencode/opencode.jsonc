@@ -69,18 +69,6 @@
         "command": ["npx", "-y", "@upstash/context7-mcp"],
         "disabled": false,
       },
-      "pg-helloworld-dev": {
-        "type": "local",
-        "command": [
-          "sh",
-          "-c",
-          "PGPASSWORD=\"$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)\" exec docker run -i --rm --init -e PGPASSWORD -e DATABASE_URI crystaldba/postgres-mcp --access-mode=restricted",
-        ],
-        "environment": {
-          "DATABASE_URI": "postgresql://niklasmeyer%40bigdutchman.com@apollo-helloworld-data-pgflex-serv-dev.postgres.database.azure.com:5432/helloworld-data-db?sslmode=require",
-        },
-        "disabled": true,
-      },
       "dbhub": {
         "type": "local",
         "command": [
